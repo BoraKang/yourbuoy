@@ -21,7 +21,7 @@ timezone: Asia/Seoul
 author:
   type      : person
   name      : Buoy
-  url       : "https://yourbuoy.kr"
+  url       : https://yourbuoy.kr
   avatar    : # path or url of avatar image (square)
   bio       : I am an amazing person.
   email     : riverpurple7@gmail.com
@@ -56,9 +56,13 @@ excerpt_separator: <!--more-->
 ## license
 license: CC-BY-NC-4.0 # "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4.0"
 
-# TOC(Table of Contents)- 헤딩에 보여줄 요소
+# TOC(Table of Contents)- 사이드바에 보여줄 요소
 toc:
   selectors: "h1,h2,h3"
+  toc: true # 오른쪽 부분에 목차를 자동 생성해준다.
+  toc_label: "table of content" # toc 이름 설정
+  toc_icon: "bars" # 아이콘 설정
+  toc_sticky: true # 마우스 스크롤과 함께 내려갈 것인지 설정
 
 ## Markdown Enhancements
 ##############################
@@ -116,7 +120,7 @@ pageview:
     app_class : # LeanCloud App class
 
 
-## => Search
+## Search
 ##############################
 search:
   provider: default # "default" (default), false, "google", "custom"
@@ -177,8 +181,15 @@ defaults:
       pageview: true
       key: anything
 
-##### https://syki66.github.io/blog/2020/04/16/TeXt-theme-config.html 이거보고 하단 세팅하다가 말았음
+##### https://syki66.github.io/blog/2020/04/16/TeXt-theme-config.html 이거보고 세팅했으나... 포스트 자동적용 X
 
+      article_header:
+        type: overlay #포스트 내부 헤더오버레이 적용 (뭔말이여)
+        background_color: '#203028'
+      #  theme: dark
+      #  background_image: #포스트 헤더 배경 경로, 그라디언트
+      #    src: /assets/images/cover3.jpg
+      #    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
 
 ## Plugins
 ##############################
