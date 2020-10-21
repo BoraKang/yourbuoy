@@ -136,9 +136,16 @@ pre, code {
   font-family: map-get($base, font-family-code);
 }
 
+/* inline and code block */
 code {
-  font-size: map-get($base, font-size-xs);
-  line-height: map-get($base, line-height-sm);
+  //font-size: map-get($base, font-size-xs);
+  line-height: map-get($base, line-height-xs);
+  //font-weight: map-get($base, font-weight-thin);
+  color: #008cff; //inline-block color
+}
+
+pre code {
+  color: #eaeaea; // codeblock color
 }
 
 figure > img {
