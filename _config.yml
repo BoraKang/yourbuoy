@@ -1,65 +1,45 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-#
-# ,--------.      ,--.   ,--. ,--.
-# '--.  .--',---.  \  `.'  /,-'  '-.
-#    |  |  | .-. :  .'    \ '-.  .-'
-#    |  |  \   --. /  .'.  \  |  |
-#    `--'   `----''--'   '--' `--'
-
-
-
-
-## => Site Settings
+## Site Settings - 기본정보
 ##############################
-text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
-highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-url     : # the base hostname & protocol for your site e.g. https://www.someone.com
-baseurl : # does not include hostname
-title   : Your Site Title
+text_skin: default
+highlight_theme: tomorrow-night-eighties
+url     : https://yourbuoy.kr
+baseurl : /
+
+title   : 직장생활표류기
 description: > # this means to ignore newlines until "Language & timezone"
-  Your Site Description
+  직장바다를 표류중인 나와 당신을 구할 부표
 
 
-## => Language and Timezone
+## Language and Timezone
 ##############################
-lang: # the language of your site, default as "en"
-timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
+lang: ko
+timezone: Asia/Seoul
 
 
-## => Author and Social
+## Author & Social
 ##############################
 author:
-  type      : # "person" (default), "organization"
-  name      : Your Name
-  url       :
+  type      : person
+  name      : Buoy
+  url       : "https://yourbuoy.kr"
   avatar    : # path or url of avatar image (square)
   bio       : I am an amazing person.
-  email     :
-  facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
-  twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
-  weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
-  googleplus: # "user_id"   the last part of your profile url, e.g. https://plus.google.com/u/0/user_id
-  telegram  : # "user_name" the last part of your profile url, e.g. https://t.me/user_name
-  medium    : # "user_name" the last part of your profile url, e.g. https://medium.com/user_name
-  zhihu     : # "user_name" the last part of your profile url, e.g. https://www.zhihu.com/people/user_name
-  douban    : # "user_name" the last part of your profile url, e.g. https://www.douban.com/people/user_name
-  linkedin  : # "user_name" the last part of your profile url, e.g. https://www.linkedin.com/in/user_name
-  github    : # "user_name" the last part of your profile url, e.g. https://github.com/user_name
-  npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
+  email     : riverpurple7@gmail.com
+
+  facebook  : yourbuoy_kr
+  twitter   : yourbuoy_kr
+  medium    :
+  linkedin  :
+  github    : yourbuoy
 
 
-## => GitHub Repository (if the site is hosted by GitHub)
+## GitHub Repository
 ##############################
-repository: user_name/repo_name
+repository: BoraKang/yourbuoy
 repository_tree: master
 
 
-## => Paths
+## Paths - 여기 잘 모르겠음
 ##############################
 paths:
   root    : # title link url, "/" (default)
@@ -68,44 +48,43 @@ paths:
   rss     : # "/feed.xml" (default)
 
 
-## => Post
+## Post
 ##############################
-## excerpt
+## excerpt - 자동 본문발췌 구분점
 excerpt_separator: <!--more-->
 
 ## license
 license: CC-BY-NC-4.0 # "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4.0"
 
-## TOC
+# TOC(Table of Contents)- 헤딩에 보여줄 요소
 toc:
-  selectors: # "h1,h2,h3" (default)
+  selectors: "h1,h2,h3"
 
-
-## => Markdown Enhancements
+## Markdown Enhancements
 ##############################
 ## Mathjax
 mathjax: # false (default), true
 mathjax_autoNumber: # false (default), true
 
 ## Mermaid
-mermaid: # false (default), true
+mermaid: true # false (default), true
 
 ## Chart
 chart: # false (default), true
 
 
-## => Paginate
+## Paginate
 ##############################
 paginate: 8
 paginate_path: /page:num # don't change this unless for special need
 
 
-## => Sources
+## Sources
 ##############################
 sources: # bootcdn (default), unpkg
 
 
-## => Sharing
+## Sharing - 공유플러그인
 ##############################
 sharing:
   provider: false # false (default), "addtoany", "addthis", "custom"
@@ -115,36 +94,17 @@ sharing:
     id: # AddThis pubid, e.g. ra-5xxxxxxxxxxx
 
 
-## => Comments
+## Comments - 댓글시스템 공급
 ##############################
 comments:
-  provider: false # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: "disqus" # "gitalk", "valine", "custom"
 
   ## Disqus
   disqus:
-    shortname: # the Disqus shortname for the site
-
-  ## Gitalk
-  # please refer to https://github.com/gitalk/gitalk for more info.
-  gitalk:
-    clientID    : # GitHub Application Client ID
-    clientSecret: # GitHub Application Client Secret
-    repository  : # GitHub repo
-    owner       : # GitHub repo owner
-    admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
-      # - your GitHub Id
-
-  ## Valine
-  # please refer to https://valine.js.org/en/ for more info.
-  valine:
-    app_id      : # LeanCloud App id
-    app_key     : # LeanCloud App key
-    placeholder : # Prompt information
-    visitor     : # false (default)
-    meta        : # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
+    shortname: "yourbuoy"
 
 
-## => Pageview
+## Pageview
 ##############################
 pageview:
   provider: false # false (default), "leancloud", "custom"
@@ -166,23 +126,24 @@ search:
     custom_search_engine_id: # Google Custom Search Engine ID
 
 
-## => Analytics
+## Analytics
 ##############################
 analytics:
-  provider: false # false (default), "google", "custom"
+  provider:  google
 
   ## Google Analytics
   google:
-    tracking_id : # Google Analytics id for the site
-    anonymize_ip: false # Anonymize IP tracking for Analytics
+    tracking_id : UA-147384946-1 # Google Analytics id for the site
+    anonymize_ip: true # Anonymize IP tracking for Analytics
 
 
-## => Build
+## Build
 ##############################
-markdown    : kramdown
-highlighter : rouge
+markdown    : kramdown #markdown개조판
+highlighter : rouge #syntax heilighter
 permalink   : date
 
+# Jekyll 컴파일 시, destination에 필요없는 것들 명시
 exclude:
   - CHANGELOG.md
   - HOW_TO_RELEASE.md
@@ -197,26 +158,29 @@ exclude:
   - package.json
   - /docs
   - /node_modules
-  - /screenshots
   - /test
   - /vendor
 
+## Post default - 포스트 레이아웃 기본값 설정
 defaults:
   - scope:
       path: ""
       type: posts
     values:
       layout: article
-      sharing: true
-      license: true
+      sharing: false
+      license: false
       aside:
         toc: true
-      show_edit_on_github: true
-      show_subscribe: true
+      show_edit_on_github: false
+      show_subscribe: true #feedly.xml 포스팅아래 띄울지
       pageview: true
+      key: anything
+
+##### https://syki66.github.io/blog/2020/04/16/TeXt-theme-config.html 이거보고 하단 세팅하다가 말았음
 
 
-## => Plugins
+## Plugins
 ##############################
 plugins:
   - jekyll-feed
