@@ -1,0 +1,4 @@
+user-agent: *
+Allow: /
+
+Sitemap: http://yourbuoy.kr/sitemap.xml
