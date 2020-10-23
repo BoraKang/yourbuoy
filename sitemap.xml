@@ -1,7 +1,6 @@
 ---
 layout: null
 ---
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset
       xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -10,9 +9,10 @@ layout: null
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- Sitemap Generator www.xml-sitemaps.com 에서 생성하는 것보다 아래 리퀴드 코드가 훨씬 더 간결하고 결과는 같음-->
 
-
-{% for post in site.posts %}
+  {% for post in site.posts %}
     <url>
+      <loc>{{ site.url }}</loc>
+
       <loc>{{ site.url }}{{ post.url }}</loc>
       {% if post.lastmod == null %}
         <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
