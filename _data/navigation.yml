@@ -1,30 +1,39 @@
 header:
   - titles:
       # @start locale config
+      en      : &EN       Home
+      zh-Hans : &ZH_HANS  家
+      zh-Hant : &ZH_HANT  家
+      ko      : &KO       Home
+      ko-KR   : *KO
+      # @end locale config
+    url: /
+
+  - titles:
+      # @start locale config
       en      : &EN       Work
       zh-Hans : &ZH_HANS  關於
       zh-Hant : &ZH_HANT  關於
-      ko      : &KO       메뉴A
+      ko      : &KO       Work
       ko-KR   : *KO
       # @end locale config
     url: /Work.html
 
   - titles:
-      # @start locale config
-      en      : &EN       Diary
+      en      : &EN       Life
       zh-Hans : &ZH_HANS  日氣
       zh-Hant : &ZH_HANT  日氣
-      ko      : &KO       메뉴B
+      ko      : &KO       Life
       ko-KR   : *KO
       # @end locale config
-    url: /diary.html
+    url: /life.html
 
   - titles:
       # @start locale config
       en      : &EN       Archive
       zh-Hans : &ZH_HANS  归档
       zh-Hant : &ZH_HANT  歸檔
-      ko      : &KO       아카이브
+      ko      : &KO       Tags
       ko-KR   : *KO
       # @end locale config
     url: /archive.html
@@ -34,7 +43,7 @@ header:
       en      : &EN       About
       zh-Hans : &ZH_HANS  关于
       zh-Hant : &ZH_HANT  關於
-      ko      : &KO       소개
+      ko      : &KO       About
       ko-KR   : *KO
       # @end locale config
     url: /about.html
