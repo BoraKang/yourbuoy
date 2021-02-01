@@ -11,13 +11,11 @@ description: 직장생활에 왕도는 없지만 요령은 있다. 멘붕을 줄
 
 
 ## Language and Timezone
-##############################
 lang: ko
 timezone: Asia/Seoul
 
 
 ## Author & Social
-##############################
 author:
   type      : person
   name      : Buoy
@@ -34,13 +32,11 @@ author:
 
 
 ## GitHub Repository
-##############################
 repository: BoraKang/yourbuoy
 repository_tree: master
 
 
 ## Paths - 여기 잘 모르겠음
-##############################
 paths:
   root    : # title link url, "/" (default)
   home    : # home layout url, "/" (default)
@@ -119,7 +115,7 @@ pageview:
 ## => Search
 ##############################
 search:
-  provider: default # "default" (default), false, "google", "custom"
+  provider: "google" # "default" (default), false, "google", "custom"
 
   ## Google Custom Search Engine
   google:

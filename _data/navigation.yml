@@ -15,7 +15,7 @@ header:
       zh-Hant : &ZH_HANT  關於
       ko      : &KO       Work
       ko-KR   : *KO
-    url: /Work.html
+    url: /work
 
   - titles:
       en      : &EN       Life
@@ -23,7 +23,7 @@ header:
       zh-Hant : &ZH_HANT  日氣
       ko      : &KO       Life
       ko-KR   : *KO
-    url: /life.html
+    url: /life
 
   - titles:
       en      : &EN       Archive
@@ -31,7 +31,7 @@ header:
       zh-Hant : &ZH_HANT  歸檔
       ko      : &KO       Tags
       ko-KR   : *KO
-    url: /archive.html
+    url: /archive
 
   - titles:
       en      : &EN       About
@@ -39,4 +39,4 @@ header:
       zh-Hant : &ZH_HANT  關於
       ko      : &KO       About
       ko-KR   : *KO
-    url: /about.html
+    url: /about
