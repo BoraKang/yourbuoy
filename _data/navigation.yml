@@ -10,13 +10,11 @@ header:
     url: /
 
   - titles:
-      # @start locale config
       en      : &EN       Work
       zh-Hans : &ZH_HANS  關於
       zh-Hant : &ZH_HANT  關於
       ko      : &KO       Work
       ko-KR   : *KO
-      # @end locale config
     url: /Work.html
 
   - titles:
@@ -25,25 +23,20 @@ header:
       zh-Hant : &ZH_HANT  日氣
       ko      : &KO       Life
       ko-KR   : *KO
-      # @end locale config
     url: /life.html
 
   - titles:
-      # @start locale config
       en      : &EN       Archive
       zh-Hans : &ZH_HANS  归档
       zh-Hant : &ZH_HANT  歸檔
       ko      : &KO       Tags
       ko-KR   : *KO
-      # @end locale config
     url: /archive.html
 
   - titles:
-      # @start locale config
       en      : &EN       About
       zh-Hans : &ZH_HANS  关于
       zh-Hant : &ZH_HANT  關於
       ko      : &KO       About
       ko-KR   : *KO
-      # @end locale config
     url: /about.html
