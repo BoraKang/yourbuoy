@@ -1,14 +1,11 @@
 ---
 title: TOC 테스트 포스팅
-subtitle: 아아아아 진짜 미치겠다 
-tags: 
+subtitle: 아아아아 진짜 미치겠다
+tags:
   - TeXt
-  - 모냐 
+  - 모냐
   - ahhh
 article_header:
-  type: overlay
-  theme: dark
-  background_color: '#203028'
   background_image:
     src: /assets/images/header.jpg
 ---
@@ -19,7 +16,7 @@ A Post with Header Image, See [Page layout](https://tianqi.name/jekyll-TeXt-them
 
 
 
-# 1. 설정하기 
+# 1. 설정하기
 
 <!--more-->
 
@@ -29,12 +26,12 @@ A Post with Header Image, See [Page layout](https://tianqi.name/jekyll-TeXt-them
 
 
 
-# 2. 수정하기 
+# 2. 수정하기
 
 오늘날 기업 정보는 다양한 채널을 통해 수집이 가능하며, 그 형태 또한 매우 다양하다. 이러한 다양한 정보를 비즈니스 인텔리전스화 하기 위해서는 이전에는 일정한 형식과 조건을 만족해야 하는 정형화된 데이터의 형태로 이루어져야만 했다
 
 
 
-# 3. 완성하기 
+# 3. 완성하기
 
 오늘날 기업 정보는 다양한 채널을 통해 수집이 가능하며, 그 형태 또한 매우 다양하다. 이러한 다양한 정보를 비즈니스 인텔리전스화 하기 위해서는 이전에는 일정한 형식과 조건을 만족해야 하는 정형화된 데이터의 형태로 이루어져야만 했다

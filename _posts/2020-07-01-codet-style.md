@@ -3,8 +3,6 @@ tags: TeXt
 layout: article
 title: 인라인/블록 코드 스타일 수정
 subtitle: 지킬블로그 설치하기 어렵다 지킬블로그 설치하기 어렵다
-image:
-  feature: header.jpg
 article_header:
   type: overlay
   theme: dark
@@ -46,7 +44,7 @@ You may want to [config the site](https://tianqi.name/jekyll-TeXt-theme/docs/en/
 
 ![이미지](https://previews.123rf.com/images/isansky/isansky1511/isansky151100057/47941333-%EB%B0%94%EB%8B%A4-%ED%95%B4%EB%B3%80-%EB%B0%94%EB%8B%A4-%EC%98%A4%ED%82%A4%EB%82%98%EC%99%80-%EC%9D%BC%EB%B3%B8-%EC%95%84%EC%8B%9C%EC%95%84-.jpg)
 
-내부 경로 
+내부 경로
 
 ![내부경로](/Users/riverpurple/Documents/GitHub/yourbuoy/header.jpg)
 
