@@ -10,51 +10,47 @@ titles:
   ko      : &KO       소개
   ko-KR   : *KO
 
+article_header:
+    type: overlay
+    theme: dark
+    background_color: '#203028'
+    background_image:
+      gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
+      src: /docs/assets/images/cover3.jpg
   # @end locale config
 key: page-about
 ---
 
-TeXt is a super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc. Similar to iOS 11 style, it has large and prominent titles, round buttons and cards.
 
-```javascript
-(() => console.log('Hello, World!'))();
-```
 
-## Features
+> 직장생활에서 정말 퇴로가 없다는 느낌을 받을 때가 있다. 쏟아지는 일들, 바닥난 체력과 정신력, 잃어버린 듯한 신뢰... 이 상황을 푸느니 차라리 퇴사할까 싶은 상황들. 하지만 지나보니 활로는 대단한곳에 있지 않았다. 바다에서 허우적대던 사람이 고작 플라스틱 부표로 몸을 띄울 수 있는 것처럼... 왜 진작 몰랐을까?
 
-- Responsive
-- Semantic HTML
-- Skins
-- Highlight Theme
-- Internationalization
-- Search
-- Table of contents
-- Authors
-- Additional styles (alert, tag, image, icon, button, grid, etc)
-- Extensions (audios, videos, slides, demos)
-- Markdown enhancements ([MathJax](https://www.mathjax.org/), [mermaid](https://mermaidjs.github.io/), [chartjs](http://www.chartjs.org/))
-- Sharing ([AddToAny](https://www.addtoany.com/), [AddThis](https://www.addthis.com/))
-- Comments ([Disqus](https://disqus.com/), [Gitalk](https://gitalk.github.io/), [Valine](https://valine.js.org/en/))
-- Pageview ([LeanCloud](https://leancloud.cn/))
-- Analytics ([Google Analytics](https://analytics.google.com/analytics/web/))
-- RSS ([jekyll-feed](https://github.com/jekyll/jekyll-feed))
 
-## Skins
 
-TeXt has 6 built-in skins, you can also set up your own skin.
+### 이 블로그에서는 
 
-| `default` | `dark` | `forest` |
-| --- |  --- | --- |
-| ![Default](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_default.jpg) | ![Dark](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_dark.jpg) | ![Forest](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_forest.jpg) |
+#### 직장 멘붕에서 빠져나올 업무팁을 소개한다
 
-| `ocean` | `chocolate` | `orange` |
-| --- |  --- | --- |
-| ![Ocean](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_ocean.jpg) | ![Chocolate](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_chocolate.jpg) | ![Orange](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_orange.jpg) |
+''일을 잘한다는 것''은 참으로 많은 개념을 내포하더라. 기 막히는/적당한 결과를 내는 것, 여러 개를 빨리 하는 것, 상사에게 명분을 주는 것, 동료와 잘 지내는 것, 팀을 잘 이끄는 것... 그래도 이제 어떤 상황에서 뭘 바라는지 조금은 알 것 같아서
 
-### Highlight Theme
+#### 지나보니 직장생활에 왕도는 없지만 요령은 있더라
 
-TeXt use [Tomorrow](https://github.com/chriskempson/tomorrow-theme) as the highlight theme.
+정말 지나고 나서 보니까 알겠더라. 그래서 과거 회고, 일기 겸 멘붕을 줄여줄 업무팁, 멘탈관리법을 소개하고자 Yourbuoy 블로그를 시작했다.  매일 허우적대며 직장에서 표류하는 당신을 잠시나마 떠오르게 하는 작은 부표가 됐으면 해서
 
-| `tomorrow` | `tomorrow-night` | `tomorrow-night-eighties` | `tomorrow-night-blue` | `tomorrow-night-bright` |
-| --- |  --- | --- | --- |  --- |
-| ![Tomorrow](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow.png) | ![Tomorrow Night](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night.png) | ![Tomorrow Night Eighties](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-eighties.png) | ![Tomorrow Night Blue](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-blue.png) | ![Tomorrow Night Bright](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-bright.png) |
+
+
+### YourBuoy는
+
+#### 2억 연봉의 실리콘밸리 재직자다
+
+...라며 한마디로 '일잘력'과 '포스'를 뿜을 수 있다면 정말 좋았겠지만 사실 평범한 한쿡의 직장인이다. 노력하면 댓가를 받는 행운 정도 누린 사람. 그럼에도 이런 블로그를 하는 이유는 세상에는 평범한 사람이 더 많으니까, 평범한 사람으로서 직장생활하면서 고전한 내용이 더 실질적인 도움이 될 수도 있다고 판단했다.
+
+#### 일을 정말 잘하고 싶은 사람이다 
+
+대단한 일머리가 있다기보다는 적당한 센스와 눈치가 있는 사람?  그런데 업무 자체는 FM대로 고지식하게 하는 편이라, 빨리, 잘 하려고 고민도 많이 하고 짱구도 많이 굴렸다. 잘한다는 얘기를 몇번 들으니까, 인정욕구였는지 점점 일을 정말 잘하고 싶어져서 열심히 했다. 다행이도 직장생활하며 잘한다는 얘기를 주로 듣고 다녔다.  
+
+#### 여러 규모 조직에서 일해본 사람이다
+
+13년차. 공공기관, 외국계 회사를 거쳐 스타트업에서 일했다. 업무 영역을 조금씩 넓히며 계속 원하는 직무로 커리어를 확장했다. 타산지석하며, 맨땅에 헤딩하며 멋진 선배와 동기들로부터 멋진 업무 팁과 인생의 지혜를 얻었다. 행복한 삶, 자기 효능감 넘치는 삶을 살고자 여전히 어떻게 살아야 할지를 걱정하고 고민한다.   
+`policy`{:.info} `PR/Mkt`{:.info} `Digital`{:.info} `Operation`{:.info} `growth`{:.info} `Product`{:.info} 
+

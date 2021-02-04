@@ -20,13 +20,13 @@
 
 .article__header--overlay {
   .overlay {
-    min-height: 28rem;
-    padding-top: map-get($spacers, 5) * 1;
-    padding-bottom: map-get($spacers, 5) * 1;
+    min-height: 18rem;
+    padding-top: map-get($spacers, 4) * 1;
+    padding-bottom: map-get($spacers, 4) * 1;
     @include media-breakpoint-down(md) {
-      min-height: 20rem;
-      padding-top: map-get($spacers, 5);
-      padding-bottom: map-get($spacers, 5);
+      min-height: 12rem;
+      padding-top: map-get($spacers, 4);
+      padding-bottom: map-get($spacers, 4);
     }
   }
   .overlay__excerpt {
@@ -42,6 +42,7 @@
 
   .article__header {
     margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
