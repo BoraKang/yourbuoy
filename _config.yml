@@ -7,7 +7,8 @@ baseurl : /
 
 title   : 직장생활표류기
 tagline: 직장에서 표류중인 당신을 구할 부표
-description: 직장생활에 왕도는 없지만 요령은 있다. 멘붕을 줄여줄 업무팁, 멘탈관리법을 공유합니다.
+description: 직장생활에 왕도는 없지만 요령은 있다. 일잘러가 되고 싶은 당신의 멘붕을 줄여줄 업무팁, 멘탈관리법을 공유합니다.
+thumbnail: "/images/thumbnail.png"
 
 
 ## Language and Timezone
@@ -54,7 +55,7 @@ license: CC-BY-NC-4.0 # "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4
 
 # TOC(Table of Contents)- 헤딩에 보여줄 요소
 toc:
-  selectors: "h1,h2,h3"
+  selectors: "h1,h2"
 
 ## Markdown Enhancements
 ##############################
