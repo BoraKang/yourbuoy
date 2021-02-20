@@ -1,7 +1,112 @@
 <!-- start custom head snippets -->
 
-  <!-- Naver Webmaster tag-->
-  <meta name="naver-site-verification" content="70fd71f11152a17c588c71a05e9bd6fad70c8ade" />
+  <!-- SEO Tag -->
+  	<!--트위터 썸네일을 큰 사이즈로 노출시킨다 -->
+    <meta name="twitter:card" content="summary_large_image" />
+
+  	<!-- 패이지 타이틀이 있으면, 오픈그래프 타이틀과 트위터 타이틀에 (콘텐츠 타이틀)을 가져온다 -->
+    {% if page.title %}
+      <meta property="og:title" content="{{ page.title }}" />
+      <meta name="twitter:title" content="{{ page.title }}" />
+
+  	<!-- 패이지 타이틀이 없으면, 오픈그래프 타이틀과 트위터 타이틀에 (사이트 타이틀)과 (사이트 태그라인)을 가져온다 -->
+    {% else %}
+      <meta property="og:title" content="{{ site.title }} | {{ site.tagline }}" />
+      <meta name="twitter:title" content="{{ site.title }} | {{ site.tagline }}" />
+    {% endif %}
+
+  	<!-- 페이지 타이틀이 있으면, 오픈그래프 글 타입은 아티클(블로그) 없으면 웹사이트다 -->
+    {% if page.title %}
+      <meta property="og:type" content="article" />
+    {% else %}
+      <meta property="og:type" content="website" />
+    {% endif %}
+
+  	<!-- 페이지 디스크립션이 있으면, 콘텐츠 페이지 오픈그래프 타입을 article(블로그 글 형식)로, 없으면 메인 페이지에서는 website로 설정된다. 블로그 글에서는 _config.yml에 설정된 description을 가져온다 -->
+    {% if page.description %}
+      <meta name="description" content="{{ page.description }}" />
+      <meta property="og:description" content="{{ page.description }}" />
+      <meta name="twitter:description" content="{{ page.description }}" />
+    {% else %}
+      <meta name="description" content="{{ site.description }}" />
+      <meta property="og:description" content="{{ site.description }}" />
+      <meta name="twitter:description" content="{{ site.description }}" />
+    {% endif %}
+
+  	<!-- 페이지의 url이 있다면, 오픈그래프 url을 사이트url과 페이지 url로 설정한다 -->
+    {% if page.url %}
+      <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+      <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    {% endif %}
+
+  	<!-- 페이지 날짜와 블로그 글의 발행일과 작성자를 노출한다 -->
+    {% if page.date %}
+      <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+      <meta property="article:author" content="{{ page.author }}" />
+    {% endif %}
+
+  	<!-- 소셜미디어, 포털에 노출될 페이지 대표 이미지를 설정한다.
+  	1) 페이지에 이미지가 있으면 블로그이므로 오픈그래프 이미지로 `feature:` 에 설정한 이미지가 노출한다
+  	2) 페이지에 이미지가 없으면 메인 페이지이므로 `_config.yml`에 `thumbnail:`로 지정한 기본 썸네일이 노출된다  -->
+    {% if page.image %}
+      <meta property="og:image" content="{{ site.github.url }}/assets/images/thumbnail/{{ page.image.feature }}" />
+      <meta name="twitter:image:src" content="{{ site.github.url }}/assets/images/thumbnail/{{ page.image.feature }}" />
+    {% else %}
+      <meta property="og:image" content="{{ site.github.url }}/assets/images/thumbnail.png" />
+      <meta name="twitter:image:src" content="{{ site.github.url }}/assets/images/thumbnail.png" />
+    {% endif %}
+
+  	<!-- 사이트내 언어, 사이트 이름 표기로 오픈그래프의 사이트 이름으로 _config.yml에 설정한 title이 노출된다-->
+      <meta property="og:locale" content="ko_KR" />
+      <meta property="og:site_name" content="{{ site.title }}" />
+
+  	<!-- 이 페이지의 카테고리를 설정한 내용이 노출된다 -->
+    {% if page.categories %}
+      {% for category in page.categories limit:1 %}
+      <meta property="article:section" content="{{ category }}" />
+      {% endfor %}
+    {% endif %}
+
+  	<!-- 이 페이지의 페이지 태그를 설정한 내용이 노출된다 -->
+    {% if page.tags %}
+      {% for tag in page.tags %}
+      <meta property="article:tag" content="{{ tag }}" />
+      {% endfor %}
+    {% endif %}
+  <!-- End SEO Tag -->
+
+  <!-- Article 구조화된 데이터 Start -->
+  {% if page.title %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "{{ page.title }}",
+        "image": [
+          "{{ site.url }}/assets/images/thumbnail/{{ page.feature }}"
+         ],
+        "datePublished": "{{ page.date | date_to_xmlschema }}"
+      }
+    </script>
+  {% endif %}
+<!-- Article 구조화된 데이터 End -->
+
+ <!-- 구조화된 채널 데이터 제출 Start -->
+ <script type="application/ld+json">
+   {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "직장생활표류기 | 직장생활이 더 쉬워지는 팁",
+    "url": "https://yourbuoy.kr",
+    "sameAs": [
+      "https://www.facebook.com/yourbuoy.kr",
+      "https://twitter.com/yourbuoy_kr"
+    ]
+   }
+ </script>
+<!-- 구조화된 채널 데이터 제출 End -->
+
+
 
 
 <!-- end custom head snippets -->
