@@ -6,8 +6,8 @@ subtitle: 걱정과 불안이 많은 나와 어떻게 잘 지낼 수 있을까?
 article_header:
   background_image:
     gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: /assets/images/posting/2021-02-01_anxiety.png
-feature: /assets/images/posting/2021-02-01_anxiety.png
+    src: /assets/images/thumbnail/2021-02-07_anxiety.png
+feature: /assets/images/thumbnail/2021-02-07_anxiety.png
 ---
 
 업무에서 불안감과 걱정으로 고민하는 당신은 사실 일상생활에서도 다소 예민하고 생각많고 걱정이 많은 사람일 확률이 높다. 성격은 변하지 않는다지만, 불안이 더 커지지 않게 제어할 수는 있다. 프로불안러인 나의 7가지 대처법을 소개한다.
