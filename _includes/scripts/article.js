@@ -1,3 +1,9 @@
+// 포스팅 데이터 레이어 키 값 추가
+  dataLayer.push({
+    'event': 'ViewPost',
+    'contents_title':'{{page.title}}'
+  });
+
 (function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
   window.Lazyload.js(SOURCES.jquery, function() {
