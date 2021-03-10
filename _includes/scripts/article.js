@@ -1,7 +1,7 @@
 // 포스팅 데이터 레이어 키 값 추가
   dataLayer.push({
     'event': 'ViewPost',
-    'contents_title':'{{page.title}}'
+    'contents_title':'{{page.title}}',
     'type': 'article'
   });
 
