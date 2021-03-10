@@ -2,7 +2,7 @@
   dataLayer.push({
     'event': 'ViewPost',
     'contents_title':'{{page.title}}'
-    'type': 'post'
+    'type': 'article'
   });
 
 (function() {
