@@ -7,7 +7,7 @@ article_header:
   background_image:
     gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
     src: /assets/images/thumbnail/2021-04-25_megaphone.png
-feature: /assets/images/posting/210425_how-to-improve-emali-writing-skill-title_recipient.jpg                                       
+feature: /assets/images/posting/how-to-improve-emali-writing-skill-title_recipient.jpg                                       
 ---
 
 회사 생활에서 가장 어려운 것중 하나는 이메일 작성일 것이다. 업무적 의사소통을 글로 하기가 어렵기도 하고, 별것 아닌것 같은 이메일 제목 작성과 참조 설정으로도 문제가 생기기도 한다. 반면 제목과 수신자 설정을 잘하는 것만으로도 문제 해결이나 회신율이 달라지기도 한다. 
@@ -32,7 +32,7 @@ feature: /assets/images/posting/210425_how-to-improve-emali-writing-skill-title_
 
 좋은 메일 제목의 핵심은 (1) 수신자가 내가 보낸 메일의 내용과 속성을 직관적으로 최대한 빠르게 파악하고 (2) 나중에 검색해 찾기 좋게 하는 것이다.
 
-#### [1] 서술형이 아니라 단문으로 쓴다 
+#### ### [1] 서술형이 아니라 단문으로 쓴다 
 
 ❌ 지난 분기미팅에서 보고드린 중동항로 예측 물동량 변경 수정보고 드립니다  
 ✅ 중동항로 물동량 예측 변경의 건  
@@ -143,5 +143,4 @@ feature: /assets/images/posting/210425_how-to-improve-emali-writing-skill-title_
 <hr>
 
 지금까지 이메일 제목 작성, 수신자 설정의 기본적인 규칙에 대해 알아보았다. 고통받는 이메일러들에게 조금이나마 도움이 되기를 바란다.  다음에는 이메일 본문(메일 바디) 작성법, 기본적인 메일 관리법을 소개하겠다.
-
 
