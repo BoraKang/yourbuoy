@@ -53,9 +53,9 @@ excerpt_separator: <!--more-->
 ## license
 license: CC-BY-NC-4.0 # "CC-BY-4.0", "CC-BY-SA-4.0", "CC-BY-NC-4.0", "CC-BY-ND-4.0"
 
-# TOC(Table of Contents)- 헤딩에 보여줄 요소
+# TOC(Table of Contents)- 사이드바에 보여줄 요소
 toc:
-  selectors: "h1,h2"
+  selectors: "h2,h3"
 
 ## Markdown Enhancements
 ##############################
