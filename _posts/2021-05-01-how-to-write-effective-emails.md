@@ -3,7 +3,7 @@ tags: 비즈니스이메일 사회초년생 직장상사
 layout: article
 title: 비즈니스 이메일 작성 101(2) - 메일 본문 작성법 7가지
 subtitle: 메일만 보내면 호출당한다면? 이메일 작성법 점검이 필요하다
-ㅈate: 2021-05-01 14:30:00 +09:00
+date: 2021-05-01 14:30:00 +09:00
 article_header:
   background_image:
     gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
