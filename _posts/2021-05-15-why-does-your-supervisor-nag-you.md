@@ -3,11 +3,11 @@ tags: 사회초년생 직장상사 혼남
 layout: article
 title: 매일 혼나는 신입사원의 특징(1) - 업무 프로세스 편
 subtitle: 열심히는 해도, 시키는대로 해도 혼나는 이유가 뭘까
-date: 2021-05-16 14:30:00 +09:00
+date: 2021-05-15 14:30:00 +09:00
 article_header:
   background_image:
     gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: /assets/images/thumbnail/2021-05-16-supervisor-nags-you.png
+    src: /assets/images/thumbnail/2021-05-15-supervisor-nags-you.png
 feature: /assets/images/posting/how-to-write-effective-emails.jpg
 ---
 
