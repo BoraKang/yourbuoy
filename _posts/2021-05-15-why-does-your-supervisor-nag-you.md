@@ -49,7 +49,7 @@ feature: /assets/images/posting/how-to-write-effective-emails.jpg
 
 직장인이 자나깨나 명심할 점이 있다. 회사 일 자체가 팀플이라는 점이다. 그것도 입사와 동시에 우리는 10개 이상 한번에 굴러가는 프로 팀플러가 된다. 그래서 업무 프로세스를 잘 설정하는 것이 중요하다.
 
-![프로세스](/assets/images/posting/210516/1-0_work-process-meme.jpg)
+![프로세스](/assets/images/posting/210515/1-0_work-process-meme.jpg)
 
 
 
@@ -59,7 +59,7 @@ feature: /assets/images/posting/how-to-write-effective-emails.jpg
 
 실수 감춤은 나름의 수습을 해보려고 하다가,  혼날 것 같아서 타이밍 재다가 보고를 못해서 생긴다. 물론 자기 생각에 큰 이슈 아닌 것 같아서 그냥 묻는 때도 있다(이건 문제). 그런데 이런 실수 중에는 나중에 큰 문제소지가 있는 것들이 있고, 보고 누락이 걸린 경우, 내 신뢰도를 급격히 하락한다. 떨리지만 이미 엎지른 물, 빨리 실수를 보고하고 수습, 다음 기회를 모색하자.  
 
-![직장인 뫼비우스의 띠](/assets/images/posting/210516/1-1_Mobius-strip-for-worker.png)
+![직장인 뫼비우스의 띠](/assets/images/posting/210515/1-1_Mobius-strip-for-worker.png)
 
 ### 2. 데드라인(시간약속) 오버
 
@@ -67,7 +67,7 @@ feature: /assets/images/posting/how-to-write-effective-emails.jpg
 
 심지어  데드라인을 넘긴 결과물은 저평가를 깔고 가게 된다. 데드라인을 반드시 지켜야 하는 이유다. 사회초년생인 당신의 결과물이 늦은 데드라인 문제를 상회할만큼 뛰어나기는 쉽지 않을 것이기 때문이다. 
 
-![데드라인 준수](/assets/images/posting/210516/1-2_deadline-passed.jpg)
+![데드라인 준수](/assets/images/posting/210515/1-2_deadline-passed.jpg)
 
 #### <font color="#0080FF">데드라인에 대처하는 우리의 자세 </font>
 
@@ -97,7 +97,7 @@ feature: /assets/images/posting/how-to-write-effective-emails.jpg
 
 우리에게 익숙한 상황이 있다. 상사가 “A씨, 내가 언제 이거 하라고 했어”. “내가 말한 건 이게 아니라….” 라며 시작되는 상황. 아니 분명히 며칠전까지 이렇게 하라고 해서 했는데, 도대체 뭐가 문제라는 건지. 생각만 해도 딥 빡침이 올라온다.
 
-![딥빡침](/assets/images/posting/210516/1-3_missed-communication.jpg)
+![딥빡침](/assets/images/posting/210515/1-3_missed-communication.jpg)
 
 하지만 사람들은 쉽게 자신이 회사에 기대치가 있다는 사실은 알면서도 회사도 나에게 기대치가 있다는 사실을 간과한다. **일을  기대치에 맞게 수행하는 것**은 **회사에서 업무에 대한 만족 기대치가 아니라 기본 기대치다**. 그래서 연차가 쌓일수록 회사의 기대치와 내 기대치의 간극을 줄어야 한다.  
 
@@ -116,7 +116,7 @@ feature: /assets/images/posting/how-to-write-effective-emails.jpg
 
 그렇다면 디테일이란 무엇을 말할까? 엄청난 것 같지만, 일하며 보니 회사에서 말하는 디테일은 사실 대단한 것이 아니다. 오탈자, 사실관계, 결론을 뒷받침하는 인용이나 수치의 정확도, 수치, 센스...
 
-![디테일확인](/assets/images/posting/210516/1-4_detail-check.jpg)
+![디테일확인](/assets/images/posting/210515/1-4_detail-check.jpg)
 
 #### 이런 디테일이 자주 틀리면, 이렇게 보인다
 
@@ -139,7 +139,7 @@ feature: /assets/images/posting/how-to-write-effective-emails.jpg
 
 문서보고 건 구두보고 건,  열심히는 한 것 같은데 듣다보면 무슨 말인지 모르겠는 경우가 있다. 하고 싶은 말이 무엇인지 정리가 되지 않은 경우다.  이런 상황은 통상 실무자가 하고 싶은 말이 너무 많은데, 일관되게 정리를 못해서 생기는 일이다. 사실 실무자가 접한 온갖 정보를 executive report와 같이 짧게 정리하기는 사실 무척 어려운 일이 맞다.
 
-![커뮤니케이션](/assets/images/posting/210516/1-5_bad-communication.jpg)
+![커뮤니케이션](/assets/images/posting/210515/1-5_bad-communication.jpg)
 
 훈련이 필요한 일이긴 하나, **사실 이 부분은 3번 작업자의 의도를 명확히 모르는 것과도 연결된다. 이작업물을 어느 맥락에서 누가 읽을 것인지를 생각하지 않기 때문에 본인의 정보량에 압도된 경우다.** (아 사실 이게 나다 ㅠ) 이 케이스와 관련된 사항은 무척 다양하므로 커뮤니케이션에 대한 포스팅에서 별도로 설명하겠다.
 
