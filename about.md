@@ -11,7 +11,7 @@ article_header:
     theme: dark
     background_color: '#203028'
     background_image:
-      src: /assets/images/introduction.png
+      src: /assets/images/about.png
   # @end locale config
 key: page-about
 ---
