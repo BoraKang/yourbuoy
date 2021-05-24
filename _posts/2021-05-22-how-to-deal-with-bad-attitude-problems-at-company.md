@@ -64,7 +64,7 @@ feature: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-pro
 
 이번 포스팅에서는 <u>상기 2번에 준해 태도 문제로 비화되는 몇 가지 유형을 다루려고 한다</u>. 특히 아래 몇 가지를 하지 않는 것만으로도 미움받거나 태도가 좋지 않다는 이야기를 훨씬 덜 들을 수 있다고 단언해본다.
 
-![태도가 좋지 않으면 문제](/Users/riverpurple/Documents/GitHub/yourbuoy/assets/images/posting/210522/2-1_attitude-problems.jpg)
+![태도가 좋지 않으면 문제](/assets/images/posting/210522/2-1_attitude-problems.jpg)
 
 ### 1. 업무 의도 파악하지 않음 
 
@@ -81,7 +81,7 @@ feature: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-pro
 
 회의 시간은 서로의 상황이나 입장을 공유하고 논의 사항이나 결정을 내리는 자리다. 이 자리에서 공유되는 내용은 향후 할 일을 정하거나 입장을 수립하거나 향후 유사 논의의 바탕이 된다.
 
-![회의시간에산만](/Users/riverpurple/Documents/GitHub/yourbuoy/assets/images/posting/210522/2-2.distraction.jpg)
+![회의시간에산만](/assets/images/posting/210522/2-2.distraction.jpg)
 
 그런데 회의시간에 집중을 하지 않으면 어떻게 될까? 업무가 진척될 수가 없다. *“이게 맞나요?”. “이게 이렇게 하기로 한 거 아니었나요?”*라고 혼자 딴소리를 하거나 엉뚱한 일을 하는 일도 다반사다. 당연히 좋은 결과물도, 좋은 평가도 어렵다. 
 
@@ -105,7 +105,7 @@ feature: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-pro
 
 처음에는 실수가 발생하면 대체로 '너그럽게 처음하는 거니까 그럴 수 있지'하고 이해해주지만, 같은 실수가 반복되면 점차 짜증을 내게 된다. 점차 <u>실수가 반복되는 상황이 누적되면 나의 업무처리 신뢰도 자체가 떨어지면서 내가 제출한 사항에 대해서는 모두 한번 더 도끼눈을 뜨고 보게 된다.</u> 그래서 다 실수해도 나만 걸려서 혼나고... 잘하면 당연한 거고, 못하면 개털리는 힘든 상황이 된다.
 
-![같은실수반복](/Users/riverpurple/Documents/GitHub/yourbuoy/assets/images/posting/210522/2-3.mistakes.jpg)
+![같은실수반복](/assets/images/posting/210522/2-3.mistakes.jpg)
 
 왜 실수를 반복하는데도 고쳐지지 않을까? 사실 회사에서의 실수란 대체로 ‘뭐뭐 하지마라 ‘에 준한 심플한 사항이라 ‘이번에 지적사항 다음에는 이렇게 해야지’ 하면 그 뿐인데 말이다.
 
@@ -127,7 +127,7 @@ feature: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-pro
 
 변명이 많은 사람… (생각만해도 피곤하다). 하긴, 변명 짤이 항상 총과 함께 나오는 걸 보면, 나 말고도 다들 변명을 싫어하는 모양이다.
 
-![비겁한변명](/Users/riverpurple/Documents/GitHub/yourbuoy/assets/images/posting/210522/2-4.no-more-excuse.jpg)
+![비겁한변명](/assets/images/posting/210522/2-4.no-more-excuse.jpg)
 
 요구받은 일을 주어진 시간내에 하지 못한 상황이라고 가정하자. 
 
@@ -162,7 +162,7 @@ feature: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-pro
 
 항상 불평불만이 많은 것도 문제다. 회사에서 어떤 일이 할당되는 순간부터 습관처럼 '왜 그걸 해야하는데요?', '이해가 안가는데요?'와 같이 투덜대는 사람은 상사가 아니라 누구도 같이 일하기 싫을 것이다. 누구도 하고 싶은 일만 하고 회사를 다닐 수 있을리가 없다.  이렇게 일을 시작하면 결국 일의 결과가 잘 나와도 득될 것이 없다. 
 
-불평하다가 일이 잘 안됐을 때도 매우 피곤하다. 이런 사람들은 나는 잘 했는데 같이 일하는 동료가 문제라며 핑계 대기 일수다. '나는 항상 아무 문제가 없다'라고 생각하는 것인데, **당연하게도 아무문제 없는 사람은 없다.** 
+불평하다가 일이 잘 안됐을 때도 이런 사람들은 매우 피곤하다. 나는 잘 했는데 같이 일하는 동료가 문제라며 핑계 대기 일수다. '**나는 항상 아무 문제가 없다'라고 생각하는 것인데,** **당연하게도 아무문제 없는 사람은 없다.** 
 
 <hr>
 결국 일도 사람이 정보를 주고받는 일이라 태도에서 수많은 일들이 해결되고 문제가 생긴다. 열심히 일하고도 저평가 받는 일이 없도록 참조하여 도움이 되기를 바란다. 
