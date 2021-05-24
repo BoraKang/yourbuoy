@@ -170,7 +170,7 @@ feature: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-pro
 
 ![헐크도 참고산다](/assets/images/posting/210522/2-6_hulk_iam_always_angry.gif)
 
-###### 큰 감명을 받은 장면이다.. 어벤져스 헐크도 맨날 빡치는데 사회생활하려고 참고 산다
+###### "That's my secret. I'm always angry" 큰 감명을 받은 장면이다.. 어벤져스 헐크도 맨날 빡치는데 참고 산다
 
 불평하다가 일이 잘 안됐을 때도 이런 사람들은 매우 피곤하다. 나는 잘 했는데 같이 일하는 동료가 문제라며 핑계 대기 일수다. '**나는 항상 아무 문제가 없다'라고 생각하는 것인데,** **당연하게도 아무문제 없는 사람은 없다.** 
 
