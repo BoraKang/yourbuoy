@@ -185,3 +185,4 @@ feature: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-pro
 
 <hr>
 일도 사람이 정보를 주고받는 일이라 태도에서 수많은 문제가 생기고 해결된다. 열심히 일하고도 저평가 받고, 차별받는다고 생각해 마음이 누더기가 되지 않는데 이 포스팅이 도움이 되기를 바란다. 
+

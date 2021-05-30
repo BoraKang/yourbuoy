@@ -1,6 +1,18 @@
+---
+tags: 라이프 직장상사 롤모델
+layout: article
+title: 내가 사랑했던 모든 상사들에게
+subtitle: 더 나은 사람이 되고싶게 해주셔서 감사합니다.
+date: 2021-05-29 14:30:00 +09:00
+article_header:
+  background_image:
+    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
+    src: /assets/images/thumbnail/2021-05-30-to-all-my-supervisors-ive-loved-before.png
+feature: /assets/images/thumbnail/2021-05-30-to-all-my-supervisors-ive-loved-before.png
 
+---
 
-<p style="display:none">회사를 다니다보면 가끔 존경스럽다 못해 '나도 저런 사람이 되고 싶다'고 생각하게하는 인생의 보석같은 상사들을 만난다. 그 분들을 만났기 때문에 천둥벌거숭이 같은 내가 10여년의 직장생활을 할 수 있었다고 생각한다.'그 분들이라면 어떻게 했을까?'라는 동경과 '부족한 나를 그때 그 상사들도 참아주고 기다려줬어'라는 감사의 마음을 주셔서. 나의 사랑, 나의 자랑인 멋진 상사들을 소개한다. </p>
+<p style="display:none">회사를 다니다보면 가끔 존경스럽다 못해 '나도 저런 사람이 되고 싶다'고 생각하게하는 인생의 보석같은 상사들을 만난다. 나는 그 분들을 만났기 때문에 천둥벌거숭이 같은 내가 10여년의 직장생활을 할 수 있었다고 생각한다.'그 분들이라면 어떻게 했을까?'라는 동경과 '부족한 나를 그때 그 상사들도 참아주고 기다려줬어'라는 감사의 마음을 주셔서. 나의 사랑, 나의 자랑인 멋진 상사들을 소개한다. </p>
 
 <!--more-->
 
