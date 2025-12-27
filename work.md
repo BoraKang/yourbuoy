@@ -2,8 +2,18 @@
 layout: archive
 title: Work
 permalink: /work/
-taxonomy: category
-taxonomy_name: work
 ---
 
 이 섹션에는 일, 업무 방식, 생산성, 커리어와 관련된 글을 모았습니다.
+
+{%- include tags.html -%}
+
+{%- assign _articles = site.categories.work -%}
+{%- include article-list.html
+  articles=_articles
+  type='item'
+  show_excerpt=true
+  show_info=true
+  show_cover=false
+  excerpt_truncate=220
+-%}
