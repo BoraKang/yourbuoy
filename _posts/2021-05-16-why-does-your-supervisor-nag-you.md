@@ -1,6 +1,7 @@
 ---
 tags: 사회초년생 직장상사 혼남 피드백
 layout: article
+categories: [work]
 title: 나는 왜 회사에서 매일 혼날까? 일못 신입사원의 특징 (1)
 subtitle: 열심히는 해도, 시키는대로 해도 혼나는 이유가 뭘까
 date: 2021-05-16 14:30:00 +09:00

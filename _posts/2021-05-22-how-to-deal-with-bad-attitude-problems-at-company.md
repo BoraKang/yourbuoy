@@ -1,6 +1,7 @@
 ---
 tags: 사회초년생 직장상사 혼남 태도
 layout: article
+categories: [work]
 title: 왜 나만 미워하지? 일못 신입사원의 특징적인 태도 (2)
 subtitle: 나는 한다고 하는데 왠지 미운털 박힌 것 같다?
 date: 2021-05-21 14:30:00 +09:00
@@ -185,4 +186,3 @@ feature: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-pro
 
 <hr>
 일도 사람이 정보를 주고받는 일이라 태도에서 수많은 문제가 생기고 해결된다. 열심히 일하고도 저평가 받고, 차별받는다고 생각해 마음이 누더기가 되지 않는데 이 포스팅이 도움이 되기를 바란다. 
-

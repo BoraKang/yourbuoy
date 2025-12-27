@@ -1,6 +1,7 @@
 ---
 tags: 멘탈관리 직장생활 걱정 성과압박
 layout: article
+categories: [work]
 title: 직장인 멘탈관리(1) – 업무 불안과 압박감을 떨쳐내는 법 5가지
 subtitle: 직장에서는 일 잘하는 법만 고민하면 되는 줄 알았다
 article_header:

@@ -1,6 +1,7 @@
 ---
 tags: 사회초년생 시간관리 GTD
 layout: article
+categories: [work]
 title: 야근노노! 사회초년생 직장인 시간관리법 101
 subtitle: 주니어에게는 우선순위 시간관리는 잘 통하지 않는다
 date: 2021-06-06 14:30:00 +09:00
