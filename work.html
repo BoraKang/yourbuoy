@@ -6,14 +6,16 @@ permalink: /work/
 
 <p>이 섹션에는 일, 업무 방식, 생산성, 커리어와 관련된 글을 모았습니다.</p>
 
-{%- include work-tags.html -%}
+{%- include work-tags-links.html -%}
 
 {%- assign _articles = site.categories.work -%}
 {%- include article-list.html
   articles=_articles
   type='item'
+  show_cover=true
+  cover_size='sm'
   show_excerpt=true
-  show_info=true
-  show_cover=false
   excerpt_truncate=220
+  show_readmore=true
+  show_info=true
 -%}

@@ -1,0 +1,42 @@
+{%- assign _articles = site.categories.work | default: empty -%}
+
+{%- assign _tag_names = '' | split: '|' -%}
+{%- for a in _articles -%}
+  {%- if a.tags -%}
+    {%- for t in a.tags -%}
+      {%- assign _tag_names = _tag_names | push: t -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign _tag_names = _tag_names | uniq | sort -%}
+
+{%- include snippets/get-nav-url.html path='/tags/' -%}
+{%- assign _tags_url = __return -%}
+
+{%- if _tag_names and _tag_names.size > 0 -%}
+<div class="site-tags js-tags">
+  <ul class="menu">
+    <li>
+      <a class="button button--secondary button--pill tag-button tag-button--all" href="{{ _tags_url }}">
+        Show All<div class="tag-button__count">{{ _articles.size }}</div>
+      </a>
+    </li>
+
+    {%- for t in _tag_names -%}
+      {%- assign _cnt = 0 -%}
+      {%- for a in _articles -%}
+        {%- if a.tags contains t -%}
+          {%- assign _cnt = _cnt | plus: 1 -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- assign _encoded = t | cgi_escape -%}
+      <li>
+        <a class="button button--secondary button--pill tag-button" href="{{ _tags_url }}#{{ _encoded }}">
+          {{ t }}<div class="tag-button__count">{{ _cnt }}</div>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>
+{%- endif -%}
