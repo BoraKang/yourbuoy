@@ -777,3 +777,32 @@
   --yb-g1: rgba(234, 88, 12, 0.18); --yb-g2: rgba(251, 146, 60, 0.18);
   --yb-g3: rgba(253, 186, 116, 0.18); --yb-g4: rgba(255, 90, 60, 0.20);
 }
+
+/* ===== 사이드바: 태그 + 공유 (AppsFlyer식) ===== */
+.yb-aside-tags {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.yb-aside-share {
+  margin-top: 20px;
+  .yb-aside-share__label { font-size: 13px; font-weight: 600; color: #5c6470; margin-bottom: 10px; }
+}
+.yb-share-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 6px;
+  border: 0;
+  border-radius: 6px;
+  background: #191f28;
+  color: #fff !important;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+.yb-share-btn:hover { background: #ff5a3c; }
+.yb-share-btn.ok { background: #12b3a0; }

@@ -1,1 +1,18 @@
 <div class="toc-aside js-toc-root"></div>
+
+{%- if page.layout == 'article' -%}
+{%- if page.tags.size > 0 -%}
+<div class="yb-aside-tags">
+  {%- for _tag in page.tags -%}
+  <a class="yb-tag" href="{{ '/archive/' | relative_url }}?tag={{ _tag | url_encode }}">{{ _tag }}</a>
+  {%- endfor -%}
+</div>
+{%- endif -%}
+<div class="yb-aside-share">
+  <div class="yb-aside-share__label">Share this article</div>
+  <button class="yb-share-btn js-yb-copy" title="링크 복사" onclick="navigator.clipboard.writeText(location.href).then(()=>{this.classList.add('ok');setTimeout(()=>this.classList.remove('ok'),1200)})"><i class="fas fa-link"></i></button>
+  <a class="yb-share-btn" title="LinkedIn" target="_blank" rel="noopener" href="https://www.linkedin.com/shareArticle?url={{ site.url }}{{ page.url | url_encode }}"><i class="fab fa-linkedin-in"></i></a>
+  <a class="yb-share-btn" title="X" target="_blank" rel="noopener" href="https://twitter.com/share?url={{ site.url }}{{ page.url | url_encode }}&text={{ page.title | url_encode }}"><i class="fab fa-twitter"></i></a>
+  <a class="yb-share-btn" title="Facebook" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url | url_encode }}"><i class="fab fa-facebook-f"></i></a>
+</div>
+{%- endif -%}
