@@ -18,6 +18,18 @@ header:
     url: /work
 
   - titles:
+      en      : AI Lab
+      ko      : AI Lab
+      ko-KR   : AI Lab
+    url: /ai-lab
+
+  - titles:
+      en      : Letters
+      ko      : 아이에게
+      ko-KR   : 아이에게
+    url: /kids
+
+  - titles:
       en      : &EN       Life
       zh-Hans : &ZH_HANS  日氣
       zh-Hant : &ZH_HANT  日氣

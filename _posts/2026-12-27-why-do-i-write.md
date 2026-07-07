@@ -1,7 +1,7 @@
 ---
 tags: 일기
 layout: article
-categories: [Life]
+categories: [life]
 title: 블로그를 3년만에 다시 시작한 이유 
 subtitle: 내가 고군분투하며 얻은 것들, 우리 아기에게는 알려주고 싶어서.
 ---
