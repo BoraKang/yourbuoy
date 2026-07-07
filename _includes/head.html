@@ -39,6 +39,11 @@
 
 
 <!-- CSS & fonts -->
+{%- assign _kw = page.tags -%}
+{%- if page.internal_tags -%}{%- assign _kw = _kw | concat: page.internal_tags -%}{%- endif -%}
+{%- if _kw and _kw.size > 0 -%}
+<meta name="keywords" content="{{ _kw | join: ', ' }}">
+{%- endif -%}
 {%- capture _css_path -%}/assets/css/main.css?v={{ site.time | date: '%s' }}{%- endcapture -%}
 {%- include snippets/prepend-baseurl.html path=_css_path -%}
 <link rel="stylesheet" href="{{ __return }}">
