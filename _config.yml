@@ -100,9 +100,16 @@ sharing:
 ## Comments - 댓글시스템 공급
 ##############################
 comments:
-  provider: "disqus" # "gitalk", "valine", "custom"
+  provider: "giscus" # "disqus", "gitalk", "valine", "custom"
 
-  ## Disqus
+  ## giscus (GitHub Discussions)
+  giscus:
+    repo: BoraKang/yourbuoy
+    repo_id: MDEwOlJlcG9zaXRvcnkzMDU5MDY3Mzc=
+    category: Announcements
+    category_id: DIC_kwDOEjvEMc4DAtDn
+
+  ## Disqus (보관)
   disqus:
     shortname: yourbuoy
 
