@@ -172,13 +172,6 @@ defaults:
       show_subscribe: true
       pageview: true
       key: anything
-      mode: immersive #헤더 모드
-      header:
-        theme: dark
-      article_header:
-        type: overlay # 포스트 내부헤더 오버레이 적용여부
-        theme: dark
-        background_color: '#203028'
 
 ## Plugins
 ##############################
