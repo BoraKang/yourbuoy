@@ -112,7 +112,7 @@ permalink: /work/time-management-for-junior/
 
 GTD에 대해 더 알고 싶은 분들을 위해 내가 큰 도움을 받았던 정진호님의 강의 슬라이드를 아래 첨부하니, 상세한 내용이 더 궁금하신 분은 살펴보시면 되겠다.
 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/LnlMdHQhCYHfkb" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/phploveme/gtd-how-to-start-gtd" title="직장인을 위한 GTD 시작하기 (How To Start GTD)" target="_blank">직장인을 위한 GTD 시작하기 (How To Start GTD)</a> </strong> from <strong><a href="https://www.slideshare.net/phploveme" target="_blank">Jinho Jung</a></strong> </div>
+<iframe src="https://www.slideshare.net/slideshow/embed_code/key/LnlMdHQhCYHfkb" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/phploveme/gtd-how-to-start-gtd" title="직장인을 위한 GTD 시작하기 (How To Start GTD)" target="_blank">직장인을 위한 GTD 시작하기 (How To Start GTD)</a> </strong> from <strong><a href="https://www.slideshare.net/phploveme" target="_blank">Jinho Jung</a></strong> </div>
 
 ### 2. 나만의 업무 슬롯 짜기: 15분
 
