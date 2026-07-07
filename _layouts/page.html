@@ -197,8 +197,7 @@ layout: base
                       {%- if page.layout == 'article' and _cat_label -%}
                       <nav class="yb-breadcrumb" aria-label="breadcrumb">
                         <a href="{{ '/' | relative_url }}">Blog</a> <span>&rsaquo;</span>
-                        <a href="{{ _cat_url | relative_url }}">{{ _cat_label }}</a> <span>&rsaquo;</span>
-                        <em class="yb-breadcrumb__current">{{ page.title }}</em>
+                        <a href="{{ _cat_url | relative_url }}">{{ _cat_label }}</a>
                       </nav>
                       <script type="application/ld+json">
                       {
