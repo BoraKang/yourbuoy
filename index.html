@@ -10,8 +10,8 @@ show_title: false
 <div class="yb-home">
 
   <section class="yb-home-hero">
-    <h1>your<em>Buoy</em> <span class="yb-home-hero__mark">🛟</span></h1>
-    <p>일과 마음에서 건진 것들. 직장에서 표류 중인 당신을 위한 부표.</p>
+    <h1>The your<em>Buoy</em> Blog</h1>
+    <p>일과 마음에서 건진 것들. 직장에서 표류 중인 당신을 위한 부표 🛟</p>
   </section>
 
   {%- assign _featured = site.posts | where: "featured", true | first -%}
@@ -27,7 +27,7 @@ show_title: false
   {%- endcase -%}
   <a class="yb-feat" href="{{ _featured.url | relative_url }}">
     <div class="yb-feat__txt">
-      <span class="yb-feat__cat">{{ _cl }}</span>
+      <div class="yb-chips"><span class="yb-chip">{{ _cl }}</span>{%- if _featured.tags.first -%}<span class="yb-chip yb-chip--soft">{{ _featured.tags.first }}</span>{%- endif -%}</div>
       <h2>{{ _featured.title }}</h2>
       {%- if _featured.subtitle -%}<p>{{ _featured.subtitle }}</p>{%- endif -%}
       {%- assign _mins = _featured.content | strip_html | size | plus: 599 | divided_by: 600 -%}
@@ -57,10 +57,12 @@ show_title: false
         {%- if _post.hero_image -%}
         <div class="yb-mini__thumb"><img src="{{ _post.hero_image | relative_url }}" alt="{{ _post.title }}" loading="lazy"></div>
         {%- endif -%}
-        <span class="yb-mini__cat">{{ _pl }}</span>
-        <h3>{{ _post.title }}</h3>
-        {%- assign _pm = _post.content | strip_html | size | plus: 599 | divided_by: 600 -%}
-        <div class="yb-mini__meta">{{ _post.date | date: "%Y. %-m. %-d" }} · {{ _pm }}분 읽기</div>
+        <div class="yb-mini__body">
+          <div class="yb-chips"><span class="yb-chip">{{ _pl }}</span>{%- if _post.tags.first -%}<span class="yb-chip yb-chip--soft">{{ _post.tags.first }}</span>{%- endif -%}</div>
+          <h3>{{ _post.title }}</h3>
+          {%- assign _pm = _post.content | strip_html | size | plus: 599 | divided_by: 600 -%}
+          <div class="yb-mini__meta">{{ _post.date | date: "%Y. %-m. %-d" }} · {{ _pm }}분 읽기</div>
+        </div>
       </a>
     {%- endfor -%}
   </div>
