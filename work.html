@@ -1,14 +1,12 @@
 ---
 layout: page
-title: Work
+title: 직장생활표류기
 permalink: /work/
 ---
 
-<p>이 섹션에는 일, 업무 방식, 생산성, 커리어와 관련된 글을 모았습니다.</p>
+<p>일, 업무 방식, 커리어에 대한 글을 모았습니다. 직장에서 표류 중인 당신을 위한 팁.</p>
 
-{%- include work-tags-links.html -%}
-
-{%- assign _articles = site.categories.work -%}
+{%- assign _articles = site.categories["work"] -%}
 {%- include article-list.html
   articles=_articles
   type='item'

@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Life
+title: 카바나
 permalink: /life/
 ---
 
-<p>일상, 생각 정리, 삶의 태도에 대한 글을 모았습니다.</p>
+<p>일상과 단상, 삶의 태도. 표류하다 잠시 쉬어가는 곳.</p>
 
-{%- assign _articles = site.categories.life -%}
+{%- assign _articles = site.categories["life"] -%}
 {%- include article-list.html
   articles=_articles
   type='item'

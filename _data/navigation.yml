@@ -1,54 +1,30 @@
 header:
   - titles:
-      # @start locale config
-      en      : &EN       Home
-      zh-Hans : &ZH_HANS  家
-      zh-Hant : &ZH_HANT  家
-      ko      : &KO       Home
-      ko-KR   : *KO
-      # @end locale config
-    url: /
-
-  - titles:
-      en      : &EN       Work
-      zh-Hans : &ZH_HANS  關於
-      zh-Hant : &ZH_HANT  關於
-      ko      : &KO       Work
-      ko-KR   : *KO
+      en      : 직장생활표류기
+      ko      : 직장생활표류기
+      ko-KR   : 직장생활표류기
     url: /work
 
   - titles:
-      en      : AI Lab
-      ko      : AI Lab
-      ko-KR   : AI Lab
-    url: /ai-lab
+      en      : 멘탈샵
+      ko      : 멘탈샵
+      ko-KR   : 멘탈샵
+    url: /mind
 
   - titles:
-      en      : Letters
-      ko      : 아이에게
-      ko-KR   : 아이에게
-    url: /kids
-
-  - titles:
-      en      : &EN       Life
-      zh-Hans : &ZH_HANS  日氣
-      zh-Hant : &ZH_HANT  日氣
-      ko      : &KO       Life
-      ko-KR   : *KO
+      en      : 카바나
+      ko      : 카바나
+      ko-KR   : 카바나
     url: /life
 
   - titles:
-      en      : &EN       Archive
-      zh-Hans : &ZH_HANS  归档
-      zh-Hant : &ZH_HANT  歸檔
-      ko      : &KO       Tags
-      ko-KR   : *KO
-    url: /archive
+      en      : Dwarven Forge
+      ko      : Dwarven Forge
+      ko-KR   : Dwarven Forge
+    url: /forge
 
   - titles:
-      en      : &EN       About
-      zh-Hans : &ZH_HANS  关于
-      zh-Hant : &ZH_HANT  關於
-      ko      : &KO       About
-      ko-KR   : *KO
+      en      : About
+      ko      : About
+      ko-KR   : About
     url: /about
