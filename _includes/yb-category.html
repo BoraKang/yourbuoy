@@ -20,12 +20,13 @@
   <article class="yb-item">
     <div class="yb-item__txt">
       <h2 class="yb-item__title"><a href="{{ _post.url | relative_url }}">{{ _post.title }}</a></h2>
-      {%- if _post.subtitle -%}
-      <p class="yb-item__excerpt">{{ _post.subtitle }}</p>
-      {%- elsif _post.excerpt -%}
-      <p class="yb-item__excerpt">{{ _post.excerpt | strip_html | strip_newlines | truncate: 120 }}</p>
+      {%- assign _ex = _post.excerpt | strip_html | strip_newlines | strip -%}
+      {%- if _ex == '' or _ex == nil -%}{%- assign _ex = _post.subtitle -%}{%- endif -%}
+      {%- if _ex -%}
+      <p class="yb-item__excerpt">{{ _ex | truncate: 150 }}</p>
       {%- endif -%}
-      <div class="yb-item__meta">{{ _post.date | date: "%Y. %-m. %-d" }}</div>
+      {%- assign _mins = _post.content | strip_html | size | plus: 599 | divided_by: 600 -%}
+      <div class="yb-item__meta">{{ _post.date | date: "%Y. %-m. %-d" }} · {{ _mins }}분 읽기</div>
     </div>
     {%- if _post.hero_image -%}
     <a class="yb-item__thumb" href="{{ _post.url | relative_url }}"><img src="{{ _post.hero_image | relative_url }}" alt="{{ _post.title }}" loading="lazy"></a>

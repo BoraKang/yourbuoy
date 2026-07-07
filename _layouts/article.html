@@ -50,6 +50,19 @@ type: article
     {%- endif -%}
   </div>
 
+  <div class="yb-author">
+    <img class="yb-author__avatar" src="{{ '/assets/images/logo/logo.svg' | relative_url }}" alt="Bora Kang">
+    <div class="yb-author__body">
+      <div class="yb-author__label">Written by</div>
+      <div class="yb-author__name">Bora Kang</div>
+      <p class="yb-author__bio">그로스 컨설턴트, 두 아이의 엄마. 일과 마음에서 건진 것들을 기록합니다.</p>
+    </div>
+    <div class="yb-author__actions">
+      <a class="yb-author__btn" href="{{ '/about/' | relative_url }}">About</a>
+      <a class="yb-author__btn yb-author__btn--primary" href="{{ '/feed.xml' | relative_url }}">구독</a>
+    </div>
+  </div>
+
   {%- if _sharing -%}
     <section class="article__sharing d-print-none">{%- include sharing.html -%}</section>
   {%- endif -%}
