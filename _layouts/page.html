@@ -184,26 +184,41 @@ layout: base
           <div class ="main">
         {%- endif -%}
             {%- unless _article_header_type == 'overlay' or page.article_header == false -%}
+                  {%- assign _cat = page.categories[0] -%}
+                  {%- case _cat -%}
+                    {%- when 'work' -%}{%- assign _cat_label = 'Work' -%}{%- assign _cat_url = '/work/' -%}
+                    {%- when 'mind' -%}{%- assign _cat_label = 'Mental' -%}{%- assign _cat_url = '/mind/' -%}
+                    {%- when 'life' -%}{%- assign _cat_label = 'Life' -%}{%- assign _cat_url = '/life/' -%}
+                    {%- when 'forge' -%}{%- assign _cat_label = 'Resource' -%}{%- assign _cat_url = '/forge/' -%}
+                    {%- else -%}{%- assign _cat_label = nil -%}
+                  {%- endcase -%}
                   <div class="yb-hero">
                     <div class="yb-hero__text">
-                      {%- if page.layout == 'article' and page.categories.size > 0 -%}
-                      <nav class="yb-breadcrumb">
+                      {%- if page.layout == 'article' and _cat_label -%}
+                      <nav class="yb-breadcrumb" aria-label="breadcrumb">
                         <a href="{{ '/' | relative_url }}">Blog</a> <span>&rsaquo;</span>
-                        {%- assign _cat = page.categories[0] -%}
-                        {%- case _cat -%}
-                          {%- when 'work' -%}<a href="{{ '/work/' | relative_url }}">Work</a>
-                          {%- when 'mind' -%}<a href="{{ '/mind/' | relative_url }}">Mental</a>
-                          {%- when 'life' -%}<a href="{{ '/life/' | relative_url }}">Life</a>
-                          {%- when 'forge' -%}<a href="{{ '/forge/' | relative_url }}">Resource</a>
-                          {%- else -%}<a href="{{ '/' | relative_url }}">{{ _cat }}</a>
-                        {%- endcase -%}
+                        <a href="{{ _cat_url | relative_url }}">{{ _cat_label }}</a> <span>&rsaquo;</span>
+                        <em class="yb-breadcrumb__current">{{ page.title }}</em>
                       </nav>
+                      <script type="application/ld+json">
+                      {
+                        "@context": "https://schema.org",
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                          {"@type": "ListItem", "position": 1, "name": "Blog", "item": "{{ site.url }}/"},
+                          {"@type": "ListItem", "position": 2, "name": "{{ _cat_label }}", "item": "{{ site.url }}{{ _cat_url }}"},
+                          {"@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}}
+                        ]
+                      }
+                      </script>
                       {%- endif -%}
                       {%- include article-header.html article=page -%}
                       {%- if page.subtitle -%}
                         <p class="article__subtitle">{{ page.subtitle }}</p>
                       {%- endif -%}
-                      {%- include article-info.html article=page -%}
+                      {%- if page.layout == 'article' -%}
+                      <div class="yb-meta">{{ page.date | date: "%Y. %-m. %-d" }}</div>
+                      {%- endif -%}
                     </div>
                     {%- if page.hero_image -%}
                     <div class="yb-hero__media"><img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}"></div>
@@ -235,6 +250,13 @@ layout: base
 
                     <div class="js-article-content">
                       {{ content }}</div>
+                    {%- if page.layout == 'article' and page.tags.size > 0 -%}
+                    <div class="yb-tags">
+                      {%- for _tag in page.tags -%}
+                      <a class="yb-tag" href="{{ '/archive.html' | relative_url }}?tag={{ _tag | url_encode }}">#{{ _tag }}</a>
+                      {%- endfor -%}
+                    </div>
+                    {%- endif -%}
                     {%- if _comment != false -%}
                       <section class="page__comments d-print-none">{%- include comments.html -%}</section>
                     {%- endif -%}

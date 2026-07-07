@@ -192,3 +192,60 @@
 }
 
 /* end custom scss snippet */
+
+/* ===== GNB 스티키 ===== */
+.page__header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid #eef0f2;
+}
+
+/* 히어로 메타: 날짜 한 줄 */
+.yb-meta {
+  margin-top: 16px;
+  font-size: 13.5px;
+  color: #8b95a1;
+}
+
+/* 브레드크럼 현재 글 (비링크) */
+.yb-breadcrumb__current {
+  font-style: normal;
+  color: #4e5968;
+  display: inline-block;
+  max-width: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+/* 본문 끝 태그 */
+.yb-tags {
+  margin: 40px 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.yb-tag {
+  padding: 5px 13px;
+  border-radius: 999px;
+  border: 1px solid #e5e8eb;
+  background: #f7f9fa;
+  color: #6b7684;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none !important;
+}
+.yb-tag:hover { color: #191f28; border-color: #c4cad2; }
+
+/* ===== 목차 sticky (TeXt JS의 인라인 top/left 무력화) ===== */
+.page__aside {
+  position: sticky !important;
+  top: 96px !important;
+  left: auto !important;
+  padding-top: 4px;
+}

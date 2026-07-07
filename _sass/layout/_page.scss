@@ -108,12 +108,9 @@ html,
     position: relative;
     display: block;
     width: map-get($layout, aside-width);
-    padding-top: 28px;
-    align-self: flex-start;
     & > aside {
       &.fixed {
-        position: sticky;
-        top: 96px;
+        position: fixed;
         -webkit-font-smoothing: subpixel-antialiased;
       }
     }
