@@ -200,17 +200,6 @@ layout: base
                         <a href="{{ '/' | relative_url }}">Blog</a> <span>&rsaquo;</span>
                         <a href="{{ _cat_url | relative_url }}">{{ _cat_label }}</a>
                       </nav>
-                      <script type="application/ld+json">
-                      {
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                          {"@type": "ListItem", "position": 1, "name": "Blog", "item": "{{ site.url }}/"},
-                          {"@type": "ListItem", "position": 2, "name": "{{ _cat_label }}", "item": "{{ site.url }}{{ _cat_url }}"},
-                          {"@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}}
-                        ]
-                      }
-                      </script>
                       {%- endif -%}
                       {%- include article-header.html article=page -%}
                       {%- if page.subtitle -%}

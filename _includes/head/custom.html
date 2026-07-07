@@ -75,36 +75,7 @@
     {% endif %}
   <!-- End SEO Tag -->
 
-  <!-- Article 구조화된 데이터 Start -->
-  {% if page.title %}
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "NewsArticle",
-        "headline": "{{ page.title }}",
-        "image": [
-          "{{ site.url }}/assets/images/thumbnail/{{ page.feature }}"
-         ],
-        "datePublished": "{{ page.date | date_to_xmlschema }}"
-      }
-    </script>
-  {% endif %}
-<!-- Article 구조화된 데이터 End -->
 
- <!-- 구조화된 채널 데이터 제출 Start -->
- <script type="application/ld+json">
-   {
-    "@context": "http://schema.org",
-    "@type": "Person",
-    "name": "직장생활표류기 | 직장생활이 더 쉬워지는 팁",
-    "url": "https://yourbuoy.kr",
-    "sameAs": [
-      "https://www.facebook.com/yourbuoy.kr",
-      "https://twitter.com/yourbuoy_kr"
-    ]
-   }
- </script>
-<!-- 구조화된 채널 데이터 제출 End -->
 
 
 

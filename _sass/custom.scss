@@ -123,9 +123,17 @@
 }
 .navigation__item a {
   font-family: Poppins, "Pretendard Variable", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 15px;
 }
+.navigation > ul:first-child {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.navigation > ul:first-child .navigation__item { margin: 0; }
+/* 우측 About·구독은 무게 유지 */
+.yb-nav-utils .navigation__item a { font-weight: 500; }
 
 /* ===== 글 상단 히어로: 좌 텍스트 / 우 이미지 (흰 배경) ===== */
 .yb-hero {
@@ -636,4 +644,16 @@
   .yb-subcard { flex-direction: column; align-items: flex-start; gap: 16px; }
   .yb-subcard__form { width: 100%; }
   .yb-subcard__form input { flex: 1; width: auto; }
+}
+
+/* ===== FAQ (front matter faq 자동 렌더) ===== */
+.yb-faq {
+  margin-top: 48px;
+  h2 { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #080808; margin: 0 0 8px; border-bottom: none; }
+}
+.yb-faq__item {
+  padding: 18px 0;
+  border-bottom: 1px solid #e9edf1;
+  h3 { font-size: 18px; font-weight: 600; color: #191f28; margin: 0 0 8px; }
+  p { font-size: 16px; line-height: 1.65; color: #333d4b; margin: 0; word-break: keep-all; }
 }

@@ -9,27 +9,94 @@ type: article
 {%- assign _sharing = __return -%}
 
 <div class="layout--article">
+  {%- assign _kw = page.tags | default: empty_arr -%}
+  {%- if page.internal_tags -%}{%- assign _kw = _kw | concat: page.internal_tags -%}{%- endif -%}
+  {%- assign _gcat = page.categories[0] -%}
+  {%- case _gcat -%}
+    {%- when 'work' -%}{%- assign _gcat_label = 'Work' -%}{%- assign _gcat_url = '/work/' -%}
+    {%- when 'mind' -%}{%- assign _gcat_label = 'Mental' -%}{%- assign _gcat_url = '/mind/' -%}
+    {%- when 'life' -%}{%- assign _gcat_label = 'Life' -%}{%- assign _gcat_url = '/life/' -%}
+    {%- when 'ai' -%}{%- assign _gcat_label = 'AI' -%}{%- assign _gcat_url = '/ai/' -%}
+    {%- when 'forge' -%}{%- assign _gcat_label = 'Resource' -%}{%- assign _gcat_url = '/forge/' -%}
+    {%- else -%}{%- assign _gcat_label = nil -%}
+  {%- endcase -%}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": {{ page.title | jsonify }},
-    "description": {{ page.subtitle | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify }},
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-    "author": {"@type": "Person", "name": "Bora Kang", "url": "{{ site.url }}/about/"},
-    "publisher": {"@type": "Person", "name": "Bora Kang"},
-    "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
-    {%- assign _kw = page.tags | default: empty_arr -%}
-    {%- if page.internal_tags -%}{%- assign _kw = _kw | concat: page.internal_tags -%}{%- endif -%}
-    {%- if _kw.size > 0 -%}"keywords": {{ _kw | join: ", " | jsonify }},{%- endif -%}
-    "inLanguage": "ko-KR"{% if page.hero_image %},
-    "image": "{{ site.url }}{{ page.hero_image }}"{% endif %}
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "{{ site.url }}{{ page.url }}#article",
+        "headline": {{ page.title | jsonify }},
+        "description": {{ page.subtitle | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify }},
+        "datePublished": "{{ page.date | date_to_xmlschema }}",
+        "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+        "author": { "@id": "{{ site.url }}/about/#person" },
+        "publisher": { "@id": "{{ site.url }}/about/#person" },
+        "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+        "inLanguage": "ko-KR"
+        {%- if _kw.size > 0 -%},
+        "keywords": {{ _kw | join: ", " | jsonify }}
+        {%- endif -%}
+        {%- if page.hero_image -%},
+        "image": "{{ site.url }}{{ page.hero_image }}"
+        {%- endif -%}
+      },
+      {
+        "@type": "Person",
+        "@id": "{{ site.url }}/about/#person",
+        "name": "Bora Kang",
+        "url": "{{ site.url }}/about/",
+        "jobTitle": "Growth Consultant",
+        "sameAs": [
+          {%- if site.author.linkedin -%}"{{ site.author.linkedin }}",{%- endif -%}
+          "https://github.com/{{ site.author.github | split: '/' | first }}",
+          "https://twitter.com/{{ site.author.twitter }}",
+          "https://www.facebook.com/{{ site.author.facebook }}"
+        ]
+      }
+      {%- if _gcat_label -%},
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Blog", "item": "{{ site.url }}/"},
+          {"@type": "ListItem", "position": 2, "name": "{{ _gcat_label }}", "item": "{{ site.url }}{{ _gcat_url }}"},
+          {"@type": "ListItem", "position": 3, "name": {{ page.title | jsonify }}}
+        ]
+      }
+      {%- endif -%}
+      {%- if page.faq and page.faq.size > 0 -%},
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {%- for _f in page.faq -%}
+          {
+            "@type": "Question",
+            "name": {{ _f.q | jsonify }},
+            "acceptedAnswer": { "@type": "Answer", "text": {{ _f.a | jsonify }} }
+          }{%- unless forloop.last -%},{%- endunless -%}
+          {%- endfor -%}
+        ]
+      }
+      {%- endif -%}
+    ]
   }
   </script>
   {%- include article/top/custom.html -%}
 
   <div class="article__content" itemprop="articleBody">{{ content }}</div>
+
+  {%- if page.faq and page.faq.size > 0 -%}
+  <div class="yb-faq">
+    <h2>자주 묻는 질문</h2>
+    {%- for _f in page.faq -%}
+    <div class="yb-faq__item">
+      <h3>{{ _f.q }}</h3>
+      <p>{{ _f.a }}</p>
+    </div>
+    {%- endfor -%}
+  </div>
+  {%- endif -%}
 
   {%- include yb-subscribe-card.html -%}
 
@@ -59,7 +126,7 @@ type: article
   </div>
 
   <div class="yb-author">
-    <img class="yb-author__avatar" src="{{ '/assets/images/logo/logo.svg' | relative_url }}" alt="Bora Kang">
+    <img class="yb-author__avatar" src="{{ site.author.avatar | default: '/assets/images/logo/logo.svg' | relative_url }}" alt="Bora Kang">
     <div class="yb-author__body">
       <div class="yb-author__label">Written by</div>
       <div class="yb-author__name">Bora Kang</div>
