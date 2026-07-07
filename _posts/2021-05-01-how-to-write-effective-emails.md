@@ -6,6 +6,7 @@ title: 비즈니스 이메일 작성 101(2) - 메일 본문 작성법
 subtitle: 메일만 보내면 호출당한다면? 이메일 작성법 점검이 필요하다
 date: 2021-05-01 14:30:00 +09:00
 feature: /assets/images/posting/how-to-write-effective-emails.jpg
+hero_image: /assets/images/thumbnail/2021-05-01_email-writing.png
 ---
 
 사회초년생이 메일 보고 후, 가장 많이 듣는 말은 ‘무슨 말인지 모르겠다’ 아닐까? 점잖은 상사는 ‘정리가 안되었다’고 하고 성질 급한 상사는 ‘그래서 하고 싶은 말이 뭐야?’라고 표현한다. 무엇이 문제일까? 보고 내용은 각기 달라도 불필요한 커뮤니케이션, 감정소모, 삽질을 덜 수 있는 비즈니스 이메일 본문 쓰기의 기본 규칙을 소개한다.

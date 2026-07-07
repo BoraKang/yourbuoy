@@ -96,3 +96,41 @@
 .page__aside .toc li.active > a { color: #ff5a3c; font-weight: 600; }
 
 /* end custom scss snippet */
+
+/* ===== GNB: yourBuoy 로고 + Poppins ===== */
+.header__brand a, .header__title a {
+  font-family: Poppins, "Pretendard Variable", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.navigation__item a {
+  font-family: Poppins, "Pretendard Variable", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* ===== 글 상단 히어로: 좌 텍스트 / 우 이미지 ===== */
+.yb-hero {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  margin: 44px 0 8px;
+}
+.yb-hero__text { flex: 1.4; min-width: 0; }
+.yb-hero__media {
+  flex: 1;
+  max-width: 380px;
+  img { width: 100%; height: auto; border-radius: 12px; display: block; }
+}
+.yb-breadcrumb {
+  font-size: 15px;
+  margin-bottom: 14px;
+  a { color: #8b95a1; text-decoration: none; }
+  a:hover { color: #191f28; }
+  span { color: #c4cad2; margin: 0 4px; }
+}
+.yb-hero .article__header { margin-top: 0; }
+@media (max-width: 767px) {
+  .yb-hero { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
+  .yb-hero__media { max-width: 100%; }
+}

@@ -6,6 +6,7 @@ permalink: /work/how-to-deal-with-anxiety-at-work/
 title: 직장인 멘탈관리(1) – 업무 불안과 압박감을 떨쳐내는 법 5가지
 subtitle: 직장에서는 일 잘하는 법만 고민하면 되는 줄 알았다
 feature: /assets/images/thumbnail/2021-01-31_anxiety-at-work.png
+hero_image: /assets/images/thumbnail/2021-01-31_anxiety-at-work.png
 ---
 
 일을 잘하려면 멘탈관리도 중요하다. 성과압박 강도는 높아지고 당신이 커버해야할 범위도 점점 늘어날 것이다. 일 걱정으로 불안, 압박감, 걱정과 두려움에 밤마다 잠을 이루지 못한다면, 바로 적용가능한 방법 5가지를 소개한다.

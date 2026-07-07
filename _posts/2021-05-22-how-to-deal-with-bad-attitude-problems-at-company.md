@@ -6,6 +6,7 @@ title: 왜 나만 미워하지? 일못 신입사원의 특징적인 태도 (2)
 subtitle: 나는 한다고 하는데 왠지 미운털 박힌 것 같다?
 date: 2021-05-21 14:30:00 +09:00
 feature: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-problems-at-company.jpg
+hero_image: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-problems-at-company.jpg
 ---
 
 <p style="display:none">일도 한다고 열심히 하는데, 이상하게 미운털 박힌 것 같다는 생각이 들 때가 있다. 상사가  내가 한 일이나 말을 무조건 의심하거나, 같은일도 나만 더 혼내거나, 심지어는 혼내다가 3단 분노부스트를 한다면, 나도 모르는 내 태도가 문제일 수 있다. 회사에서 바로 미움을 부르는 태도 몇 가지들 </p>

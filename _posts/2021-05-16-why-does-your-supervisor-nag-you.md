@@ -6,6 +6,7 @@ title: 나는 왜 회사에서 매일 혼날까? 일못 신입사원의 특징 (
 subtitle: 열심히는 해도, 시키는대로 해도 혼나는 이유가 뭘까
 date: 2021-05-16 14:30:00 +09:00
 feature: /assets/images/thumbnail/2021-05-15_f_supervisor-nags-you.jpg
+hero_image: /assets/images/thumbnail/2021-05-15_supervisor-nags-you.png
 ---
 
 <p style="display:none">입사 초기에는 매일이 멘붕의 연속이다. 열심히 한다고 해도 구멍이 뻥뻥나고, 시키는 대로 한 것 같은데도 혼나기가 부지기수다. 억울할 때도 있지만, 이 상황이 반복되면 '아 나는 정말 왜 그럴까' 싶어 자괴감에 빠지고 매일의 출근이 점점 두려워진다. 왜 상사가 화를 내는지, 신입사원들이 자주 하는 실수는 무엇인지를 정리해본다.</p>

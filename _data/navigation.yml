@@ -1,26 +1,26 @@
 header:
   - titles:
-      en      : 직장생활표류기
-      ko      : 직장생활표류기
-      ko-KR   : 직장생활표류기
+      en      : Work
+      ko      : Work
+      ko-KR   : Work
     url: /work
 
   - titles:
-      en      : 멘탈샵
-      ko      : 멘탈샵
-      ko-KR   : 멘탈샵
+      en      : Mental
+      ko      : Mental
+      ko-KR   : Mental
     url: /mind
 
   - titles:
-      en      : 카바나
-      ko      : 카바나
-      ko-KR   : 카바나
+      en      : Life
+      ko      : Life
+      ko-KR   : Life
     url: /life
 
   - titles:
-      en      : Dwarven Forge
-      ko      : Dwarven Forge
-      ko-KR   : Dwarven Forge
+      en      : Resource
+      ko      : Resource
+      ko-KR   : Resource
     url: /forge
 
   - titles:

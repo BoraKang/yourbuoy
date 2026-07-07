@@ -5,6 +5,7 @@ categories: [work]
 title: 비즈니스 이메일 작성 101(1) - 제목/수신자 설정법
 subtitle: 일잘러는 제목, 수신자 설정만 봐도 티가 나는 법이다
 feature: /assets/images/posting/how-to-improve-emali-writing-skill-title_recipient.jpg
+hero_image: /assets/images/thumbnail/2021-04-25_megaphone.png
 ---
 
 회사 생활에서 가장 어려운 것중 하나는 이메일 작성일 것이다. 업무적 의사소통을 글로 하기가 어렵기도 하고, 별것 아닌것 같은 이메일 제목 작성과 참조 설정으로도 문제가 생기기도 한다. 반면 제목과 수신자 설정을 잘하는 것만으로도 문제 해결이나 회신율이 달라지기도 한다. 

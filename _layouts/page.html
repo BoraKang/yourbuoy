@@ -207,11 +207,31 @@ layout: base
                   {%- include article-header.html article=page html=false -%}
                   {%- include article-info.html article=page html=false -%}
                 {%- else -%}
-                  {%- include article-header.html article=page -%}
-                  {%- if page.subtitle -%}
-                    <p class="article__subtitle">{{ page.subtitle }}</p>
-                  {%- endif -%}
-                  {%- include article-info.html article=page -%}
+                  <div class="yb-hero">
+                    <div class="yb-hero__text">
+                      {%- if page.layout == 'article' and page.categories.size > 0 -%}
+                      <nav class="yb-breadcrumb">
+                        <a href="{{ '/' | relative_url }}">Blog</a> <span>&rsaquo;</span>
+                        {%- assign _cat = page.categories[0] -%}
+                        {%- case _cat -%}
+                          {%- when 'work' -%}<a href="{{ '/work/' | relative_url }}">Work</a>
+                          {%- when 'mind' -%}<a href="{{ '/mind/' | relative_url }}">Mental</a>
+                          {%- when 'life' -%}<a href="{{ '/life/' | relative_url }}">Life</a>
+                          {%- when 'forge' -%}<a href="{{ '/forge/' | relative_url }}">Resource</a>
+                          {%- else -%}<a href="{{ '/' | relative_url }}">{{ _cat }}</a>
+                        {%- endcase -%}
+                      </nav>
+                      {%- endif -%}
+                      {%- include article-header.html article=page -%}
+                      {%- if page.subtitle -%}
+                        <p class="article__subtitle">{{ page.subtitle }}</p>
+                      {%- endif -%}
+                      {%- include article-info.html article=page -%}
+                    </div>
+                    {%- if page.hero_image -%}
+                    <div class="yb-hero__media"><img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}"></div>
+                    {%- endif -%}
+                  </div>
                 {%- endif -%}
 
                     <div class="js-article-content">

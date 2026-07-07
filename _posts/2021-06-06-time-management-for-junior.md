@@ -6,6 +6,7 @@ title: 야근노노! 사회초년생 직장인 시간관리법 101
 subtitle: 주니어에게는 우선순위 시간관리는 잘 통하지 않는다
 date: 2021-06-06 14:30:00 +09:00
 feature: /assets/images/thumbnail/2021-06-06-time-management.png
+hero_image: /assets/images/thumbnail/2021-06-06-time-management.png
 ---
 
 <p style="display:none">사회초년생에게는 늘 일은 많고 시간이 부족하다. 여유는 커녕 업무에 허덕대다가 야근 포함 모든 가용시간을 끌어쓴 뒤에야 데드라인 직전에 겨우 업무를 마치기 일 수다. 시중의 시간관리 책을 여러권 봤지만 주니어가 업무에 적용하기에는 잘 맞지 않고... 짬이 차고 탈탈 털리면서 익힌 사회초년생을 위한 생존형 시간관리 방법을 소개한다.</p>
