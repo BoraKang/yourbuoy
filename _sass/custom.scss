@@ -132,6 +132,10 @@
   gap: 30px;
 }
 .navigation > ul:first-child .navigation__item { margin: 0; }
+.navigation > ul:first-child .navigation__item a,
+.navigation > ul:first-child .navigation__item--active a {
+  font-weight: 400 !important;
+}
 /* 우측 About·구독은 무게 유지 */
 .yb-nav-utils .navigation__item a { font-weight: 500; }
 
