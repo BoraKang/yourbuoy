@@ -45,10 +45,10 @@
 }
 
 /* 본문과 헤더 사이 패딩 */
-.js-article-content,
-.article__content {
+.js-article-content {
   padding-top: 28px;
 }
+.js-article-content > .article__content { padding-top: 0; }
 
 /* 본문 타이포 */
 .article__content {
@@ -132,8 +132,25 @@
   display: flex;
   align-items: center;
   gap: 48px;
-  margin: 44px 0 8px;
+  margin: 0 0 8px;
+  padding: 44px 0 48px;
+  position: relative;
 }
+.yb-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  background: linear-gradient(to top,
+    rgba(178, 224, 230, 0.5) 0%,
+    rgba(198, 233, 236, 0.22) 40%,
+    rgba(255, 255, 255, 0) 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+.yb-hero__text, .yb-hero__media { position: relative; z-index: 1; }
 .yb-hero__text { flex: 1.4; min-width: 0; }
 .yb-hero__media {
   flex: 1;
@@ -251,7 +268,7 @@
   position: sticky !important;
   top: 96px !important;
   left: auto !important;
-  margin-top: 34px;
+  margin-top: 42px;
 }
 
 /* ===== 목차 카드 (Webflow식 테두리 박스) ===== */
