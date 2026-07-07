@@ -1,0 +1,20 @@
+# yourBuoy (직장생활표류기)
+
+> 일과 마음과 인간관계에서 저자가 풀어온 고민들을 기록하는 한국어 개인 블로그.
+> 직장인을 위한 실전 업무팁, 멘탈 관리, AI 작업물, 일상 단상을 다룬다.
+> 저자: Bora Kang (Nicky) — 그로스/프로덕트 애널리틱스 컨설턴트이자 두 아이의 엄마.
+
+## 섹션
+- [Work (직장생활표류기)](https://yourbuoy.kr/work/): 업무 방식, 문서작성, 회의, 시간관리, 커리어
+- [Mental (멘탈샵)](https://yourbuoy.kr/mind/): 직장인 불안·걱정·압박감 다루는 법
+- [Life (카바나)](https://yourbuoy.kr/life/): 일상, 단상, 삶의 태도
+- [Resource (Dwarven Forge)](https://yourbuoy.kr/forge/): AI로 만든 작업물과 데모, 제작 과정
+
+## 주요 리소스
+- [About](https://yourbuoy.kr/about/): 블로그와 저자 소개
+- [RSS Feed](https://yourbuoy.kr/feed.xml)
+- [Sitemap](https://yourbuoy.kr/sitemap.xml)
+
+## 참고
+- 언어: 한국어 (ko-KR)
+- 모든 글의 저작권은 저자에게 있으며 CC-BY-NC-4.0을 따른다.

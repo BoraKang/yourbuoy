@@ -1,0 +1,38 @@
+{%- assign _posts = site.categories[include.cat] -%}
+<div class="yb-cathead">
+  {%- if include.emoji -%}<div class="yb-cathead__icon">{{ include.emoji }}</div>{%- endif -%}
+  <h1 class="yb-cathead__title">{{ include.title }}</h1>
+  <p class="yb-cathead__desc">{{ include.desc }}</p>
+  <div class="yb-cathead__stats">{{ _posts | size }}개의 글</div>
+  {%- assign _all_tags = "" | split: "" -%}
+  {%- for _p in _posts -%}{%- assign _all_tags = _all_tags | concat: _p.tags -%}{%- endfor -%}
+  {%- assign _all_tags = _all_tags | uniq -%}
+  {%- if _all_tags.size > 0 -%}
+  <div class="yb-cathead__tags">
+    {%- for _tag in _all_tags limit: 8 -%}
+    <a class="yb-tag" href="{{ '/archive.html' | relative_url }}?tag={{ _tag | url_encode }}">#{{ _tag }}</a>
+    {%- endfor -%}
+  </div>
+  {%- endif -%}
+</div>
+<div class="yb-list">
+  {%- for _post in _posts -%}
+  <article class="yb-item">
+    <div class="yb-item__txt">
+      <h2 class="yb-item__title"><a href="{{ _post.url | relative_url }}">{{ _post.title }}</a></h2>
+      {%- if _post.subtitle -%}
+      <p class="yb-item__excerpt">{{ _post.subtitle }}</p>
+      {%- elsif _post.excerpt -%}
+      <p class="yb-item__excerpt">{{ _post.excerpt | strip_html | strip_newlines | truncate: 120 }}</p>
+      {%- endif -%}
+      <div class="yb-item__meta">{{ _post.date | date: "%Y. %-m. %-d" }}</div>
+    </div>
+    {%- if _post.hero_image -%}
+    <a class="yb-item__thumb" href="{{ _post.url | relative_url }}"><img src="{{ _post.hero_image | relative_url }}" alt="{{ _post.title }}" loading="lazy"></a>
+    {%- endif -%}
+  </article>
+  {%- endfor -%}
+  {%- if _posts == nil or _posts.size == 0 -%}
+  <p class="yb-list__empty">첫 글을 준비하고 있습니다.</p>
+  {%- endif -%}
+</div>

@@ -307,3 +307,100 @@
 }
 .yb-endmeta b a { color: #37414b; }
 .yb-endmeta b a:hover { color: #ff5a3c; }
+
+/* ===== 카테고리 페이지 (Medium 태그 페이지 차용) ===== */
+.yb-cathead {
+  text-align: center;
+  padding: 48px 0 36px;
+  border-bottom: 1px solid #e9edf1;
+  margin-bottom: 8px;
+}
+.yb-cathead__icon { font-size: 36px; line-height: 1; }
+.yb-cathead__title {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #080808;
+  margin: 12px 0 0;
+}
+.yb-cathead__desc {
+  font-size: 16.5px;
+  color: #5c6470;
+  margin: 10px auto 0;
+  max-width: 480px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+.yb-cathead__stats {
+  font-size: 13.5px;
+  color: #8b95a1;
+  margin-top: 12px;
+}
+.yb-cathead__tags {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* 글 리스트 (Medium 피드 차용) */
+.yb-list { padding-bottom: 40px; }
+.yb-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid #e9edf1;
+}
+.yb-item__txt { flex: 1; min-width: 0; }
+.yb-item__title {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.4;
+  margin: 0 0 8px;
+  border-bottom: none;
+  padding: 0;
+  word-break: keep-all;
+  a { color: #191f28; text-decoration: none !important; }
+  a:hover { color: #ff5a3c; }
+}
+.yb-item__excerpt {
+  font-size: 15px;
+  color: #5c6470;
+  line-height: 1.6;
+  margin: 0;
+  word-break: keep-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.yb-item__meta {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #8b95a1;
+}
+.yb-item__thumb {
+  flex-shrink: 0;
+  width: 160px;
+  img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+  }
+}
+.yb-list__empty {
+  text-align: center;
+  color: #8b95a1;
+  padding: 48px 0;
+}
+@media (max-width: 640px) {
+  .yb-item { gap: 16px; }
+  .yb-item__thumb { width: 100px; }
+  .yb-item__title { font-size: 17.5px; }
+  .yb-cathead__title { font-size: 30px; }
+}

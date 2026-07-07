@@ -2,18 +2,7 @@
 layout: page
 title: Dwarven Forge
 permalink: /forge/
+show_title: false
 ---
 
-<p>AI로 만든 작업물과 데모, 만드는 과정의 기록.</p>
-
-{%- assign _articles = site.categories["forge"] -%}
-{%- include article-list.html
-  articles=_articles
-  type='item'
-  show_cover=true
-  cover_size='sm'
-  show_excerpt=true
-  excerpt_truncate=220
-  show_readmore=true
-  show_info=true
--%}
+{%- include yb-category.html title="Dwarven Forge" desc="AI로 만든 작업물과 데모, 만드는 과정의 기록." cat="forge" emoji="⚒️" -%}

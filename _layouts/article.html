@@ -9,6 +9,21 @@ type: article
 {%- assign _sharing = __return -%}
 
 <div class="layout--article">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ page.title | jsonify }},
+    "description": {{ page.subtitle | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify }},
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "author": {"@type": "Person", "name": "Bora Kang", "url": "{{ site.url }}/about/"},
+    "publisher": {"@type": "Person", "name": "Bora Kang"},
+    "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+    "inLanguage": "ko-KR"{% if page.hero_image %},
+    "image": "{{ site.url }}{{ page.hero_image }}"{% endif %}
+  }
+  </script>
   {%- include article/top/custom.html -%}
 
   <div class="article__content" itemprop="articleBody">{{ content }}</div>

@@ -183,7 +183,7 @@ layout: base
         {%- if _full_width == false -%}
           <div class ="main">
         {%- endif -%}
-            {%- unless _article_header_type == 'overlay' or page.article_header == false -%}
+            {%- unless _article_header_type == 'overlay' or page.article_header == false or page.layout != 'article' -%}
                   {%- assign _cat = page.categories[0] -%}
                   {%- case _cat -%}
                     {%- when 'work' -%}{%- assign _cat_label = 'Work' -%}{%- assign _cat_url = '/work/' -%}
@@ -241,8 +241,12 @@ layout: base
                   <article>
                 {%- endif -%}
 
-                {%- include article-header.html article=page html=false -%}
-                {%- include article-info.html article=page html=false -%}
+                {%- if page.layout == 'article' -%}
+                  {%- include article-header.html article=page html=false -%}
+                  {%- include article-info.html article=page html=false -%}
+                {%- else -%}
+                  {%- include article-header.html article=page -%}
+                {%- endif -%}
 
                     <div class="js-article-content">
                       {{ content }}</div>

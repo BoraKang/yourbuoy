@@ -2,18 +2,7 @@
 layout: page
 title: 멘탈샵
 permalink: /mind/
+show_title: false
 ---
 
-<p>불안, 걱정, 압박감. 예민한 사람이 예민한 채로 잘 지내는 법을 다룹니다.</p>
-
-{%- assign _articles = site.categories["mind"] -%}
-{%- include article-list.html
-  articles=_articles
-  type='item'
-  show_cover=true
-  cover_size='sm'
-  show_excerpt=true
-  excerpt_truncate=220
-  show_readmore=true
-  show_info=true
--%}
+{%- include yb-category.html title="멘탈샵" desc="불안, 걱정, 압박감. 예민한 사람이 예민한 채로 잘 지내는 법." cat="mind" emoji="🔧" -%}
