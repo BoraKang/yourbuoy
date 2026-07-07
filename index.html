@@ -1,19 +1,72 @@
 ---
-layout: home
+layout: page
 titles:
-  en      : &EN       Home
-  en-GB   : *EN
-  en-US   : *EN
-  en-CA   : *EN
-  en-AU   : *EN
-  zh      : *ZH_HANS
-  zh-CN   : *ZH_HANS
-  zh-SG   : *ZH_HANS
-  zh-Hant : &ZH_HANT  職場生活漂流記
-  zh-TW   : *ZH_HANT
-  zh-HK   : *ZH_HANT
-  ko      : &KO       직장생활표류기
-  ko-KR   : *KO
-# articles:
-#   excerpt_type: html
+  en: Home
+  ko: yourBuoy
+  ko-KR: yourBuoy
+show_title: false
 ---
+
+<div class="yb-home">
+
+  <section class="yb-home-hero">
+    <h1>your<em>Buoy</em> <span class="yb-home-hero__mark">🛟</span></h1>
+    <p>일과 마음에서 건진 것들. 직장에서 표류 중인 당신을 위한 부표.</p>
+  </section>
+
+  {%- assign _featured = site.posts | where: "featured", true | first -%}
+  {%- unless _featured -%}{%- assign _featured = site.posts.first -%}{%- endunless -%}
+  {%- assign _cat = _featured.categories[0] -%}
+  {%- case _cat -%}
+    {%- when 'work' -%}{%- assign _cl = 'Work' -%}
+    {%- when 'mind' -%}{%- assign _cl = 'Mental' -%}
+    {%- when 'life' -%}{%- assign _cl = 'Life' -%}
+    {%- when 'ai' -%}{%- assign _cl = 'AI' -%}
+    {%- when 'forge' -%}{%- assign _cl = 'Resource' -%}
+    {%- else -%}{%- assign _cl = _cat -%}
+  {%- endcase -%}
+  <a class="yb-feat" href="{{ _featured.url | relative_url }}">
+    <div class="yb-feat__txt">
+      <span class="yb-feat__cat">{{ _cl }}</span>
+      <h2>{{ _featured.title }}</h2>
+      {%- if _featured.subtitle -%}<p>{{ _featured.subtitle }}</p>{%- endif -%}
+      {%- assign _mins = _featured.content | strip_html | size | plus: 599 | divided_by: 600 -%}
+      <div class="yb-feat__meta">{{ _featured.date | date: "%Y. %-m. %-d" }} · {{ _mins }}분 읽기</div>
+    </div>
+    {%- if _featured.hero_image -%}
+    <div class="yb-feat__thumb"><img src="{{ _featured.hero_image | relative_url }}" alt="{{ _featured.title }}"></div>
+    {%- endif -%}
+  </a>
+
+  <div class="yb-home-grid">
+    {%- assign _count = 0 -%}
+    {%- for _post in site.posts -%}
+      {%- if _post.url == _featured.url -%}{%- continue -%}{%- endif -%}
+      {%- if _count >= 3 -%}{%- break -%}{%- endif -%}
+      {%- assign _count = _count | plus: 1 -%}
+      {%- assign _pc = _post.categories[0] -%}
+      {%- case _pc -%}
+        {%- when 'work' -%}{%- assign _pl = 'Work' -%}
+        {%- when 'mind' -%}{%- assign _pl = 'Mental' -%}
+        {%- when 'life' -%}{%- assign _pl = 'Life' -%}
+        {%- when 'ai' -%}{%- assign _pl = 'AI' -%}
+        {%- when 'forge' -%}{%- assign _pl = 'Resource' -%}
+        {%- else -%}{%- assign _pl = _pc -%}
+      {%- endcase -%}
+      <a class="yb-mini" href="{{ _post.url | relative_url }}">
+        {%- if _post.hero_image -%}
+        <div class="yb-mini__thumb"><img src="{{ _post.hero_image | relative_url }}" alt="{{ _post.title }}" loading="lazy"></div>
+        {%- endif -%}
+        <span class="yb-mini__cat">{{ _pl }}</span>
+        <h3>{{ _post.title }}</h3>
+        {%- assign _pm = _post.content | strip_html | size | plus: 599 | divided_by: 600 -%}
+        <div class="yb-mini__meta">{{ _post.date | date: "%Y. %-m. %-d" }} · {{ _pm }}분 읽기</div>
+      </a>
+    {%- endfor -%}
+  </div>
+
+  <div class="yb-home-more"><a href="{{ '/archive/' | relative_url }}">전체 글 보기 →</a></div>
+
+  {%- include yb-subscribe-card.html -%}
+
+</div>
