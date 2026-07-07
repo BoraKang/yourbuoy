@@ -208,6 +208,9 @@ layout: base
                   {%- include article-info.html article=page html=false -%}
                 {%- else -%}
                   {%- include article-header.html article=page -%}
+                  {%- if page.subtitle -%}
+                    <p class="article__subtitle">{{ page.subtitle }}</p>
+                  {%- endif -%}
                   {%- include article-info.html article=page -%}
                 {%- endif -%}
 

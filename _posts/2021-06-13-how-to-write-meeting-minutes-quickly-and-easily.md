@@ -5,10 +5,6 @@ categories: [work]
 title: 회의록과 노트/메모를 빨리, 쉽게, 잘 기억나게 작성하는 법
 subtitle: 있는 내용 정리를 잘해야 없는 내용도 잘 만들죠
 date: 2021-06-15 14:30:00 +09:00
-article_header:
-  background_image:
-    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: /assets/images/thumbnail/2021-06-13-note-taking-effectively.png
 feature: /assets/images/thumbnail/2021-06-13-note-taking-effectively.png
 ---
 

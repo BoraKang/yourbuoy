@@ -5,10 +5,6 @@ categories: [work]
 title: 비즈니스 이메일 작성 101(2) - 메일 본문 작성법
 subtitle: 메일만 보내면 호출당한다면? 이메일 작성법 점검이 필요하다
 date: 2021-05-01 14:30:00 +09:00
-article_header:
-  background_image:
-    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: /assets/images/thumbnail/2021-05-01_email-writing.png
 feature: /assets/images/posting/how-to-write-effective-emails.jpg
 ---
 

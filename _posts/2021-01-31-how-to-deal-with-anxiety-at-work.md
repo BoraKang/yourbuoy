@@ -5,10 +5,6 @@ categories: [mind]
 permalink: /work/how-to-deal-with-anxiety-at-work/
 title: 직장인 멘탈관리(1) – 업무 불안과 압박감을 떨쳐내는 법 5가지
 subtitle: 직장에서는 일 잘하는 법만 고민하면 되는 줄 알았다
-article_header:
-  background_image:
-    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: /assets/images/thumbnail/2021-01-31_anxiety-at-work.png
 feature: /assets/images/thumbnail/2021-01-31_anxiety-at-work.png
 ---
 

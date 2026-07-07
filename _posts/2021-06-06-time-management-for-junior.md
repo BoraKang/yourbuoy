@@ -5,10 +5,6 @@ categories: [work]
 title: 야근노노! 사회초년생 직장인 시간관리법 101
 subtitle: 주니어에게는 우선순위 시간관리는 잘 통하지 않는다
 date: 2021-06-06 14:30:00 +09:00
-article_header:
-  background_image:
-    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: /assets/images/thumbnail/2021-06-06-time-management.png
 feature: /assets/images/thumbnail/2021-06-06-time-management.png
 ---
 

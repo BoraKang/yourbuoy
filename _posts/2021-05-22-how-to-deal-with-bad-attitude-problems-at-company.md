@@ -5,10 +5,6 @@ categories: [work]
 title: 왜 나만 미워하지? 일못 신입사원의 특징적인 태도 (2)
 subtitle: 나는 한다고 하는데 왠지 미운털 박힌 것 같다?
 date: 2021-05-21 14:30:00 +09:00
-article_header:
-  background_image:
-    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: /assets/images/thumbnail/2021-05-23_how-to-deal-with-Bad-Attitude-problems-at-company.jpg
 feature: /assets/images/thumbnail/2021-05-23_f_how-to-deal-with-Bad-Attitude-problems-at-company.jpg
 ---
 

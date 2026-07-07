@@ -5,10 +5,6 @@ categories: [work]
 title: 나는 왜 회사에서 매일 혼날까? 일못 신입사원의 특징 (1)
 subtitle: 열심히는 해도, 시키는대로 해도 혼나는 이유가 뭘까
 date: 2021-05-16 14:30:00 +09:00
-article_header:
-  background_image:
-    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
-    src: /assets/images/thumbnail/2021-05-15_supervisor-nags-you.png
 feature: /assets/images/thumbnail/2021-05-15_f_supervisor-nags-you.jpg
 ---
 
