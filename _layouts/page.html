@@ -193,7 +193,7 @@ layout: base
                     {%- when 'forge' -%}{%- assign _cat_label = 'Resource' -%}{%- assign _cat_url = '/forge/' -%}
                     {%- else -%}{%- assign _cat_label = nil -%}
                   {%- endcase -%}
-                  <div class="yb-hero">
+                  <div class="yb-hero{% if _cat %} yb-hero--{{ _cat }}{% endif %}">
                     <div class="yb-hero__text">
                       {%- if page.layout == 'article' and _cat_label -%}
                       <nav class="yb-breadcrumb" aria-label="breadcrumb">

@@ -18,7 +18,7 @@
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.02em;
-    color: #080808;
+    color: #0b0f14;
     text-align: left;
     word-break: keep-all;
     overflow-wrap: anywhere;
@@ -59,7 +59,7 @@
 
   p { margin-bottom: 1.6em; }
 
-  h1, h2, h3, h4 { color: #080808; letter-spacing: -0.02em; text-align: left; }
+  h1, h2, h3, h4 { color: #0b0f14; letter-spacing: -0.02em; text-align: left; }
 
   h2 {
     font-size: 30px;
@@ -156,10 +156,10 @@
   left: calc(50% - 50vw);
   right: calc(50% - 50vw);
   background:
-    radial-gradient(42% 65% at 10% 100%, rgba(147, 197, 253, 0.30), transparent 72%),
-    radial-gradient(36% 58% at 36% 100%, rgba(196, 181, 253, 0.22), transparent 72%),
-    radial-gradient(36% 58% at 64% 100%, rgba(167, 243, 208, 0.20), transparent 72%),
-    radial-gradient(42% 65% at 90% 100%, rgba(165, 216, 252, 0.28), transparent 72%);
+    radial-gradient(42% 65% at 10% 100%, var(--yb-g1, rgba(147, 197, 253, 0.30)), transparent 72%),
+    radial-gradient(36% 58% at 36% 100%, var(--yb-g2, rgba(196, 181, 253, 0.22)), transparent 72%),
+    radial-gradient(36% 58% at 64% 100%, var(--yb-g3, rgba(167, 243, 208, 0.20)), transparent 72%),
+    radial-gradient(42% 65% at 90% 100%, var(--yb-g4, rgba(165, 216, 252, 0.28)), transparent 72%);
   pointer-events: none;
   z-index: 0;
 }
@@ -168,7 +168,7 @@
 .yb-hero__media {
   flex: 1;
   max-width: 380px;
-  img { width: 100%; height: auto; border-radius: 12px; display: block; }
+  img { width: 100%; height: auto; border-radius: 8px; display: block; }
 }
 .yb-breadcrumb {
   font-size: 15px;
@@ -265,8 +265,8 @@
   gap: 8px;
 }
 .yb-tag {
-  padding: 5px 13px;
-  border-radius: 999px;
+  padding: 5px 12px;
+  border-radius: 5px;
   border: 1px solid #e5e8eb;
   background: #f7f9fa;
   color: #6b7684;
@@ -287,7 +287,7 @@
 /* ===== 목차 카드 (Webflow식 테두리 박스) ===== */
 .page__aside .toc-aside {
   border: 1px solid #e9edf1;
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 16px 18px 12px;
   background: #fff;
 }
@@ -332,7 +332,7 @@
   font-size: 38px;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #080808;
+  color: #0b0f14;
   margin: 12px 0 0;
 }
 .yb-cathead__desc {
@@ -425,7 +425,7 @@
   margin-top: 36px;
   padding: 26px 28px;
   border: 1px solid #e9edf1;
-  border-radius: 14px;
+  border-radius: 10px;
   background: #fbfcfd;
 }
 .yb-author__avatar {
@@ -460,7 +460,7 @@
 .yb-author__actions { display: flex; gap: 8px; flex-shrink: 0; }
 .yb-author__btn {
   padding: 8px 18px;
-  border-radius: 999px;
+  border-radius: 6px;
   border: 1px solid #d5dade;
   font-size: 13.5px;
   font-weight: 600;
@@ -516,7 +516,7 @@
   display: inline-block;
   margin: 0 8px 10px 0;
   padding: 7px 14px;
-  border-radius: 999px;
+  border-radius: 5px;
   border: 1px solid rgba(255,255,255,.25);
   color: rgba(255,255,255,.85);
   font-size: 13.5px;
@@ -562,7 +562,7 @@
 .yb-subscribe-btn {
   display: inline-block;
   padding: 8px 18px;
-  border-radius: 999px;
+  border-radius: 6px;
   background: #191f28;
   color: #fff !important;
   font-size: 13.5px;
@@ -613,7 +613,7 @@
   gap: 28px;
   margin-top: 40px;
   padding: 28px 32px;
-  border-radius: 16px;
+  border-radius: 10px;
   background: #f4f6f8;
 }
 .yb-subcard__txt { flex: 1; min-width: 0; }
@@ -623,7 +623,7 @@
 .yb-subcard__form input {
   width: 220px;
   border: 1px solid #d5dade;
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 11px 14px;
   font-size: 14px;
   font-family: inherit;
@@ -632,7 +632,7 @@
 .yb-subcard__form button,
 .yb-subcard__btn {
   border: 0;
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 11px 22px;
   background: #191f28;
   color: #fff !important;
@@ -653,7 +653,7 @@
 /* ===== FAQ (front matter faq 자동 렌더) ===== */
 .yb-faq {
   margin-top: 48px;
-  h2 { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #080808; margin: 0 0 8px; border-bottom: none; }
+  h2 { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; color: #0b0f14; margin: 0 0 8px; border-bottom: none; }
 }
 .yb-faq__item {
   padding: 18px 0;
@@ -702,7 +702,7 @@
   gap: 40px;
   padding: 30px 34px;
   border: 1px solid #e5e8eb;
-  border-radius: 16px;
+  border-radius: 10px;
   background: #fff;
   text-decoration: none !important;
   transition: box-shadow .15s ease, border-color .15s ease;
@@ -715,7 +715,7 @@
 }
 .yb-feat p { font-size: 15.5px; color: #5c6470; line-height: 1.6; margin: 0; word-break: keep-all; }
 .yb-feat__meta { margin-top: 16px; font-size: 13px; color: #8b95a1; }
-.yb-feat__thumb { flex: 1; max-width: 400px; img { width: 100%; aspect-ratio: 1.9/1; object-fit: cover; border-radius: 10px; display: block; } }
+.yb-feat__thumb { flex: 1; max-width: 400px; img { width: 100%; aspect-ratio: 1.9/1; object-fit: cover; border-radius: 6px; display: block; } }
 
 /* 균일 박스 카드 (Amplitude식) */
 .yb-home-grid {
@@ -729,7 +729,7 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #e5e8eb;
-  border-radius: 14px;
+  border-radius: 10px;
   background: #fff;
   overflow: hidden;
   transition: box-shadow .15s ease, border-color .15s ease;
@@ -745,7 +745,7 @@
 .yb-home-more {
   text-align: center;
   margin: 40px 0 8px;
-  a { display: inline-block; padding: 10px 26px; border: 1px solid #d5dade; border-radius: 999px; font-size: 14px; font-weight: 600; color: #37414b; text-decoration: none !important; }
+  a { display: inline-block; padding: 10px 26px; border: 1px solid #d5dade; border-radius: 6px; font-size: 14px; font-weight: 600; color: #37414b; text-decoration: none !important; }
   a:hover { border-color: #8b95a1; color: #191f28; }
 }
 @media (max-width: 900px) {
@@ -753,4 +753,27 @@
   .yb-feat { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
   .yb-feat__thumb { max-width: 100%; }
   .yb-home-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ===== 카테고리별 히어로 그라데이션 (같은 패턴, 색만 변주) ===== */
+.yb-hero--work {
+  --yb-g1: rgba(37, 99, 235, 0.22); --yb-g2: rgba(96, 165, 250, 0.18);
+  --yb-g3: rgba(125, 211, 252, 0.20); --yb-g4: rgba(59, 130, 246, 0.24);
+}
+.yb-hero--mind {
+  --yb-g1: rgba(13, 148, 136, 0.20); --yb-g2: rgba(45, 212, 191, 0.16);
+  --yb-g3: rgba(110, 231, 183, 0.18); --yb-g4: rgba(20, 184, 166, 0.22);
+}
+.yb-hero--life {
+  --yb-g1: rgba(245, 158, 66, 0.20); --yb-g2: rgba(253, 213, 155, 0.22);
+  --yb-g3: rgba(255, 226, 183, 0.20); --yb-g4: rgba(244, 178, 96, 0.20);
+}
+.yb-hero--ai {
+  --yb-g1: rgba(124, 58, 237, 0.18); --yb-g2: rgba(167, 139, 250, 0.20);
+  --yb-g3: rgba(196, 181, 253, 0.18); --yb-g4: rgba(139, 92, 246, 0.22);
+}
+.yb-hero--forge {
+  --yb-g1: rgba(234, 88, 12, 0.18); --yb-g2: rgba(251, 146, 60, 0.18);
+  --yb-g3: rgba(253, 186, 116, 0.18); --yb-g4: rgba(255, 90, 60, 0.20);
 }
