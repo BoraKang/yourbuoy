@@ -9,6 +9,8 @@
   }
   h1 {
     word-wrap: break-word;
+    overflow-wrap: anywhere;
+    word-break: keep-all;
   }
   .split-space {
     @include user-select(none);

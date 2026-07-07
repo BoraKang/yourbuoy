@@ -1,14 +1,18 @@
 /* start custom scss snippet */
 
 /* ==========================================
-   YourBuoy custom — Webflow 블로그 서식 기반
+   yourBuoy custom — Webflow 블로그 서식 기반
    콘텐츠 폭 ~820px / 제목 왼쪽 정렬 + 부제
-   본문 16px lh1.6 / H2 34px / H3 22px
+   본문 16px lh1.6 / H2 30px / H3 22px
    ========================================== */
 
-/* 글 상단: 제목 왼쪽 정렬 + 여백 */
+/* GNB가 목차 등 다른 요소 위에 오도록 */
+.header { position: relative; z-index: 20; }
+.page__aside { z-index: 1; }
+
+/* 글 상단: 제목 왼쪽 정렬 (배경/카드 없음) */
 .layout--article .article__header {
-  margin-top: 40px;
+  margin-top: 24px;
   h1 {
     font-size: 40px;
     font-weight: 700;
@@ -16,7 +20,19 @@
     letter-spacing: -0.02em;
     color: #080808;
     text-align: left;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
+}
+
+/* 한글 줄바꿈: 단어 단위 유지 */
+.article__subtitle,
+.article__content,
+.article__content p,
+.article__content li,
+.article__content blockquote {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 /* 부제(리드 문단) */
@@ -95,8 +111,6 @@
 .page__aside .toc .toc-h3 { margin-left: 12px; }
 .page__aside .toc li.active > a { color: #ff5a3c; font-weight: 600; }
 
-/* end custom scss snippet */
-
 /* ===== GNB: yourBuoy 로고 + Poppins ===== */
 .header__brand a, .header__title a {
   font-family: Poppins, "Pretendard Variable", sans-serif;
@@ -109,7 +123,7 @@
   font-size: 15px;
 }
 
-/* ===== 글 상단 히어로: 좌 텍스트 / 우 이미지 ===== */
+/* ===== 글 상단 히어로: 좌 텍스트 / 우 이미지 (흰 배경) ===== */
 .yb-hero {
   display: flex;
   align-items: center;
@@ -134,3 +148,47 @@
   .yb-hero { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
   .yb-hero__media { max-width: 100%; }
 }
+
+/* 히어로 안 메타(태그·날짜) 정렬 + 태그 알약 (중립 색) */
+.yb-hero .article__info {
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+.yb-hero .article__info .left-col,
+.yb-hero .article__info .right-col {
+  float: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 0;
+  padding: 0;
+}
+.yb-hero .article__info .left-col > li,
+.yb-hero .article__info .right-col > li { margin: 0; padding: 0; }
+.yb-hero .article__info .article__meta-tags { gap: 8px; }
+.yb-hero .article__info .article__meta-tags .button {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid #e5e8eb;
+  background: #f7f9fa;
+  color: #6b7684;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.yb-hero .article__info .article__meta-details {
+  color: #8b95a1;
+  font-size: 13px;
+}
+.yb-hero .article__info .article__meta-details > li:not(:last-child) {
+  padding-right: 10px;
+  margin-right: 0;
+  border-right: 1px solid #e5e8eb;
+}
+
+/* end custom scss snippet */
