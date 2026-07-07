@@ -20,6 +20,9 @@ type: article
     "author": {"@type": "Person", "name": "Bora Kang", "url": "{{ site.url }}/about/"},
     "publisher": {"@type": "Person", "name": "Bora Kang"},
     "mainEntityOfPage": "{{ site.url }}{{ page.url }}",
+    {%- assign _kw = page.tags | default: empty_arr -%}
+    {%- if page.internal_tags -%}{%- assign _kw = _kw | concat: page.internal_tags -%}{%- endif -%}
+    {%- if _kw.size > 0 -%}"keywords": {{ _kw | join: ", " | jsonify }},{%- endif -%}
     "inLanguage": "ko-KR"{% if page.hero_image %},
     "image": "{{ site.url }}{{ page.hero_image }}"{% endif %}
   }
@@ -36,17 +39,19 @@ type: article
     {%- when 'forge' -%}{%- assign _cat_label = 'Resource' -%}{%- assign _cat_url = '/forge/' -%}
     {%- else -%}{%- assign _cat_label = nil -%}
   {%- endcase -%}
-  {%- if page.tags.size > 0 -%}
-  <div class="yb-tags">
-    {%- for _tag in page.tags -%}
-    <a class="yb-tag" href="{{ '/archive.html' | relative_url }}?tag={{ _tag | url_encode }}">#{{ _tag }}</a>
-    {%- endfor -%}
-  </div>
-  {%- endif -%}
   <div class="yb-endmeta">
     <div><span>Last updated</span><b>{{ page.date | date: "%Y. %-m. %-d" }}</b></div>
     {%- if _cat_label -%}
     <div><span>Category</span><b><a href="{{ _cat_url | relative_url }}">{{ _cat_label }}</a></b></div>
+    {%- endif -%}
+    {%- if page.tags.size > 0 -%}
+    <div class="yb-endmeta__tagcol"><span>Tag</span>
+      <div class="yb-wftags">
+        {%- for _tag in page.tags -%}
+        <a class="yb-wftag" href="{{ '/archive.html' | relative_url }}?tag={{ _tag | url_encode }}">{{ _tag }}</a>
+        {%- endfor -%}
+      </div>
+    </div>
     {%- endif -%}
   </div>
 

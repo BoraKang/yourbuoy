@@ -465,3 +465,25 @@
 @media (max-width: 640px) {
   .yb-author { flex-direction: column; align-items: flex-start; gap: 14px; }
 }
+
+/* ===== Webflow식 태그 칩 (하단 메타) ===== */
+.yb-endmeta__tagcol { flex: 1; min-width: 0; }
+.yb-wftags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+.yb-wftag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 5px;
+  background: #eaf2fe;
+  color: #1a6ef5;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  line-height: 1.3;
+  text-decoration: none !important;
+}
+.yb-wftag:hover { background: #dbe9fd; color: #0f5bd6; }
