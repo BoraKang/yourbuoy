@@ -797,3 +797,16 @@
 .button--outline-primary { color: #0f7c8c !important; border-color: #9ec9d0 !important; }
 .button--outline-primary:hover { color: #0b6272 !important; border-color: #0f7c8c !important; }
 .page__aside .toc li a:hover { color: #0f7c8c; }
+
+/* 사이드바 태그: 앱스플라이어식 소형 */
+.yb-aside-tags { gap: 5px; }
+.yb-aside-tags .yb-tag {
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #e5e8eb;
+  color: #6b7684;
+}
+.yb-aside-tags .yb-tag:hover { border-color: #0f7c8c; color: #0f7c8c; }
