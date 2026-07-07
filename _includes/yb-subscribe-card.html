@@ -1,0 +1,14 @@
+<div class="yb-subcard">
+  <div class="yb-subcard__txt">
+    <b>표류 중인 당신에게 🛟</b>
+    <p>일과 마음에 대한 글이 올라오면 메일로 알려드려요. 광고 없이 글만.</p>
+  </div>
+  {%- if site.subscribe_form_action -%}
+  <form class="yb-subcard__form" action="{{ site.subscribe_form_action }}" method="post" target="_blank">
+    <input type="email" name="{{ site.subscribe_form_email_name | default: 'email' }}" placeholder="이메일 주소" required>
+    <button type="submit">구독하기</button>
+  </form>
+  {%- else -%}
+  <a class="yb-subcard__btn" href="{{ site.subscribe_url | default: '/feed.xml' | relative_url }}">구독하기</a>
+  {%- endif -%}
+</div>

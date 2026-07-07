@@ -18,6 +18,8 @@ timezone: Asia/Seoul
 
 ## Subscribe (스티비 등 구독폼 URL로 교체. 비우면 RSS로 동작)
 subscribe_url: /feed.xml
+subscribe_form_action:   # 스티비 구독폼 action URL 넣으면 이메일 입력폼으로 전환
+subscribe_form_email_name: email
 
 ## Author & Social
 author:

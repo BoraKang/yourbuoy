@@ -579,3 +579,47 @@
   }
   a:hover { background: #ff5a3c; }
 }
+
+/* ===== 본문 하단 구독 카드 (Webflow 카드 차용) ===== */
+.yb-subcard {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 40px;
+  padding: 28px 32px;
+  border-radius: 16px;
+  background: #f4f6f8;
+}
+.yb-subcard__txt { flex: 1; min-width: 0; }
+.yb-subcard__txt b { font-size: 18px; color: #191f28; display: block; letter-spacing: -0.01em; }
+.yb-subcard__txt p { font-size: 14px; color: #5c6470; margin: 6px 0 0; line-height: 1.55; word-break: keep-all; }
+.yb-subcard__form { display: flex; gap: 8px; flex-shrink: 0; }
+.yb-subcard__form input {
+  width: 220px;
+  border: 1px solid #d5dade;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  background: #fff;
+}
+.yb-subcard__form button,
+.yb-subcard__btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 11px 22px;
+  background: #191f28;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none !important;
+  flex-shrink: 0;
+}
+.yb-subcard__form button:hover, .yb-subcard__btn:hover { background: #ff5a3c; }
+@media (max-width: 640px) {
+  .yb-subcard { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .yb-subcard__form { width: 100%; }
+  .yb-subcard__form input { flex: 1; width: auto; }
+}
