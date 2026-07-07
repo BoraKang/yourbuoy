@@ -1,0 +1,42 @@
+header:
+  - titles:
+      # @start locale config
+      en      : &EN       Home
+      zh-Hans : &ZH_HANS  家
+      zh-Hant : &ZH_HANT  家
+      ko      : &KO       Home
+      ko-KR   : *KO
+      # @end locale config
+    url: /
+
+  - titles:
+      en      : &EN       Work
+      zh-Hans : &ZH_HANS  關於
+      zh-Hant : &ZH_HANT  關於
+      ko      : &KO       Work
+      ko-KR   : *KO
+    url: /work
+
+  - titles:
+      en      : &EN       Life
+      zh-Hans : &ZH_HANS  日氣
+      zh-Hant : &ZH_HANT  日氣
+      ko      : &KO       Life
+      ko-KR   : *KO
+    url: /life
+
+  - titles:
+      en      : &EN       Archive
+      zh-Hans : &ZH_HANS  归档
+      zh-Hant : &ZH_HANT  歸檔
+      ko      : &KO       Tags
+      ko-KR   : *KO
+    url: /archive
+
+  - titles:
+      en      : &EN       About
+      zh-Hans : &ZH_HANS  关于
+      zh-Hant : &ZH_HANT  關於
+      ko      : &KO       About
+      ko-KR   : *KO
+    url: /about

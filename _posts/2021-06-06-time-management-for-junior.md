@@ -1,12 +1,15 @@
 ---
+tags: 사회초년생 시간관리 GTD
+layout: article
+categories: [work]
 title: 야근노노! 사회초년생 직장인 시간관리법 101
-description: 주니어에게는 우선순위 시간관리는 잘 통하지 않는다
-date: 2021-06-06 09:00:00 +0900
-categories: [Work]
-tags: [사회초년생, 시간관리, GTD]
-image:
-  path: /assets/images/thumbnail/2021-06-06-time-management.png
-permalink: /work/time-management-for-junior/
+subtitle: 주니어에게는 우선순위 시간관리는 잘 통하지 않는다
+date: 2021-06-06 14:30:00 +09:00
+article_header:
+  background_image:
+    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
+    src: /assets/images/thumbnail/2021-06-06-time-management.png
+feature: /assets/images/thumbnail/2021-06-06-time-management.png
 ---
 
 <p style="display:none">사회초년생에게는 늘 일은 많고 시간이 부족하다. 여유는 커녕 업무에 허덕대다가 야근 포함 모든 가용시간을 끌어쓴 뒤에야 데드라인 직전에 겨우 업무를 마치기 일 수다. 시중의 시간관리 책을 여러권 봤지만 주니어가 업무에 적용하기에는 잘 맞지 않고... 짬이 차고 탈탈 털리면서 익힌 사회초년생을 위한 생존형 시간관리 방법을 소개한다.</p>
@@ -112,7 +115,7 @@ permalink: /work/time-management-for-junior/
 
 GTD에 대해 더 알고 싶은 분들을 위해 내가 큰 도움을 받았던 정진호님의 강의 슬라이드를 아래 첨부하니, 상세한 내용이 더 궁금하신 분은 살펴보시면 되겠다.
 
-<iframe src="https://www.slideshare.net/slideshow/embed_code/key/LnlMdHQhCYHfkb" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/phploveme/gtd-how-to-start-gtd" title="직장인을 위한 GTD 시작하기 (How To Start GTD)" target="_blank">직장인을 위한 GTD 시작하기 (How To Start GTD)</a> </strong> from <strong><a href="https://www.slideshare.net/phploveme" target="_blank">Jinho Jung</a></strong> </div>
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/LnlMdHQhCYHfkb" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/phploveme/gtd-how-to-start-gtd" title="직장인을 위한 GTD 시작하기 (How To Start GTD)" target="_blank">직장인을 위한 GTD 시작하기 (How To Start GTD)</a> </strong> from <strong><a href="https://www.slideshare.net/phploveme" target="_blank">Jinho Jung</a></strong> </div>
 
 ### 2. 나만의 업무 슬롯 짜기: 15분
 

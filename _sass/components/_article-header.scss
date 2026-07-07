@@ -1,0 +1,51 @@
+.article__header {
+  margin-top: map-get($spacers, 5);
+  margin-bottom: map-get($spacers, 4);
+  @include media-breakpoint-down(md) {
+    margin-top: map-get($spacers, 4);
+  }
+  header, h1 {
+    display: inline;
+  }
+  h1 {
+    word-wrap: break-word;
+  }
+  .split-space {
+    @include user-select(none);
+  }
+  .edit-on-github {
+    text-decoration: none !important;
+  }
+}
+
+.article__header--overlay {
+  .overlay {
+    min-height: 18rem;
+    padding-top: map-get($spacers, 4) * 1;
+    padding-bottom: map-get($spacers, 4) * 1;
+    @include media-breakpoint-down(md) {
+      min-height: 12rem;
+      padding-top: map-get($spacers, 4);
+      padding-bottom: map-get($spacers, 4);
+    }
+  }
+  .overlay__excerpt {
+    font-size: map-get($base, font-size-h3-sm);
+    @include media-breakpoint-down(lg) {
+      font-size: map-get($base, font-size-h3-sm);
+    }
+    @include media-breakpoint-down(md) {
+      font-size: map-get($base, font-size-h3-xs);
+    }
+    font-weight: map-get($base, font-weight);
+  }
+
+  .article__header {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.article__header--cover {
+  width: 100%;
+}

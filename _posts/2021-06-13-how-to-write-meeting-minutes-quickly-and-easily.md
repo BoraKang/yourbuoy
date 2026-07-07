@@ -1,12 +1,15 @@
 ---
+tags: 사회초년생 시간관리 메모작성 
+layout: article
+categories: [work]
 title: 회의록과 노트/메모를 빨리, 쉽게, 잘 기억나게 작성하는 법
-description: 있는 내용 정리를 잘해야 없는 내용도 잘 만들죠
-date: 2021-06-13 09:00:00 +0900
-categories: [Work]
-tags: [사회초년생, 시간관리, 메모작성]
-image:
-  path: /assets/images/thumbnail/2021-06-13-note-taking-effectively.png
-permalink: /work/how-to-write-meeting-minutes-quickly-and-easily/
+subtitle: 있는 내용 정리를 잘해야 없는 내용도 잘 만들죠
+date: 2021-06-15 14:30:00 +09:00
+article_header:
+  background_image:
+    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
+    src: /assets/images/thumbnail/2021-06-13-note-taking-effectively.png
+feature: /assets/images/thumbnail/2021-06-13-note-taking-effectively.png
 ---
 
 <p style="display:none"> 회의록과 노트작성/메모가 정말 중요할까? 학교도 아니고 메모/필기를 굳이 지금와서 잘할 필요 있어? 있는 그대로 작성하면 되지 않나? 생각하기 쉽다. 맞는 말이다. 하지만 회사에서의 노트/메모는 학교 시험기간 공부잘하는 애들의 필기 이상의 가치가 있다. </p>
@@ -87,11 +90,11 @@ permalink: /work/how-to-write-meeting-minutes-quickly-and-easily/
 
 ![노트작성 프레임워크](/assets/images/posting/210613/notetaking-framework.png)
 
-나에게 맞는 포맷을 찾고 익숙해지기 전까지는 이 프레임을 프린트해 두고 보면서 노트/메모를 작성하거나, 아이패드 원노트/굿노트 배경에 깔아두고 사용하면 편하다. 상기 각 노트법 및 타 노트법에 대해서도 알고 싶다면, 책 [메모하는 순간 머릿속에 기억되는 모눈노트 공부법](https://www.yes24.com/Product/Goods/23660708)이라는 책을 참조해보자. 작고 빨리 읽을 수 있고 알차다! 
+나에게 맞는 포맷을 찾고 익숙해지기 전까지는 이 프레임을 프린트해 두고 보면서 노트/메모를 작성하거나, 아이패드 원노트/굿노트 배경에 깔아두고 사용하면 편하다. 상기 각 노트법 및 타 노트법에 대해서도 알고 싶다면, 책 [메모하는 순간 머릿속에 기억되는 모눈노트 공부법](http://www.yes24.com/Product/Goods/23660708)이라는 책을 참조해보자. 작고 빨리 읽을 수 있고 알차다! 
 
 ### 3. 기타 노트/메모 작성법: 개인노트, 체계적인 비교 
 
-배우지 않고도 이미 사용하고 있을 메모 작성법이다. 박싱이나 마인드맵은 브레인스토밍 등 개인 노트에, 표는 항목이 많아 한 눈에 체계적인 비교가 필요한 경우 활용하면 좋다. 마인드맵은 [컨셉드로우](https://www.conceptdraw.com) 나 [마인드마이스터](https://www.mindmeister.com/ko), 표는 엑셀과 스프레드시트 등 시중에 좋은 툴이 많이 나와있으니 적극 활용해보자.
+배우지 않고도 이미 사용하고 있을 메모 작성법이다. 박싱이나 마인드맵은 브레인스토밍 등 개인 노트에, 표는 항목이 많아 한 눈에 체계적인 비교가 필요한 경우 활용하면 좋다. 마인드맵은 [컨셉드로우](conceptdraw.com) 나 [마인드마이스터](https://www.mindmeister.com/ko), 표는 엑셀과 스프레드시트 등 시중에 좋은 툴이 많이 나와있으니 적극 활용해보자.
 
 솔직히 나는 마인드맵은 잘 사용하지 않는 편이다. 생각이 많은 편이라  마인드맵을 쓰면 생각이 미친듯이 가치를 치기 시작해 정리가 안되기도 하고, 마인드맵이 구현해주는 결과물의 형태가 나에게 익숙하지 않아서 그렇다. 
 
