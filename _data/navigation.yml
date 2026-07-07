@@ -18,6 +18,12 @@ header:
     url: /life
 
   - titles:
+      en      : AI
+      ko      : AI
+      ko-KR   : AI
+    url: /ai
+
+  - titles:
       en      : Resource
       ko      : Resource
       ko-KR   : Resource
