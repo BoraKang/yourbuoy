@@ -215,9 +215,6 @@ layout: base
                       {%- if page.subtitle -%}
                         <p class="article__subtitle">{{ page.subtitle }}</p>
                       {%- endif -%}
-                      {%- if page.layout == 'article' -%}
-                      <div class="yb-meta">{{ page.date | date: "%Y. %-m. %-d" }}</div>
-                      {%- endif -%}
                     </div>
                     {%- if page.hero_image -%}
                     <div class="yb-hero__media"><img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}"></div>
