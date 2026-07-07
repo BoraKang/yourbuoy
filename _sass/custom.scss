@@ -267,3 +267,25 @@
 @media (min-width: 1024px) {
   .col-main { padding-right: 48px; }
 }
+
+/* ===== 글 하단 메타 (Webflow식) ===== */
+.yb-endmeta {
+  display: flex;
+  gap: 56px;
+  margin-top: 28px;
+  padding: 24px 0 8px;
+  border-top: 1px solid #e9edf1;
+}
+.yb-endmeta span {
+  display: block;
+  font-size: 12.5px;
+  color: #8b95a1;
+  margin-bottom: 4px;
+}
+.yb-endmeta b {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #37414b;
+}
+.yb-endmeta b a { color: #37414b; }
+.yb-endmeta b a:hover { color: #ff5a3c; }
