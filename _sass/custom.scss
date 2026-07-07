@@ -143,10 +143,11 @@
   bottom: 0;
   left: calc(50% - 50vw);
   right: calc(50% - 50vw);
-  background: linear-gradient(to top,
-    rgba(178, 224, 230, 0.5) 0%,
-    rgba(198, 233, 236, 0.22) 40%,
-    rgba(255, 255, 255, 0) 75%);
+  background:
+    radial-gradient(42% 65% at 10% 100%, rgba(147, 197, 253, 0.30), transparent 72%),
+    radial-gradient(36% 58% at 36% 100%, rgba(196, 181, 253, 0.22), transparent 72%),
+    radial-gradient(36% 58% at 64% 100%, rgba(167, 243, 208, 0.20), transparent 72%),
+    radial-gradient(42% 65% at 90% 100%, rgba(165, 216, 252, 0.28), transparent 72%);
   pointer-events: none;
   z-index: 0;
 }
