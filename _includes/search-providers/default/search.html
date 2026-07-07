@@ -12,7 +12,29 @@
       <button class="button button--theme-dark button--pill search__cancel js-search-toggle">
         {{ _locale_cancel }}</button>
     </div>
+    <div class="yb-search-tags js-yb-search-tags">
+      <div class="yb-search-tags__label">태그로 둘러보기</div>
+      {%- capture _tags_and_counts -%}
+        {%- for _tag in site.tags -%}{{ _tag[1] | size | plus: 10000 }}#{{ _tag[0] }},{%- endfor -%}
+      {%- endcapture -%}
+      {%- assign _sorted = _tags_and_counts | split: ',' | sort | reverse -%}
+      {%- for _pair in _sorted -%}
+        {%- assign _parts = _pair | split: '#' -%}
+        {%- assign _count = _parts[0] | to_integer | minus: 10000 -%}
+        {%- if _parts[1] -%}
+        <a class="yb-search-tag" href="{{ '/archive/' | relative_url }}?tag={{ _parts[1] | url_encode }}">{{ _parts[1] }} <span>{{ _count }}</span></a>
+        {%- endif -%}
+      {%- endfor -%}
+      <a class="yb-search-tags__all" href="{{ '/archive/' | relative_url }}">전체 아카이브 →</a>
+    </div>
     <div class="search-result js-search-result"></div>
   </div>
 </div>
 <script>{%- include search-providers/default/search.js -%}</script>
+<script>
+  document.addEventListener('input', function (e) {
+    if (!e.target || !e.target.closest || !e.target.closest('.search-box')) return;
+    var t = document.querySelector('.js-yb-search-tags');
+    if (t) t.style.display = e.target.value ? 'none' : '';
+  });
+</script>

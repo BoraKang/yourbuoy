@@ -487,3 +487,36 @@
   text-decoration: none !important;
 }
 .yb-wftag:hover { background: #dbe9fd; color: #0f5bd6; }
+
+/* ===== 검색 모달 태그 클라우드 ===== */
+.yb-search-tags {
+  margin-top: 28px;
+}
+.yb-search-tags__label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 14px;
+  text-transform: uppercase;
+}
+.yb-search-tag {
+  display: inline-block;
+  margin: 0 8px 10px 0;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.25);
+  color: rgba(255,255,255,.85);
+  font-size: 13.5px;
+  text-decoration: none !important;
+  span { color: rgba(255,255,255,.45); font-size: 12px; margin-left: 2px; }
+}
+.yb-search-tag:hover { border-color: #ff5a3c; color: #fff; }
+.yb-search-tags__all {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 13.5px;
+  color: rgba(255,255,255,.6);
+  text-decoration: none !important;
+}
+.yb-search-tags__all:hover { color: #fff; }
