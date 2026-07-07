@@ -10,7 +10,7 @@
   {%- if _all_tags.size > 0 -%}
   <div class="yb-cathead__tags">
     {%- for _tag in _all_tags limit: 8 -%}
-    <a class="yb-tag" href="{{ '/archive.html' | relative_url }}?tag={{ _tag | url_encode }}">#{{ _tag }}</a>
+    <a class="yb-tag" href="{{ '/archive/' | relative_url }}?tag={{ _tag | url_encode }}">#{{ _tag }}</a>
     {%- endfor -%}
   </div>
   {%- endif -%}

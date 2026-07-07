@@ -48,7 +48,7 @@ type: article
     <div class="yb-endmeta__tagcol"><span>Tag</span>
       <div class="yb-wftags">
         {%- for _tag in page.tags -%}
-        <a class="yb-wftag" href="{{ '/archive.html' | relative_url }}?tag={{ _tag | url_encode }}">{{ _tag }}</a>
+        <a class="yb-wftag" href="{{ '/archive/' | relative_url }}?tag={{ _tag | url_encode }}">{{ _tag }}</a>
         {%- endfor -%}
       </div>
     </div>
