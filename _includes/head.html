@@ -39,7 +39,8 @@
 
 
 <!-- CSS & fonts -->
-{%- include snippets/prepend-baseurl.html path='/assets/css/main.css?v={{ site.time | date: "%s" }}' -%}
+{%- capture _css_path -%}/assets/css/main.css?v={{ site.time | date: '%s' }}{%- endcapture -%}
+{%- include snippets/prepend-baseurl.html path=_css_path -%}
 <link rel="stylesheet" href="{{ __return }}">
 
 {%- include snippets/get-sources.html -%}
