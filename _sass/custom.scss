@@ -156,10 +156,10 @@
   left: calc(50% - 50vw);
   right: calc(50% - 50vw);
   background:
-    radial-gradient(42% 65% at 10% 100%, var(--yb-g1, rgba(147, 197, 253, 0.30)), transparent 72%),
-    radial-gradient(36% 58% at 36% 100%, var(--yb-g2, rgba(196, 181, 253, 0.22)), transparent 72%),
-    radial-gradient(36% 58% at 64% 100%, var(--yb-g3, rgba(167, 243, 208, 0.20)), transparent 72%),
-    radial-gradient(42% 65% at 90% 100%, var(--yb-g4, rgba(165, 216, 252, 0.28)), transparent 72%);
+    radial-gradient(42% 65% at 10% 100%, rgba(56, 189, 248, 0.18), transparent 72%),
+    radial-gradient(36% 58% at 38% 100%, rgba(45, 212, 191, 0.14), transparent 72%),
+    radial-gradient(34% 55% at 64% 100%, rgba(253, 224, 178, 0.13), transparent 72%),
+    radial-gradient(42% 65% at 90% 100%, rgba(96, 165, 250, 0.16), transparent 72%);
   pointer-events: none;
   z-index: 0;
 }
@@ -490,15 +490,15 @@
   display: inline-block;
   padding: 4px 10px;
   border-radius: 5px;
-  background: #eaf2fe;
-  color: #1a6ef5;
+  background: #e7f3f5;
+  color: #0f7c8c;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: .02em;
   line-height: 1.3;
   text-decoration: none !important;
 }
-.yb-wftag:hover { background: #dbe9fd; color: #0f5bd6; }
+.yb-wftag:hover { background: #d8ecef; color: #0b6272; }
 
 /* ===== 검색 모달 태그 클라우드 ===== */
 .yb-search-tags {
@@ -614,7 +614,7 @@
   margin-top: 40px;
   padding: 28px 32px;
   border-radius: 10px;
-  background: #f4f6f8;
+  background: #f8f4ec;
 }
 .yb-subcard__txt { flex: 1; min-width: 0; }
 .yb-subcard__txt b { font-size: 18px; color: #191f28; display: block; letter-spacing: -0.01em; }
@@ -686,8 +686,8 @@
   display: inline-block;
   padding: 4px 10px;
   border-radius: 5px;
-  background: #eaf2fe;
-  color: #1a6ef5;
+  background: #e7f3f5;
+  color: #0f7c8c;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .02em;
@@ -756,28 +756,6 @@
 }
 
 
-/* ===== 카테고리별 히어로 그라데이션 (같은 패턴, 색만 변주) ===== */
-.yb-hero--work {
-  --yb-g1: rgba(37, 99, 235, 0.22); --yb-g2: rgba(96, 165, 250, 0.18);
-  --yb-g3: rgba(125, 211, 252, 0.20); --yb-g4: rgba(59, 130, 246, 0.24);
-}
-.yb-hero--mind {
-  --yb-g1: rgba(13, 148, 136, 0.20); --yb-g2: rgba(45, 212, 191, 0.16);
-  --yb-g3: rgba(110, 231, 183, 0.18); --yb-g4: rgba(20, 184, 166, 0.22);
-}
-.yb-hero--life {
-  --yb-g1: rgba(245, 158, 66, 0.20); --yb-g2: rgba(253, 213, 155, 0.22);
-  --yb-g3: rgba(255, 226, 183, 0.20); --yb-g4: rgba(244, 178, 96, 0.20);
-}
-.yb-hero--ai {
-  --yb-g1: rgba(124, 58, 237, 0.18); --yb-g2: rgba(167, 139, 250, 0.20);
-  --yb-g3: rgba(196, 181, 253, 0.18); --yb-g4: rgba(139, 92, 246, 0.22);
-}
-.yb-hero--forge {
-  --yb-g1: rgba(234, 88, 12, 0.18); --yb-g2: rgba(251, 146, 60, 0.18);
-  --yb-g3: rgba(253, 186, 116, 0.18); --yb-g4: rgba(255, 90, 60, 0.20);
-}
-
 /* ===== 사이드바: 태그 + 공유 (AppsFlyer식) ===== */
 .yb-aside-tags {
   margin-top: 16px;
@@ -806,3 +784,16 @@
 }
 .yb-share-btn:hover { background: #ff5a3c; }
 .yb-share-btn.ok { background: #12b3a0; }
+
+
+/* ===== 바다 팔레트: 테마 레드 포인트 교체 ===== */
+.article__content a { color: #0f7c8c; }
+.article__content a:hover { color: #ff5a3c; }
+.button--primary {
+  background-color: #0f7c8c !important;
+  border-color: #0f7c8c !important;
+}
+.button--primary:hover { background-color: #0b6272 !important; border-color: #0b6272 !important; }
+.button--outline-primary { color: #0f7c8c !important; border-color: #9ec9d0 !important; }
+.button--outline-primary:hover { color: #0b6272 !important; border-color: #0f7c8c !important; }
+.page__aside .toc li a:hover { color: #0f7c8c; }
