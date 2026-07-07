@@ -183,30 +183,7 @@ layout: base
         {%- if _full_width == false -%}
           <div class ="main">
         {%- endif -%}
-            <div class="grid grid--reverse">
-
-              <div class="col-aside d-print-none js-col-aside">
-                {%- if page.aside -%}
-                  <aside class="page__aside js-page-aside">
-                    {%- include aside/toc.html -%}
-                  </aside>
-                {%- endif -%}
-              </div>
-
-              <div class="col-main cell cell--auto">
-                {%- include main/top/custom.html -%}
-                {%- if _page_type == 'article' -%}
-                  <article itemscope itemtype="http://schema.org/Article">
-                {%- elsif _page_type == 'webpage' -%}
-                  <article itemscope itemtype="http://schema.org/WebPage">
-                {%- else -%}
-                  <article>
-                {%- endif -%}
-
-                {%- if _article_header_type == 'overlay' or page.article_header == false -%}
-                  {%- include article-header.html article=page html=false -%}
-                  {%- include article-info.html article=page html=false -%}
-                {%- else -%}
+            {%- unless _article_header_type == 'overlay' or page.article_header == false -%}
                   <div class="yb-hero">
                     <div class="yb-hero__text">
                       {%- if page.layout == 'article' and page.categories.size > 0 -%}
@@ -232,7 +209,29 @@ layout: base
                     <div class="yb-hero__media"><img src="{{ page.hero_image | relative_url }}" alt="{{ page.title }}"></div>
                     {%- endif -%}
                   </div>
+            {%- endunless -%}
+            <div class="grid grid--reverse">
+
+              <div class="col-aside d-print-none js-col-aside">
+                {%- if page.aside -%}
+                  <aside class="page__aside js-page-aside">
+                    {%- include aside/toc.html -%}
+                  </aside>
                 {%- endif -%}
+              </div>
+
+              <div class="col-main cell cell--auto">
+                {%- include main/top/custom.html -%}
+                {%- if _page_type == 'article' -%}
+                  <article itemscope itemtype="http://schema.org/Article">
+                {%- elsif _page_type == 'webpage' -%}
+                  <article itemscope itemtype="http://schema.org/WebPage">
+                {%- else -%}
+                  <article>
+                {%- endif -%}
+
+                {%- include article-header.html article=page html=false -%}
+                {%- include article-info.html article=page html=false -%}
 
                     <div class="js-article-content">
                       {{ content }}</div>
