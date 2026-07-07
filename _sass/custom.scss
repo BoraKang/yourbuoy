@@ -249,3 +249,12 @@
   left: auto !important;
   padding-top: 4px;
 }
+
+/* ===== 목차 카드 (Webflow식 테두리 박스) ===== */
+.page__aside .toc-aside {
+  border: 1px solid #e9edf1;
+  border-radius: 12px;
+  padding: 16px 18px 12px;
+  background: #fff;
+}
+.page__aside .toc-aside::before { margin-top: 0; }
