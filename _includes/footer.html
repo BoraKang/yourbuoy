@@ -24,6 +24,12 @@
     </div>
     {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}
     {%- assign _locale_copyright_dates = __return -%}
+    <div class="yb-footer-links">
+      <a href="{{ '/archive/' | relative_url }}">Archive</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+      <a href="{{ site.subscribe_url | default: '/feed.xml' | relative_url }}">구독하기</a>
+    </div>
     <div class="site-info mt-2">
       <div>
         {%- include snippets/get-locale-string.html key='COPYRIGHT_DATES' -%}

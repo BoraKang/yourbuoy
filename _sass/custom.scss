@@ -520,3 +520,62 @@
   text-decoration: none !important;
 }
 .yb-search-tags__all:hover { color: #fff; }
+
+/* ===== GNB 우측 유틸리티 그룹 ===== */
+.navigation { display: flex; align-items: center; }
+.navigation > ul { flex: 1; }
+.yb-nav-utils {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.yb-nav-utils .navigation__item a { color: inherit; }
+.yb-subscribe-btn {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: #191f28;
+  color: #fff !important;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none !important;
+  line-height: 1.3;
+}
+.yb-subscribe-btn:hover { background: #ff5a3c; }
+
+/* ===== 푸터 링크 ===== */
+.yb-footer-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  font-size: 13.5px;
+  a { color: #8b95a1; text-decoration: none !important; }
+  a:hover { color: #191f28; }
+}
+
+/* ===== 목차 아래 구독 카드 ===== */
+.yb-aside-sub {
+  margin-top: 16px;
+  border: 1px solid #e9edf1;
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: #fbfcfd;
+  b { font-size: 14px; color: #191f28; display: block; }
+  p { font-size: 12.5px; color: #8b95a1; margin: 6px 0 12px; line-height: 1.5; word-break: keep-all; }
+  a {
+    display: block;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    background: #191f28;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+  }
+  a:hover { background: #ff5a3c; }
+}

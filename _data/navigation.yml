@@ -23,8 +23,3 @@ header:
       ko-KR   : Resource
     url: /forge
 
-  - titles:
-      en      : About
-      ko      : About
-      ko-KR   : About
-    url: /about

@@ -16,6 +16,9 @@ lang: ko
 timezone: Asia/Seoul
 
 
+## Subscribe (스티비 등 구독폼 URL로 교체. 비우면 RSS로 동작)
+subscribe_url: /feed.xml
+
 ## Author & Social
 author:
   type      : person
