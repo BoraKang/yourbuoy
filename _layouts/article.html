@@ -13,6 +13,28 @@ type: article
 
   <div class="article__content" itemprop="articleBody">{{ content }}</div>
 
+  {%- assign _cat = page.categories[0] -%}
+  {%- case _cat -%}
+    {%- when 'work' -%}{%- assign _cat_label = 'Work' -%}{%- assign _cat_url = '/work/' -%}
+    {%- when 'mind' -%}{%- assign _cat_label = 'Mental' -%}{%- assign _cat_url = '/mind/' -%}
+    {%- when 'life' -%}{%- assign _cat_label = 'Life' -%}{%- assign _cat_url = '/life/' -%}
+    {%- when 'forge' -%}{%- assign _cat_label = 'Resource' -%}{%- assign _cat_url = '/forge/' -%}
+    {%- else -%}{%- assign _cat_label = nil -%}
+  {%- endcase -%}
+  {%- if page.tags.size > 0 -%}
+  <div class="yb-tags">
+    {%- for _tag in page.tags -%}
+    <a class="yb-tag" href="{{ '/archive.html' | relative_url }}?tag={{ _tag | url_encode }}">#{{ _tag }}</a>
+    {%- endfor -%}
+  </div>
+  {%- endif -%}
+  <div class="yb-endmeta">
+    <div><span>Last updated</span><b>{{ page.date | date: "%Y. %-m. %-d" }}</b></div>
+    {%- if _cat_label -%}
+    <div><span>Category</span><b><a href="{{ _cat_url | relative_url }}">{{ _cat_label }}</a></b></div>
+    {%- endif -%}
+  </div>
+
   {%- if _sharing -%}
     <section class="article__sharing d-print-none">{%- include sharing.html -%}</section>
   {%- endif -%}

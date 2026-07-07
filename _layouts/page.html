@@ -246,21 +246,6 @@ layout: base
 
                     <div class="js-article-content">
                       {{ content }}</div>
-                    {%- if page.layout == 'article' and page.tags.size > 0 -%}
-                    <div class="yb-tags">
-                      {%- for _tag in page.tags -%}
-                      <a class="yb-tag" href="{{ '/archive.html' | relative_url }}?tag={{ _tag | url_encode }}">#{{ _tag }}</a>
-                      {%- endfor -%}
-                    </div>
-                    {%- endif -%}
-                    {%- if page.layout == 'article' -%}
-                    <div class="yb-endmeta">
-                      <div><span>Last updated</span><b>{{ page.date | date: "%Y. %-m. %-d" }}</b></div>
-                      {%- if _cat_label -%}
-                      <div><span>Category</span><b><a href="{{ _cat_url | relative_url }}">{{ _cat_label }}</a></b></div>
-                      {%- endif -%}
-                    </div>
-                    {%- endif -%}
                     {%- if _comment != false -%}
                       <section class="page__comments d-print-none">{%- include comments.html -%}</section>
                     {%- endif -%}
