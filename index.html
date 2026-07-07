@@ -42,7 +42,7 @@ show_title: false
     {%- assign _count = 0 -%}
     {%- for _post in site.posts -%}
       {%- if _post.url == _featured.url -%}{%- continue -%}{%- endif -%}
-      {%- if _count >= 3 -%}{%- break -%}{%- endif -%}
+      {%- if _count >= 6 -%}{%- break -%}{%- endif -%}
       {%- assign _count = _count | plus: 1 -%}
       {%- assign _pc = _post.categories[0] -%}
       {%- case _pc -%}
