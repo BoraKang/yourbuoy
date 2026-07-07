@@ -24,6 +24,12 @@ header:
     url: /forge
 
   - titles:
+      en      : Archive
+      ko      : Archive
+      ko-KR   : Archive
+    url: /archive/
+
+  - titles:
       en      : About
       ko      : About
       ko-KR   : About
