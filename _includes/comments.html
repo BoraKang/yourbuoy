@@ -1,5 +1,7 @@
 {%- if jekyll.environment != 'development' -%}
-  {%- if site.comments.provider == 'giscus' -%}
+  {%- if site.comments.provider == 'cusdis' -%}
+    {%- include comments-providers/cusdis.html -%}
+  {%- elsif site.comments.provider == 'giscus' -%}
     {%- include comments-providers/giscus.html -%}
   {%- elsif site.comments.provider == 'disqus' -%}
     {%- include comments-providers/disqus.html -%}

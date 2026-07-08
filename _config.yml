@@ -100,7 +100,11 @@ sharing:
 ## Comments - 댓글시스템 공급
 ##############################
 comments:
-  provider: "giscus" # "disqus", "gitalk", "valine", "custom"
+  provider: "cusdis" # "giscus", "disqus", "gitalk", "valine", "custom"
+
+  ## Cusdis (익명 댓글 가능)
+  cusdis:
+    app_id:   # cusdis.com 가입 후 App ID 붙여넣기 (비어 있으면 댓글창 미표시)
 
   ## giscus (GitHub Discussions)
   giscus:
