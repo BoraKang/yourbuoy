@@ -851,3 +851,27 @@
   color: #191f28;
   letter-spacing: -0.01em;
 }
+
+/* ===== 아카이브 검색 입력 ===== */
+.yb-archive-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 24px;
+  padding: 12px 16px;
+  border: 1px solid #e5e8eb;
+  border-radius: 8px;
+  background: #fff;
+  i { color: #8b95a1; font-size: 14px; }
+  input {
+    flex: 1;
+    border: 0;
+    outline: none;
+    font-size: 15px;
+    font-family: inherit;
+    color: #191f28;
+    background: transparent;
+  }
+  input::placeholder { color: #b0b8c1; }
+}
+.yb-archive-search:focus-within { border-color: #0f7c8c; }

@@ -15,9 +15,7 @@
             <a title="{%- if site.description -%}{{ site.description }}{%- endif -%}" href="{{ __return }}">{{ site.title }}</a>
           {%- endif -%}
         </div>
-        {%- if site.search.provider -%}
-          <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
-        {%- endif -%}
+          <a class="button button--secondary button--circle search-button" href="{{ '/archive/' | relative_url }}" title="검색·태그"><i class="fas fa-search"></i></a>
       </div>
       {%- if site.data.navigation.header -%}
       <nav class="navigation">
@@ -37,10 +35,7 @@
         </ul>
         <ul class="yb-nav-utils">
           <li class="navigation__item"><a href="{{ '/about/' | relative_url }}">About</a></li>
-          {%- if site.search.provider -%}
-            <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
-          {%- endif -%}
-          <li><a class="yb-subscribe-btn" href="{{ site.subscribe_url | default: '/feed.xml' | relative_url }}">구독하기</a></li>
+          <li><a class="button button--secondary button--circle search-button" href="{{ '/archive/' | relative_url }}" title="검색·태그"><i class="fas fa-search"></i></a></li>
         </ul>
       </nav>
       {%- endif -%}
