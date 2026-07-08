@@ -104,7 +104,7 @@ comments:
 
   ## Cusdis (익명 댓글 가능)
   cusdis:
-    app_id:   # cusdis.com 가입 후 App ID 붙여넣기 (비어 있으면 댓글창 미표시)
+    app_id: 80dd5513-cde4-440a-80cf-d0de74e337e2
 
   ## giscus (GitHub Discussions)
   giscus:
