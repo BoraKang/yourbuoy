@@ -16,9 +16,9 @@
       {%- endfor -%}
     </div>
     {%- endif -%}
-    <div class="yb-cathead__stats">{{ _posts | size }}개의 글</div>
   </div>
 </div>
+<div class="yb-list__count">{{ _posts | size }}개의 글</div>
 <div class="yb-list">
   {%- for _post in _posts -%}
   <article class="yb-item">
