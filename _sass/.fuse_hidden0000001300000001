@@ -877,7 +877,7 @@
   color: #5c6470;
   text-decoration: none !important;
   svg { width: 15px; height: 15px; stroke: currentColor; transition: transform .2s ease; }
-  &:hover { color: #ff5a3c; }
+  &:hover { color: #0f7c8c; }
   &:hover svg { transform: translateX(3px); }
 }
 @media (max-width: 900px) {

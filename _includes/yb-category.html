@@ -1,19 +1,23 @@
 {%- assign _posts = site.categories[include.cat] -%}
 <div class="yb-cathead">
-  {%- if include.emoji -%}<div class="yb-cathead__icon">{{ include.emoji }}</div>{%- endif -%}
-  <h1 class="yb-cathead__title">{{ include.title }}</h1>
-  <p class="yb-cathead__desc">{{ include.desc }}</p>
-  <div class="yb-cathead__stats">{{ _posts | size }}개의 글</div>
   {%- assign _all_tags = "" | split: "" -%}
   {%- for _p in _posts -%}{%- assign _all_tags = _all_tags | concat: _p.tags -%}{%- endfor -%}
   {%- assign _all_tags = _all_tags | uniq -%}
-  {%- if _all_tags.size > 0 -%}
-  <div class="yb-cathead__tags">
-    {%- for _tag in _all_tags limit: 8 -%}
-    <a class="yb-tag" href="{{ '/archive/' | relative_url }}?tag={{ _tag | url_encode }}">#{{ _tag }}</a>
-    {%- endfor -%}
+  <div class="yb-cathead__grid">
+    <div class="yb-cathead__head">
+      {%- if include.emoji -%}<div class="yb-cathead__icon">{{ include.emoji }}</div>{%- endif -%}
+      <h1 class="yb-cathead__title">{{ include.title }}</h1>
+    </div>
+    <p class="yb-cathead__desc">{{ include.desc }}</p>
+    {%- if _all_tags.size > 0 -%}
+    <div class="yb-cathead__tags">
+      {%- for _tag in _all_tags limit: 8 -%}
+      <a class="yb-tag" href="{{ '/archive/' | relative_url }}?tag={{ _tag | url_encode }}">{{ _tag }}</a>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+    <div class="yb-cathead__stats">{{ _posts | size }}개의 글</div>
   </div>
-  {%- endif -%}
 </div>
 <div class="yb-list">
   {%- for _post in _posts -%}
