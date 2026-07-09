@@ -26,7 +26,7 @@
       <p class="yb-item__excerpt">{{ _ex | truncate: 150 }}</p>
       {%- endif -%}
       {%- assign _mins = _post.content | strip_html | size | plus: 599 | divided_by: 600 -%}
-      <div class="yb-item__meta">{{ _post.date | date: "%Y. %-m. %-d" }} · {{ _mins }}분 읽기</div>
+      {%- include yb-meta.html date=_post.date mins=_mins class="yb-item__meta" -%}
     </div>
     {%- if _post.hero_image -%}
     <a class="yb-item__thumb" href="{{ _post.url | relative_url }}"><img src="{{ _post.hero_image | relative_url }}" alt="{{ _post.title }}" loading="lazy"></a>

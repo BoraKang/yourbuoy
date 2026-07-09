@@ -1,0 +1,33 @@
+{%- comment -%}
+  정적 댓글 (구 Disqus 이전). 데이터: _data/comments.yml (키 = 글 slug)
+  키가 파일명과 다르면 글 front matter에 comments_key: <키>
+{%- endcomment -%}
+{%- assign key = page.comments_key | default: page.slug -%}
+{%- assign thread = site.data.comments[key] -%}
+{%- if thread -%}
+<section class="yb-comments" aria-label="댓글">
+  <h2 class="yb-comments__title">댓글 {{ thread.size }}</h2>
+  {%- for c in thread -%}
+  <div class="yb-c{% if c.author %} yb-c--author{% endif %}">
+    <div class="yb-c__head">
+      <span class="yb-c__name">{{ c.name }}{% if c.author %} <span class="yb-c__badge">글쓴이</span>{% endif %}</span>
+      <span class="yb-c__date">{{ c.date }}</span>
+    </div>
+    <div class="yb-c__body">{{ c.message | markdownify }}</div>
+    {%- if c.replies -%}
+    <div class="yb-c__replies">
+      {%- for r in c.replies -%}
+      <div class="yb-c{% if r.author %} yb-c--author{% endif %}">
+        <div class="yb-c__head">
+          <span class="yb-c__name">{{ r.name }}{% if r.author %} <span class="yb-c__badge">글쓴이</span>{% endif %}</span>
+          <span class="yb-c__date">{{ r.date }}</span>
+        </div>
+        <div class="yb-c__body">{{ r.message | markdownify }}</div>
+      </div>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+  </div>
+  {%- endfor -%}
+</section>
+{%- endif -%}

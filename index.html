@@ -11,7 +11,7 @@ show_title: false
 <div class="yb-home">
 
   <section class="yb-home-hero">
-    <h1>your<em>Buoy</em> Blog</h1>
+    <h1>your<em>Buoy</em></h1>
     <p>일과 마음에서 건진 것들. 직장에서 표류 중인 당신을 위한 부표 🛟</p>
   </section>
 
@@ -32,12 +32,24 @@ show_title: false
       <h2>{{ _featured.title }}</h2>
       {%- if _featured.subtitle -%}<p>{{ _featured.subtitle }}</p>{%- endif -%}
       {%- assign _mins = _featured.content | strip_html | size | plus: 599 | divided_by: 600 -%}
-      <div class="yb-feat__meta">{{ _featured.date | date: "%Y. %-m. %-d" }} · {{ _mins }}분 읽기</div>
+      <div class="yb-feat__foot">
+        {%- include yb-meta.html date=_featured.date mins=_mins class="yb-feat__meta" -%}
+        <span class="yb-feat__cta" aria-hidden="true">Read
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </div>
     </div>
     {%- if _featured.hero_image -%}
     <div class="yb-feat__thumb"><img src="{{ _featured.hero_image | relative_url }}" alt="{{ _featured.title }}"></div>
     {%- endif -%}
   </a>
+
+  <div class="yb-home-sec">
+    <h2 class="yb-home-sec__title">최신 글</h2>
+    <a class="yb-home-sec__more" href="{{ '/archive/' | relative_url }}">전체 보기
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
 
   <div class="yb-home-grid">
     {%- assign _count = 0 -%}
@@ -62,13 +74,11 @@ show_title: false
           <div class="yb-chips"><span class="yb-chip">{{ _pl }}</span>{%- if _post.tags.first -%}<span class="yb-chip yb-chip--soft">{{ _post.tags.first }}</span>{%- endif -%}</div>
           <h3>{{ _post.title }}</h3>
           {%- assign _pm = _post.content | strip_html | size | plus: 599 | divided_by: 600 -%}
-          <div class="yb-mini__meta">{{ _post.date | date: "%Y. %-m. %-d" }} · {{ _pm }}분 읽기</div>
+          {%- include yb-meta.html date=_post.date mins=_pm class="yb-mini__meta" -%}
         </div>
       </a>
     {%- endfor -%}
   </div>
-
-  <div class="yb-home-more"><a href="{{ '/archive/' | relative_url }}">전체 글 보기 →</a></div>
 
   {%- include yb-subscribe-card.html -%}
 
