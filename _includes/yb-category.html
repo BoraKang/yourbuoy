@@ -3,7 +3,7 @@
   {%- assign _all_tags = "" | split: "" -%}
   {%- for _p in _posts -%}{%- assign _all_tags = _all_tags | concat: _p.tags -%}{%- endfor -%}
   {%- assign _all_tags = _all_tags | uniq -%}
-  <div class="yb-cathead__grid">
+  <div class="yb-cathead__grid{% if _all_tags.size == 0 %} yb-cathead__grid--notags{% endif %}">
     <div class="yb-cathead__head">
       {%- if include.emoji -%}<div class="yb-cathead__icon">{{ include.emoji }}</div>{%- endif -%}
       <h1 class="yb-cathead__title">{{ include.title }}</h1>
@@ -18,7 +18,9 @@
     {%- endif -%}
   </div>
 </div>
+{%- if _posts.size > 0 -%}
 <div class="yb-list__count">{{ _posts | size }}개의 글</div>
+{%- endif -%}
 <div class="yb-list">
   {%- for _post in _posts -%}
   <article class="yb-item">
@@ -38,6 +40,6 @@
   </article>
   {%- endfor -%}
   {%- if _posts == nil or _posts.size == 0 -%}
-  <p class="yb-list__empty">첫 글을 준비하고 있습니다.</p>
+  <p class="yb-list__empty">{{ include.empty | default: "첫 글을 준비하고 있습니다." }}</p>
   {%- endif -%}
 </div>

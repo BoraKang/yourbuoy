@@ -45,28 +45,6 @@ $yb-line: #dfe3e8;
   }
 }
 
-/* 페이지형(About 등): 홈 히어로와 같은 스케일, 배경 없음 */
-.yb-hero--pagehero {
-  padding: 92px 0 56px;
-  &::before { display: none; }
-  .article__header { margin-top: 0; }
-  .article__header h1 {
-    font-family: Poppins, "Pretendard Variable", sans-serif;
-    font-size: 64px;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-  }
-  .article__subtitle {
-    font-size: 17px;
-    margin: 18px 0 0;
-  }
-}
-@media (max-width: 900px) {
-  .yb-hero--pagehero { padding: 56px 0 32px; }
-  .yb-hero--pagehero .article__header h1 { font-size: 40px; }
-}
-
 /* 한글 줄바꿈: 단어 단위 유지 */
 .article__subtitle,
 .article__content,
@@ -223,6 +201,32 @@ $yb-line: #dfe3e8;
 @media (max-width: 767px) {
   .yb-hero { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
   .yb-hero__media { max-width: 100%; }
+}
+
+/* 페이지형(About 등): 홈·Search 히어로와 같은 스케일, 배경 없음
+   주의 1) .yb-hero 뒤에 와야 padding이 덮인다 (특정도 동일)
+   주의 2) 이 히어로만 .js-article-content(padding-top:28px) 바깥에 렌더된다.
+           그래서 위 패딩 = 92 + 28 = 120px 이어야 홈·Search와 눈높이가 같다. */
+.yb-hero--pagehero {
+  padding: 120px 0 48px;
+  margin: 0;
+  &::before { display: none; }
+  .article__header { margin-top: 0; }
+  .article__header h1 {
+    font-family: Poppins, "Pretendard Variable", sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  .article__subtitle {
+    font-size: 17px;
+    margin: 18px 0 0;
+  }
+}
+@media (max-width: 900px) {
+  .yb-hero--pagehero { padding: 84px 0 32px; }
+  .yb-hero--pagehero .article__header h1 { font-size: 40px; }
 }
 
 /* 히어로 안 메타(태그·날짜) 정렬 + 태그 알약 (중립 색) */
@@ -389,6 +393,8 @@ $yb-line: #dfe3e8;
 }
 .yb-cathead__head { grid-column: 1; grid-row: 1; }
 .yb-cathead__desc { grid-column: 1; grid-row: 2; }
+/* 태그가 없는 카테고리(자료실 초기 등): 오른쪽 빈 열을 두지 않는다 */
+.yb-cathead__grid--notags { grid-template-columns: minmax(0, 1fr); }
 .yb-cathead__tags {
   grid-column: 2;
   grid-row: 2;
@@ -909,7 +915,7 @@ $yb-line: #dfe3e8;
 }
 @media (max-width: 900px) {
   .yb-home-hero h1 { font-size: 40px; }
-  .yb-archive-hero { padding: 56px 0 28px; }
+  .yb-archive-hero { padding: 56px 0 32px; }
   .yb-archive-hero h1 { font-size: 40px; }
   .yb-archive-search { padding: 14px 16px; gap: 10px; }
   .yb-archive-search input { font-size: 17px; }
@@ -1020,7 +1026,7 @@ $yb-line: #dfe3e8;
 /* ===== 아카이브(Search) 히어로 ===== */
 .yb-archive-hero {
   text-align: left;
-  padding: 92px 0 40px;
+  padding: 92px 0 48px;
   h1 {
     font-family: Poppins, "Pretendard Variable", sans-serif;
     font-size: 64px;
