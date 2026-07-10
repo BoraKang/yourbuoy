@@ -244,6 +244,15 @@ $yb-aside-inset: 19px;
 /* ===== 다이브 모드: GNB부터 히어로까지 하나의 어두운 블록 =====
    물 밖(홈·카테고리·About)은 흰 배경, 글 본문은 수면 아래.
    .yb-dive 는 page.html에서 글 본문에만 붙는다. */
+/* ===== 리프트 모드: 대장간 항목 — GNB를 흰색 오버레이 =====
+   테마 기본 GNB는 회색(#f2f2f2)이다. 대장간 항목은 흰 배경 위에 흰 GNB를 얹어
+   회색 바를 없앤다. 다이브(어두움)와 대칭인 세 번째 모드. */
+.yb-lift .header { background: transparent !important; }
+.yb-lift .page__header {
+  background: #fff;
+  border-bottom: 1px solid $yb-line-soft;
+}
+
 /* 테마가 .header에 회색(#f2f2f2)을 깔아 어두운 배경을 덮는다. 다이브에선 걷어낸다. */
 .yb-dive .header { background: transparent !important; }
 .yb-dive .page__header {
@@ -411,6 +420,14 @@ $yb-aside-inset: 19px;
   top: 96px !important;
   left: auto !important;
   margin-top: 42px;
+}
+
+/* 대장간 항목의 사이드: 스크롤을 따라다니지 않고 제자리에 둔다.
+   위 규칙이 !important라 여기서도 !important로 되돌린다. */
+.page__aside--static {
+  position: static !important;
+  top: auto !important;
+  margin-top: 0;
 }
 
 /* ===== 목차 카드 (Webflow식 테두리 박스) ===== */
@@ -1392,11 +1409,14 @@ $yb-aside-inset: 19px;
 .yb-forge__top {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 52px;
+  gap: 80px;
   align-items: start;
   padding-top: 28px;
   border-top: 1px solid $yb-line;
 }
+/* 테마의 a{font-weight:700}이 카드 안 텍스트까지 볼드로 만든다. 카드 컨테이너에서 400으로 되돌린다.
+   제목·라벨은 아래에서 명시 무게로 다시 올린다. */
+.yb-forge__feat, .yb-forge__card, .yb-forge__row, .yb-aside-forge__row { font-weight: 400; }
 .yb-forge__feat { display: block; text-decoration: none !important; }
 .yb-forge__feat-thumb {
   position: relative;
@@ -1429,15 +1449,6 @@ $yb-aside-inset: 19px;
   word-break: keep-all;
 }
 .yb-forge__feat-summary { font-size: 14.5px; color: $yb-muted; margin: 10px 0 0; line-height: 1.65; word-break: keep-all; }
-.yb-forge__why {
-  font-size: 13px;
-  color: $yb-gray-fg;
-  margin: 10px 0 0;
-  line-height: 1.6;
-  padding-left: 11px;
-  border-left: 2px solid $yb-line-soft;
-  word-break: keep-all;
-}
 .yb-forge__feat-meta {
   display: flex;
   align-items: center;
@@ -1445,8 +1456,14 @@ $yb-aside-inset: 19px;
   margin-top: 16px;
   font-size: 13px;
   color: $yb-meta;
-  .yb-forge__date { margin-left: auto; }
 }
+.yb-forge__feat-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  svg { width: 14px; height: 14px; flex: none; stroke: currentColor; }
+}
+.yb-forge__feat-link { color: $yb-gray-fg; }
 
 .yb-forge__row {
   display: flex;
@@ -1487,15 +1504,19 @@ $yb-aside-inset: 19px;
 .yb-forge__row:hover .yb-forge__row-title { color: $yb-coral; }
 
 /* 필터 */
-.yb-forge__filter {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px 16px;
+.yb-forge__count {
   margin-top: 48px;
   padding-top: 26px;
   border-top: 1px solid $yb-line;
+  font-size: 13px;
+  color: $yb-gray-fg;
+}
+.yb-forge__filter {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-top: 14px;
 }
 .yb-forge__chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .yb-forge__chip {
@@ -1512,34 +1533,71 @@ $yb-aside-inset: 19px;
   &:hover { background: $yb-gray-bg-hover; }
 }
 .yb-forge__chip.is-on { background: $yb-teal-bg; color: $yb-teal; }
-.yb-forge__count { font-size: 13px; color: $yb-gray-fg; white-space: nowrap; }
-
 /* 그리드 */
 .yb-forge__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-top: 24px;
+  margin-top: 20px;
+  align-items: stretch;   /* 같은 행 카드 높이를 맞춰 CTA 바닥선이 정렬되게 */
 }
+/* Amplitude 프롬프트 라이브러리식 다크 카드 (썸네일 없음, CTA 바닥 정렬).
+   배경은 심해 토큰($yb-deep) — 본문 다이브와 같은 색이라 "같은 사람이 만든 것"으로 이어진다. */
 .yb-forge__card {
   display: flex;
   flex-direction: column;
-  border: 1px solid $yb-line-soft;
-  border-radius: $yb-r-md;
-  background: #fff;
-  overflow: hidden;
+  border: 1px solid #1e4a54;
+  border-radius: 12px;
+  background: $yb-deep;
+  padding: 20px 18px;
   text-decoration: none !important;
-  transition: box-shadow .15s ease, border-color .15s ease;
-  &:hover { box-shadow: 0 10px 26px rgba(11, 15, 20, .08); border-color: $yb-line; }
+  transition: border-color .15s ease, transform .15s ease;
+  &:hover { border-color: #2f6674; transform: translateY(-2px); }
 }
-.yb-forge__card-thumb {
-  aspect-ratio: 1.9 / 1;
-  background: $yb-gray-bg;
-  img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.yb-forge__card-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: rgba(255, 255, 255, .55);
+  margin-bottom: 14px;
 }
-.yb-forge__card-body { padding: 14px 16px 16px; }
-.yb-forge__card-title { font-size: 15px; font-weight: 500; color: $yb-ink; line-height: 1.45; margin-top: 10px; word-break: keep-all; }
-.yb-forge__card-summary { font-size: 13px; color: $yb-muted; margin: 6px 0 0; line-height: 1.55; word-break: keep-all; }
+.yb-forge__card-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+.yb-forge__card-summary {
+  font-size: 13px;
+  color: rgba(255, 255, 255, .6);
+  margin: 8px 0 0;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+/* 콘텐츠 묶음: flex:1로 늘어나 CTA를 바닥으로 민다. 짧은 카드든 긴 카드든 버튼 위 간격이 보장됨. */
+.yb-forge__card-main { flex: 1 1 auto; }
+/* CTA: 우리 버튼 규칙(5px 라운드 사각). 왼쪽 하단 정렬 유지. */
+.yb-forge__card-cta {
+  align-self: flex-start;
+  margin-top: 18px;          /* 콘텐츠와 최소 간격 (main flex:1이 바닥 정렬 담당) */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: $yb-r-sm;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  transition: background .15s ease, border-color .15s ease;
+  svg { width: 15px; height: 15px; stroke: currentColor; transition: transform .2s ease; }
+}
+.yb-forge__card:hover .yb-forge__card-cta { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .45); }
+.yb-forge__card:hover .yb-forge__card-cta svg { transform: translateX(3px); }
 .yb-forge__empty { text-align: center; color: $yb-meta; padding: 48px 0; }
 
 /* 도입 문의 (구독 카드와 같은 웜 서피스. 다이브 색은 본문 전용) */
@@ -1639,72 +1697,6 @@ $yb-aside-inset: 19px;
 
 /* 대장간 상세: 하단 이동 (목록 보기 / 다음 작업물) */
 
-/* 대장간 상세 aside: 다른 작업물 (목차 카드와 같은 껍데기) */
-.yb-aside-forge {
-  border: 1px solid $yb-line-soft;
-  border-radius: $yb-r-md;
-  padding: 16px 18px 12px;
-  background: #fff;
-}
-.yb-aside-forge__label {
-  font-size: 12px;
-  font-weight: 500;
-  color: $yb-meta;
-  letter-spacing: .08em;
-  margin: 0 0 12px;
-}
-.yb-aside-forge__row {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 10px 0;
-  border-top: 1px solid $yb-line-soft;
-  text-decoration: none !important;
-  &:hover .yb-aside-forge__title { color: $yb-coral; }
-}
-.yb-aside-forge__thumb {
-  flex: none;
-  width: 56px;
-  aspect-ratio: 1.6 / 1;
-  border-radius: $yb-r-sm;
-  overflow: hidden;
-  background: $yb-gray-bg;
-  img { width: 100%; height: 100%; object-fit: cover; display: block; }
-}
-.yb-aside-forge__body { flex: 1; min-width: 0; }
-.yb-aside-forge__meta {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 500;
-  color: $yb-teal;
-}
-.yb-aside-forge__title {
-  font-size: 13px;
-  font-weight: 500;
-  color: $yb-ink;
-  line-height: 1.4;
-  margin-top: 4px;
-  word-break: keep-all;
-  transition: color .15s ease;
-}
-.yb-aside-forge__all {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 12px;
-  padding-top: 10px;
-  border-top: 1px solid $yb-line-soft;
-  width: 100%;
-  font-size: 12.5px;
-  font-weight: 500;
-  color: $yb-muted;
-  text-decoration: none !important;
-  svg { width: 14px; height: 14px; stroke: currentColor; transition: transform .2s ease; }
-  &:hover { color: $yb-coral; }
-  &:hover svg { transform: translateX(3px); }
-}
 
 /* 사이드가 숨는 폭(≤1023px)에서만 본문 끝에 '다른 작업물'을 보여준다 */
 .yb-forge-item__more { display: none; }
@@ -1713,4 +1705,81 @@ $yb-aside-inset: 19px;
     display: block;
     margin-top: $yb-space-7;
   }
+}
+
+/* 대장간 상세 aside: 다른 작업물 — 카드 없이 라인형(Webflow식) */
+.yb-aside-forge { margin-top: 4px; }
+.yb-aside-forge__label {
+  font-size: 12px;
+  font-weight: 400;
+  color: $yb-meta;
+  letter-spacing: .08em;
+  margin: 0 0 $yb-space-3;            /* 라벨은 첫 구분선 '위'에 (Webflow 'Other resources'처럼) */
+}
+.yb-aside-forge__row {
+  display: flex;
+  align-items: flex-start;
+  gap: $yb-space-3;
+  padding: $yb-space-3 0;
+  border-top: 1px solid $yb-line-soft;
+  text-decoration: none !important;
+  &:first-of-type { border-top: 0; padding-top: 0; }  /* 라벨 바로 아래 첫 행은 선 없이 */
+  &:hover .yb-aside-forge__title { color: $yb-coral; }
+}
+.yb-aside-forge__thumb {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: $yb-r-sm;
+  overflow: hidden;
+  background: $yb-gray-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .yb-aside-forge__dot { width: 6px; height: 6px; border-radius: 50%; }
+}
+.yb-aside-forge__body { flex: 1; min-width: 0; }
+.yb-aside-forge__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .04em;
+  color: $yb-meta;
+}
+.yb-aside-forge__title {
+  font-size: 14px;
+  font-weight: 400;
+  color: $yb-ink;
+  line-height: 1.4;
+  margin-top: $yb-space-1;
+  word-break: keep-all;
+  transition: color .15s ease;
+}
+.yb-aside-forge__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: $yb-space-3;
+  padding-top: $yb-space-3;
+  border-top: 1px solid $yb-line-soft;
+  width: 100%;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: $yb-muted;
+  text-decoration: none !important;
+  svg { width: 14px; height: 14px; stroke: currentColor; transition: transform .2s ease; }
+  &:hover { color: $yb-coral; }
+  &:hover svg { transform: translateX(3px); }
+}
+
+/* 대장간 항목: 본문(표)과 사이드가 붙지 않게 사이 간격을 넓힌다.
+   forge 사이드에 margin-left를 줘서 표 오른쪽 끝과 벌린다. */
+.page__aside--static {
+  margin-left: $yb-space-6;
+  padding: $yb-space-5 $yb-space-5 $yb-space-4;
+  background: #fafbfc;
+  border-radius: $yb-r-md;
 }

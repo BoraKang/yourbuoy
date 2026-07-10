@@ -1,7 +1,8 @@
 {%- comment -%}
   대장간 상세 페이지의 우측 aside: 다른 작업물 목록.
-  현재 보고 있는 항목은 제외하고, 최신순 5개까지.
+  현재 보고 있는 항목은 제외하고, 최신순 3개까지 (옆 스펙 표와 높이를 비슷하게).
 {%- endcomment -%}
+{%- assign _aside_limit = include.limit | default: 3 -%}
 {%- assign _items = site.forge | sort: 'date' | reverse -%}
 {%- assign _others = "" | split: "" -%}
 {%- for _p in _items -%}
@@ -11,19 +12,14 @@
 {%- if _others.size > 0 -%}
 <div class="yb-aside-forge">
   <div class="yb-aside-forge__label">다른 작업물</div>
-  {%- for _p in _others limit: 5 -%}
+  {%- for _p in _others limit: _aside_limit -%}
   {%- assign _s = _p.status | default: 'experiment' -%}
   <a class="yb-aside-forge__row" href="{{ _p.url | relative_url }}">
-    {%- comment -%} 썸네일이 없으면 빈 회색 상자를 만들지 않는다 {%- endcomment -%}
-    {%- if _p.thumbnail -%}
     <div class="yb-aside-forge__thumb">
-      <img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">
+      {%- if _p.thumbnail -%}<img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">{%- endif -%}
     </div>
-    {%- endif -%}
     <div class="yb-aside-forge__body">
-      <div class="yb-aside-forge__meta">
-        <span class="yb-forge__dot yb-forge__dot--{{ _s }}"></span>{{ _p.type }}
-      </div>
+      <div class="yb-aside-forge__meta">{{ _p.type }}</div>
       <div class="yb-aside-forge__title">{{ _p.title }}</div>
     </div>
   </a>

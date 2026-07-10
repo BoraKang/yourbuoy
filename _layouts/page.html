@@ -30,14 +30,20 @@ layout: base
 
 {%- assign _article_header_excerpt_truncate = include.excerpt_truncate | default: 200 -%}
 
-{%- comment -%} 글 본문(About 같은 페이지형 제외)은 '다이브' 모드: GNB부터 히어로까지 어둡게 {%- endcomment -%}
+{%- comment -%}
+  GNB 모드:
+   - 다이브: 글 본문 → GNB부터 히어로까지 어둡게
+   - 리프트: 대장간 항목 → GNB를 흰색 오버레이(회색 바 제거)
+{%- endcomment -%}
 {%- assign _dive = false -%}
 {%- if page.layout == 'article' and page.hero_scale != true and page.article_header != false -%}
   {%- assign _dive = true -%}
 {%- endif -%}
+{%- assign _lift = false -%}
+{%- if page.collection == 'forge' -%}{%- assign _lift = true -%}{%- endif -%}
 
 {%- if page.sidebar -%}
-<div class="layout--page layout--page--sidebar clearfix js-page-root{% if _dive %} yb-dive{% endif %}">
+<div class="layout--page layout--page--sidebar clearfix js-page-root{% if _dive %} yb-dive{% endif %}{% if _lift %} yb-lift{% endif %}">
   <div class="page__mask d-print-none js-page-mask js-sidebar-hide"></div>
   <div class="page__viewport">
     <div class="page__actions d-print-none">
@@ -53,7 +59,7 @@ layout: base
       </div>
 
 {%- else -%}
-<div class="layout--page js-page-root{% if _dive %} yb-dive{% endif %}">
+<div class="layout--page js-page-root{% if _dive %} yb-dive{% endif %}{% if _lift %} yb-lift{% endif %}">
 {%- endif -%}
 
     {%- assign _page_main_class = 'page__main js-page-main' -%}
@@ -221,14 +227,19 @@ layout: base
 
               <div class="col-aside d-print-none js-col-aside">
                 {%- if page.aside -%}
-                  <aside class="page__aside js-page-aside">
-                    {%- comment -%} 대장간 항목은 목차 대신 다른 작업물 목록을 보여준다 {%- endcomment -%}
-                    {%- if page.collection == 'forge' -%}
+                  {%- comment -%}
+                    대장간 항목: 목차 대신 다른 작업물 목록. 스크롤을 따라다니지 않는다.
+                    js-page-aside 클래스를 빼면 affix.js가 이 요소를 잡지 않는다.
+                  {%- endcomment -%}
+                  {%- if page.collection == 'forge' -%}
+                    <aside class="page__aside page__aside--static">
                       {%- include aside/forge-list.html -%}
-                    {%- else -%}
+                    </aside>
+                  {%- else -%}
+                    <aside class="page__aside js-page-aside">
                       {%- include aside/toc.html -%}
-                    {%- endif -%}
-                  </aside>
+                    </aside>
+                  {%- endif -%}
                 {%- endif -%}
               </div>
 

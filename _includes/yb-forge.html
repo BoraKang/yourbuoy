@@ -27,9 +27,6 @@
       <h1 class="yb-forge__title">{{ include.title }}</h1>
       <p class="yb-forge__desc">{{ include.desc }}</p>
     </div>
-    <a class="yb-forge__ask" href="{{ include.contact | default: '/about/' | relative_url }}">도입 문의
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
   </div>
 
   {%- if _all.size > 0 -%}
@@ -42,12 +39,14 @@
       </div>
       {%- include yb-forge-badges.html item=_featured -%}
       <h2 class="yb-forge__feat-title">{{ _featured.title }}</h2>
-      {%- if _featured.summary -%}<p class="yb-forge__feat-summary">{{ _featured.summary }}</p>{%- endif -%}
-      {%- if _featured.intent -%}<p class="yb-forge__why">왜 만들었나 — {{ _featured.intent }}</p>{%- endif -%}
+      <p class="yb-forge__feat-summary">{{ _featured.summary }}{% if _featured.intent %} {{ _featured.intent }}{% endif %}</p>
       <div class="yb-forge__feat-meta">
-        {%- if _featured.repo_url -%}<span>Repo</span>{%- endif -%}
-        {%- if _featured.demo_url -%}<span>Demo</span>{%- endif -%}
-        <span class="yb-forge__date">{{ _featured.date | date: "%Y. %-m. %-d" }}</span>
+        <span class="yb-forge__feat-date">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M16 2.5v4M8 2.5v4M3 10.5h18"/></svg>
+          {{ _featured.date | date: "%Y. %-m. %-d" }}
+        </span>
+        {%- if _featured.repo_url -%}<span class="yb-forge__feat-link">Repo</span>{%- endif -%}
+        {%- if _featured.demo_url -%}<span class="yb-forge__feat-link">Demo</span>{%- endif -%}
       </div>
     </a>
 
@@ -60,21 +59,19 @@
         {%- else -%}{%- assign _slabel = '실험 중' -%}
       {%- endcase -%}
       <a class="yb-forge__row" href="{{ _p.url | relative_url }}">
-        {%- if _p.thumbnail -%}
         <div class="yb-forge__row-thumb">
-          <img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">
+          {%- if _p.thumbnail -%}<img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">{%- endif -%}
         </div>
-        {%- endif -%}
         <div class="yb-forge__row-body">
-          <div class="yb-forge__row-label">
-            <span class="yb-forge__dot yb-forge__dot--{{ _s }}"></span>{{ _p.type }} · {{ _slabel }}
-          </div>
+          <div class="yb-forge__row-label">{{ _p.type }} · {{ _slabel }}</div>
           <div class="yb-forge__row-title">{{ _p.title }}</div>
         </div>
       </a>
       {%- endfor -%}
     </div>
   </div>
+
+  <div class="yb-forge__count js-forge-count">전체 {{ _all.size }}개 중 {{ _grid.size }}개</div>
 
   <div class="yb-forge__filter">
     <div class="yb-forge__chips">
@@ -85,22 +82,25 @@
         <button type="button" class="yb-forge__chip" data-type="{{ _t }}">{{ _t }} <b>{{ _n }}</b></button>
       {%- endfor -%}
     </div>
-    <span class="yb-forge__count js-forge-count">{{ _grid.size }}개 표시 중</span>
   </div>
 
   <div class="yb-forge__grid js-forge-grid">
     {%- for _p in _grid -%}
+    {%- assign _cs = _p.status | default: 'experiment' -%}
+    {%- case _cs -%}
+      {%- when 'live' -%}{%- assign _cslabel = '운영 중' -%}
+      {%- when 'archived' -%}{%- assign _cslabel = '아카이브' -%}
+      {%- else -%}{%- assign _cslabel = '실험 중' -%}
+    {%- endcase -%}
     <a class="yb-forge__card" href="{{ _p.url | relative_url }}" data-type="{{ _p.type }}">
-      {%- if _p.thumbnail -%}
-      <div class="yb-forge__card-thumb">
-        <img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">
-      </div>
-      {%- endif -%}
-      <div class="yb-forge__card-body">
-        {%- include yb-forge-badges.html item=_p -%}
+      <div class="yb-forge__card-main">
+        <div class="yb-forge__card-label">{{ _p.type }} · {{ _cslabel }}</div>
         <div class="yb-forge__card-title">{{ _p.title }}</div>
         {%- if _p.summary -%}<p class="yb-forge__card-summary">{{ _p.summary }}</p>{%- endif -%}
       </div>
+      <span class="yb-forge__card-cta">자세히
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
     </a>
     {%- endfor -%}
   </div>

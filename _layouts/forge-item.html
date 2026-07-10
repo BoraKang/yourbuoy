@@ -108,17 +108,20 @@ type: article
   /* 사이드 '다른 작업물' 카드의 윗선을 스펙 표의 윗선에 맞춘다.
      제목이 두 줄이 되면 표가 내려가므로 고정 여백으로는 맞출 수 없어 실제 위치를 잰다. */
   (function () {
-    var aside = document.querySelector('.page__aside');
-    var spec = document.querySelector('.yb-spec');
+    var aside = document.querySelector('.page__aside--static');
+    var target = document.querySelector('.yb-spec');           // 표 상단선에 맞춘다
     var colAside = document.querySelector('.col-aside');
-    if (!aside || !spec || !colAside) return;
+    if (!aside || !target || !colAside) return;
 
     function align() {
       if (getComputedStyle(colAside).display === 'none') {
         aside.style.marginTop = '';
         return;
       }
-      var offset = spec.getBoundingClientRect().top - colAside.getBoundingClientRect().top;
+      aside.style.marginTop = '0px';                          // 먼저 초기화해야 재계산이 정확
+      var label = aside.querySelector('.yb-aside-forge__label');
+      var anchor = label || aside;
+      var offset = target.getBoundingClientRect().top - anchor.getBoundingClientRect().top;
       aside.style.marginTop = Math.max(0, Math.round(offset)) + 'px';
     }
 
