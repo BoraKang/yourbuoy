@@ -222,7 +222,12 @@ layout: base
               <div class="col-aside d-print-none js-col-aside">
                 {%- if page.aside -%}
                   <aside class="page__aside js-page-aside">
-                    {%- include aside/toc.html -%}
+                    {%- comment -%} 대장간 항목은 목차 대신 다른 작업물 목록을 보여준다 {%- endcomment -%}
+                    {%- if page.collection == 'forge' -%}
+                      {%- include aside/forge-list.html -%}
+                    {%- else -%}
+                      {%- include aside/toc.html -%}
+                    {%- endif -%}
                   </aside>
                 {%- endif -%}
               </div>

@@ -201,6 +201,11 @@ defaults:
     values:
       layout: forge-item
       comment: false
+      # forge-item은 layout이 'article'이 아니라서 page.html이 제목을 직접 찍는다.
+      # 레이아웃 안에서 제목을 그리므로 테마 제목은 끈다.
+      show_title: false
+      aside:
+        toc: false
 
 ## Plugins
 ##############################

@@ -18,14 +18,28 @@ type: article
 
   {%- comment -%} 스펙 표: 프론트매터가 채우는 기본 골격. 빈 항목은 렌더하지 않는다. {%- endcomment -%}
   <dl class="yb-spec">
-    <div class="yb-spec__row">
-      <dt>이름</dt>
-      <dd>{{ page.title }}</dd>
-    </div>
     {%- if page.summary -%}
     <div class="yb-spec__row">
       <dt>기능 요약</dt>
       <dd>{{ page.summary }}</dd>
+    </div>
+    {%- endif -%}
+    {%- if page.for_whom -%}
+    <div class="yb-spec__row">
+      <dt>대상자</dt>
+      <dd>{{ page.for_whom }}</dd>
+    </div>
+    {%- endif -%}
+    {%- if page.requires -%}
+    <div class="yb-spec__row">
+      <dt>전제 조건</dt>
+      <dd>{{ page.requires }}</dd>
+    </div>
+    {%- endif -%}
+    {%- if page.effort -%}
+    <div class="yb-spec__row">
+      <dt>도입 난이도</dt>
+      <dd>{{ page.effort }}</dd>
     </div>
     {%- endif -%}
     {%- if page.repo_url -%}
@@ -42,24 +56,6 @@ type: article
       <dd><a class="yb-spec__link" href="{{ page.demo_url }}" target="_blank" rel="noopener">{{ page.demo_url | remove: 'https://' }}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
       </a></dd>
-    </div>
-    {%- endif -%}
-    {%- if page.for_whom -%}
-    <div class="yb-spec__row">
-      <dt>이런 사람이 쓰면 좋다</dt>
-      <dd>{{ page.for_whom }}</dd>
-    </div>
-    {%- endif -%}
-    {%- if page.requires -%}
-    <div class="yb-spec__row">
-      <dt>전제 조건</dt>
-      <dd>{{ page.requires }}</dd>
-    </div>
-    {%- endif -%}
-    {%- if page.effort -%}
-    <div class="yb-spec__row">
-      <dt>도입 난이도</dt>
-      <dd>{{ page.effort }}</dd>
     </div>
     {%- endif -%}
     {%- if page.stack.size > 0 -%}
@@ -90,13 +86,45 @@ type: article
   </section>
   {%- endif -%}
 
-  <div class="yb-forge__cta">
-    <div>
-      <div class="yb-forge__cta-title">비슷한 걸 팀에 도입하고 싶다면</div>
-      <p class="yb-forge__cta-desc">어떻게 만들었는지, 뭘 조심해야 하는지 알려드려요.</p>
-    </div>
-    <a class="yb-forge__cta-btn" href="{{ '/about/' | relative_url }}">도입 문의하기</a>
+  {%- comment -%} 글 본문과 같은 하단 메타 (구분선 포함) {%- endcomment -%}
+  <div class="yb-endmeta">
+    <div><span>Last updated</span><b>{{ page.date | date: "%Y. %-m. %-d" }}</b></div>
+    <div><span>Category</span><b><a href="{{ '/forge/' | relative_url }}">Resource</a></b></div>
+    {%- if page.type -%}
+    <div><span>Type</span><b>{{ page.type }}</b></div>
+    {%- endif -%}
   </div>
 
-  <a class="yb-forge-item__back" href="{{ '/forge/' | relative_url }}">← 대장간으로 돌아가기</a>
+  {%- comment -%}
+    사이드(다른 작업물)는 1023px 이하에서 숨는다. 그 폭에서만 본문 끝에 같은 목록을 보여준다.
+    데스크톱에서는 사이드에 이미 있으므로 렌더하지 않는다.
+  {%- endcomment -%}
+  <div class="yb-forge-item__more">
+    {%- include aside/forge-list.html -%}
+  </div>
 </div>
+
+<script>
+  /* 사이드 '다른 작업물' 카드의 윗선을 스펙 표의 윗선에 맞춘다.
+     제목이 두 줄이 되면 표가 내려가므로 고정 여백으로는 맞출 수 없어 실제 위치를 잰다. */
+  (function () {
+    var aside = document.querySelector('.page__aside');
+    var spec = document.querySelector('.yb-spec');
+    var colAside = document.querySelector('.col-aside');
+    if (!aside || !spec || !colAside) return;
+
+    function align() {
+      if (getComputedStyle(colAside).display === 'none') {
+        aside.style.marginTop = '';
+        return;
+      }
+      var offset = spec.getBoundingClientRect().top - colAside.getBoundingClientRect().top;
+      aside.style.marginTop = Math.max(0, Math.round(offset)) + 'px';
+    }
+
+    align();
+    window.addEventListener('load', align);
+    window.addEventListener('resize', align);
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(align); }
+  })();
+</script>

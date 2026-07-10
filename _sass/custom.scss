@@ -45,6 +45,22 @@ $yb-text: #222831;   // 본문
 $yb-muted: #5c6470;  // 부제·보조
 $yb-meta: #8b95a1;   // 날짜·읽기 시간
 
+/* 간격 스케일. 단계마다 약 1.5배씩 벌린다.
+   2~3px 차이는 눈에 안 보이므로 단계로 두지 않는다.
+   요소 안(패딩·gap)은 1~4, 요소 사이는 5~7, 섹션 사이는 8~9. */
+$yb-space-1: 4px;
+$yb-space-2: 8px;
+$yb-space-3: 12px;
+$yb-space-4: 16px;
+$yb-space-5: 24px;
+$yb-space-6: 32px;
+$yb-space-7: 48px;
+$yb-space-8: 64px;
+$yb-space-9: 96px;
+
+/* 본문이 끝나고 푸터가 시작되기 전 숨 돌릴 자리 */
+$yb-page-bottom: $yb-space-9;
+
 /* 사이드 목차 카드의 안쪽 텍스트 시작선 (테두리 1px + 패딩 18px) */
 $yb-aside-inset: 19px;
 
@@ -493,7 +509,7 @@ $yb-aside-inset: 19px;
 }
 
 /* 글 리스트 (Medium 피드 차용) */
-.yb-list { padding-bottom: 40px; }
+.yb-list { padding-bottom: $yb-page-bottom; }
 .yb-item {
   display: flex;
   align-items: flex-start;
@@ -796,7 +812,7 @@ $yb-aside-inset: 19px;
 }
 
 /* ===== 홈: 좌정렬 히어로 + 균일 박스 카드 ===== */
-.yb-home { padding-bottom: 48px; }
+.yb-home { padding-bottom: $yb-page-bottom; }
 .yb-home-hero {
   /* 제호(masthead) 방식: 워드마크와 부제를 함께 가운데로.
      바로 아래 featured의 구분선이 "간판"임을 확정해준다.
@@ -1303,6 +1319,8 @@ $yb-aside-inset: 19px;
   .yb-c { margin-bottom: 8px; }
 }
 
+.yb-forge { padding-bottom: $yb-page-bottom; }
+
 /* ==========================================
    드워프의 대장간 (자료실)
    블로그와 갈리는 지점: status 배지 / Repo·Demo 링크 / 도입 문의
@@ -1549,7 +1567,7 @@ $yb-aside-inset: 19px;
 }
 
 /* 상세 페이지 */
-.yb-forge-item { padding-top: 8px; }
+.yb-forge-item { padding-top: $yb-space-2; padding-bottom: $yb-page-bottom; }
 .yb-forge-item .yb-forge__badges { margin-bottom: 14px; }
 .yb-forge-item__title { font-size: 36px; font-weight: 700; letter-spacing: -0.02em; color: $yb-ink; margin: 0; word-break: keep-all; }
 .yb-forge-item__hero {
@@ -1562,14 +1580,6 @@ $yb-aside-inset: 19px;
   margin-top: 40px;
   h2 { font-size: 22px; font-weight: 600; color: $yb-ink; margin: 0 0 10px; border-bottom: none; padding: 0; }
   p { font-size: 16px; color: $yb-text; line-height: 1.7; margin: 0; word-break: keep-all; }
-}
-.yb-forge-item__back {
-  display: inline-block;
-  margin-top: 32px;
-  font-size: 14px;
-  color: $yb-muted;
-  text-decoration: none !important;
-  &:hover { color: $yb-coral; }
 }
 
 @media (max-width: 900px) {
@@ -1586,7 +1596,7 @@ $yb-aside-inset: 19px;
 }
 .yb-spec__row {
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
+  grid-template-columns: 140px minmax(0, 1fr);
   gap: 20px;
   padding: 9px 2px;
   border-bottom: 1px solid $yb-line-soft;
@@ -1625,4 +1635,82 @@ $yb-aside-inset: 19px;
 }
 @media (max-width: 700px) {
   .yb-spec__row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+}
+
+/* 대장간 상세: 하단 이동 (목록 보기 / 다음 작업물) */
+
+/* 대장간 상세 aside: 다른 작업물 (목차 카드와 같은 껍데기) */
+.yb-aside-forge {
+  border: 1px solid $yb-line-soft;
+  border-radius: $yb-r-md;
+  padding: 16px 18px 12px;
+  background: #fff;
+}
+.yb-aside-forge__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: $yb-meta;
+  letter-spacing: .08em;
+  margin: 0 0 12px;
+}
+.yb-aside-forge__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-top: 1px solid $yb-line-soft;
+  text-decoration: none !important;
+  &:hover .yb-aside-forge__title { color: $yb-coral; }
+}
+.yb-aside-forge__thumb {
+  flex: none;
+  width: 56px;
+  aspect-ratio: 1.6 / 1;
+  border-radius: $yb-r-sm;
+  overflow: hidden;
+  background: $yb-gray-bg;
+  img { width: 100%; height: 100%; object-fit: cover; display: block; }
+}
+.yb-aside-forge__body { flex: 1; min-width: 0; }
+.yb-aside-forge__meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: $yb-teal;
+}
+.yb-aside-forge__title {
+  font-size: 13px;
+  font-weight: 500;
+  color: $yb-ink;
+  line-height: 1.4;
+  margin-top: 4px;
+  word-break: keep-all;
+  transition: color .15s ease;
+}
+.yb-aside-forge__all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid $yb-line-soft;
+  width: 100%;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: $yb-muted;
+  text-decoration: none !important;
+  svg { width: 14px; height: 14px; stroke: currentColor; transition: transform .2s ease; }
+  &:hover { color: $yb-coral; }
+  &:hover svg { transform: translateX(3px); }
+}
+
+/* 사이드가 숨는 폭(≤1023px)에서만 본문 끝에 '다른 작업물'을 보여준다 */
+.yb-forge-item__more { display: none; }
+@media (max-width: 1023px) {
+  .yb-forge-item__more {
+    display: block;
+    margin-top: $yb-space-7;
+  }
 }

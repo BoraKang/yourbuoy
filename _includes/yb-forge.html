@@ -60,9 +60,11 @@
         {%- else -%}{%- assign _slabel = '실험 중' -%}
       {%- endcase -%}
       <a class="yb-forge__row" href="{{ _p.url | relative_url }}">
+        {%- if _p.thumbnail -%}
         <div class="yb-forge__row-thumb">
-          {%- if _p.thumbnail -%}<img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">{%- endif -%}
+          <img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">
         </div>
+        {%- endif -%}
         <div class="yb-forge__row-body">
           <div class="yb-forge__row-label">
             <span class="yb-forge__dot yb-forge__dot--{{ _s }}"></span>{{ _p.type }} · {{ _slabel }}
@@ -89,9 +91,11 @@
   <div class="yb-forge__grid js-forge-grid">
     {%- for _p in _grid -%}
     <a class="yb-forge__card" href="{{ _p.url | relative_url }}" data-type="{{ _p.type }}">
+      {%- if _p.thumbnail -%}
       <div class="yb-forge__card-thumb">
-        {%- if _p.thumbnail -%}<img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">{%- endif -%}
+        <img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">
       </div>
+      {%- endif -%}
       <div class="yb-forge__card-body">
         {%- include yb-forge-badges.html item=_p -%}
         <div class="yb-forge__card-title">{{ _p.title }}</div>

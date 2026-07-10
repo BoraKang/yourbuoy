@@ -1,0 +1,35 @@
+{%- comment -%}
+  대장간 상세 페이지의 우측 aside: 다른 작업물 목록.
+  현재 보고 있는 항목은 제외하고, 최신순 5개까지.
+{%- endcomment -%}
+{%- assign _items = site.forge | sort: 'date' | reverse -%}
+{%- assign _others = "" | split: "" -%}
+{%- for _p in _items -%}
+  {%- unless _p.url == page.url -%}{%- assign _others = _others | push: _p -%}{%- endunless -%}
+{%- endfor -%}
+
+{%- if _others.size > 0 -%}
+<div class="yb-aside-forge">
+  <div class="yb-aside-forge__label">다른 작업물</div>
+  {%- for _p in _others limit: 5 -%}
+  {%- assign _s = _p.status | default: 'experiment' -%}
+  <a class="yb-aside-forge__row" href="{{ _p.url | relative_url }}">
+    {%- comment -%} 썸네일이 없으면 빈 회색 상자를 만들지 않는다 {%- endcomment -%}
+    {%- if _p.thumbnail -%}
+    <div class="yb-aside-forge__thumb">
+      <img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">
+    </div>
+    {%- endif -%}
+    <div class="yb-aside-forge__body">
+      <div class="yb-aside-forge__meta">
+        <span class="yb-forge__dot yb-forge__dot--{{ _s }}"></span>{{ _p.type }}
+      </div>
+      <div class="yb-aside-forge__title">{{ _p.title }}</div>
+    </div>
+  </a>
+  {%- endfor -%}
+  <a class="yb-aside-forge__all" href="{{ '/forge/' | relative_url }}">전체 보기
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+</div>
+{%- endif -%}
