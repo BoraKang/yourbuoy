@@ -1,0 +1,141 @@
+{%- comment -%}
+  드워프의 대장간 목록.
+  데이터: _forge/*.md (collection)
+  구조: 헤더 → 피처 1 + 목록 4 → 필터 + 개수 → 나머지 그리드 → 도입 문의
+  중복 방지: 피처·목록에 나온 항목은 그리드에서 제외한다.
+{%- endcomment -%}
+
+{%- assign _all = site.forge | sort: 'date' | reverse -%}
+{%- assign _featured = _all | where: 'featured', true | first -%}
+{%- unless _featured -%}{%- assign _featured = _all | first -%}{%- endunless -%}
+
+{%- assign _rest = "" | split: "" -%}
+{%- for _p in _all -%}
+  {%- unless _p.url == _featured.url -%}{%- assign _rest = _rest | push: _p -%}{%- endunless -%}
+{%- endfor -%}
+{%- assign _side = _rest | slice: 0, 4 -%}
+{%- assign _side_count = _side | size -%}
+{%- assign _grid = _rest | slice: _side_count, 100 -%}
+
+<div class="yb-forge">
+
+  <div class="yb-forge__head">
+    <div>
+      <span class="yb-forge__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6l6 6-3 3-6-6z"/><path d="M11 9L3 17l4 4 8-8"/><path d="M15 3l6 6"/></svg>
+      </span>
+      <h1 class="yb-forge__title">{{ include.title }}</h1>
+      <p class="yb-forge__desc">{{ include.desc }}</p>
+    </div>
+    <a class="yb-forge__ask" href="{{ include.contact | default: '/about/' | relative_url }}">도입 문의
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+
+  {%- if _all.size > 0 -%}
+
+  <div class="yb-forge__top">
+    <a class="yb-forge__feat" href="{{ _featured.url | relative_url }}">
+      <div class="yb-forge__feat-thumb">
+        {%- if _featured.thumbnail -%}<img src="{{ _featured.thumbnail | relative_url }}" alt="{{ _featured.title }}">{%- endif -%}
+        <span class="yb-forge__flag">FEATURED</span>
+      </div>
+      {%- include yb-forge-badges.html item=_featured -%}
+      <h2 class="yb-forge__feat-title">{{ _featured.title }}</h2>
+      {%- if _featured.summary -%}<p class="yb-forge__feat-summary">{{ _featured.summary }}</p>{%- endif -%}
+      {%- if _featured.intent -%}<p class="yb-forge__why">왜 만들었나 — {{ _featured.intent }}</p>{%- endif -%}
+      <div class="yb-forge__feat-meta">
+        {%- if _featured.repo_url -%}<span>Repo</span>{%- endif -%}
+        {%- if _featured.demo_url -%}<span>Demo</span>{%- endif -%}
+        <span class="yb-forge__date">{{ _featured.date | date: "%Y. %-m. %-d" }}</span>
+      </div>
+    </a>
+
+    <div class="yb-forge__side">
+      {%- for _p in _side -%}
+      {%- assign _s = _p.status | default: 'experiment' -%}
+      {%- case _s -%}
+        {%- when 'live' -%}{%- assign _slabel = '운영 중' -%}
+        {%- when 'archived' -%}{%- assign _slabel = '아카이브' -%}
+        {%- else -%}{%- assign _slabel = '실험 중' -%}
+      {%- endcase -%}
+      <a class="yb-forge__row" href="{{ _p.url | relative_url }}">
+        <div class="yb-forge__row-thumb">
+          {%- if _p.thumbnail -%}<img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">{%- endif -%}
+        </div>
+        <div class="yb-forge__row-body">
+          <div class="yb-forge__row-label">
+            <span class="yb-forge__dot yb-forge__dot--{{ _s }}"></span>{{ _p.type }} · {{ _slabel }}
+          </div>
+          <div class="yb-forge__row-title">{{ _p.title }}</div>
+        </div>
+      </a>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <div class="yb-forge__filter">
+    <div class="yb-forge__chips">
+      <button type="button" class="yb-forge__chip is-on" data-type="all">전체 <b>{{ _all.size }}</b></button>
+      {%- assign _types = _all | map: 'type' | uniq -%}
+      {%- for _t in _types -%}
+        {%- assign _n = _all | where: 'type', _t | size -%}
+        <button type="button" class="yb-forge__chip" data-type="{{ _t }}">{{ _t }} <b>{{ _n }}</b></button>
+      {%- endfor -%}
+    </div>
+    <span class="yb-forge__count js-forge-count">{{ _grid.size }}개 표시 중</span>
+  </div>
+
+  <div class="yb-forge__grid js-forge-grid">
+    {%- for _p in _grid -%}
+    <a class="yb-forge__card" href="{{ _p.url | relative_url }}" data-type="{{ _p.type }}">
+      <div class="yb-forge__card-thumb">
+        {%- if _p.thumbnail -%}<img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">{%- endif -%}
+      </div>
+      <div class="yb-forge__card-body">
+        {%- include yb-forge-badges.html item=_p -%}
+        <div class="yb-forge__card-title">{{ _p.title }}</div>
+        {%- if _p.summary -%}<p class="yb-forge__card-summary">{{ _p.summary }}</p>{%- endif -%}
+      </div>
+    </a>
+    {%- endfor -%}
+  </div>
+  {%- if _grid.size == 0 -%}
+  <p class="yb-forge__empty">피처와 목록에 모두 올라와 있어요.</p>
+  {%- endif -%}
+
+  {%- else -%}
+  <p class="yb-forge__empty">{{ include.empty | default: "첫 작업물을 벼리는 중입니다." }}</p>
+  {%- endif -%}
+
+  <div class="yb-forge__cta">
+    <div>
+      <div class="yb-forge__cta-title">이거, 팀에도 심어보고 싶다면</div>
+      <p class="yb-forge__cta-desc">어떻게 만들었는지, 뭘 조심해야 하는지 알려드려요.</p>
+    </div>
+    <a class="yb-forge__cta-btn" href="{{ include.contact | default: '/about/' | relative_url }}">도입 문의하기</a>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var chips = document.querySelectorAll('.yb-forge__chip');
+    var cards = document.querySelectorAll('.js-forge-grid .yb-forge__card');
+    var count = document.querySelector('.js-forge-count');
+    if (!chips.length) return;
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var t = chip.dataset.type;
+        chips.forEach(function (c) { c.classList.toggle('is-on', c === chip); });
+        var shown = 0;
+        cards.forEach(function (card) {
+          var hit = (t === 'all') || (card.dataset.type === t);
+          card.style.display = hit ? '' : 'none';
+          if (hit) shown++;
+        });
+        if (count) count.textContent = shown + '개 표시 중';
+      });
+    });
+  })();
+</script>

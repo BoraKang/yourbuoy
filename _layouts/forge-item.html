@@ -1,0 +1,102 @@
+---
+layout: page
+type: article
+---
+
+<div class="layout--article yb-forge-item">
+  <nav class="yb-breadcrumb" aria-label="breadcrumb">
+    <a href="{{ '/' | relative_url }}">Blog</a> <span>&rsaquo;</span>
+    <a href="{{ '/forge/' | relative_url }}">Resource</a>
+  </nav>
+
+  {%- include yb-forge-badges.html item=page -%}
+  <h1 class="yb-forge-item__title">{{ page.title }}</h1>
+
+  {%- if page.thumbnail -%}
+  <div class="yb-forge-item__hero"><img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}"></div>
+  {%- endif -%}
+
+  {%- comment -%} 스펙 표: 프론트매터가 채우는 기본 골격. 빈 항목은 렌더하지 않는다. {%- endcomment -%}
+  <dl class="yb-spec">
+    <div class="yb-spec__row">
+      <dt>이름</dt>
+      <dd>{{ page.title }}</dd>
+    </div>
+    {%- if page.summary -%}
+    <div class="yb-spec__row">
+      <dt>기능 요약</dt>
+      <dd>{{ page.summary }}</dd>
+    </div>
+    {%- endif -%}
+    {%- if page.repo_url -%}
+    <div class="yb-spec__row">
+      <dt>GitHub</dt>
+      <dd><a class="yb-spec__link" href="{{ page.repo_url }}" target="_blank" rel="noopener">{{ page.repo_url | remove: 'https://' }}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+      </a></dd>
+    </div>
+    {%- endif -%}
+    {%- if page.demo_url -%}
+    <div class="yb-spec__row">
+      <dt>데모</dt>
+      <dd><a class="yb-spec__link" href="{{ page.demo_url }}" target="_blank" rel="noopener">{{ page.demo_url | remove: 'https://' }}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>
+      </a></dd>
+    </div>
+    {%- endif -%}
+    {%- if page.for_whom -%}
+    <div class="yb-spec__row">
+      <dt>이런 사람이 쓰면 좋다</dt>
+      <dd>{{ page.for_whom }}</dd>
+    </div>
+    {%- endif -%}
+    {%- if page.requires -%}
+    <div class="yb-spec__row">
+      <dt>전제 조건</dt>
+      <dd>{{ page.requires }}</dd>
+    </div>
+    {%- endif -%}
+    {%- if page.effort -%}
+    <div class="yb-spec__row">
+      <dt>도입 난이도</dt>
+      <dd>{{ page.effort }}</dd>
+    </div>
+    {%- endif -%}
+    {%- if page.stack.size > 0 -%}
+    <div class="yb-spec__row">
+      <dt>스택</dt>
+      <dd class="yb-spec__tags">{%- for _s in page.stack -%}<span class="yb-tag">{{ _s }}</span>{%- endfor -%}</dd>
+    </div>
+    {%- endif -%}
+    <div class="yb-spec__row">
+      <dt>마지막 업데이트</dt>
+      <dd>{{ page.date | date: "%Y. %-m. %-d" }}</dd>
+    </div>
+  </dl>
+
+  {%- if page.intent -%}
+  <section class="yb-forge-item__section">
+    <h2>왜 만들었나</h2>
+    <p>{{ page.intent }}</p>
+  </section>
+  {%- endif -%}
+
+  <div class="article__content yb-forge-item__body">{{ content }}</div>
+
+  {%- if page.learnings -%}
+  <section class="yb-forge-item__section">
+    <h2>배운 점</h2>
+    <p>{{ page.learnings }}</p>
+  </section>
+  {%- endif -%}
+
+  <div class="yb-forge__cta">
+    <div>
+      <div class="yb-forge__cta-title">비슷한 걸 팀에 도입하고 싶다면</div>
+      <p class="yb-forge__cta-desc">어떻게 만들었는지, 뭘 조심해야 하는지 알려드려요.</p>
+    </div>
+    <a class="yb-forge__cta-btn" href="{{ '/about/' | relative_url }}">도입 문의하기</a>
+  </div>
+
+  <a class="yb-forge-item__back" href="{{ '/forge/' | relative_url }}">← 대장간으로 돌아가기</a>
+</div>

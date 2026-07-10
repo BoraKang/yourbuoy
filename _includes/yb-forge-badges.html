@@ -1,0 +1,16 @@
+{%- comment -%}
+  상태 + 분류 배지. status: experiment(실험 중) / live(운영 중) / archived(아카이브)
+  색으로만 정보를 주지 않도록 텍스트를 항상 함께 쓴다.
+{%- endcomment -%}
+{%- assign _s = include.item.status | default: 'experiment' -%}
+{%- case _s -%}
+  {%- when 'live' -%}{%- assign _label = '운영 중' -%}
+  {%- when 'archived' -%}{%- assign _label = '아카이브' -%}
+  {%- else -%}{%- assign _label = '실험 중' -%}
+{%- endcase -%}
+<div class="yb-forge__badges">
+  <span class="yb-forge__badge yb-forge__badge--{{ _s }}">
+    <span class="yb-forge__dot yb-forge__dot--{{ _s }}"></span>{{ _label }}
+  </span>
+  {%- if include.item.type -%}<span class="yb-forge__badge yb-forge__badge--type">{{ include.item.type }}</span>{%- endif -%}
+</div>
