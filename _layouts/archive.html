@@ -19,11 +19,16 @@ titles:
   # @end locale config
 ---
 
-<div class="yb-archive-search">
-  <i class="fas fa-search"></i>
-  <input type="text" id="yb-archive-q" placeholder="글 제목 검색" autocomplete="off">
-</div>
+<section class="yb-archive-hero">
+  <h1>Search</h1>
+  <p>제목으로 찾거나, 태그로 둘러보세요.</p>
+  <div class="yb-archive-search">
+    <svg class="yb-archive-search__ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+    <input type="text" id="yb-archive-q" placeholder="글 제목 검색" autocomplete="off">
+  </div>
+</section>
 <div class="layout--archive js-all">
+  <div class="yb-archive-tags__label">태그로 둘러보기</div>
   {%- include tags.html -%}
   <div class="js-result layout--archive__result d-none">
     {%- include article-list.html articles=site.posts type='brief' show_info=true reverse=true group_by='year' -%}

@@ -3,11 +3,13 @@ layout: article
 titles:
   # @start locale config
   en      : &EN       About
-  ko      : &KO       소개
-  ko-KR   : *KO
+  ko      : *EN
+  ko-KR   : *EN
   # @end locale config
 subtitle: 직장에서 표류 중인 당신을 위한 부표
 key: page-about
+hero_scale: true
+hide_meta: true
 ---
 
 > 직장생활에서 정말 퇴로가 없다는 느낌을 받을 때가 있다. 바닥난 체력과 정신력, 잃어버린 듯한 신뢰... 이 상황을 푸느니 퇴사해버릴까 싶은 상황들. 하지만 지나보니 활로는 대단한곳에 있지 않았다. 바다에서 허우적대던 사람이 고작 플라스틱 부표로 몸을 띄울 수 있는 것처럼... 누군가 한 마디가 절실했는데 그때는 왜 몰랐을까?

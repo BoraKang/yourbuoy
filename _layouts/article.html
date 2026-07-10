@@ -109,6 +109,7 @@ type: article
     {%- when 'forge' -%}{%- assign _cat_label = 'Resource' -%}{%- assign _cat_url = '/forge/' -%}
     {%- else -%}{%- assign _cat_label = nil -%}
   {%- endcase -%}
+  {%- unless page.hide_meta -%}
   <div class="yb-endmeta">
     <div><span>Last updated</span><b>{{ page.date | date: "%Y. %-m. %-d" }}</b></div>
     {%- if _cat_label -%}
@@ -147,6 +148,7 @@ type: article
     {%- include article-footer.html -%}
     {%- include article-section-navigator.html -%}
   </div>
+  {%- endunless -%}
 
 </div>
 

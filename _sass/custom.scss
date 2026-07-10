@@ -45,6 +45,28 @@ $yb-line: #dfe3e8;
   }
 }
 
+/* 페이지형(About 등): 홈 히어로와 같은 스케일, 배경 없음 */
+.yb-hero--pagehero {
+  padding: 92px 0 56px;
+  &::before { display: none; }
+  .article__header { margin-top: 0; }
+  .article__header h1 {
+    font-family: Poppins, "Pretendard Variable", sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+  }
+  .article__subtitle {
+    font-size: 17px;
+    margin: 18px 0 0;
+  }
+}
+@media (max-width: 900px) {
+  .yb-hero--pagehero { padding: 56px 0 32px; }
+  .yb-hero--pagehero .article__header h1 { font-size: 40px; }
+}
+
 /* 한글 줄바꿈: 단어 단위 유지 */
 .article__subtitle,
 .article__content,
@@ -887,6 +909,11 @@ $yb-line: #dfe3e8;
 }
 @media (max-width: 900px) {
   .yb-home-hero h1 { font-size: 40px; }
+  .yb-archive-hero { padding: 56px 0 28px; }
+  .yb-archive-hero h1 { font-size: 40px; }
+  .yb-archive-search { padding: 14px 16px; gap: 10px; }
+  .yb-archive-search input { font-size: 17px; }
+  .yb-archive-search .yb-archive-search__ico { width: 18px; height: 18px; }
   .yb-feat { flex-direction: column-reverse; align-items: stretch; gap: 20px; }
   .yb-feat__thumb { flex: none; max-width: 100%; }
   .yb-home-grid { grid-template-columns: 1fr; }
@@ -990,28 +1017,114 @@ $yb-line: #dfe3e8;
 }
 
 /* ===== 아카이브 검색 입력 ===== */
+/* ===== 아카이브(Search) 히어로 ===== */
+.yb-archive-hero {
+  text-align: left;
+  padding: 92px 0 40px;
+  h1 {
+    font-family: Poppins, "Pretendard Variable", sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    color: #0b0f14;
+    margin: 0;
+    border-bottom: none;
+    padding: 0;
+  }
+  p { font-size: 17px; color: #5c6470; margin: 18px 0 0; word-break: keep-all; }
+}
 .yb-archive-search {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 8px 0 24px;
-  padding: 12px 16px;
+  gap: 14px;
+  margin: 36px 0 0;
+  padding: 18px 22px;
   border: 1px solid #e5e8eb;
-  border-radius: $yb-r-sm;
+  border-radius: $yb-r-md;
   background: #fff;
-  i { color: #8b95a1; font-size: 14px; }
+  transition: border-color .15s ease;
+  .yb-archive-search__ico {
+    width: 22px;
+    height: 22px;
+    flex: none;
+    stroke: #8b95a1;
+  }
   input {
     flex: 1;
+    min-width: 0;
     border: 0;
     outline: none;
-    font-size: 15px;
+    font-size: 20px;
     font-family: inherit;
     color: #191f28;
     background: transparent;
   }
   input::placeholder { color: #b0b8c1; }
 }
-.yb-archive-search:focus-within { border-color: #0f7c8c; }
+.yb-archive-search:focus-within { border-color: $yb-coral; }
+.yb-archive-search:focus-within .yb-archive-search__ico { stroke: $yb-coral; }
+
+/* 태그로 둘러보기 */
+.yb-archive-tags__label {
+  margin: 44px 0 20px;
+  padding-top: 26px;
+  border-top: 1px solid $yb-line;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #0b0f14;
+}
+.site-tags .menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li { margin: 0; }
+}
+.site-tags .tag-button,
+.site-tags .tag-button-1,
+.site-tags .tag-button-2,
+.site-tags .tag-button-3,
+.site-tags .tag-button-4 {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border: 0;
+  border-radius: $yb-r-sm;
+  background: $yb-gray-bg;
+  color: $yb-gray-fg;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  box-shadow: none;
+}
+.site-tags .tag-button:hover,
+.site-tags .tag-button-1:hover,
+.site-tags .tag-button-2:hover,
+.site-tags .tag-button-3:hover,
+.site-tags .tag-button-4:hover {
+  background: $yb-gray-bg-hover;
+  color: #191f28;
+}
+.site-tags .tag-button--all {
+  background: $yb-teal-bg;
+  color: $yb-teal;
+}
+.site-tags .tag-button--all:hover { background: $yb-teal-bg-hover; color: $yb-teal; }
+.site-tags .tag-button > .tag-button__count {
+  display: inline-block;
+  margin-left: 0;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  color: #a5adb6;
+  vertical-align: baseline;
+}
+.site-tags .tag-button--all > .tag-button__count { color: $yb-teal; opacity: .7; }
 
 /* ==========================================
    정적 댓글 (구 Disqus 이전) — yb-static-comments.html
