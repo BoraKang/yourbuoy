@@ -30,8 +30,14 @@ layout: base
 
 {%- assign _article_header_excerpt_truncate = include.excerpt_truncate | default: 200 -%}
 
+{%- comment -%} 글 본문(About 같은 페이지형 제외)은 '다이브' 모드: GNB부터 히어로까지 어둡게 {%- endcomment -%}
+{%- assign _dive = false -%}
+{%- if page.layout == 'article' and page.hero_scale != true and page.article_header != false -%}
+  {%- assign _dive = true -%}
+{%- endif -%}
+
 {%- if page.sidebar -%}
-<div class="layout--page layout--page--sidebar clearfix js-page-root">
+<div class="layout--page layout--page--sidebar clearfix js-page-root{% if _dive %} yb-dive{% endif %}">
   <div class="page__mask d-print-none js-page-mask js-sidebar-hide"></div>
   <div class="page__viewport">
     <div class="page__actions d-print-none">
@@ -47,7 +53,7 @@ layout: base
       </div>
 
 {%- else -%}
-<div class="layout--page js-page-root">
+<div class="layout--page js-page-root{% if _dive %} yb-dive{% endif %}">
 {%- endif -%}
 
     {%- assign _page_main_class = 'page__main js-page-main' -%}
