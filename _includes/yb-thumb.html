@@ -1,0 +1,11 @@
+{%- comment -%}
+  카드 썸네일: hero_image 파일이 실제로 있으면 <img>, 없으면 자동 프리즘 커버.
+  파라미터: post=글 객체, cat=카테고리(커버 톤)
+{%- endcomment -%}
+{%- assign _ok = false -%}
+{%- if include.post.hero_image -%}
+  {%- for _sf in site.static_files -%}
+    {%- if _sf.path == include.post.hero_image -%}{%- assign _ok = true -%}{%- break -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- if _ok -%}<img src="{{ include.post.hero_image | relative_url }}" alt="{{ include.post.title }}" loading="lazy">{%- else -%}{%- include yb-cover.html cat=include.cat seed=include.post.slug title=include.post.title -%}{%- endif -%}

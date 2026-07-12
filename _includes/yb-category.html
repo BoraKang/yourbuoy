@@ -34,9 +34,7 @@
       {%- assign _mins = _post.content | strip_html | size | plus: 599 | divided_by: 600 -%}
       {%- include yb-meta.html date=_post.date mins=_mins class="yb-item__meta" -%}
     </div>
-    {%- if _post.hero_image -%}
-    <a class="yb-item__thumb" href="{{ _post.url | relative_url }}"><img src="{{ _post.hero_image | relative_url }}" alt="{{ _post.title }}" loading="lazy"></a>
-    {%- endif -%}
+    <a class="yb-item__thumb" href="{{ _post.url | relative_url }}">{%- include yb-thumb.html post=_post cat=include.cat -%}</a>
   </article>
   {%- endfor -%}
   {%- if _posts == nil or _posts.size == 0 -%}

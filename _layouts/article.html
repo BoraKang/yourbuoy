@@ -124,6 +124,7 @@ type: article
     {%- endif -%}
   </div>
 
+  {%- comment -%} 저자 배너(Written by) 숨김 — 단독 저자 블로그라 중복, About은 GNB에 있음. 필요 시 이 주석만 풀면 복구.
   <div class="yb-author">
     <img class="yb-author__avatar" src="{{ site.author.avatar | default: '/assets/images/logo/logo.svg' | relative_url }}" alt="Bora Kang">
     <div class="yb-author__body">
@@ -135,6 +136,7 @@ type: article
       <a class="yb-author__btn" href="{{ '/about/' | relative_url }}">About</a>
     </div>
   </div>
+  {%- endcomment -%}
 
   {%- if _sharing -%}
     <section class="article__sharing d-print-none">{%- include sharing.html -%}</section>

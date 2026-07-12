@@ -34,7 +34,7 @@
   <div class="yb-forge__top">
     <a class="yb-forge__feat" href="{{ _featured.url | relative_url }}">
       <div class="yb-forge__feat-thumb">
-        {%- if _featured.thumbnail -%}<img src="{{ _featured.thumbnail | relative_url }}" alt="{{ _featured.title }}">{%- endif -%}
+        {%- if _featured.thumbnail -%}<img src="{{ _featured.thumbnail | relative_url }}" alt="{{ _featured.title }}">{%- else -%}{%- include yb-cover.html cat='forge' seed=_featured.title title=_featured.title -%}{%- endif -%}
         <span class="yb-forge__flag">FEATURED</span>
       </div>
       <h2 class="yb-forge__feat-title">{{ _featured.title }}</h2>
@@ -59,7 +59,7 @@
       {%- endcase -%}
       <a class="yb-forge__row" href="{{ _p.url | relative_url }}">
         <div class="yb-forge__row-thumb">
-          {%- if _p.thumbnail -%}<img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">{%- endif -%}
+          {%- if _p.thumbnail -%}<img src="{{ _p.thumbnail | relative_url }}" alt="{{ _p.title }}" loading="lazy">{%- else -%}{%- include yb-cover.html cat='forge' seed=_p.title title=_p.title -%}{%- endif -%}
         </div>
         <div class="yb-forge__row-body">
           <div class="yb-forge__row-label">{{ _p.type }} · {{ _slabel }}</div>

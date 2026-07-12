@@ -39,9 +39,7 @@ show_title: false
         </span>
       </div>
     </div>
-    {%- if _featured.hero_image -%}
-    <div class="yb-feat__thumb"><img src="{{ _featured.hero_image | relative_url }}" alt="{{ _featured.title }}"></div>
-    {%- endif -%}
+    <div class="yb-feat__thumb">{%- include yb-thumb.html post=_featured cat=_cat -%}</div>
   </a>
 
   <div class="yb-home-sec">
@@ -67,9 +65,7 @@ show_title: false
         {%- else -%}{%- assign _pl = _pc -%}
       {%- endcase -%}
       <a class="yb-mini" href="{{ _post.url | relative_url }}">
-        {%- if _post.hero_image -%}
-        <div class="yb-mini__thumb"><img src="{{ _post.hero_image | relative_url }}" alt="{{ _post.title }}" loading="lazy"></div>
-        {%- endif -%}
+        <div class="yb-mini__thumb">{%- include yb-thumb.html post=_post cat=_pc -%}</div>
         <div class="yb-mini__body">
           <div class="yb-chips"><span class="yb-chip">{{ _pl }}</span>{%- if _post.tags.first -%}<span class="yb-chip yb-chip--soft">{{ _post.tags.first }}</span>{%- endif -%}</div>
           <h3>{{ _post.title }}</h3>

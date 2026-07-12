@@ -1,0 +1,50 @@
+{%- comment -%}
+  자동 생성 썸네일 커버 (hero_image 없을 때 대체).
+  파라미터: cat=카테고리(톤), seed=slug(변형), title(선택, 커버 위 텍스트)
+  - 카테고리로 프리즘 팔레트, seed 길이로 3가지 변형(각도+색조).
+  - SVG feTurbulence로 미세 그레인, 소프트 라이트 글로우로 깊이.
+  필터/그라데이션 id는 seed로 유니크하게.
+{%- endcomment -%}
+{%- assign _seed = include.seed | default: include.cat | default: 'yb' -%}
+{%- assign _uid = _seed | slugify -%}
+{%- assign _idx = _seed | size | modulo: 3 -%}
+
+{%- assign _dark = false -%}
+{%- case include.cat -%}
+  {%- when 'life' -%}{%- assign _sets = "8fd6cf-b9d6ef-eaf2fb|a6e2d8-c9def2-f0ecfa|7fcfe0-aecdf0-e6f0fb" | split: "|" -%}
+  {%- when 'work' -%}{%- assign _sets = "8db4ef-b7c4ee-e9eefb|96b8f0-c3c0ec-eef0fb|7fa8ec-aeb8ef-e7ecfb" | split: "|" -%}
+  {%- when 'mind' -%}{%- assign _sets = "b9a6e6-c9c0f0-f1ecfb|c3a6e0-bcc4f0-f2ecfa|a9a0ea-c9b8f0-efe9fb" | split: "|" -%}
+  {%- when 'ai' -%}{%- assign _sets = "8fa6ef-a9d0ea-e9eefb|8fbfe8-b0a6ee-eef0fb|7fb0ec-a6c8f0-e7ecfb" | split: "|" -%}
+  {%- when 'forge' -%}{%- assign _sets = "22335c-3a2f66-15202f|2a2f5e-473566-141b2b|1e2c50-3d2f60-16202e" | split: "|" -%}{%- assign _dark = true -%}
+  {%- else -%}{%- assign _sets = "9fc4e8-c0c2ea-eef2fb|a6cfe6-c6c0ee-f0ecfa|8fbfe4-b6c6f0-e9eefb" | split: "|" -%}
+{%- endcase -%}
+{%- if _dark -%}{%- assign _glow = '0.20' -%}{%- assign _grain = '0.16' -%}{%- else -%}{%- assign _glow = '0.55' -%}{%- assign _grain = '0.10' -%}{%- endif -%}
+{%- assign _set = _sets[_idx] | split: "-" -%}
+{%- assign _c1 = _set[0] -%}{%- assign _c2 = _set[1] -%}{%- assign _c3 = _set[2] -%}
+
+{%- case _idx -%}
+  {%- when 0 -%}{%- assign _x1='0' -%}{%- assign _y1='0' -%}{%- assign _x2='1' -%}{%- assign _y2='1' -%}{%- assign _gx='18%' -%}{%- assign _gy='16%' -%}
+  {%- when 1 -%}{%- assign _x1='0' -%}{%- assign _y1='0.2' -%}{%- assign _x2='1' -%}{%- assign _y2='0.8' -%}{%- assign _gx='82%' -%}{%- assign _gy='20%' -%}
+  {%- else -%}{%- assign _x1='1' -%}{%- assign _y1='0' -%}{%- assign _x2='0' -%}{%- assign _y2='1' -%}{%- assign _gx='50%' -%}{%- assign _gy='12%' -%}
+{%- endcase -%}
+
+<svg class="yb-cover" viewBox="0 0 400 260" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="{{ include.title | default: 'cover' }}">
+  <defs>
+    <linearGradient id="yc-g-{{ _uid }}" x1="{{ _x1 }}" y1="{{ _y1 }}" x2="{{ _x2 }}" y2="{{ _y2 }}">
+      <stop offset="0%" stop-color="#{{ _c1 }}"/>
+      <stop offset="52%" stop-color="#{{ _c2 }}"/>
+      <stop offset="100%" stop-color="#{{ _c3 }}"/>
+    </linearGradient>
+    <radialGradient id="yc-l-{{ _uid }}" cx="{{ _gx }}" cy="{{ _gy }}" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="{{ _glow }}"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="yc-n-{{ _uid }}" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+    </filter>
+  </defs>
+  <rect width="400" height="260" fill="url(#yc-g-{{ _uid }})"/>
+  <rect width="400" height="260" fill="url(#yc-l-{{ _uid }})"/>
+  <rect width="400" height="260" filter="url(#yc-n-{{ _uid }})" opacity="{{ _grain }}"/>
+</svg>
