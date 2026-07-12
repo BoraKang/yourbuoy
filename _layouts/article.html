@@ -98,8 +98,6 @@ type: article
   </div>
   {%- endif -%}
 
-  {%- include yb-subscribe-card.html -%}
-
   {%- assign _cat = page.categories[0] -%}
   {%- case _cat -%}
     {%- when 'work' -%}{%- assign _cat_label = 'Work' -%}{%- assign _cat_url = '/work/' -%}
@@ -143,6 +141,11 @@ type: article
   {%- endif -%}
 
   {%- include yb-static-comments.html -%}
+
+  {%- comment -%} 새 댓글 입력창 (Cusdis, 익명). 배포 환경에서만 렌더됨 {%- endcomment -%}
+  {%- unless page.comment == false -%}
+  <section class="page__comments d-print-none">{%- include comments.html -%}</section>
+  {%- endunless -%}
 
   <div class="d-print-none">
     {%- include article-footer.html -%}

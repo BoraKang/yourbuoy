@@ -37,7 +37,6 @@
         {%- if _featured.thumbnail -%}<img src="{{ _featured.thumbnail | relative_url }}" alt="{{ _featured.title }}">{%- endif -%}
         <span class="yb-forge__flag">FEATURED</span>
       </div>
-      {%- include yb-forge-badges.html item=_featured -%}
       <h2 class="yb-forge__feat-title">{{ _featured.title }}</h2>
       <p class="yb-forge__feat-summary">{{ _featured.summary }}{% if _featured.intent %} {{ _featured.intent }}{% endif %}</p>
       <div class="yb-forge__feat-meta">
@@ -70,7 +69,11 @@
       {%- endfor -%}
     </div>
   </div>
+  {%- endif -%}
 
+  {%- comment -%} 여기부터 흰 영역 (Amplitude 블로그식: 상단 다크 → 목록 흰색) {%- endcomment -%}
+  <div class="yb-forge__lower">
+  {%- if _all.size > 0 -%}
   <div class="yb-forge__count js-forge-count">전체 {{ _all.size }}개 중 {{ _grid.size }}개</div>
 
   <div class="yb-forge__filter">
@@ -119,6 +122,7 @@
     </div>
     <a class="yb-forge__cta-btn" href="{{ include.contact | default: '/about/' | relative_url }}">도입 문의하기</a>
   </div>
+  </div>{%- comment -%} .yb-forge__lower 끝 {%- endcomment -%}
 
 </div>
 

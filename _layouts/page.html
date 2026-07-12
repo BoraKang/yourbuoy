@@ -31,19 +31,24 @@ layout: base
 {%- assign _article_header_excerpt_truncate = include.excerpt_truncate | default: 200 -%}
 
 {%- comment -%}
-  GNB 모드:
-   - 다이브: 글 본문 → GNB부터 히어로까지 어둡게
-   - 리프트: 대장간 항목 → GNB를 흰색 오버레이(회색 바 제거)
+  물빛 다이빙 GNB 모드 (수면 위 → 얕은 물 → 심해) + 대장간(별개 세계, 어둠):
+   - shallow: 카테고리 랜딩 → GNB부터 옅은 프리즘(얕은 물). front matter shallow:true
+   - dive:    글 본문       → GNB부터 심해 프리즘(어두움)
+   - forgedark: 대장간(목록·상세) → 페이지 전체 어둠. collection forge 또는 forge_dark:true
 {%- endcomment -%}
 {%- assign _dive = false -%}
 {%- if page.layout == 'article' and page.hero_scale != true and page.article_header != false -%}
   {%- assign _dive = true -%}
 {%- endif -%}
-{%- assign _lift = false -%}
-{%- if page.collection == 'forge' -%}{%- assign _lift = true -%}{%- endif -%}
+{%- assign _forgedark = false -%}
+{%- assign _forgedetail = false -%}
+{%- if page.collection == 'forge' or page.forge_dark -%}{%- assign _forgedark = true -%}{%- endif -%}
+{%- if page.collection == 'forge' -%}{%- assign _forgedetail = true -%}{%- endif -%}
+{%- assign _shallow = false -%}
+{%- if page.shallow -%}{%- assign _shallow = true -%}{%- endif -%}
 
 {%- if page.sidebar -%}
-<div class="layout--page layout--page--sidebar clearfix js-page-root{% if _dive %} yb-dive{% endif %}{% if _lift %} yb-lift{% endif %}">
+<div class="layout--page layout--page--sidebar clearfix js-page-root{% if _dive %} yb-dive{% endif %}{% if _forgedark %} yb-forge-dark{% endif %}{% if _forgedetail %} yb-forge-detail{% endif %}{% if _shallow %} yb-shallow{% endif %}">
   <div class="page__mask d-print-none js-page-mask js-sidebar-hide"></div>
   <div class="page__viewport">
     <div class="page__actions d-print-none">
@@ -59,7 +64,7 @@ layout: base
       </div>
 
 {%- else -%}
-<div class="layout--page js-page-root{% if _dive %} yb-dive{% endif %}{% if _lift %} yb-lift{% endif %}">
+<div class="layout--page js-page-root{% if _dive %} yb-dive{% endif %}{% if _forgedark %} yb-forge-dark{% endif %}{% if _forgedetail %} yb-forge-detail{% endif %}{% if _shallow %} yb-shallow{% endif %}">
 {%- endif -%}
 
     {%- assign _page_main_class = 'page__main js-page-main' -%}

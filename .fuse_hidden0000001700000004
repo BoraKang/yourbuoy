@@ -4,7 +4,6 @@ layout: page
 title: AI
 permalink: /ai/
 show_title: false
-shallow: true
 ---
 
 {%- include yb-category.html title="AI" desc="AI를 배우고 일에 쓰는 법. 배움노트와 시행착오의 기록." cat="ai" emoji="✨" -%}

@@ -9,11 +9,18 @@ type: article
     <a href="{{ '/forge/' | relative_url }}">Resource</a>
   </nav>
 
-  {%- include yb-forge-badges.html item=page -%}
   <h1 class="yb-forge-item__title">{{ page.title }}</h1>
 
   {%- if page.thumbnail -%}
   <div class="yb-forge-item__hero"><img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}"></div>
+  {%- endif -%}
+
+  {%- comment -%} 여기부터 흰 영역 (상단 헤더는 불빛 다크, 아래는 흰색) {%- endcomment -%}
+  <div class="yb-forge-item__lower">
+
+  {%- comment -%} 리드: 본문처럼 '왜 만들었나'를 인용으로 먼저, 그다음 표 {%- endcomment -%}
+  {%- if page.intent -%}
+  <p class="yb-forge-item__lead">{{ page.intent }}</p>
   {%- endif -%}
 
   {%- comment -%} 스펙 표: 프론트매터가 채우는 기본 골격. 빈 항목은 렌더하지 않는다. {%- endcomment -%}
@@ -70,13 +77,6 @@ type: article
     </div>
   </dl>
 
-  {%- if page.intent -%}
-  <section class="yb-forge-item__section">
-    <h2>왜 만들었나</h2>
-    <p>{{ page.intent }}</p>
-  </section>
-  {%- endif -%}
-
   <div class="article__content yb-forge-item__body">{{ content }}</div>
 
   {%- if page.learnings -%}
@@ -102,6 +102,7 @@ type: article
   <div class="yb-forge-item__more">
     {%- include aside/forge-list.html -%}
   </div>
+  </div>{%- comment -%} .yb-forge-item__lower 끝 {%- endcomment -%}
 </div>
 
 <script>
@@ -109,20 +110,28 @@ type: article
      제목이 두 줄이 되면 표가 내려가므로 고정 여백으로는 맞출 수 없어 실제 위치를 잰다. */
   (function () {
     var aside = document.querySelector('.page__aside--static');
-    var target = document.querySelector('.yb-spec');           // 표 상단선에 맞춘다
+    var target = document.querySelector('.yb-spec');  // 흰 영역은 스펙 표부터 (리드는 다크 헤더에)
     var colAside = document.querySelector('.col-aside');
-    if (!aside || !target || !colAside) return;
+    var inner = document.querySelector('.yb-forge-detail .page__main-inner'); // 상단 다크 밴드 높이 대상
+    if (!target) return;
+
+    var FOLD_GAP = 40;  /* 다크 밴드 하단(공통 기준선) 아래 흰 여백. 스펙표는 이만큼 더 내려 시작한다. */
 
     function align() {
-      if (getComputedStyle(colAside).display === 'none') {
-        aside.style.marginTop = '';
-        return;
+      /* 상단 다크 밴드 높이 = 스펙 표 시작점에서 흰 여백(FOLD_GAP)만큼 위 → 라인 아래 숨 돌릴 공간 */
+      if (inner) {
+        var h = target.getBoundingClientRect().top - inner.getBoundingClientRect().top - FOLD_GAP;
+        inner.style.setProperty('--forge-head-h', Math.max(0, Math.round(h)) + 'px');
       }
-      aside.style.marginTop = '0px';                          // 먼저 초기화해야 재계산이 정확
-      var label = aside.querySelector('.yb-aside-forge__label');
-      var anchor = label || aside;
-      var offset = target.getBoundingClientRect().top - anchor.getBoundingClientRect().top;
-      aside.style.marginTop = Math.max(0, Math.round(offset)) + 'px';
+      /* 사이드 정렬 */
+      if (aside && colAside && getComputedStyle(colAside).display !== 'none') {
+        aside.style.marginTop = '0px';
+        /* 패널(aside) 윗선을 흰 영역 시작선(스펙 top)에 맞춘다 — 라벨이 아니라 패널 top 기준 */
+        var offset = target.getBoundingClientRect().top - aside.getBoundingClientRect().top;
+        aside.style.marginTop = Math.max(0, Math.round(offset)) + 'px';
+      } else if (aside) {
+        aside.style.marginTop = '';
+      }
     }
 
     align();

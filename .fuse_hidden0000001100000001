@@ -4,7 +4,6 @@ layout: page
 title: 직장생활표류기
 permalink: /work/
 show_title: false
-shallow: true
 ---
 
 {%- include yb-category.html title="직장생활표류기" desc="일, 업무 방식, 커리어. 직장에서 표류 중인 당신을 위한 팁." cat="work" emoji="🛟" -%}

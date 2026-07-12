@@ -29,8 +29,12 @@ $yb-ink-strong: #191f28;
 
 /* 다이브 모드: 글 본문에 들어오면 수면 아래로.
    헤더 배경 = $yb-deep-surface (그라데이션 시작색과 같아야 이음새가 안 보인다) */
-$yb-deep: #0d3742;         // 심해
-$yb-deep-surface: #14505e; // 수면 가까운 쪽
+$yb-deep: #0c2b3c;         // 심해 (C: 더 깊고 푸르게)
+$yb-deep-surface: #123a4e; // 수면 가까운 쪽
+
+/* 대장간: 물빛 밖의 세계. 파란 다이브와 구분되는 따뜻한 숯빛(쇠·불). 불씨는 코랄. */
+$yb-forge-bg: #1a1715;      // 숯빛 바탕 (상세 다크밴드용 — 원래 톤 유지)
+$yb-forge-surface: #241f1c; // GNB·살짝 뜬 면
 $yb-gray-fg: #6b7684;
 $yb-gray-bg: #f2f4f6;
 $yb-gray-bg-hover: #e6e9ed;
@@ -63,6 +67,11 @@ $yb-page-bottom: $yb-space-9;
 
 /* 사이드 목차 카드의 안쪽 텍스트 시작선 (테두리 1px + 패딩 18px) */
 $yb-aside-inset: 19px;
+
+/* 공통 헤더 높이: GNB(내비 바) 아래부터 본문 시작 구분선까지.
+   글 히어로·카테고리 헤더·대장간 다크밴드가 모두 이 선에 맞는다.
+   페이지 타입마다 헤더 콘텐츠 높이가 달라, 이 값이 하한(min-height)으로 동작하도록 짠다. */
+$yb-head-h: 310px;
 
 /* GNB가 목차 등 다른 요소 위에 오도록 */
 .header { position: relative; z-index: 20; }
@@ -244,14 +253,118 @@ $yb-aside-inset: 19px;
 /* ===== 다이브 모드: GNB부터 히어로까지 하나의 어두운 블록 =====
    물 밖(홈·카테고리·About)은 흰 배경, 글 본문은 수면 아래.
    .yb-dive 는 page.html에서 글 본문에만 붙는다. */
-/* ===== 리프트 모드: 대장간 항목 — GNB를 흰색 오버레이 =====
-   테마 기본 GNB는 회색(#f2f2f2)이다. 대장간 항목은 흰 배경 위에 흰 GNB를 얹어
-   회색 바를 없앤다. 다이브(어두움)와 대칭인 세 번째 모드. */
-.yb-lift .header { background: transparent !important; }
-.yb-lift .page__header {
-  background: #fff;
-  border-bottom: 1px solid $yb-line-soft;
+/* ===== 얕은 물 모드: 카테고리 랜딩 — GNB부터 옅은 프리즘 =====
+   지난번 실패(GNB 회색과 안 이어져 흰 띠)를 리프트 방식으로 해결.
+   전체 폭 프리즘 밴드를 상단에 깔고(위→흰색으로 페이드), GNB는 프로스티드 반투명으로.
+   프리즘 = 블루→아쿠아→라일락. 코랄은 물에 안 섞는다(인터랙션 색으로 아낌). */
+.yb-shallow { position: relative; }
+.yb-shallow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: linear-gradient(162deg, #e6f0fb 0%, #e9f5f4 38%, #f3f0fa 66%, #ffffff 100%);
+  z-index: 0;
+  pointer-events: none;
 }
+.yb-shallow > * { position: relative; z-index: 1; }
+.yb-shallow .header { background: transparent !important; }
+.yb-shallow .page__header {
+  background: rgba(233, 243, 247, 0.72);   /* 스크롤 시 프로스티드 라이트 바 */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 0;
+}
+/* 얕은 물 위에서는 카테고리 헤더 구분선을 살짝 푸르게 */
+.yb-shallow .yb-cathead { border-bottom-color: #d3e6ea; }
+
+/* ===== 대장간 다크 모드: 페이지 전체를 심해로 (물빛 밖의 별개 세계) =====
+   목록·상세 모두 어둡게. 다크 카드·이름값(대장간)과 일치. */
+.yb-forge-dark { background: $yb-forge-bg; }
+/* 테마의 .page__main-inner(흰 배경, 몸통 전체)에 직접 숯빛을 준다 — 투명이면 뒤 흰색이 드러남.
+   상단에만 그라데이션(불빛)을 뿌리고 아래로 숯빛으로 가라앉힘 (Amplitude 블로그식). */
+.yb-forge-dark .page__main-inner {
+  background-color: $yb-forge-bg !important;
+  /* (상세는 아래 .yb-forge-detail 규칙에서, 랜딩은 :not(...) 규칙에서 배경을 다시 지정한다) */
+  background-image:
+    radial-gradient(780px 520px at 100% 0, rgba(255, 90, 60, .20), transparent 62%),
+    linear-gradient(180deg, #241c18 0, $yb-forge-bg 460px) !important;
+  background-repeat: no-repeat !important;
+}
+
+/* 랜딩(대장간 메인)만: 어두운 바탕에 은은한 프리즘 글로우(Prism Gradients풍).
+   무지개 띠가 아니라, 어두운 네이비 위로 상단 블루 → 중앙 보라 → 하단 핑크·코랄이
+   부드럽게 번지는 절제된 빛. 대부분 어둡게 유지해 목록은 잘 읽히고 색은 뮤트하게. */
+.yb-forge-dark:not(.yb-forge-detail),
+.yb-forge-dark:not(.yb-forge-detail) .page__main-inner { background-color: #12131c !important; }
+.yb-forge-dark:not(.yb-forge-detail) .page__main-inner {
+  background-image:
+    radial-gradient(1120px 620px at 50% 660px, rgba(226, 132, 152, .30), transparent 58%),   /* 핑크 글로우(아래에서 번짐) */
+    radial-gradient(700px 460px at 24% 620px, rgba(232, 142, 100, .18), transparent 60%),      /* 코럴·오렌지 좌하 */
+    radial-gradient(820px 540px at 70% 250px, rgba(138, 106, 184, .16), transparent 62%),       /* 보라 은은하게 중앙 */
+    radial-gradient(1200px 560px at 40% -90px, rgba(62, 82, 140, .24), transparent 58%),         /* 상단 블루 */
+    linear-gradient(180deg, #13141d 0, #0f0f16 100%) !important;
+  background-repeat: no-repeat !important;
+}
+/* GNB를 상단 배경색과 잇되, 아주 옅은 틴트 + 프로스티드 블러로 살짝만 정의를 준다.
+   맨 위에선 뒤 글로우가 거의 그대로 비치고, 스크롤 시엔 본문이 은은히 눌린다. */
+.yb-forge-dark:not(.yb-forge-detail) .page__header {
+  background: rgba(16, 17, 26, .3);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 0;
+}
+.yb-forge-dark .header { background: transparent !important; }
+.yb-forge-dark .page__header {
+  background: $yb-forge-surface;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+}
+.yb-forge-dark .page__header a,
+.yb-forge-dark .page__header .navigation__item--active a,
+.yb-forge-dark .page__header i,
+.yb-forge-dark .page__header svg { color: #fff !important; }
+.yb-forge-dark .page__header a:hover,
+.yb-forge-dark .page__header i:hover { color: $yb-coral !important; }
+.yb-forge-dark .page__footer { background: transparent; }
+
+/* 헤더/텍스트 */
+.yb-forge-dark .yb-forge__title,
+.yb-forge-dark .yb-forge-item__title { color: #fff; }
+.yb-forge-dark .yb-forge__desc { color: rgba(255, 255, 255, .6); }
+.yb-forge-dark .yb-forge__icon svg { stroke: rgba(255, 255, 255, .72); }
+.yb-forge-dark .yb-forge__top,
+
+/* 피처 */
+.yb-forge-dark .yb-forge__feat-title { color: #fff; }
+.yb-forge-dark .yb-forge__feat-summary { color: rgba(255, 255, 255, .65); }
+.yb-forge-dark .yb-forge__feat-meta,
+.yb-forge-dark .yb-forge__feat-link { color: rgba(255, 255, 255, .5); }
+.yb-forge-dark .yb-forge__feat-thumb { background: rgba(255, 255, 255, .06); }
+.yb-forge-dark .yb-forge__flag { background: rgba(255, 255, 255, .92); color: $yb-forge-bg; }
+
+/* 우측 peek 목록 */
+.yb-forge-dark .yb-forge__row { border-top-color: rgba(255, 255, 255, .1); }
+.yb-forge-dark .yb-forge__row-thumb { background: rgba(255, 255, 255, .06); }
+.yb-forge-dark .yb-forge__row-title { color: #fff; }
+.yb-forge-dark .yb-forge__row-label { color: rgba(255, 255, 255, .5); }
+
+/* 필터 칩 */
+
+/* 그리드 카드(이미 어둡지만 페이지가 같은 심해색 → 살짝 밝은 면으로 띄운다) */
+
+/* 도입 문의 밴드 */
+
+/* 상세: 브레드크럼·스펙표·본문·태그·하단메타 */
+.yb-forge-dark .yb-breadcrumb a { color: rgba(255, 255, 255, .55); }
+.yb-forge-dark .yb-breadcrumb a:hover { color: #fff; }
+.yb-forge-dark .yb-breadcrumb span { color: rgba(255, 255, 255, .3); }
+/* 본문 마크다운: 제목·링크·인용도 어두운 배경용 */
+
+/* 상세 우측 aside(다른 작업물) */
 
 /* 테마가 .header에 회색(#f2f2f2)을 깔아 어두운 배경을 덮는다. 다이브에선 걷어낸다. */
 .yb-dive .header { background: transparent !important; }
@@ -270,14 +383,17 @@ $yb-aside-inset: 19px;
 
 /* 히어로: 헤더에서 이어지는 심해 그라데이션 (풀블리드) */
 .yb-dive .yb-hero {
-  padding: 56px 0 64px;
+  padding: 56px 0 29px;
+  min-height: $yb-head-h;      /* 공통 헤더 기준선에 맞춤 (짧은 글도 이 높이 유지) */
+  box-sizing: border-box;
   margin-bottom: 0;
 }
 .yb-dive .yb-hero::before {
   top: -1px; /* 헤더와의 이음새 */
+  /* 심해 프리즘(C): 틸-블루 광선(좌상) + 보랏빛(우상)으로 깊이감. 코랄은 안 섞음. */
   background:
-    radial-gradient(60% 90% at 12% 0%, rgba(15, 124, 140, .22), transparent 70%),
-    radial-gradient(50% 80% at 88% 0%, rgba(255, 90, 60, .08), transparent 70%),
+    radial-gradient(62% 92% at 14% 0%, rgba(40, 120, 155, .42), transparent 70%),
+    radial-gradient(52% 82% at 88% 4%, rgba(92, 72, 150, .30), transparent 70%),
     linear-gradient(180deg, $yb-deep-surface 0%, $yb-deep 100%);
 }
 
@@ -379,6 +495,9 @@ $yb-aside-inset: 19px;
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid $yb-line-soft;
 }
+/* 테마 기본 GNB 회색(#f2f2f2)을 걷어낸다 — 수면 위(홈·About)는 흰색.
+   다이브·리프트·얕은물은 각 모드에서 별도 처리. */
+.header { background: transparent !important; }
 
 /* 브레드크럼 현재 글 (비링크) */
 .yb-breadcrumb__current {
@@ -450,6 +569,7 @@ $yb-aside-inset: 19px;
   gap: 56px;
   margin-top: 24px;
   padding: 24px 0 8px;
+  margin-bottom: 48px;   /* 태그 줄 아래 충분한 간격 (다음 저자 박스와 분리) */
   border-top: 1px solid $yb-line-soft;
 }
 .yb-endmeta span {
@@ -469,7 +589,11 @@ $yb-aside-inset: 19px;
 /* ===== 카테고리 페이지 (Medium 태그 페이지 차용) ===== */
 .yb-cathead {
   text-align: left;
-  padding: 72px 0 28px;
+  padding: 72px 0 56px;
+  /* 구분선(border-bottom)을 공통 헤더 기준선에 맞춘다.
+     col-main 상단 오프셋(약 36px)만큼 빼고 하한을 준다 → 짧은 설명에도 선 위치 고정. */
+  min-height: calc(#{$yb-head-h} - 36px);
+  box-sizing: border-box;
   border-bottom: 1px solid $yb-line;
   margin-bottom: 8px;
 }
@@ -1348,11 +1472,15 @@ $yb-aside-inset: 19px;
   align-items: flex-end;
   justify-content: space-between;
   gap: 24px;
-  padding: 72px 0 26px;
+  /* 섹션 메인 공통: 카테고리 헤더(.yb-cathead)와 같은 리듬으로 맞춘다.
+     구분선(.yb-forge__top 상단 보더)이 공통 기준선(390)에 오도록 하한을 준다. */
+  padding: 72px 0 56px;
+  min-height: calc(#{$yb-head-h} - 36px);
+  box-sizing: border-box;
 }
 .yb-forge__icon svg { width: 28px; height: 28px; stroke: $yb-teal; display: block; }
 .yb-forge__title {
-  font-size: 32px;
+  font-size: 38px;   /* 카테고리 섹션 헤더(.yb-cathead__title)와 동일 */
   font-weight: 700;
   letter-spacing: -0.02em;
   color: $yb-ink;
@@ -1541,18 +1669,17 @@ $yb-aside-inset: 19px;
   margin-top: 20px;
   align-items: stretch;   /* 같은 행 카드 높이를 맞춰 CTA 바닥선이 정렬되게 */
 }
-/* Amplitude 프롬프트 라이브러리식 다크 카드 (썸네일 없음, CTA 바닥 정렬).
-   배경은 심해 토큰($yb-deep) — 본문 다이브와 같은 색이라 "같은 사람이 만든 것"으로 이어진다. */
+/* 옅은 회색 카드 (Amplitude식, 흰 lower 위). 썸네일 없음, CTA 바닥 정렬. */
 .yb-forge__card {
   display: flex;
   flex-direction: column;
-  border: 1px solid #1e4a54;
+  border: 0;
   border-radius: 12px;
-  background: $yb-deep;
+  background: $yb-gray-bg;
   padding: 20px 18px;
   text-decoration: none !important;
-  transition: border-color .15s ease, transform .15s ease;
-  &:hover { border-color: #2f6674; transform: translateY(-2px); }
+  transition: background .15s ease, transform .15s ease;
+  &:hover { background: $yb-gray-bg-hover; transform: translateY(-2px); }
 }
 .yb-forge__card-label {
   display: flex;
@@ -1561,19 +1688,19 @@ $yb-aside-inset: 19px;
   font-size: 11px;
   font-weight: 500;
   letter-spacing: .04em;
-  color: rgba(255, 255, 255, .55);
+  color: $yb-meta;
   margin-bottom: 14px;
 }
 .yb-forge__card-title {
   font-size: 16px;
   font-weight: 500;
-  color: #fff;
+  color: $yb-ink;
   line-height: 1.4;
   word-break: keep-all;
 }
 .yb-forge__card-summary {
   font-size: 13px;
-  color: rgba(255, 255, 255, .6);
+  color: $yb-muted;
   margin: 8px 0 0;
   line-height: 1.55;
   word-break: keep-all;
@@ -1588,15 +1715,15 @@ $yb-aside-inset: 19px;
   align-items: center;
   gap: 6px;
   padding: 7px 14px;
-  border: 1px solid rgba(255, 255, 255, .28);
+  border: 1px solid $yb-line;
   border-radius: $yb-r-sm;
   font-size: 13px;
   font-weight: 500;
-  color: #fff;
-  transition: background .15s ease, border-color .15s ease;
+  color: #37414b;
+  transition: background .15s ease, border-color .15s ease, color .15s ease;
   svg { width: 15px; height: 15px; stroke: currentColor; transition: transform .2s ease; }
 }
-.yb-forge__card:hover .yb-forge__card-cta { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .45); }
+.yb-forge__card:hover .yb-forge__card-cta { border-color: $yb-meta; color: $yb-ink-strong; }
 .yb-forge__card:hover .yb-forge__card-cta svg { transform: translateX(3px); }
 .yb-forge__empty { text-align: center; color: $yb-meta; padding: 48px 0; }
 
@@ -1625,7 +1752,7 @@ $yb-aside-inset: 19px;
 }
 
 /* 상세 페이지 */
-.yb-forge-item { padding-top: $yb-space-2; padding-bottom: $yb-page-bottom; }
+.yb-forge-item { padding-top: 44px; padding-bottom: $yb-page-bottom; }  /* 헤더 위 여백 = 아래(리드→흰선) 여백과 대칭 */
 .yb-forge-item .yb-forge__badges { margin-bottom: 14px; }
 .yb-forge-item__title { font-size: 36px; font-weight: 700; letter-spacing: -0.02em; color: $yb-ink; margin: 0; word-break: keep-all; }
 .yb-forge-item__hero {
@@ -1646,10 +1773,16 @@ $yb-aside-inset: 19px;
   .yb-forge__grid { grid-template-columns: 1fr; }
   .yb-forge-item__title { font-size: 28px; }
 }
+@media (max-width: 767px) {
+  .yb-forge__title { font-size: 30px; }   /* 카테고리 헤더와 동일하게 축소 */
+}
 
 /* 대장간 상세: 스펙 표 (프론트매터가 채우는 기본 골격) */
 .yb-spec {
-  margin: 28px 0 8px;
+  /* 스펙 표는 공통 기준선(390) '아래' 흰 여백만큼 내려서 시작한다.
+     JS가 다크밴드 하단 = 스펙 top - FOLD_GAP 로 잡으므로, 이 margin은 (기준선까지 여백 + FOLD_GAP)를 담는다.
+     FOLD_GAP(40px)만큼 라인과 스펙표 사이에 숨 돌릴 흰 공간이 생긴다. */
+  margin: 143px 0 8px;
   border-top: 1px solid $yb-line-soft;
 }
 .yb-spec__row {
@@ -1718,7 +1851,7 @@ $yb-aside-inset: 19px;
 }
 .yb-aside-forge__row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;             /* 썸네일을 텍스트 블록 세로 가운데에 → 삐뚤어 보이지 않음 */
   gap: $yb-space-3;
   padding: $yb-space-3 0;
   border-top: 1px solid $yb-line-soft;
@@ -1728,16 +1861,12 @@ $yb-aside-inset: 19px;
 }
 .yb-aside-forge__thumb {
   flex: none;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: $yb-r-sm;
   overflow: hidden;
   background: $yb-gray-bg;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .yb-aside-forge__dot { width: 6px; height: 6px; border-radius: 50%; }
 }
 .yb-aside-forge__body { flex: 1; min-width: 0; }
 .yb-aside-forge__meta {
@@ -1750,29 +1879,35 @@ $yb-aside-inset: 19px;
   color: $yb-meta;
 }
 .yb-aside-forge__title {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   color: $yb-ink;
   line-height: 1.4;
-  margin-top: $yb-space-1;
+  margin-top: 2px;                 /* 라벨과의 간격 좁힘 */
   word-break: keep-all;
   transition: color .15s ease;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;           /* 2줄 고정 → 행 높이 일정, 썸네일과 균형 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .yb-aside-forge__all {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
-  margin-top: $yb-space-3;
-  padding-top: $yb-space-3;
-  border-top: 1px solid $yb-line-soft;
-  width: 100%;
+  justify-content: center;         /* 가운데, 조용하게 얹힘 */
+  gap: 4px;
+  margin-top: $yb-space-4;
+  padding: 9px 0;
+  border-radius: $yb-r-sm;         /* 우리 버튼 규칙: 5px 라운드 사각 */
+  background: $yb-gray-bg;         /* 옅은 회색 채운 박스 */
   font-size: 12.5px;
-  font-weight: 400;
-  color: $yb-muted;
+  font-weight: 500;
+  color: $yb-gray-fg;              /* 진한 회색 글자 */
   text-decoration: none !important;
-  svg { width: 14px; height: 14px; stroke: currentColor; transition: transform .2s ease; }
-  &:hover { color: $yb-coral; }
-  &:hover svg { transform: translateX(3px); }
+  transition: background .15s ease, color .15s ease;
+  svg { width: 13px; height: 13px; stroke: currentColor; transition: transform .2s ease; }
+  &:hover { background: $yb-gray-bg-hover; color: $yb-ink-strong; }
+  &:hover svg { transform: translateY(1px); }
 }
 
 /* 대장간 항목: 본문(표)과 사이드가 붙지 않게 사이 간격을 넓힌다.
@@ -1783,3 +1918,68 @@ $yb-aside-inset: 19px;
   background: #fafbfc;
   border-radius: $yb-r-md;
 }
+
+/* 대장간 흰 영역: 상단 다크에서 이 지점부터 흰색으로 (Amplitude 블로그식).
+   풀블리드 흰 배경 + 위 구분선. 안쪽 요소는 기본(밝은) 스타일을 그대로 쓴다. */
+.yb-forge-dark .yb-forge__lower {
+  position: relative;
+  margin-top: 40px;
+  padding-top: 40px;
+}
+.yb-forge-dark .yb-forge__lower::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -400px;                 /* 푸터 앞까지 넉넉히 */
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  background: #fff;
+  z-index: 0;
+  pointer-events: none;
+}
+.yb-forge-dark .yb-forge__lower > * { position: relative; z-index: 1; }
+.yb-forge-dark .yb-forge__lower .yb-forge__count { border-top: 0; margin-top: 0; padding-top: 0; }
+
+
+/* 대장간 상세 리드: '왜 만들었나' 인용 — 다크 헤더 안의 풀 인용문 */
+.yb-forge-item__lead {
+  margin: 0 0 44px;  /* 리드 → 흰선 여백 = 헤더 위 여백과 대칭 */
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: $yb-text;
+  word-break: keep-all;
+}
+.yb-forge-detail .yb-forge-item__lead { color: rgba(255, 255, 255, .82); }
+
+/* 대장간 상세: 평평한 숯빛 헤더 + 흰 본문 (그라데이션 없음).
+   흰색을 전체 폭 .page__main-inner에 깔되 헤더 아래(--forge-head-h)부터 → 본문·사이드 두 열을 정확히 덮음. */
+.yb-forge-detail .page__main-inner {
+  position: relative;
+  /* 상세 다크밴드 = 랜딩과 동일한 네이비 프리즘 팔레트 (흰 본문 ::before가 밴드 아래를 덮어 상단만 보임).
+     두 대장간 페이지의 베이스 색·그라데이션을 일치시킨다. */
+  background-color: #12131c !important;
+  background-image:
+    radial-gradient(1120px 620px at 50% 660px, rgba(226, 132, 152, .30), transparent 58%),   /* 핑크(하단, 대부분 흰 본문에 가려짐) */
+    radial-gradient(700px 460px at 24% 620px, rgba(232, 142, 100, .18), transparent 60%),      /* 코럴 좌하 */
+    radial-gradient(820px 540px at 70% 250px, rgba(138, 106, 184, .16), transparent 62%),       /* 보라 중앙 우측 */
+    radial-gradient(1200px 560px at 40% -90px, rgba(62, 82, 140, .24), transparent 58%),         /* 상단 블루 */
+    linear-gradient(180deg, #13141d 0, #0f0f16 100%) !important;
+  background-repeat: no-repeat !important;
+}
+.yb-forge-detail .page__main-inner::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: var(--forge-head-h, 340px);
+  bottom: 0;
+  background: #fff;
+  z-index: 0;
+  pointer-events: none;
+}
+.yb-forge-detail .page__content,
+.yb-forge-detail .page__header { position: relative; z-index: 1; }
+/* 상세 GNB: 랜딩 GNB의 렌더 색(반투명 네이비)과 같은 톤의 솔리드로 맞춘다.
+   상세는 스크롤 시 흰 본문이 비치면 안 되므로 투명이 아니라 솔리드. */
+.yb-forge-detail .page__header { background: #171c2c; border-bottom: 0; }

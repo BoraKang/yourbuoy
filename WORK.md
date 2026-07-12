@@ -1,6 +1,56 @@
 # yourBuoy 작업 기록 (WORK.md)
 
-업데이트: 2026-07-08 (v2) · 용도: 무엇이 되어 있고 무엇이 남았는지의 이정표. 다음 세션은 이 문서에서 시작한다.
+업데이트: 2026-07-11 (v3) · 용도: 무엇이 되어 있고 무엇이 남았는지의 이정표. 다음 세션은 이 문서에서 시작한다.
+
+---
+
+## ★ 진행 중 (2026-07-11) — 대장간 상세 헤더 여백이 안 먹는 문제
+
+다음 대화에서 이 항목부터 이어간다.
+
+### 지금 막힌 것
+대장간 상세 페이지(`/forge/*`) 다크 헤더의 **위·아래 여백 대칭**이 화면에 반영되지 않는다.
+- 원하는 모습: 다크 헤더 안에서 브레드크럼 위 여백(GNB → `Blog › Resource`)과 인용문 아래 여백(리드 → 흰선)이 같아야 한다.
+- 추가로 흰선(스펙표가 시작되는 다크/흰 경계) 위에 패딩이 있어 인용문과 붙지 않아야 한다.
+- 증상: SCSS 값을 44px로 바꿔도 브라우저에서 변화가 안 보인다. ("안되는데")
+
+### 테스트 페이지
+`http://localhost:4000/forge/mixpanel-bot-detection/`
+
+### 관련 파일·위치
+- `_sass/custom.scss`
+  - `.yb-forge-item { padding-top: 44px; ... }` (헤더 위 여백, 8px→44px로 방금 변경)
+  - `.yb-forge-item__lead { margin: 0 0 44px; ... }` (리드 아래 여백, 36px→44px로 변경)
+  - `.yb-forge-detail .page__main-inner` + `::before` (흰 영역을 `top: var(--forge-head-h)`부터 그림)
+- `_layouts/forge-item.html` — 헤더(브레드크럼/제목/리드) + 스펙표 + 본문 + 하단 메타 + 하단 `<script>`.
+
+### 구조 요약 (핵심)
+1. `.yb-forge-detail .page__main-inner` 전체가 다크(불빛 차콜) 배경.
+2. `::before`로 흰 사각형을 `top: var(--forge-head-h)`부터 덮음 → 위=다크(헤더), 아래=흰색(본문).
+3. `--forge-head-h`는 `forge-item.html` 하단 JS가 실시간 계산: `target = .yb-spec`, `head-h = target.top - inner.top`. 즉 흰 영역은 스펙표 윗선부터, 리드는 다크 헤더에 남음.
+4. 같은 JS가 사이드 패널(`.page__aside--static`) `margin-top`도 스펙표 윗선에 맞춤.
+
+### 여백 출처 (가정 — 미검증)
+- 헤더 위 여백 = `.yb-forge-item` `padding-top`
+- 헤더 아래 여백 = `.yb-forge-item__lead` `margin-bottom` (흰선이 리드 밑 44px 지점에 그려져 다크로 남음)
+
+### "안 보이는" 원인 후보 (다음 대화에서 이 순서로 확인)
+1. SCSS 미컴파일 — `_site` 지우고 `bundle exec jekyll serve` 재시작.
+2. 브라우저 캐시 — 하드 리프레시(Cmd+Shift+R).
+3. 셀렉터 우선순위 — 개발자도구 Computed 탭에서 `.yb-forge-item`의 실제 padding-top 확인. 위 여백이 사실은 상위 `.page__content`/`.page__main-inner` 패딩에서 올 수도 있음.
+4. 위 여백의 진짜 출처 특정 — 브레드크럼 위 간격을 만드는 실제 박스를 개발자도구로 집기.
+5. JS 타이밍 — 콘솔에서 `getComputedStyle(document.querySelector('.page__main-inner')).getPropertyValue('--forge-head-h')`로 실제 값 확인.
+
+### 다음 단계
+1. 로컬 개발자도구로 위·아래 여백을 만드는 실제 요소와 계산값을 먼저 특정한다(가정 검증).
+2. 값이 안 먹으면 상위 셀렉터를 찾아 `.yb-forge-detail` 스코프로 정확히 겨냥한다.
+3. 위·아래를 같은 변수(예: `--forge-head-pad`)로 묶어 한 값만 바꿔도 대칭이 유지되게 정리한다.
+
+### 이번 세션에서 이미 처리한 것 (대장간 상세)
+- 다크 헤더의 코랄 배지 제거, 리드 앞 코랄 세로선 제거.
+- 사이드 정렬 기준을 라벨 → 패널(`aside`) top으로 변경.
+
+---
 
 ## 1. 완료된 것
 
