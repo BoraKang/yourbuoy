@@ -73,6 +73,28 @@ $yb-aside-inset: 19px;
    페이지 타입마다 헤더 콘텐츠 높이가 달라, 이 값이 하한(min-height)으로 동작하도록 짠다. */
 $yb-head-h: 310px;
 
+/* 텍스트 선택(드래그) 색 — 코랄 대신 물빛 아쿠아로 (테마 $select-color 덮음) */
+body ::selection { background: #bfe8ee; color: #0b2b33; }
+body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
+
+/* 선택영역 상단에 톡 뜨는 부표 마커 */
+#yb-sel-buoy {
+  position: fixed; left: 0; top: 0; z-index: 60;
+  width: 20px; height: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: bottom center;
+  transform: translate(-50%, calc(-100% + 3px)) scale(.4) rotate(-10deg);
+  transition: opacity .13s ease, transform .18s cubic-bezier(.2, .85, .3, 1.5);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .2));
+  will-change: transform, left, top;
+}
+#yb-sel-buoy.is-on {
+  opacity: 1;
+  transform: translate(-50%, calc(-100% + 3px)) scale(1) rotate(-10deg);
+}
+#yb-sel-buoy svg { width: 100%; height: 100%; display: block; }
+
 /* GNB가 목차 등 다른 요소 위에 오도록 */
 .header { position: relative; z-index: 20; }
 .page__aside { z-index: 1; }
@@ -145,13 +167,17 @@ $yb-head-h: 310px;
   }
 
   blockquote {
-    border-left: 3px solid $yb-coral;
-    background: none;
+    background: linear-gradient(180deg, #eef8fb, #f7fbfc);
+    border: none;
+    border-left: 3px solid $yb-teal;  /* 옆 바만, 감싸는 테두리 없음 */
+    border-radius: 0;                 /* 모서리 각지게 */
     color: $yb-text;
-    font-size: 18px;
-    line-height: 1.65;
-    padding: 6px 0 6px 24px;
-    margin: 6px 0 36px;
+    font-size: 16.5px;
+    line-height: 1.7;
+    padding: 16px 20px 18px;
+    margin: 8px 0 36px;
+    p { margin: 0; }
+    p + p { margin-top: 10px; }
   }
 
   img { max-width: 100%; border-radius: $yb-r-md; }
@@ -975,7 +1001,13 @@ $yb-head-h: 310px;
      바로 아래 featured의 구분선이 "간판"임을 확정해준다.
      왼쪽으로 되돌리려면 text-align 만 left 로. */
   text-align: center;
-  padding: 92px 0 64px;
+  padding: 72px 0 64px;
+  /* 히어로 가운데 부표 마크 (GNB에서 옮겨온 로고) */
+  .yb-home-hero__mark {
+    width: 74px;
+    margin: 0 auto 20px;
+    svg { width: 74px; height: 74px; display: block; }
+  }
   /* 워드마크(yourBuoy)는 로고와 같은 서체. 페이지 제목이 아니므로 Poppins가 맞다. */
   h1 {
     font-family: Poppins, "Pretendard Variable", sans-serif;

@@ -65,20 +65,6 @@ type: article
         ]
       }
       {%- endif -%}
-      {%- if page.faq and page.faq.size > 0 -%},
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {%- for _f in page.faq -%}
-          {
-            "@type": "Question",
-            "name": {{ _f.q | jsonify }},
-            "acceptedAnswer": { "@type": "Answer", "text": {{ _f.a | jsonify }} }
-          }{%- unless forloop.last -%},{%- endunless -%}
-          {%- endfor -%}
-        ]
-      }
-      {%- endif -%}
     ]
   }
   </script>
@@ -86,17 +72,6 @@ type: article
 
   <div class="article__content" itemprop="articleBody">{{ content }}</div>
 
-  {%- if page.faq and page.faq.size > 0 -%}
-  <div class="yb-faq">
-    <h2>자주 묻는 질문</h2>
-    {%- for _f in page.faq -%}
-    <div class="yb-faq__item">
-      <h3>{{ _f.q }}</h3>
-      <p>{{ _f.a }}</p>
-    </div>
-    {%- endfor -%}
-  </div>
-  {%- endif -%}
 
   {%- assign _cat = page.categories[0] -%}
   {%- case _cat -%}

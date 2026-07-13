@@ -8,12 +8,15 @@
     <div class="main">
       <div class="header__title">
         <div class="header__brand">
+          {%- comment -%} 메인에선 GNB 브랜드를 숨긴다 — 로고는 히어로 가운데로 옮김 {%- endcomment -%}
+          {%- unless page.url == '/' -%}
           {%- include svg/logo.svg -%}
           {%- assign _paths_root = site.paths.root | default: site.data.variables.default.paths.root  -%}
           {%- include snippets/get-nav-url.html path=_paths_root -%}
           {%- if site.title -%}
             <a title="{%- if site.description -%}{{ site.description }}{%- endif -%}" href="{{ __return }}">{{ site.title }}</a>
           {%- endif -%}
+          {%- endunless -%}
         </div>
           <a class="button button--secondary button--circle search-button" href="{{ '/archive/' | relative_url }}" title="검색·태그"><i class="fas fa-search"></i></a>
       </div>

@@ -39,3 +39,41 @@
     </div>
   </div>
 </footer>
+
+{%- comment -%} 텍스트 선택(드래그) 시 선택영역 상단에 톡 뜨는 부표 마커 {%- endcomment -%}
+<div id="yb-sel-buoy" aria-hidden="true">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="12" r="10.4" fill="#ff5a3c"/>
+    <g fill="#ffffff">
+      <rect x="10.1" y="1.4" width="3.8" height="6.2" rx="1.2"/>
+      <rect x="10.1" y="16.4" width="3.8" height="6.2" rx="1.2"/>
+      <rect x="1.4" y="10.1" width="6.2" height="3.8" rx="1.2"/>
+      <rect x="16.4" y="10.1" width="6.2" height="3.8" rx="1.2"/>
+      <circle cx="12" cy="12" r="4.4"/>
+    </g>
+  </svg>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('yb-sel-buoy');
+  if (!el || !window.getSelection) return;
+  var raf;
+  function place() {
+    var sel = window.getSelection();
+    if (!sel || sel.rangeCount === 0 || sel.isCollapsed || !sel.toString().trim()) {
+      el.classList.remove('is-on'); return;
+    }
+    var rects = sel.getRangeAt(0).getClientRects();
+    var rect = rects[rects.length - 1] || sel.getRangeAt(0).getBoundingClientRect();
+    if (!rect || (!rect.width && !rect.height)) { el.classList.remove('is-on'); return; }
+    el.style.left = rect.right + 'px';   /* 선택 끝(뒷부분) x */
+    el.style.top = rect.top + 'px';      /* 마지막 줄 상단 */
+    el.classList.add('is-on');
+  }
+  function update() { cancelAnimationFrame(raf); raf = requestAnimationFrame(place); }
+  document.addEventListener('selectionchange', update);
+  document.addEventListener('mouseup', update);
+  window.addEventListener('scroll', function () { if (el.classList.contains('is-on')) update(); }, { passive: true });
+  window.addEventListener('resize', update);
+})();
+</script>
