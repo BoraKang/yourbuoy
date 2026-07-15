@@ -1888,8 +1888,14 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   }
 }
 
-/* 대장간 상세 aside: 다른 작업물 — 카드 없이 라인형(Webflow식) */
-.yb-aside-forge { margin-top: 4px; }
+/* 대장간 상세 aside: 다른 작업물 — 흐린 회색 박스 안의 라인형 목록.
+   박스를 목록(.yb-aside-forge) 자체에 입혀 데스크톱 사이드·모바일 본문 끝 어디서든
+   같은 규칙 하나로 따라가게 한다(반응형 자동). 바깥 컨테이너는 간격만 담당. */
+.yb-aside-forge {
+  background: $yb-gray-bg;            /* #f2f4f6 흐린 회색 */
+  border-radius: $yb-r-md;            /* 9px */
+  padding: $yb-space-5;              /* 24px */
+}
 .yb-aside-forge__label {
   font-size: 12px;
   font-weight: 400;
@@ -1905,6 +1911,7 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   border-top: 1px solid $yb-line-soft;
   text-decoration: none !important;
   &:first-of-type { border-top: 0; padding-top: 0; }  /* 라벨 바로 아래 첫 행은 선 없이 */
+  &:last-of-type { padding-bottom: 0; }               /* 박스 안쪽 패딩이 아래 여백을 대신한다 */
   &:hover .yb-aside-forge__title { color: $yb-coral; }
 }
 .yb-aside-forge__thumb {
@@ -1913,7 +1920,9 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   height: 48px;
   border-radius: $yb-r-sm;
   overflow: hidden;
-  background: $yb-gray-bg;
+  background: #fff;                 /* 박스(회색)와 같은 색이면 빈 썸네일이 묻힌다 → 흰 슬롯 */
+  border: 1px solid $yb-line-soft;  /* 이미지 없을 때도 자리가 보이게 하는 얇은 테두리 */
+  box-sizing: border-box;
   img { width: 100%; height: 100%; object-fit: cover; display: block; }
 }
 .yb-aside-forge__body { flex: 1; min-width: 0; }
@@ -1939,32 +1948,11 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.yb-aside-forge__all {
-  display: flex;
-  align-items: center;
-  justify-content: center;         /* 가운데, 조용하게 얹힘 */
-  gap: 4px;
-  margin-top: $yb-space-4;
-  padding: 9px 0;
-  border-radius: $yb-r-sm;         /* 우리 버튼 규칙: 5px 라운드 사각 */
-  background: $yb-gray-bg;         /* 옅은 회색 채운 박스 */
-  font-size: 12.5px;
-  font-weight: 500;
-  color: $yb-gray-fg;              /* 진한 회색 글자 */
-  text-decoration: none !important;
-  transition: background .15s ease, color .15s ease;
-  svg { width: 13px; height: 13px; stroke: currentColor; transition: transform .2s ease; }
-  &:hover { background: $yb-gray-bg-hover; color: $yb-ink-strong; }
-  &:hover svg { transform: translateY(1px); }
-}
-
 /* 대장간 항목: 본문(표)과 사이드가 붙지 않게 사이 간격을 넓힌다.
-   forge 사이드에 margin-left를 줘서 표 오른쪽 끝과 벌린다. */
+   forge 전용 컨테이너(page.html:239). 박스는 안쪽 .yb-aside-forge가 그리므로
+   여기서는 표와의 좌측 간격만 담당한다(박스 중복 방지). */
 .page__aside--static {
   margin-left: $yb-space-6;
-  padding: $yb-space-5 $yb-space-5 $yb-space-4;
-  background: #fafbfc;
-  border-radius: $yb-r-md;
 }
 
 /* 대장간 흰 영역: 상단 다크에서 이 지점부터 흰색으로 (Amplitude 블로그식).
