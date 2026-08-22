@@ -1,4 +1,5 @@
 ---
+published: false
 title: Mixpanel 봇 트래픽 진단기
 summary: MTU가 갑자기 튀었을 때 원인을 네 계열로 나눠 짚어주는 진단 도구.
 intent: 고객사마다 같은 진단을 손으로 반복하고 있었다. 절차를 고정하면 사람이 판단할 지점만 남는다.

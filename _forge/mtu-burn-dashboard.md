@@ -1,4 +1,5 @@
 ---
+published: false
 title: MTU 소진율 대시보드
 summary: 버킷 대비 소진 속도를 주 단위로 추적.
 intent: 버킷 업그레이드 결정을 감이 아니라 추세로 하고 싶었다.

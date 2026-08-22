@@ -1,4 +1,5 @@
 ---
+published: false
 title: 회의록 정리 봇
 summary: 녹취를 5W1H 프레임으로 정리.
 for_whom: 회의 직후 정리에 시간을 쓰는 사람.

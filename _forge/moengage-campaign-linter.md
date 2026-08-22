@@ -1,4 +1,5 @@
 ---
+published: false
 title: MoEngage 캠페인 린터
 summary: 발송 전 캠페인 설정에서 흔한 실수를 잡아내는 검사기.
 for_whom: 캠페인을 직접 만들고 발송까지 책임지는 CRM 담당자.

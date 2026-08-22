@@ -1,4 +1,5 @@
 ---
+published: false
 title: 이벤트 택소노미 설계 도구
 summary: 화면 흐름을 넣으면 이벤트·속성 초안을 만들어주는 웹앱.
 for_whom: 트래킹 플랜을 처음부터 짜야 하는 PM이나 그로스 담당자.

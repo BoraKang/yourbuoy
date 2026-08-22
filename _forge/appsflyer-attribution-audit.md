@@ -1,4 +1,5 @@
 ---
+published: false
 title: AppsFlyer 어트리뷰션 점검표
 summary: 설치 기여도가 어긋날 때 확인할 지점을 순서대로 짚어주는 체크리스트.
 for_whom: 광고비 대비 설치 수가 안 맞아 원인을 찾고 있는 마케터.

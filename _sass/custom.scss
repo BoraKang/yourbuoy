@@ -889,6 +889,8 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
 @media (max-width: 767px) {
   .header .main { flex-wrap: wrap; }
   .navigation { margin-left: 0; flex-wrap: wrap; }
+  /* 모바일에서 GNB 밖으로 튀어나오는 About — 푸터(.yb-footer-links)에 이미 있으니 여기선 숨김 */
+  .yb-nav-about { display: none; }
 }
 .yb-nav-utils .navigation__item a { color: inherit; }
 .yb-subscribe-btn {

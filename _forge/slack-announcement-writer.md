@@ -1,4 +1,5 @@
 ---
+published: false
 title: 공지문 자동 작성기
 summary: 본사 릴리즈 노트를 고객사 슬랙 공지로 변환.
 intent: 원문을 읽고 옮기는 데 매번 한 시간이 들었다.
