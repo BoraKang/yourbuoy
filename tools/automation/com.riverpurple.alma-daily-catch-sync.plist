@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.riverpurple.alma-daily-catch-sync</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/riverpurple/Code/yourbuoy/tools/automation/sync-alma-daily-catch.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>7</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/tmp/alma-daily-catch-sync.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/alma-daily-catch-sync.err</string>
+</dict>
+</plist>
