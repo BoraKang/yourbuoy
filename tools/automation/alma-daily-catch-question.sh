@@ -4,9 +4,18 @@ set -eu
 workspace="/root/.openclaw/workspaces/alma"
 pending="$workspace/memory/daily-catch-pending.md"
 
-# 답변을 기다리는 질문이 있으면 새 질문으로 덮어쓰지 않는다.
+# 24시간 안에 보낸 질문은 기다린다. 답하지 않은 날 때문에 다음 질문이
+# 영구 중단되지 않도록 오래된 대기는 만료한다.
 if [ -f "$pending" ]; then
-  exit 0
+  now_epoch="$(date '+%s')"
+  pending_epoch="$(stat -c '%Y' "$pending" 2>/dev/null || stat -f '%m' "$pending")"
+  pending_age="$((now_epoch - pending_epoch))"
+
+  if [ "$pending_age" -lt 86400 ]; then
+    exit 0
+  fi
+
+  rm -f "$pending"
 fi
 
 sent_at="$(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M')"

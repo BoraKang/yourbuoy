@@ -12,3 +12,4 @@
 |---|---|---|---|
 | 2026-08-24 | 수확 루프 초기 구성 | `.claude/agents/harvest-curator.md`, `.claude/skills/yourbuoy-harvest/` | 회고·편집과 분리된 아이템 발굴 트랙 복원 |
 | 2026-08-24 | 수요 우선 모드 추가 | `.claude/skills/yourbuoy-harvest/` | 초기 콘텐츠 확보를 위해 AX 리더십·업무 운영 검색 수요에서 출발 |
+| 2026-08-24 | 루프 접점 정합화 | Writer·Daily Catch·자동화 | Notion 정본, Obsidian 경로, 답변 채널, 유실 방지 규칙 통일 |

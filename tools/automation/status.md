@@ -1,8 +1,11 @@
 # 현재 상태
 
 - Alma Daily Catch 질문은 VPS에서 매일 21:30 KST에 실행된다.
-- 답변 대기 파일이 남아 있으면 중복 질문을 보내지 않는다.
-- Mac은 매일 07:00 KST에 전날 `Daily Catch` 섹션만 Obsidian `i. Raw/alma/`로 동기화한다.
+- 24시간 이내 답변 대기 파일이 있으면 중복 질문을 보내지 않고, 24시간이 지나면 만료해 다음 질문을 보낸다.
+- Mac은 매일 07:00 KST에 오늘부터 최근 3일의 `Daily Catch` 섹션을 확인해 Obsidian `i. Raw/alma/`로 백필한다.
+- Obsidian 동기화는 관리 영역만 갱신하고 `## 내 메모`를 보존한다.
+- Backlog와 상태의 유일한 정본은 Notion이며 `_meta/backlog.md`와 `_meta/daily-catch.md`에는 새 데이터를 쓰지 않는다.
+- Codex 자동화 보고에는 해당 Codex 작업에서 답장한다. 커밋은 명시적 발행 승인 뒤, 푸시는 별도 요청 뒤에만 수행한다.
 - 기존 Codex `yourBuoy 아침 블로그 루프`는 중지 상태다.
 - Codex `yourBuoy 일일 편집 루프`는 매일 07:30 KST에 기존 Notion 아이템의 질문·초안·게이트 처리만 수행한다.
 - 검색 수요 기반 아이템 조사 트랙은 `yourbuoy-harvest` 스킬로 분리되어 있다.
@@ -13,6 +16,8 @@
 - GSC·Ahrefs는 현재 연결되지 않아 수확 루프에서 사용하지 않는다.
 - Codex `yourBuoy 주간 씨앗 선별`은 매주 일요일 09:00 KST에 실행된다.
 - 주간 선별은 후보만 보고하며 사용자가 선택하기 전에는 Notion을 수정하지 않는다.
+- 2026-08-24 운영 검증에서 최근 3일 SSH 백필이 성공했고 `/tmp/alma-daily-catch-sync.err`는 0바이트였다.
+- 기존 `2026-08-23 Daily Catch.md`는 관리 영역 형식으로 전환됐고 `.pre-managed` 복구본이 생성됐다.
 
 ## 바로 다음 확인
 
