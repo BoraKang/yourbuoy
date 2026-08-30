@@ -8,6 +8,7 @@ categories: [work]
 tags: [AI 글쓰기, 협업]
 internal_tags: [AI 문서 검토, AI 생성 문서 신뢰, 협업 커뮤니케이션, 검증 비용]
 hero_image: /assets/images/thumbnail/2026-08-31_reading-ai-written-documents.png
+hero_style: editorial
 ---
 
 > “본질적인 내용이 중요한 것 아닌가? 왜 이렇게 사소한 것에 집착해.”
