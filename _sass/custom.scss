@@ -180,7 +180,42 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
     p + p { margin-top: 10px; }
   }
 
+  /* Notion callout을 옮길 때 쓰는 전용 정보 카드 */
+  .yb-callout {
+    margin: 16px 0 24px;
+    padding: 20px 22px;
+    background: #f5f9fa;
+    border: 1px solid #dcebed;
+    border-radius: $yb-r-md;
+  }
+
+  .yb-callout p {
+    margin: 0 0 10px;
+    line-height: 1.7;
+  }
+
+  .yb-callout p:last-child { margin-bottom: 0; }
+
+  .yb-callout .yb-callout__label {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 4px 9px;
+    border-radius: $yb-r-pill;
+    background: $yb-teal-bg;
+    color: $yb-teal-dark;
+    font-size: 13.5px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
   img { max-width: 100%; border-radius: $yb-r-md; }
+}
+
+@media (max-width: 767px) {
+  .article__content .yb-callout {
+    padding: 16px;
+  }
 }
 
 /* 우측 목차 정리 */
