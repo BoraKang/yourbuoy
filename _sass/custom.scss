@@ -166,6 +166,10 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
     margin: 36px 0 13px;
   }
 
+  .yb-heading-accent {
+    color: $yb-teal;
+  }
+
   blockquote {
     background: linear-gradient(180deg, #eef8fb, #f7fbfc);
     border: none;
