@@ -28,7 +28,8 @@
 </title>
 
 <!-- Meta description -->
-<meta name="description" content="{%- if page.excerpt -%}{{ page.excerpt | default: site.description | strip_html | strip_newlines | strip | truncate: 160 }}{%- else -%}{{ site.description }}{%- endif -%}">
+{%- assign _meta_description = page.description | default: page.excerpt | default: site.description -%}
+<meta name="description" content="{{ _meta_description | strip_html | strip_newlines | strip | truncate: 160 }}">
 <link rel="canonical" href="{%- include snippets/page-url.html -%}">
 
 {%- assign _paths_rss = site.paths.rss | default: site.data.variables.default.paths.rss -%}

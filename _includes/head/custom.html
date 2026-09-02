@@ -24,11 +24,9 @@
 
   	<!-- 페이지 디스크립션이 있으면, 콘텐츠 페이지 오픈그래프 타입을 article(블로그 글 형식)로, 없으면 메인 페이지에서는 website로 설정된다. 블로그 글에서는 _config.yml에 설정된 description을 가져온다 -->
     {% if page.description %}
-      <meta name="description" content="{{ page.description }}" />
       <meta property="og:description" content="{{ page.description }}" />
       <meta name="twitter:description" content="{{ page.description }}" />
     {% else %}
-      <meta name="description" content="{{ site.description }}" />
       <meta property="og:description" content="{{ site.description }}" />
       <meta name="twitter:description" content="{{ site.description }}" />
     {% endif %}
