@@ -25,3 +25,12 @@ Gemfile.lock
 _site/
 .jekyll-metadata
 .jekyll-cache/
+
+# Cowork/FUSE 마운트가 남기는 임시 파일
+.fuse_hidden*
+
+# 삭제 대기 (직접 비우고 폴더째 지우세요)
+_to_delete/
+
+# 로컬 학습 루프 기록 (스킬 사본별 공통 제외)
+**/references/learning-loop.md
