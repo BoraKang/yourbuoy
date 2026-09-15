@@ -9,6 +9,10 @@ internal_tags: [이직 체크리스트, 퇴사 결정 기준, 이직 타이밍 �
 hero_image: /assets/images/thumbnail/2026-09-11_do-i-leave-this-job.png
 ---
 
+<style>
+.article__content table { display: table; }
+</style>
+
 요즘 나는 위기의 여자다. 일이 재미가 없고 몸이 근질근질.... 셈해보니 4년차. 때가 되긴 했다. 지금까지 나는 5년 주기로 이직해왔기 때문에...아, 지금이 그때인 것이다. 그런데 '이직 ㄱㄱ'하기에는 전처럼 명쾌하지가 않다. 입사를 결정하는 것만큼 이직을 결정하는 것도 쉽지 않을 뿐더러, 지금 나에겐 다른 직장에 가는것 자체가 다음 목표는 아니기 때문에... 
 
 <!--more-->
