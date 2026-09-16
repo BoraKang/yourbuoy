@@ -50,11 +50,11 @@ show_title: false
     </a>
   </div>
 
-  <div class="yb-home-grid">
+  <div class="yb-home-grid" id="yb-home-grid">
     {%- assign _count = 0 -%}
+    {%- assign _batch = 6 -%}
     {%- for _post in site.posts -%}
       {%- if _post.url == _featured.url -%}{%- continue -%}{%- endif -%}
-      {%- if _count >= 6 -%}{%- break -%}{%- endif -%}
       {%- assign _count = _count | plus: 1 -%}
       {%- assign _pc = _post.categories[0] -%}
       {%- case _pc -%}
@@ -65,7 +65,7 @@ show_title: false
         {%- when 'forge' -%}{%- assign _pl = 'Resource' -%}
         {%- else -%}{%- assign _pl = _pc -%}
       {%- endcase -%}
-      <a class="yb-mini" href="{{ _post.url | relative_url }}">
+      <a class="yb-mini{% if _count > _batch %} yb-mini--more{% endif %}"{% if _count > _batch %} hidden{% endif %} href="{{ _post.url | relative_url }}">
         <div class="yb-mini__thumb">{%- include yb-thumb.html post=_post cat=_pc -%}</div>
         <div class="yb-mini__body">
           <div class="yb-chips"><span class="yb-chip">{{ _pl }}</span>{%- if _post.tags.first -%}<span class="yb-chip yb-chip--soft">{{ _post.tags.first }}</span>{%- endif -%}</div>
@@ -77,6 +77,26 @@ show_title: false
     {%- endfor -%}
   </div>
 
-  {%- include yb-subscribe-card.html -%}
+  {%- if _count > _batch -%}
+  <div class="yb-home-more">
+    <button type="button" class="yb-home-more__btn" id="yb-home-more-btn">더보기</button>
+  </div>
+  <script>
+  (function () {
+    var BATCH = {{ _batch }};
+    var btn = document.getElementById('yb-home-more-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var hidden = document.querySelectorAll('#yb-home-grid .yb-mini--more[hidden]');
+      for (var i = 0; i < hidden.length && i < BATCH; i++) {
+        hidden[i].removeAttribute('hidden');
+      }
+      if (document.querySelectorAll('#yb-home-grid .yb-mini--more[hidden]').length === 0) {
+        btn.hidden = true;
+      }
+    });
+  })();
+  </script>
+  {%- endif -%}
 
 </div>

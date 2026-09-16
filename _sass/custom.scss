@@ -1252,6 +1252,27 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   &:hover { color: $yb-coral; }
   &:hover svg { transform: translateX(3px); }
 }
+/* 더보기 버튼 */
+.yb-home-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+.yb-home-more__btn {
+  border: 1px solid $yb-line;
+  border-radius: $yb-r-sm;
+  padding: 11px 28px;
+  background: #fff;
+  color: $yb-ink;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
+}
+.yb-home-more__btn:hover { border-color: $yb-coral; color: $yb-coral; }
+.yb-home-more__btn[hidden] { display: none; }
+
 @media (max-width: 900px) {
   .yb-home-hero h1 { font-size: 40px; }
   .yb-archive-hero { padding: 56px 0 32px; }
