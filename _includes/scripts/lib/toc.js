@@ -47,7 +47,7 @@
           $headings.each(function() {
             var $this = $(this);
             $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName').toLowerCase())
-              .append($('<a></a>').text($this.text()).attr('href', '#' + $this.prop('id'))));
+              .append($('<a></a>').text($this.attr('data-toc') || $this.text()).attr('href', '#' + $this.prop('id'))));
           });
           $tocLi = $tocUl.children('li');
           $tocUl.on('click', 'a', function(e) {

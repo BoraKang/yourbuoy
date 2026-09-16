@@ -238,6 +238,19 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   font-size: 13px;
   line-height: 1.5;
 }
+/* data-toc 라벨이 없어 헤딩 원문이 그대로 들어간 경우를 대비한 안전장치:
+   한 줄에서 잘라먹지 않고 2줄까지 자연스럽게 보여준다. */
+.page__aside .toc > li {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+}
+.page__aside .toc > li > a {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
 .page__aside .toc .toc-h2 {
   border-bottom: none;
   padding: 6px 0 2px;
