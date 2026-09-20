@@ -50,7 +50,6 @@ show_title: false
     </a>
   </div>
 
-  <div class="yb-home-list" id="yb-home-list">
   <div class="yb-home-grid" id="yb-home-grid">
     {%- assign _count = 0 -%}
     {%- assign _batch = 9 -%}
@@ -77,10 +76,6 @@ show_title: false
       </a>
     {%- endfor -%}
   </div>
-  {%- if _count > _batch -%}
-  <div class="yb-home-list__fade" id="yb-home-fade" aria-hidden="true"></div>
-  {%- endif -%}
-  </div>
 
   {%- if _count > _batch -%}
   <div class="yb-home-more">
@@ -90,7 +85,6 @@ show_title: false
   (function () {
     var BATCH = {{ _batch }};
     var btn = document.getElementById('yb-home-more-btn');
-    var fade = document.getElementById('yb-home-fade');
     if (!btn) return;
     btn.addEventListener('click', function () {
       var hidden = document.querySelectorAll('#yb-home-grid .yb-mini--more[hidden]');
@@ -99,7 +93,6 @@ show_title: false
       }
       if (document.querySelectorAll('#yb-home-grid .yb-mini--more[hidden]').length === 0) {
         btn.hidden = true;
-        if (fade) { fade.hidden = true; }
       }
     });
   })();
