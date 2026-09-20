@@ -1298,6 +1298,14 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   .yb-feat { flex-direction: column-reverse; align-items: stretch; gap: 20px; }
   .yb-feat__thumb { flex: none; max-width: 100%; }
   .yb-home-grid { grid-template-columns: 1fr; }
+
+  /* 카테고리/자료실/글 히어로: 데스크톱 기준선 정렬용 min-height($yb-head-h)를
+     모바일까지 그대로 물려받으면 내용과 무관하게 여백만 커진다. 풀어준다. */
+  .yb-cathead { padding: 36px 0 24px; min-height: 0; }
+  .yb-cathead__icon { font-size: 28px; }
+  .yb-forge__head { padding: 36px 0 24px; min-height: 0; }
+  .yb-forge__title { font-size: 28px; }
+  .yb-dive .yb-hero { padding: 32px 0 22px; min-height: 0; }
 }
 
 
