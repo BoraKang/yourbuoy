@@ -331,42 +331,11 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
 /* ===== 다이브 모드: GNB부터 히어로까지 하나의 어두운 블록 =====
    물 밖(홈·카테고리·About)은 흰 배경, 글 본문은 수면 아래.
    .yb-dive 는 page.html에서 글 본문에만 붙는다. */
-/* ===== 얕은 물 모드: 카테고리 랜딩 — GNB부터 옅은 프리즘 =====
-   지난번 실패(GNB 회색과 안 이어져 흰 띠)를 리프트 방식으로 해결.
-   전체 폭 프리즘 밴드를 상단에 깔고(위→흰색으로 페이드), GNB는 프로스티드 반투명으로.
-   프리즘 = 블루→아쿠아→라일락. 코랄은 물에 안 섞는다(인터랙션 색으로 아낌). */
-.yb-shallow { position: relative; background: #fff; }
-/* 테마 기본 .page__main-inner 흰 배경이 위 프리즘(::before)을 덮어버린다 → 투명으로 열어 비치게 한다.
-   프리즘 아래(600px~)는 .yb-shallow 흰 배경이 받쳐준다. */
-.yb-shallow .page__main-inner { background: transparent !important; }
-.yb-shallow::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 420px;
-  /* 얕은 물 프리즘: 뮤트한 파스텔 블루·에메랄드·라일락 (형광기 뺌).
-     헤더 위쪽에만 두고 구분선(391) 위에서 흰색으로 마무리 → 리스트는 흰 배경 위. */
-  background:
-    radial-gradient(660px 460px at 97% -4%, rgba(200, 236, 250, .48), transparent 60%),      /* 우상단 밝은 블룸 (연하게) */
-    radial-gradient(1000px 470px at 87% 120px, rgba(112, 190, 224, .36), transparent 66%),    /* 우: 아쿠아-블루 더 연하게 */
-    radial-gradient(560px 300px at 66% 150px, rgba(176, 196, 232, .20), transparent 60%),     /* 우-중앙 옅은 라일락 */
-    radial-gradient(840px 400px at 12% 100px, rgba(154, 210, 204, .22), transparent 66%),     /* 좌: 틸에 흰색 더 타서 산뜻하게 */
-    linear-gradient(180deg, #eaf5fb 0%, #ffffff 320px);
-  z-index: 0;
-  pointer-events: none;
-}
-.yb-shallow > * { position: relative; z-index: 1; }
-.yb-shallow .header { background: transparent !important; }
-.yb-shallow .page__header {
-  background: #cde3ea;   /* 단색 GNB — 노란기 빼고 시원한 아쿠아 쪽으로 */
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-bottom: 0;
-}
-/* 얕은 물 위에서는 카테고리 헤더 구분선을 살짝 푸르게 */
-.yb-shallow .yb-cathead { border-bottom-color: #d3e6ea; }
+/* ===== 얕은 물 모드: 카테고리 랜딩 =====
+   파스텔 프리즘 그라데이션 + 단색 GNB 조합을 두 번 시도했으나 그라데이션과
+   GNB 색이 정확히 안 이어져 이음새가 보이는 문제가 반복됐다. 홈·About과
+   동일하게 흰 배경으로 통일 — GNB도 기본 sticky/블러 스타일을 그대로 쓴다. */
+.yb-shallow { background: #fff; }
 
 /* ===== 대장간 다크 모드: 페이지 전체를 심해로 (물빛 밖의 별개 세계) =====
    목록·상세 모두 어둡게. 다크 카드·이름값(대장간)과 일치. */
