@@ -1252,11 +1252,22 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   &:hover { color: $yb-coral; }
   &:hover svg { transform: translateX(3px); }
 }
-/* 더보기 버튼 */
+/* 더보기 버튼 + 딤드 페이드 */
+.yb-home-list { position: relative; }
+.yb-home-list__fade {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), #fff 82%);
+  pointer-events: none;
+}
+.yb-home-list__fade[hidden] { display: none; }
 .yb-home-more {
   display: flex;
   justify-content: center;
-  margin-top: 32px;
+  position: relative;
+  z-index: 1;
+  margin-top: -56px;
 }
 .yb-home-more__btn {
   border: 1px solid $yb-line;
