@@ -147,6 +147,13 @@ hero_image: /assets/images/thumbnail/YYYY-MM-DD_slug.png   # 1.9:1
 - 구독 CTA는 테마가 자동 삽입. 본문에 넣지 않는다
 - 통계·남의 주장에는 기관명 + 시점 + 원문 링크
 - 내부 링크 1개 (일상 글은 예외)
+- 외부 링크는 새 탭으로: `[텍스트](URL){:target="_blank" rel="noopener"}`
+- `data-toc`로 사이드바 목차 라벨을 헤딩 원문과 다르게 줄일 수 있다. 헤딩 바로 다음 줄에 빈 줄 없이 붙여야 적용됨(한 줄이라도 띄면 무시됨):
+  ```
+  ### 원래 헤딩 텍스트
+  {: data-toc="짧은 라벨"}
+  ```
+  라벨은 **한글 기준 15자 이내**로 (사이드바 폭 기준 실측치, `_sass/custom.scss`의 `.page__aside .toc`). 넘으면 2줄로 넘어가되 억지로 잘리진 않음(`-webkit-line-clamp: 2` 안전장치 있음)
 
 ## 발행 게이트
 
