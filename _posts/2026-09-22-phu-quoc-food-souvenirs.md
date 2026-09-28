@@ -176,11 +176,7 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
 - **미스터 비엣 (Mr.Viet)** 베트남에서 밀어주는 브랜드라고. 사지는 않았다.
 - **콘삭 커피 (Con Sóc)** <u>다람쥐 똥 커피가 아니다!</u> 콘삭 다람쥐가 그려진 커피다. 베트남 다람쥐 커피가 유명하다길래, 사향고양이 커피(루왁 커피)처럼 다람쥐 똥으로 발효한 원두인 줄 알고 샀다. <u>그런데 다람쥐똥 커피가 아니라 그냥 다람쥐 캐릭터가 그려진 드립커피라고...</u> . 베트남에서 루왁 커피를 찾는다면 '사향족제비 커피(Weasel)' 표기를 확인해야 한대네...
 
-<div class="yb-img-grid cols-3">
-  <img src="/assets/images/posting/260927/vietnamese-blend.jpg" alt="vietnamese-blend">
-  <img src="/assets/images/posting/260927/4000031376_1.jpg" alt="4000031376_1">
-  <img src="/assets/images/posting/260927/consoc-squirrel.jpg" alt="consoc-squirrel">
-</div>
+![까페 핀 지아이, Mr.Viet, Con Sóc 드립커피 3종](/assets/images/posting/260927/vietnam-coffee-brands.jpg)
 ## 사람들이 잘 모르지만 좋은 선물 - 베트남 초콜릿
 {: data-toc="선물하기 좋은 베트남 기념품"}
 
