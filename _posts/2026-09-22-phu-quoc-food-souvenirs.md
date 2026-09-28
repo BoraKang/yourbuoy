@@ -18,6 +18,7 @@ hero_image: /assets/images/thumbnail/2026-09-22_phu-quoc-food-souvenirs.png
 @media (max-width: 600px) {
   .yb-img-grid img { flex-basis: calc(50% - 4px) !important; height: 140px; }
 }
+.yb-img-single { display: block; max-width: 320px; margin: 20px auto; border-radius: 8px; }
 
 </style>
 
@@ -263,10 +264,6 @@ Vietnam Select 지하로 내려가면 각종 기념품이 있다. 여행지에�
 
 이것저것 다 집어도 20만원이 넘지 않네...  후추, 느억맘 2박스, 캐슈넛과 커피, 과자까지 넉넉히 샀는데 15만원이다... 가격이 저렴하나 부피가 있는 터라 싸다고 막 사다가 폭주하지 않게 조심해야 한다. 베트남 공항에서 짐 붙이는 포스팅이 많은 이유가 있다.
 
-![푸꾸옥 기념품 쇼핑 총합](/assets/images/posting/260927/shopping-haul-total.jpg)
-
- 
-
 ### 푸꾸옥 공항 기내 반입용 짐 싸기
 
 기내 반입은 위탁수하물과 핸드캐리 각 1개가 일반적이다. 느억맘 같은 액체류는 용기 하나가 100ml를 넘으면 기내에 들고 탈 수 없으니 위탁 수하물로 부치자.  견과류나 커피는 무겁지 않지만 부피가 크기 때문에 캐리어 하나 또는 반쪽을 완전히 비우고 채워야 잘 들어간다. 특별한 기내 수화물이 없다면 셀렉트마트에서 주는 쇼핑백에 핸드캐리로 가져가는 것도 방법이다. 정말 정말 짐이 넘치면 베트남 공항에서 한국으로 짐을 붙일 수도 있다고 하니 좌절 금지.... 
@@ -274,6 +271,8 @@ Vietnam Select 지하로 내려가면 각종 기념품이 있다. 여행지에�
 ### 자석은 푸꾸옥 공항 면세점에서
 
 아쉬웠던 건 자석. 여행을 다녀오면 냉장고에 붙여둘 자석을 꼭 사는데, 로컬에서 마음에 드는 푸꾸옥 자석은 찾지 못했다. 큰 기대를 버리고 자석을 사야 한다. 공항 면세점의 자석이 그나마 좀 낫지만 물론 이것도 막 예쁘지는 않다. 
+
+<img src="/assets/images/posting/260927/shopping-haul-total.jpg" alt="푸꾸옥 기념품 쇼핑 총합" class="yb-img-single">
 
 ## 즐거운 여행, 즐거운 쇼핑하세요!
 
