@@ -133,6 +133,8 @@ hero_image: /assets/images/thumbnail/YYYY-MM-DD_slug.png   # 1.9:1
 ---
 ```
 
+**title·subtitle·description에 `:` (콜론+공백)가 들어가면 반드시 따옴표로 감쌀 것.** 안 그러면 YAML 파싱이 깨져서 front matter 전체가 무효화되고, `categories`를 못 읽어 permalink가 `/life/slug/`가 아니라 `/YYYY-MM-DD-slug/`로 엉뚱하게 나간다(2026-09 phu-quoc-food-souvenirs에서 실제 발생 — 발행 후 404로 발견). 커밋 전에 `python3 -c "import yaml; yaml.safe_load(open(f).read().split('---')[1])"`로 front matter가 파싱되는지 확인하는 습관을 들인다.
+
 ### slug·파일
 
 - slug: 영문 소문자 3~5단어, 하이픈, 60자 이내, 연도 제외
