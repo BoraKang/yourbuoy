@@ -10,6 +10,7 @@ hero_image: /assets/images/thumbnail/2026-09-22_phu-quoc-food-souvenirs.png
 ---
 
 <style>
+.article__content strong, .article__content b { color: #7a4a24; }
 .yb-img-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
 .yb-img-grid img { flex: 1 1 0; min-width: 0; width: 100%; height: 220px; object-fit: cover; border-radius: 8px; }
 .yb-img-grid.cols-2 img { flex-basis: calc(50% - 4px); }
@@ -117,7 +118,6 @@ hero_image: /assets/images/thumbnail/2026-09-22_phu-quoc-food-souvenirs.png
 **베트남은 열대 섬나라처럼 보이는데 왜 땅콩부터 고산지대의 커피와 카카오까지 유명할까?** 신기해서 찾아보니 베트남은 국토가 남북으로 길게 뻗어 있어 여러 농업 기후대를 품고 있기 때문이라고 한다. 북부에는 겨울이 있고 남부에는 겨울이 없을 정도로 기후가 변화무쌍한데, 메콩델타에서는 쌀·열대과일·수산물이, 중부고원에서는 커피·후추·고무가, 중북부에서는 차와 과일이, 해안에서는 수산물... 지역마다 특화된 원물이 따로 생산되는 셈이다.
 
 ### 캐슈넛 (핫 디에우, hạt điều) 과 마카다미아 (핫 막까, hạt mắc ca)
-
 {: data-toc="캐슈넛과 마카다미아"}
 
 캐슈넛과 마카다미아도 종류가 많았다. 어쩐지 마트에 캐슈넛이 너무 많다 했는데, <u>베트남은 세계 최대 캐슈넛 수출국</u>이라고 한다. 심지어 국내 생산량만으로 물량을 채우기 어려워 아프리카 등에서 생캐슈를 수입해 가공 수출하기도 한다고... 마카다미아도 맛있다. 캐슈넛보다 가격대는 있지만 한국에 비하면 정말 싸고, 이런 맛도리는 흔치 않으니 얼른 사자!
@@ -129,9 +129,9 @@ hero_image: /assets/images/thumbnail/2026-09-22_phu-quoc-food-souvenirs.png
   <img src="/assets/images/posting/260927/cashu.jpg" alt="cashu">
   <img src="/assets/images/posting/260927/vietnam-phuquoc-nut_cocoa.jpg" alt="vietnam-phuquoc-nut_cocoa">
 </div>
-### 푸꾸옥 땅콩아저씨 땅콩 (더우 퐁, đậu phộng)
 
-{: data-toc="땅콩과 슈슈 땅콩}
+### 푸꾸옥 땅콩아저씨 땅콩 (더우 퐁, đậu phộng)
+{: data-toc="땅콩과 슈슈 땅콩"}
 
 땅콩 또한 볶은 땅콩부터 초콜릿이 들어간 것까지 종류가 많았다. 땅콩의 맛은 말해 뭐하나. 땅콩은 부드러워서 계속 손이 간다. 
 
@@ -144,9 +144,9 @@ hero_image: /assets/images/thumbnail/2026-09-22_phu-quoc-food-souvenirs.png
   <img src="/assets/images/posting/260927/vietnam-phuquoc-nut.jpeg" alt="vietnam-phuquoc-nut">
   <img src="/assets/images/posting/260927/vietnam-phuquoc-nut2.jpg" alt="vietnam-phuquoc-nut2">
 </div>
-### 베트남 커피 (카페, cà phê)
 
-{: data-toc="믹스커피와 드립 커피}
+### 베트남 커피 (카페, cà phê)
+{: data-toc="믹스커피와 드립 커피"}
 
 베트남 커피라고 하면 G7 같은 진한 커피나 콩카페의 달달한 코코넛커피만 생각했는데, 실제로는 원두·드립커피·믹스커피까지 종류가 엄청 많았다. 베트남은 세계적인 커피 생산국(... 커피도 생산한다고 한다!)으로 로부스타라는 쓴맛이 강하고 묵직한 원두가 유명하다고 한다. 이 커피가 진하고 써서 연유나 코코넛 밀크처럼 달고 부드러운 재료와 섞어 마시는 문화도 발달했다고~(오...)
 
@@ -168,6 +168,7 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
   <img src="/assets/images/posting/260927/vietnam-coffee1.jpg" alt="vietnam-coffee1">
   <img src="/assets/images/posting/260927/vetnam-caphe.jpg" alt="vetnam-caphe">
 </div>
+
 #### 베트남 드립 커피 (카페 핀, Cà phê phin)
 
 드립 커피는 바쁘면 면세점에서 사도 된다. 아래 브랜드는 면세점에도 다 있어서 어디서든 살 수 있다! 좀 비싸서 그렇지... <u>참고로 커피는 베트남이라고 싸지가 않다.</u> 초콜릿과 커피는 거의 한국 가격에 가깝다고 느꼈다. 
@@ -181,7 +182,6 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
 {: data-toc="선물하기 좋은 베트남 기념품"}
 
 ### 초콜릿(소코라, sô-cô-la): 마루와 비터스위트 
-
 {: data-toc="베트남 초콜릿"}
 
 베트남은 스페셜티 초콜릿으로도 유명하단다. 베트남에서 생산되는 카카오빈을 주재료로 하는  빈투바(Bean to bar) 브랜드들이 런칭하면서 입지를 공고히 하고 있다고. 뉴욕타임즈에 ''[당신이 맛보지 못한 최고의 초콜릿(The Best Chocolate You've Never Tasted)](https://www.nytimes.com/2016/03/06/t-magazine/food/marou-vietnamese-chocolate.html)'으로 언급된 로컬 초콜릿 브랜드도 있고, 지역 특산품을 반영한 후추 초콜릿 처럼  푸꾸옥의 재료를 넣은 제품도 있다. 
@@ -199,8 +199,8 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
   <img src="/assets/images/posting/260927/vietnam-phuquoc-chocolate.jpeg" alt="vietnam-phuquoc-chocolate">
   <img src="/assets/images/posting/260927/vietnam-phuquoc-chocolate2.jpeg" alt="vietnam-phuquoc-chocolate2">
 </div>
-### 강추! 올라(Ohla) 건과일 + 초콜릿 칩
 
+### 강추! 올라(Ohla) 건과일 + 초콜릿 칩
 {: data-toc="올라 건과일"}
 
 여름 섬에와서 건과일을 놓칠 수는 없다. 망고, 잭프루트, 바나나, 코코넛칩에 초콜릿을 더한 제품들을 샀다. 가볍고 유통기한도 길어서 열대 느낌이 난다. 여러 사람에게 나눠줄 선물로 괜찮다.
@@ -217,7 +217,6 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
 인터넷에서 헐레벌떡 찾아 사 온 베트남 과자들, 튼실하고 혜자하다.... 맛도 있지만 박스에 과자가 꽉 차 있다/ 
 
 #### 베트남 치즈 과자: 칼치즈와 Ah
-
 {: data-toc="치즈과자"}
 
 치즈 과자 추천이 많아, 가장 유명한  <u>칼 치즈 치즈 웨하스와 Ah</u> 과자를 샀는데, 둘 다 치즈맛이 꽤 진하다.
@@ -231,8 +230,8 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
   <img src="/assets/images/posting/260927/vietnam-snack_ah.jpg" alt="vietnam-snack_ah">
   <img src="/assets/images/posting/260927/vietnam-snack_ah2.jpg" alt="vietnam-snack_ah2">
 </div>
-#### 커피 조이 (Coffee Joy)
 
+#### 커피 조이 (Coffee Joy)
 {: data-toc="커피과자"}
 
 빠다코코낫을 조금 더 얇고 바삭하게 만든 뒤 커피향을 입힌 느낌인데, 생각보다 달지 않고 짭짤해서 계속 손이 간다. 한 봉지에 꽉차 있고 얇아서 이동할 때 간식으로 먹기 좋았다. 이건 다음에도 사 올 것 같다... 
@@ -241,8 +240,8 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
   <img src="/assets/images/posting/260927/vietnam-snack_coffeejoy.jpg" alt="vietnam-snack_coffeejoy">
   <img src="/assets/images/posting/260927/vietnam-snack_coffeejoy3.jpeg" alt="vietnam-snack_coffeejoy2">
 </div>
-#### 탑젤리 (TOP 젤리, 망고·타로)
 
+#### 탑젤리 (TOP 젤리, 망고·타로)
 {: data-toc="망고 젤리, 타로 젤리"}
 
 망고와 타로 젤리가 유명하다고 해서 망고 젤리를 샀다. 말랑하게 쏙 넘어가는 젤리보다는 조금 끈덕하고 탄력 있는 동그란 젤리 질감이다. 내 취향은 아니었지만 한 봉지 가격이 저렴하고 개수가 많아 여러 사람에게 나눠주기에는 괜찮다.
@@ -251,6 +250,7 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
   <img src="/assets/images/posting/260927/top-jelly-mango.jpg" alt="top-jelly-mango">
   <img src="/assets/images/posting/260927/topjelly2.jpeg" alt="topjelly2">
 </div>
+
 ## 면 티셔츠와 작은 가방
 
 Vietnam Select 지하로 내려가면 각종 기념품이 있다. 여행지에서 파는 면 티셔츠의 품질이 좋기가 쉽지 않은데, 푸꾸옥의 면 티셔츠는 괜찮았다. 얇은 것은 얇은 것대로 부드럽고, 도톰한 것은 봉제 마감이 매끈했다. 아이들 하와이안 티셔츠 구매를 추천한다. 봉제 가방은 비추.... 사실 4500원 정도라 너무 싸고 이쁘다 하고 사왔는데, Made in China 였고 어제 알리에서 2천원에 파는 것을 발견했다... 
