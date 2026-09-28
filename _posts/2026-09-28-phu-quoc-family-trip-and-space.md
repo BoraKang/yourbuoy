@@ -120,9 +120,13 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 
 그래서 어차피 가야하지만 괜찮은 구글 리뷰를 보면서도 전전긍긍하며 피자집( [Thyme Bistro](https://www.google.com/maps/place/Thyme+Bistro+Restaurant+Phu+Quoc/@10.0388138,104.0229438,17z/data=!3m1!4b1!4m6!3m5!1s0x31a797004cc029c9:0xe04fd9a9e5de7f4!8m2!3d10.0388138!4d104.0255187!16s%2Fg%2F11wxtzntvl?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D))에 갔는데... 음식이 정말 맛있었다. 친절하기도 했고. 그러면서 다음날부터 마사지 샵([Sen Spa](https://www.google.com/maps/place/Sen+Spa/@10.0357227,104.0127487,17z/data=!4m6!3m5!1s0x31a7978e1af51b63:0xf9a26d8e9a06d78b!8m2!3d10.0387616!4d104.0255245!16s%2Fg%2F11vj1b49yg?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D))과 태국 음식점([Thai Papaya](https://www.google.com/maps/place/Thai+Papaya+Restaurant/@10.0387214,104.0229506,17z/data=!4m14!1m7!3m6!1s0x31a7970d88f98fc3:0xc23bb6cb1ac4bc23!2sThai+Papaya+Restaurant!8m2!3d10.0387214!4d104.0255255!16s%2Fg%2F11y8rhy12w!3m5!1s0x31a7970d88f98fc3:0xc23bb6cb1ac4bc23!8m2!3d10.0387214!4d104.0255255!16s%2Fg%2F11y8rhy12w?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D)), 베트남 음식점([Com Tho Tay Cam](https://www.google.com/maps/place/Com+Tho+Tay+Cam+Seafood+%26+Meat+BBQ+Restaurant/@10.038754,104.0229826,17z/data=!3m1!4b1!4m6!3m5!1s0x31a797b63972be01:0x8824e760f9d4dc53!8m2!3d10.038754!4d104.0255575!16s%2Fg%2F11lnsdgb5c?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D))을 갔는데 모두 맛이 있었고 가격도 정말 괜찮았다. 7그릇 시켜서 5만 5천원 정도? ㅎㅎ 
 
- 고르느라 애쓰지 않고 그냥 앞에 있는 데 들어가도 괜찮네? 어디가 괜찮은가 너무 고민하지 않아도 돼서 편했다. 
+ 고르느라 애쓰지 않고 그냥 앞에 있는 데 들어가도 괜찮네? 어디가 괜찮은가 고민/감별하지 않아도 돼서 편했다.
 
-
+<div class="yb-img-grid cols-3">
+  <img src="/assets/images/posting/260928/thyme-bistro.jpg" alt="Thyme Bistro 피자">
+  <img src="/assets/images/posting/260928/thai-papaya.jpg" alt="Thai Papaya 태국 음식">
+  <img src="/assets/images/posting/260928/com-tho-tay-cam.png" alt="Com Tho Tay Cam 베트남 음식">
+</div>
 
 ### 2. 계획도시의 스케일 - 선셋타운과 부이페스트 야시장
 
@@ -165,6 +169,7 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
   <img src="/assets/images/posting/260928/IMG_4393.jpg" alt="여행 스냅 1">
   <img src="/assets/images/posting/260928/IMG_3975.jpg" alt="여행 스냅 2">
 </div>
+
 
 이번 푸꾸옥 여행은 넓은 숙소에서 쉬고, 바다에 나가고, 맛있는 걸 먹고, 가끔 선셋타운에 다녀오는 정도의 여행이었다. 아이들과 부모님이 함께라 외출이나 탐험이 거의 없어 참 심심한 여행 같은데 만족스럽다. 뭔가를 많이 해서가 아니라 잘 쉬어서 만족스러울 수 있구나.
 
