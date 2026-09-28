@@ -118,6 +118,8 @@ hero_image: /assets/images/thumbnail/2026-09-22_phu-quoc-food-souvenirs.png
 
 ### 캐슈넛 (핫 디에우, hạt điều) 과 마카다미아 (핫 막까, hạt mắc ca)
 
+{: data-toc="캐슈넛과 마카다미아"}
+
 캐슈넛과 마카다미아도 종류가 많았다. 어쩐지 마트에 캐슈넛이 너무 많다 했는데, <u>베트남은 세계 최대 캐슈넛 수출국</u>이라고 한다. 심지어 국내 생산량만으로 물량을 채우기 어려워 아프리카 등에서 생캐슈를 수입해 가공 수출하기도 한다고... 마카다미아도 맛있다. 캐슈넛보다 가격대는 있지만 한국에 비하면 정말 싸고, 이런 맛도리는 흔치 않으니 얼른 사자!
 
 - **캐슈넛과 마카다미아** 모두 기본 구운 것부터 깐 캐슈, 안깐 캐슈, 볶은 캐슈 등 뭘 골라도 다 맛있다.
@@ -129,11 +131,13 @@ hero_image: /assets/images/thumbnail/2026-09-22_phu-quoc-food-souvenirs.png
 </div>
 ### 푸꾸옥 땅콩아저씨 땅콩 (더우 퐁, đậu phộng)
 
+{: data-toc="땅콩과 슈슈 땅콩}
+
 땅콩 또한 볶은 땅콩부터 초콜릿이 들어간 것까지 종류가 많았다. 땅콩의 맛은 말해 뭐하나. 땅콩은 부드러워서 계속 손이 간다. 
 
-* **내가 먹을 것이라면 초콜릿이나 꿀이 묻은 땅콩**
-* **선물한다면 프랑스 아저씨 땅콩(**슈슈 푸꾸옥, ChouChou Phu Quoc)을 추천한다. 선물티가 팍팍난다.  
-  - 한국에서 프랑스 아저씨가 그려진 땅콩이 가장 유명하다고 해서 샵에 쌓인 2\~3가지를 대충 사 왔다. 병마다 맛이 복불복이라 보니 30가지가 넘는 맛이 있다고....   마트에서는 맛별로 분류해두지 않으므로 미리 알아보고 골라오는게 좋겠다. 
+* **내가 먹을거면 초콜, 꿀 땅콩**
+* **선물한다면 프랑스 아저씨 땅콩(**슈슈 푸꾸옥, ChouChou Phu Quoc)을 추천한다. 
+  - 한국에서 프랑스 아저씨가 그려진 땅콩이 가장 유명하다고 들어서 샵에 쌓인 2\~3가지를 대충 사 왔다. 병마다 맛이 복불복이라 보니 30가지가 넘는 맛이 있다고....   마트에서는 맛별로 분류해두지 않으므로 미리 알아보고 골라오는게 좋겠다. 
   - 푸꾸옥인데 왜 프랑스 아저씨? 급조인가 싶었는데, 2011년 푸꾸옥에 여행온 프랑스 아저씨가 현지 여성과 결혼 후 땅콩 사업을 시작하면서 유명해졌다고 한다. 처음에는 카라멜 땅콩이었는데, 점차 푸꾸옥의 후추·새우소금·심 열매·코코넛 같은 현지 재료와 베트남식 맛을 섞어 이렇게 유명한 기념품이 되었단다. 
 
 <div class="yb-img-grid cols-2">
@@ -142,11 +146,17 @@ hero_image: /assets/images/thumbnail/2026-09-22_phu-quoc-food-souvenirs.png
 </div>
 ### 베트남 커피 (카페, cà phê)
 
+{: data-toc="믹스커피와 드립 커피}
+
 베트남 커피라고 하면 G7 같은 진한 커피나 콩카페의 달달한 코코넛커피만 생각했는데, 실제로는 원두·드립커피·믹스커피까지 종류가 엄청 많았다. 베트남은 세계적인 커피 생산국(... 커피도 생산한다고 한다!)으로 로부스타라는 쓴맛이 강하고 묵직한 원두가 유명하다고 한다. 이 커피가 진하고 써서 연유나 코코넛 밀크처럼 달고 부드러운 재료와 섞어 마시는 문화도 발달했다고~(오...)
 
 #### 실패가 적은 베트남 믹스 커피: G7과 콩카페
 
 G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 여러 가지가 있다. 정말 베트남스러운 것을 찾는다면 G7이나 핀 커피도 좋지만, 기념품으로는 연유커피나 박시우 커피가 더 재미있을 것 같다. 나는 여러 가지를 먹어보고 싶어서 콩커피의 3가지 맛 인스턴트 커피를 골랐다. 
+
+![콩카페 바 vị 3가지 맛 인스턴트 커피](/assets/images/posting/260927/cong-bavi-box.jpg)
+
+![콩카페 카페인·당도 표기](/assets/images/posting/260927/cong-bavi-label.jpg)
 
 <u>베트남 인기 커피들의 이름과 맛</u> 
 
@@ -176,23 +186,26 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
 
 ### 초콜릿(소코라, sô-cô-la): 마루와 비터스위트 
 
+{: data-toc="베트남 초콜릿"}
+
 베트남은 스페셜티 초콜릿으로도 유명하단다. 베트남에서 생산되는 카카오빈을 주재료로 하는  빈투바(Bean to bar) 브랜드들이 런칭하면서 입지를 공고히 하고 있다고. 뉴욕타임즈에 ''[당신이 맛보지 못한 최고의 초콜릿(The Best Chocolate You've Never Tasted)](https://www.nytimes.com/2016/03/06/t-magazine/food/marou-vietnamese-chocolate.html)'으로 언급된 로컬 초콜릿 브랜드도 있고, 지역 특산품을 반영한 후추 초콜릿 처럼  푸꾸옥의 재료를 넣은 제품도 있다. 
 
 이 초콜릿들은 무엇보다 포장이 예뻐서 선물하기 너무 너무 좋다. 단점은... 가격은 한국과 크게 다르지 않다는 것. 하나에 4천원-5천원쯤 하니 마구 장바구니에 넣다보면 깜짝 놀라게 된다. 
 
-- [마루 (Marou)](https://www.marouchocolate.com/collections/all) - 뉴욕타임즈가 극찬한 베트남 로컬 초콜릿 브랜드다. 프랑스 청년들이 시작한 브랜드로 베트남 카카오빈으로 만드는 빈투바 초콜릿으로 유명하다.
+- **[마루 (Marou)](https://www.marouchocolate.com/collections/all) -** 뉴욕타임즈가 극찬한 베트남 로컬 초콜릿 브랜드다. 프랑스 청년들이 시작한 브랜드로 베트남 카카오빈으로 만드는 빈투바 초콜릿으로 유명하다.
 
 ![faiseurs-collection-24g-marou-chocolate-bars](/assets/images/posting/260927/faiseurs-collection-24g-marou-chocolate-bars.webp)
 
-- [비터스위트 (Bittersweet)](https://bittersweet.vn/product-category/phu-quoc-chocolate/) - [푸꾸옥](https://bittersweet.vn/products/thieu-hoa-chocolate-box-36g/)에서 초콜릿을 만드는 브랜드로 "푸꾸옥 최초의 초콜릿 공장"을 표방한다. 후추, 숲 후추, 해염·트러플, 느억맘 초콜릿 바와 같이 지역 특색이 담긴 초콜릿을 판매한다. 
+- **[비터스위트 (Bittersweet)](https://bittersweet.vn/product-category/phu-quoc-chocolate/) -** [푸꾸옥](https://bittersweet.vn/products/thieu-hoa-chocolate-box-36g/)에서 초콜릿을 만드는 브랜드로 "푸꾸옥 최초의 초콜릿 공장"을 표방한다. 후추, 숲 후추, 해염·트러플, 느억맘 초콜릿 바와 같이 지역 특색이 담긴 초콜릿을 판매한다. 
 
 <div class="yb-img-grid cols-3">
   <img src="/assets/images/posting/260927/bittersweet-vietnam.jpg" alt="bittersweet-vietnam">
   <img src="/assets/images/posting/260927/vietnam-phuquoc-chocolate.jpeg" alt="vietnam-phuquoc-chocolate">
   <img src="/assets/images/posting/260927/vietnam-phuquoc-chocolate2.jpeg" alt="vietnam-phuquoc-chocolate2">
 </div>
-
 ### 강추! 올라(Ohla) 건과일 + 초콜릿 칩
+
+{: data-toc="올라 건과일"}
 
 여름 섬에와서 건과일을 놓칠 수는 없다. 망고, 잭프루트, 바나나, 코코넛칩에 초콜릿을 더한 제품들을 샀다. 가볍고 유통기한도 길어서 열대 느낌이 난다. 여러 사람에게 나눠줄 선물로 괜찮다.
 
@@ -209,6 +222,8 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
 
 #### 베트남 치즈 과자: 칼치즈와 Ah
 
+{: data-toc="치즈과자"}
+
 치즈 과자 추천이 많아, 가장 유명한  <u>칼 치즈 치즈 웨하스와 Ah</u> 과자를 샀는데, 둘 다 치즈맛이 꽤 진하다.
 
 * **Cal Cheese:** 칼치즈는 치즈가 들어간 웨하스다. 특별하지는 않았다.  
@@ -220,8 +235,9 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
   <img src="/assets/images/posting/260927/vietnam-snack_ah.jpg" alt="vietnam-snack_ah">
   <img src="/assets/images/posting/260927/vietnam-snack_ah2.jpg" alt="vietnam-snack_ah2">
 </div>
-
 #### 커피 조이 (Coffee Joy)
+
+{: data-toc="커피과자"}
 
 빠다코코낫을 조금 더 얇고 바삭하게 만든 뒤 커피향을 입힌 느낌인데, 생각보다 달지 않고 짭짤해서 계속 손이 간다. 한 봉지에 꽉차 있고 얇아서 이동할 때 간식으로 먹기 좋았다. 이건 다음에도 사 올 것 같다... 
 
@@ -229,10 +245,9 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
   <img src="/assets/images/posting/260927/vietnam-snack_coffeejoy.jpg" alt="vietnam-snack_coffeejoy">
   <img src="/assets/images/posting/260927/vietnam-snack_coffeejoy3.jpeg" alt="vietnam-snack_coffeejoy2">
 </div>
-
-
-
 #### 탑젤리 (TOP 젤리, 망고·타로)
+
+{: data-toc="망고 젤리, 타로 젤리"}
 
 망고와 타로 젤리가 유명하다고 해서 망고 젤리를 샀다. 말랑하게 쏙 넘어가는 젤리보다는 조금 끈덕하고 탄력 있는 동그란 젤리 질감이다. 내 취향은 아니었지만 한 봉지 가격이 저렴하고 개수가 많아 여러 사람에게 나눠주기에는 괜찮다.
 
@@ -240,7 +255,6 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
   <img src="/assets/images/posting/260927/top-jelly-mango.jpg" alt="top-jelly-mango">
   <img src="/assets/images/posting/260927/topjelly2.jpeg" alt="topjelly2">
 </div>
-
 ## 면 티셔츠와 작은 가방
 
 Vietnam Select 지하로 내려가면 각종 기념품이 있다. 여행지에서 파는 면 티셔츠의 품질이 좋기가 쉽지 않은데, 푸꾸옥의 면 티셔츠는 괜찮았다. 얇은 것은 얇은 것대로 부드럽고, 도톰한 것은 봉제 마감이 매끈했다. 아이들 하와이안 티셔츠 구매를 추천한다. 봉제 가방은 비추.... 사실 4500원 정도라 너무 싸고 이쁘다 하고 사왔는데, Made in China 였고 어제 알리에서 2천원에 파는 것을 발견했다... 
@@ -265,6 +279,6 @@ Vietnam Select 지하로 내려가면 각종 기념품이 있다. 여행지에�
 
 푸꾸옥에서는 후추와 느억맘, 베트남 어디서든 견과류와 커피. 이것만 기억하면 된닷! 나는 다음에 간다면 후추는 꼭 다시 산다. 느억맘은 수하물 고려해 미니사이즈로 사고, 캐슈넛과 커피는 선물용으로 넉넉히. 커피조이와 올라 건과일도 빵빵히 채워올 것이다!
 
-이번 여행에서는 베트남 기념품을 잘 알고 간 게 아니라 급하게 쇼핑리스트를 만들었지만, 그래도 덕분에 베트남이 이렇게 먹거리로 풍부한 나라인걸 알게 되었다. 자연과 개발 여력이 모두 큰 나라라는 것에 큰 자극을 받았다.
+이번 여행에서는 베트남 기념품을 잘 알고 간 게 아니라 급하게 쇼핑리스트를 만들었지만,  덕분에 베트남이 이렇게 먹거리로 풍부한 나라인걸 알게 되었고, 자연과 개발 여력이 모두 큰 나라라는 것에 자극을 받았다. 
 
- 아무튼 저희 쇼핑기는 이제 끝!**여러분도 즐 쇼핑 하시길...** 
+ 아무튼 저희 쇼핑기는 이제 끝! **여러분도 즐 쇼핑 하시길...** 
