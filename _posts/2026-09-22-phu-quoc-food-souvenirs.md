@@ -156,8 +156,6 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
 
 ![콩카페 바 vị 3가지 맛 인스턴트 커피](/assets/images/posting/260927/cong-bavi-box.jpg)
 
-![콩카페 카페인·당도 표기](/assets/images/posting/260927/cong-bavi-label.jpg)
-
 <u>베트남 인기 커피들의 이름과 맛</u> 
 
 - **연유 커피 (카페 쓰어 다, Cà phê sữa đá)** - 커피에 연유를 넣은  베트남식 밀크커피
