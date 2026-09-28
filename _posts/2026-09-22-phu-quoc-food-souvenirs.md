@@ -164,10 +164,9 @@ G7이 유명하고 블랙부터 설탕과 크리머가 들어간 제품까지 �
 - **코코넛 커피 (까페 즈어, Cà phê dừa)** - 커피에 코코넛 밀크를 넣은 커피
 - **박시우 (Bạc Xỉu)** - 연유 우유에 커피를 조금 넣은 커피. 베트남식 리버스 플랫화이트 커피
 
-<div class="yb-img-grid cols-2">
-  <img src="/assets/images/posting/260927/vietnam-coffee1.jpg" alt="vietnam-coffee1">
-  <img src="/assets/images/posting/260927/vetnam-caphe.jpg" alt="vetnam-caphe">
-</div>
+![vietnam-coffee1](/assets/images/posting/260927/vietnam-coffee1.jpg)
+
+![vetnam-caphe](/assets/images/posting/260927/vetnam-caphe.jpg)
 
 #### 베트남 드립 커피 (카페 핀, Cà phê phin)
 
