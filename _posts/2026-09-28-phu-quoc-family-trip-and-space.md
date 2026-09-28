@@ -9,7 +9,6 @@ internal_tags: [푸꾸옥 가족여행 후기, 뉴월드 푸꾸옥 풀빌라, �
 hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.png
 ---
 <style>
-
 .yb-img-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
 .yb-img-grid img { flex: 1 1 0; min-width: 0; width: 100%; height: 220px; object-fit: cover; border-radius: 8px; }
 .yb-img-grid.cols-2 img { flex-basis: calc(50% - 4px); }
@@ -17,7 +16,6 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 @media (max-width: 600px) {
   .yb-img-grid img { flex-basis: calc(50% - 4px) !important; height: 140px; }
 }
-
 </style>
 
 푸꾸옥 여행을 한마디로 표현한다면 여력, 여유라고 할 수 있을 것 같다. 푸꾸옥은 땅에도, 자연에도, 숙소에도 여분의 공간이 있는 섬이다. 한국에서 익숙해진 효율의 눈으로 보면 조금 낯설 정도였다. 땅도, 자연도, 사람이 쉬는 자리도 어떻게든 더 잘게 쪼개 쓰려는 느낌이 없고, '그거 빼도 남는 거 많다' 이런 느낌이랄까? 이번 여행에서 내가 좋았던 건 어쩌면 그 넉넉함 자체였는지도 모르겠다.
@@ -37,11 +35,8 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 '고작 공사장으로? 성장 잠재력을 느꼈다고?' 라 할 수 있지만 공사의 규모가 정말 컸다.  대규모 공항 증축을 하고 있고, 오페라 하우스 건축하고 있었고, 이미 화려한 리조트가 가득 차있는데 리조트를 추가 건설하고 있었다. 한국은 재건축 신축 아파트 공사 정도가 그나마 대형 공사일텐데, 주거가 아닌 초대형 개발 수요와 그걸 받쳐줄 공간이 남아있다는게 너무 신기했다. 
 
 <div class="yb-img-grid cols-2">
-
   <img src="/assets/images/posting/260928/phuquoc_airport.jpg" alt="푸꾸옥 공항 공사 현장">
-
   <img src="/assets/images/posting/260928/phuquoc_airport_new.webp" alt="푸꾸옥 공항 신축 현장">
-
 </div>
 
 ### 2. 식물들의 자신감이 넘치는 섬
@@ -49,15 +44,10 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 아열대 섬답게 나무들은 자신감이 넘친다. 햇살도, 물도 많고 따뜻하니 토양은 촉촉하고 나무의 키는 크고 꽃잎과 이파리는 활짝 펼쳐져 있다. 강렬한 해에 지쳐 커질 대로 커지다 오그라들거나 타버린 잎들도 있다. 야자수의 갈라진 잎조차 해를 다 받으니 감당이 안 돼서 효율상 갈라진 것처럼 보일 정도. 
 
 <div class="yb-img-grid cols-2">
-
   <img src="/assets/images/posting/260928/resort-road.jpg" alt="리조트 진입로 가로수">
-
   <img src="/assets/images/posting/260928/resort-plant-lotus.jpg" alt="연꽃">
-
   <img src="/assets/images/posting/260928/laundry-plant2.jpg" alt="빨랫방망이 나무">
-
   <img src="/assets/images/posting/260928/resort-plant.jpg" alt="리조트 식물">
-
 </div>
 
 마지막의 이 풀은 리조트 곳곳에 있던 나무다. 평범한 나무인데 어찌나 잎이 단단하고 기세가 넘치는지... 나는 이걸 빨랫방망이 나무라고 이름 붙였다. 뽑아서 빨래 방망이로 써도 될 것 같아서....
@@ -73,7 +63,6 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 
 
 ## 푸꾸옥 리조트 후기 - 풀빌라의 축복이 끝이 없네
-
 {: data-toc="뉴월드가 좋았던 3가지"}
 
 왜 푸꾸옥을 부모님이나 아이들과 함께 오는 대가족 여행지로 많이 찾는지, 완전 이해했다. 
@@ -81,7 +70,6 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 푸꾸옥에서는 방 하나가 아니라 수영장이 딸린 건물 한 채, 풀빌라를 통째로 빌려준다. 이전에 친구들과 다낭 여행을 왔을 때는 2층 풀빌라를 빌리고서도 매일 외출해서인지 풀빌라의 장점이 느껴지지 않았는데 가족 여행에서 3베드룸 풀빌라에 묵으며 축복을 백배 체감했다.
 
 ### 1. 완벽히 개인화된 휴식을 취할 수 있었다
-
 {: data-toc="1. 개별 휴식 공간"}
 
 이번 여행에서 가장 만족스러운 것은 숙소였다.  내가 묵은 숙소는 ++빌라 한 채에 거실 독채, 방1 독채, 방2·3 독채++로 되어 있었는데 각 방에는 화장실과 샤워실이 각기 딸려 있고 방마다 별도 키와 출입구가 있었다. 그래서 거실에서 다 같이 놀다가도 쉴 때는 각자 방으로 바로 들어갈 수 있었고, 놀고 돌아와서도  방해받지 않고 씻고, 쉴 수 있었다.
@@ -89,33 +77,23 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 괌, 이시가키 등 리조트는 방을 빌리는 형태였다. 문제는 가족 여행이라 내내 두 방의 커넥티드 도어를 열어두고 있었는데, 편하기도 했지만 묘하게 신경이 많이 쓰여 편히 쉬기는 쉽지 않았다.  
 
 <div class="yb-img-grid cols-2">
-
   <img src="/assets/images/posting/260928/IMG_4485.jpg" alt="풀빌라 방">
-
   <img src="/assets/images/posting/260928/IMG_4165.jpg" alt="풀빌라 침실">
-
   <img src="/assets/images/posting/260928/IMG_4175.jpg" alt="풀빌라 욕실">
-
   <img src="/assets/images/posting/260928/pool-villa-living-room.jpg" alt="풀빌라 거실">
-
 </div>
 
 ### 2. 우리 혼자 리조트 쓰나? 사람에 치이지 않았다
-
 {: data-toc="프라이빗한 공간"}
 
 넓은 리조트 전체를 우리 가족끼리 빌려 쓰는 것 같다고 느꼈다. '와 여기 우리뿐인가?' 싶은 여유와 자유로움. 사실 조식 먹을 때 보면 사방이 한국인인데, 리조트에서는 한국인 뿐만 아니라 다른 여행객을 마주칠 일이 거의 없다.  각자 리조트의 빌라 한 동을 빌려 쓰기도 하고, 이동할 때는 버기카를 불러 따로  다니다보니 그런 듯 하다.  
 
 <div class="yb-img-grid cols-2">
-
   <img src="/assets/images/posting/260928/phuquoc-pool-villa2.jpg" alt="리조트 전경">
-
   <img src="/assets/images/posting/260928/IMG_4163.jpg" alt="아무도 없는 리조트 진입로">
-
 </div>
 
 ### 3. 이동과 짐나르기의 번거로움이 거의 없다
-
 {: data-toc="걷지 않고 버기카로 이동 "}
 
 리조트 내를 버기로 이동하다 보니 아이들도,  오래 걷기 힘든 어르신들도 부담스럽지 않았다. 특히 수영장이나 바닷가를 나갈 때, 짐을 잔뜩 가지고 가는 것도 쉽고 지칠때까지 놀고 버기를 타고 편하게 다시 돌아 올 수 있었다. 이런 이동과 짐챙기기 놀고 돌아오면서 생기는 여분의 피로와 짜증이 없었다. 
@@ -125,13 +103,11 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 
 
 ## 푸꾸옥 리조트 밖 후기 - 전전긍긍 안해도 괜찮네
-
 {: data-toc="리조트 밖: 식당과 선셋타운"}
 
 리조트를 나갈 일이 많지도 않지만 나가도 뭐가 없다. 하지만 대충 찍어서 가도 너무너무 만족스러웠다. 
 
 ### 1. 고민고민하지마 - 리조트 앞 맛집들
-
 {: data-toc="뉴월드 푸꾸옥 리조트앞 맛집"}
 
 뉴월드 푸꾸옥 리조트 앞은 정말 뭐가 없다. 그래서 가끔 저녁을 리조트 근처에서 먹기 위해 10개 남짓한 리조트 앞 가게에 가야하나? 망설였다. 보통 리조트 앞 가게는 비싸고 창렬하다는게 통설이니까. 
@@ -141,17 +117,12 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
  고르느라 애쓰지 않고 그냥 앞에 있는 데 들어가도 괜찮네? 어디가 괜찮은가 고민/감별하지 않아도 돼서 편했다.
 
 <div class="yb-img-grid cols-3">
-
   <img src="/assets/images/posting/260928/thyme-bistro.jpg" alt="Thyme Bistro 피자">
-
   <img src="/assets/images/posting/260928/thai-papaya.jpg" alt="Thai Papaya 태국 음식">
-
   <img src="/assets/images/posting/260928/com-tho-tay-cam.jpg" alt="Com Tho Tay Cam 베트남 음식">
-
 </div>
 
 ### 2. 계획도시의 스케일 - 선셋타운과 부이페스트 야시장
-
 {: data-toc="선셋타운 전경과 맛집"}
 
 푸꾸옥에서 건축 설계자로 일했다면 참 행복했을 것 같다. 개인에게 주어지는 공간도 컸지만 한 번에 설계할 수 있는 공간의 크기 자체도 크기 때문에. 선셋타운과 부이페스트 야시장은 계획해 만든 관광타운임에도 기계적이거나 조악하지 않고 시원시원하고 다채로운 편이다. 
@@ -161,15 +132,11 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 선셋타운 해안가의 [Sorento](https://www.google.com/maps/place/Sorrento+Restaurant+%26+Bar/@10.0263125,104.0046126,17z/data=!3m1!4b1!4m6!3m5!1s0x31a795bdac8f2a7f:0x95fd9c8dea8146b5!8m2!3d10.0263125!4d104.0071875!16s%2Fg%2F11sc26c02p?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D)라는 베트남 음식점에서 저녁을 먹었는데 불꽃놀이도 보이고 시원하고 바다도, 석양도 잘 보여서 행복했다. 이름이 Sorrento지만 베트남 음식이 메인이라는게 함정... 여기는 에어컨석이 아니라 꼭 아웃사이드에 앉으시길...!
 
 <div class="yb-img-grid cols-2">
-
   <img src="/assets/images/posting/260928/sunset-town-night.jpg" alt="선셋타운 야경">
-
   <img src="/assets/images/posting/260928/sunset-town-fireworks.jpg" alt="선셋타운 불꽃놀이">
-
 </div>
 
 ### 3. 일관된 컨셉 - 지중해풍 선셋타운 건물들
-
 {: data-toc="3. 푸꾸옥 선셋타운 분위기"}
 
 선셋타운은 이름처럼 바다의 석양이 아름답기도 하지만 경사진 땅을 따라 파스텔톤 시멘트 건물들이 길게 늘어서 있어서 더 예쁘다. 해가 지고 조명이 켜지기 시작하면 정말 은은한 해에 물든 것 같은 색이 된다. 
@@ -179,13 +146,9 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 가까이서 보면 너무 허술한데 컬러가 맞고 바다와 석양이 더해지니 꽤 그럴싸했다. 대단히 뭘 하지 않아도, 그룹이 되니 예뻤다. 한국의 각자는 예쁜데 어울리면 이상한 건물들과는 다른 효과가....  처음에는 베트남이 프랑스 식민지였어서 이렇게 했나? 싶었는데 사실 선셋타운 자체의 테마가 이탈리아 지중해 도시라 이탈리아 식의 회벽을 활용한 것이라 한다. 
 
 <div class="yb-img-grid cols-3">
-
   <img src="/assets/images/posting/260928/IMG_4450.jpg" alt="선셋타운 파스텔톤 건물">
-
   <img src="/assets/images/posting/260928/IMG_4452.jpg" alt="선셋타운 골목">
-
   <img src="/assets/images/posting/260928/IMG_4453.jpg" alt="선셋타운 건물 외벽">
-
 </div>
 
 이만한 면적을 한 콘셉트로 밀어붙이려면 관광타운을 국가 지원하에 크게 만들어야 하는구나 싶다. 
@@ -193,15 +156,11 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 
 
 ## 1인당 점유 공간이 넓은 여행지가 주는 여유와 편안함
-
 {: data-toc="여행에서 느낀 점"}
 
 <div class="yb-img-grid cols-2">
-
   <img src="/assets/images/posting/260928/IMG_4393.jpg" alt="여행 스냅 1">
-
   <img src="/assets/images/posting/260928/IMG_3975.jpg" alt="여행 스냅 2">
-
 </div>
 
 이번 푸꾸옥 여행은 넓은 숙소에서 쉬고, 바다에 나가고, 맛있는 걸 먹고, 가끔 선셋타운에 다녀오는 정도의 여행이었다. 아이들과 부모님이 함께라 외출이나 탐험이 거의 없어 참 심심한 여행 같은데 만족스럽다. 뭔가 많이 해서가 아니라 잘 쉬어서 여행이 만족스러울 수 있다는걸 처음 알았다. 
@@ -213,7 +172,6 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 
 
 ## 머무는 공간에 따라 내가 원하는 것도 조금씩 달라지는 걸까
-
 {: data-toc="지향하는 삶을 생각하다"}
 
 리조트에 머무르며 자연스럽게 한국에서의 생활도 돌아보았다.
