@@ -18,7 +18,6 @@ hero_image: /assets/images/thumbnail/2026-09-22_phu-quoc-food-souvenirs.png
 @media (max-width: 600px) {
   .yb-img-grid img { flex-basis: calc(50% - 4px) !important; height: 140px; }
 }
-.yb-img-single { display: block; max-width: 320px; margin: 20px auto; border-radius: 8px; }
 
 </style>
 
@@ -272,7 +271,10 @@ Vietnam Select 지하로 내려가면 각종 기념품이 있다. 여행지에�
 
 아쉬웠던 건 자석. 여행을 다녀오면 냉장고에 붙여둘 자석을 꼭 사는데, 로컬에서 마음에 드는 푸꾸옥 자석은 찾지 못했다. 큰 기대를 버리고 자석을 사야 한다. 공항 면세점의 자석이 그나마 좀 낫지만 물론 이것도 막 예쁘지는 않다. 
 
-<img src="/assets/images/posting/260927/shopping-haul-total.jpg" alt="푸꾸옥 기념품 쇼핑 총합" class="yb-img-single">
+<div class="yb-img-grid cols-2">
+  <img src="/assets/images/posting/260927/shopping-haul-total.jpg" alt="푸꾸옥 기념품 쇼핑 총합">
+  <img src="/assets/images/posting/260927/phuquoc-airport-checkpoint.jpg" alt="푸꾸옥 공항 입국심사대를 지나는 가족">
+</div>
 
 ## 즐거운 여행, 즐거운 쇼핑하세요!
 
