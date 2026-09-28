@@ -96,7 +96,7 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 
   <img src="/assets/images/posting/260928/IMG_4175.jpg" alt="풀빌라 욕실">
 
-  <img src="/assets/images/posting/260928/pool-villa-living-room.png" alt="풀빌라 거실">
+  <img src="/assets/images/posting/260928/pool-villa-living-room.jpg" alt="풀빌라 거실">
 
 </div>
 
@@ -120,7 +120,7 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 
 리조트 내를 버기로 이동하다 보니 아이들도,  오래 걷기 힘든 어르신들도 부담스럽지 않았다. 특히 수영장이나 바닷가를 나갈 때, 짐을 잔뜩 가지고 가는 것도 쉽고 지칠때까지 놀고 버기를 타고 편하게 다시 돌아 올 수 있었다. 이런 이동과 짐챙기기 놀고 돌아오면서 생기는 여분의 피로와 짜증이 없었다. 
 
-![버기카](/assets/images/posting/260928/phuquoc-pool-villa.png)
+![버기카](/assets/images/posting/260928/phuquoc-pool-villa.jpg)
 
 
 
@@ -146,7 +146,7 @@ hero_image: /assets/images/thumbnail/2026-09-28_phu-quoc-family-trip-and-space.p
 
   <img src="/assets/images/posting/260928/thai-papaya.jpg" alt="Thai Papaya 태국 음식">
 
-  <img src="/assets/images/posting/260928/com-tho-tay-cam.png" alt="Com Tho Tay Cam 베트남 음식">
+  <img src="/assets/images/posting/260928/com-tho-tay-cam.jpg" alt="Com Tho Tay Cam 베트남 음식">
 
 </div>
 
