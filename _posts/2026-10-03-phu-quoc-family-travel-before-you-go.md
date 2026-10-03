@@ -76,7 +76,7 @@ hero_image: /assets/images/thumbnail/2026-10-03_phu-quoc-family-travel-before-yo
 - 다낭의 우기를 기준으로 생각했는데... 푸꾸옥은 9월이 우기라고... 푸꾸옥에 대해 아는 게 아무것도 없는데... 어딜 가지 ? 여름 섬에서 비가 오면 할 게 있긴 한가?
 
 <div class="yb-intro-weather-grid">
-  <img src="/assets/images/posting/260922/phu-quoc-rainy-season-forecast.png" alt="9월 13일부터 19일까지 비 예보가 표시된 푸꾸옥 날씨" />
+  <img src="/assets/images/posting/260922/phu-quoc-rainy-season-forecast.png" alt="9월 14일부터 21일까지 비 예보가 표시된 푸꾸옥 날씨" />
 </div>
 
 **결론적으로 가기 전까지 걱정이 많았는데 만족만족!**  다음 여행을 준비하는 사람들을 위해, 걱정 속에서 벼락치기로 준비하면서 부랴부랴 찾아본 것들을 정리해봤다. 
@@ -97,11 +97,11 @@ hero_image: /assets/images/thumbnail/2026-10-03_phu-quoc-family-travel-before-yo
 
 리조트를 짓고, 외국인 무비자를 도입하며 전략적으로 개발한 터라, 푸꾸옥의 관광지는 전통의 느낌보다는 벤치마킹해 새로 만든 어딘가의 느낌이 많이 나고 깨끗한 편이다.
 
-### 2027년 APEC 개최를 모멘텀으로 더 개발 중
+### 푸꾸옥은 지금도 개발 중
 
 공항에서 리조트로 이동 하는 길에 공항 확대, 오페라하우스 같은 공연장 건설 등 대규모 공사 현장이 보였다. 18킬로 경전철도 만든다고... 베트남이 [2027년 APEC 개최국](https://www.apec.org/meeting-papers/annual-ministerial-meetings/2025/2025-apec-ministerial-meeting)이라 준비가 한창이라고 했다. 물론 공사가 관광에 영향을 주지는 않는다.
 
-### 푸꾸옥은 베트남보다 캄보디아가 더 가깝지만 베트남땅
+### 푸꾸옥은 베트남보다 캄보디아가 더 가깝다?
 
 {: data-toc="푸꾸옥의 위치"}
 
@@ -352,13 +352,11 @@ hero_image: /assets/images/thumbnail/2026-10-03_phu-quoc-family-travel-before-yo
 | CEO그룹 | 즈엉바오 소나시   | 노보텔, 베스트웨스턴 프리미어 소나시   |
 
 
-## 이제 떠나십시오! 푸꾸옥으로 출발 !
+## 이제 푸꾸옥으로 출발 !
 
 {: data-toc="푸꾸옥으로 출발"}
 
 ![](orca-paste-1791016391683-77d173ab-caa3-48ec-b1b1-ae9a30c6f36d.png)
-
-## 준비는 이 정도면 충분하다!
 
 출발 72시간 전에 PAI를 쓰고(주소는 안장성으로), QR 결제 앱을 하나 켜두고, 남부와 북부 중 어디에 묵을지만 정하면 끝.
 
