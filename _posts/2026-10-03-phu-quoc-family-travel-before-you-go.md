@@ -15,13 +15,44 @@ hero*image: /assets/images/thumbnail/2026-10-03*phu-quoc-family-travel-before-yo
 .yb-post-image-grid {
   display: grid;
   gap: 8px;
-  align-items: start;
+  align-items: stretch;
 }
 .yb-post-image-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .yb-post-image-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.yb-post-image-grid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.yb-info-box {
+  margin: 1.5rem 0;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  background: #f5f7fb;
+  border: 1px solid #e3e7ef;
+  border-radius: 12px;
+}
+.yb-airline-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  align-items: center;
+}
+.yb-airline-grid img {
+  display: block;
+  width: 100%;
+  height: 260px;
+  border-radius: 10px;
+}
+.yb-airline-grid__logo { object-fit: contain; }
+.yb-airline-grid__aircraft { object-fit: cover; }
 @media (max-width: 640px) {
   .yb-post-image-grid--2,
   .yb-post-image-grid--3 { grid-template-columns: 1fr; }
+  .yb-post-image-grid img { height: auto; }
+  .yb-airline-grid { grid-template-columns: 1fr; }
+  .yb-airline-grid img { height: 200px; }
 }
 
 </style>
@@ -35,7 +66,7 @@ hero*image: /assets/images/thumbnail/2026-10-03*phu-quoc-family-travel-before-yo
 
 <!--more-->
 
-***++9월 우기 푸꾸옥, 결론 요약++*** 
+### 9월 우기 푸꾸옥, 결론 요약
 
 - *베트남인데 이탈리아가 테마인 등 특색은 부족하지만, 편안하고 쾌적하고 풀빌라를 통으로 빌려줘 가족 여행으로 추추* 
 - ***날씨**: 우기 한가운데인 9월에 갔는데, 4박 5일 중 비는 하루 3시간만 옴* 
@@ -71,6 +102,10 @@ hero*image: /assets/images/thumbnail/2026-10-03*phu-quoc-family-travel-before-yo
 - ☔️ 푸꾸옥의 우기도 25도 정도로 따뜻한데, 비가 2-3시간 이어지고 바람이 많이 분다.  
 4-11월 우기 중에서는 8, 9월이 비가 가장 많다. 어쩐지 싸더라... 9월 평균 강우일수가 22.8일이라 한 달 중 23일 비가 오는 셈이지만, ++일 4~5시간은 해가 나서 하루종일 비가 오지는 않는다.++
 
+![일주일 내내 비 예보가 표시된 푸꾸옥 우기 날씨](/assets/images/posting/260922/phu-quoc-rainy-season-forecast.png)
+
+푸꾸옥 여행 절망편... 비가 이렇게... 일주일 내내?
+
 > **우기에 푸꾸옥 여행을 잡으면 취소해야 할까?**
 > 나는 운 좋게도 4박 5일 중 하루만 비가 왔고, 그날도 정말 3시간 정도만 쏟아졌다. 다만 비가 올때는 바람이 많이 불어서 섬투어나 케이블카 같은 외부 일정이 어렵다. 대신 사파리 버스투어를 하거나 리조트 안 키즈카페와 라운지에서 쉬고, 마트 쇼핑을 할 수 있다.
 
@@ -90,7 +125,10 @@ hero*image: /assets/images/thumbnail/2026-10-03*phu-quoc-family-travel-before-yo
 
 **그래서 추천하는 썬푸꾸옥 항공**
 
-<img src="/assets/images/posting/260922/sun-phuquoc-airways-logo.png" alt="썬푸꾸옥항공 로고" style="width: 100%;" />
+<div class="yb-airline-grid">
+  <img class="yb-airline-grid__logo" src="/assets/images/posting/260922/sun-phuquoc-airways-logo.png" alt="썬푸꾸옥항공 로고" />
+  <img class="yb-airline-grid__aircraft" src="/assets/images/posting/260922/sun-phuquoc-airways-aircraft.png" alt="하늘을 비행하는 썬푸꾸옥항공 항공기" />
+</div>
 
 이름이 낯설어 저가 항공사인 줄 알았는데 썬푸꾸옥항공은 푸꾸옥 절반을 주름잡는 썬그룹이 만든 베트남 항공사다. (여담이지만 푸꾸옥의 반쪽 대부분을 짓고 운영하다 못해 항공사까지 운영하는 썬그룹은 얼마나 엄청난 기업인지 너무너무 궁금하다.)
 
@@ -110,6 +148,8 @@ hero*image: /assets/images/thumbnail/2026-10-03*phu-quoc-family-travel-before-yo
 {: data-toc="푸꾸옥 입국 준비"}
 
 출발 72시간 전에 **[온라인 사전 입국정보(PAI)](https://prearrival.immigration.gov.vn/)를 작성**해야 한다. 종이 입국신고서가 없어졌고 여권과 항공편, 체류지를 입력하면 나오는 QR코드를 베트남 공안부의 [공식 안내](https://en.mps.gov.vn/article/immigration-department-launches-pre-arrival-information-system-1778670404)에 따르면 PAI는 2026년 4월 탄손녓공항에서 시범 운영을 시작해 전국으로 확대되는 시스템이다. 적용 공항과 시점은 바뀔 수 있으니 출발 전에 공식 사이트를 다시 확인하는 편이 안전하다.
+
+![베트남 외국인 방문객 사전 정보 제출 화면](/assets/images/posting/260922/vietnam-pre-arrival-information-form.png)
 
 ### **입국 신고서 작성할 때 헷갈리는 점**
 
@@ -145,14 +185,10 @@ hero*image: /assets/images/thumbnail/2026-10-03*phu-quoc-family-travel-before-yo
 
 베트남 화폐 단위는 동(VND)이다. 
 
-&lt; 가운데 정렬 박스&gt; 
-
-**2026년 9월 기준 1,000원 =약 19,300동, 1동 = 0.05원!**  
-베트남 동 단위가 커서 계산이 잘 안되는데, 100만동이 5만원, 10만동이 5천원이라 생각하면 된다.
-
- 
-
-**&lt;/박스&gt;**
+<div class="yb-info-box">
+  <strong>2026년 9월 기준 1,000원 =약 19,300동, 1동 = 0.05원!</strong><br />
+  베트남 동 단위가 커서 계산이 잘 안되는데, 100만동이 5만원, 10만동이 5천원이라 생각하면 된다.
+</div>
 
 <div class="yb-post-image-grid yb-post-image-grid--2">
 
