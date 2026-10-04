@@ -366,8 +366,8 @@ hero_image: /assets/images/thumbnail/2026-10-03_phu-quoc-family-travel-before-yo
 ## 이제 푸꾸옥으로 출발 !
 {: data-toc="푸꾸옥으로 출발"}
 
-![](orca-paste-1791016391683-77d173ab-caa3-48ec-b1b1-ae9a30c6f36d.png)
+![푸꾸옥의 에메랄드빛 바다와 해양 액티비티](/assets/images/posting/260922/phu-quoc-island-aerial.png)
 
-출발 72시간 전에 PAI를 쓰고(주소는 안장성으로), QR 결제 앱을 하나 켜두고, 남부와 북부 중 어디에 묵을지만 정하면 끝.
+숙소 정하고, 출발 72시간 전에 PAI 쓰고, QR 결제 앱 가입하고 수영복 챙기면 끝.
 
-푸꾸옥 여행 후기와 푸꾸옥 기념품 쇼핑리스트는 다음 글에서 확인해주세요!
+[푸꾸옥 가족여행  후기(2026)](https://yourbuoy.kr/life/phu-quoc-family-trip-and-space/)와 [푸꾸옥 기념품 쇼핑리스트](https://yourbuoy.kr/life/phu-quoc-food-souvenirs/)는 다음 글에서 확인해주세요!
