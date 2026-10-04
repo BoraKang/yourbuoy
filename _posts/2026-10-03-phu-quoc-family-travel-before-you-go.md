@@ -366,7 +366,7 @@ hero_image: /assets/images/thumbnail/2026-10-03_phu-quoc-family-travel-before-yo
 ## 이제 푸꾸옥으로 출발 !
 {: data-toc="푸꾸옥으로 출발"}
 
-![](orca-paste-1791016391683-77d173ab-caa3-48ec-b1b1-ae9a30c6f36d.png)
+![푸꾸옥의 에메랄드빛 바다와 해양 액티비티](/assets/images/posting/260922/phu-quoc-island-aerial.png)
 
 숙소 정하고, 출발 72시간 전에 PAI 쓰고, QR 결제 앱 가입하고 수영복 챙기면 끝.
 
