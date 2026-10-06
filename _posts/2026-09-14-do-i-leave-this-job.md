@@ -131,7 +131,6 @@ hero_image: /assets/images/thumbnail/2026-09-11_do-i-leave-this-job.png
 
 내용은... 아직 회사를 다니고 있으니 비밀로...ㅎㅎㅎ 
 
-저의 노잼시기와 별개로 현재 회사와 일과 동료를 깊이 존중하고 애정합니다. 
 
 
 
