@@ -143,11 +143,11 @@ search:
 ## Analytics
 ##############################
 analytics:
-  provider:  google
+  provider: false # false | "google" | "custom". UA는 2023-07 수집 종료로 2026-10-06 제거
 
   ## Google Analytics
   google:
-    tracking_id : UA-147384946-1 # Google Analytics id for the site
+    tracking_id : # Google Analytics id for the site
     anonymize_ip: true # Anonymize IP tracking for Analytics
 
 
