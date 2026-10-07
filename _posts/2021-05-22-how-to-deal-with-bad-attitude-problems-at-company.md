@@ -1,6 +1,8 @@
 ---
 tags: 사회초년생 직장상사 혼남 태도
 layout: article
+redirect_from:
+  - /how-to-deal-with-bad-attitude-problems-at-company/
 categories: [work]
 title: 왜 나만 미워하지? 일못 신입사원의 특징적인 태도 (2)
 subtitle: 나는 한다고 하는데 왠지 미운털 박힌 것 같다?

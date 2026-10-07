@@ -1,6 +1,8 @@
 ---
 tags: 비즈니스이메일 사회초년생
 layout: article
+redirect_from:
+  - /how-to-improve-emali-writing-skill-title_recipient/
 categories: [work]
 title: 비즈니스 이메일 작성 101(1) - 제목/수신자 설정법
 subtitle: 일잘러는 제목, 수신자 설정만 봐도 티가 나는 법이다
