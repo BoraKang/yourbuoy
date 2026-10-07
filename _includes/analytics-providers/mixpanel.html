@@ -1,0 +1,85 @@
+{%- if site.analytics.mixpanel.token -%}
+	<!-- Mixpanel -->
+	<script>
+		(function (f, b) { if (!b.__SV) { var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) { function g(a, d) { var b = d.split("."); 2 == b.length && ((a = a[b[0]]), (d = b[1])); a[d] = function () { a.push([d].concat(Array.prototype.slice.call(arguments, 0))); }; } var a = b; "undefined" !== typeof c ? (a = b[c] = []) : (c = "mixpanel"); a.people = a.people || []; a.toString = function (a) { var d = "mixpanel"; "mixpanel" !== c && (d += "." + c); a || (d += " (stub)"); return d; }; a.people.toString = function () { return a.toString(1) + ".people (stub)"; }; i = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders start_session_recording stop_session_recording people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" "); for (h = 0; h < i.length; h++) g(a, i[h]); var j = "set set_once union unset remove delete".split(" "); a.get_group = function () { function b(c) { d[c] = function () { var call2_args = arguments; var call2 = [c].concat(Array.prototype.slice.call(call2_args, 0)); a.push([e, call2]); }; } for (var d = {}, e = ["get_group"].concat(Array.prototype.slice.call(arguments, 0)), c = 0; c < j.length; c++) b(j[c]); return d; }; b._i.push([e, f, c]); }; b.__SV = 1.2; e = f.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g); } })(document, window.mixpanel || []);
+
+		mixpanel.init('{{ site.analytics.mixpanel.token }}', {
+			api_host: '{{ site.analytics.mixpanel.api_host | default: "https://api-js.mixpanel.com" }}',
+			track_pageview: 'url-with-path',
+			persistence: 'localStorage',
+			autocapture: {{ site.analytics.mixpanel.autocapture | default: false }}
+		});
+	</script>
+{%- endif -%}
+{%- if site.analytics.mixpanel.token and page.layout == 'article' -%}
+	<!-- Mixpanel: 글 읽기 깊이와 TOC 클릭 -->
+	<script>
+		(function () {
+			var ARTICLE = {
+				article_title: {{ page.title | jsonify }},
+				article_category: {{ page.categories[0] | jsonify }}
+			};
+			var MILESTONES = [25, 50, 75, 100];
+			var sent = {};
+			var ticking = false;
+
+			function track(name, props) {
+				var data = {}, k;
+				for (k in ARTICLE) { data[k] = ARTICLE[k]; }
+				for (k in props) { data[k] = props[k]; }
+				window.mixpanel && window.mixpanel.track(name, data);
+			}
+
+			function once(key, name, props) {
+				if (sent[key]) { return; }
+				sent[key] = true;
+				track(name, props);
+			}
+
+			// 스크롤 컨테이너가 window가 아닐 수도 있어 위치는 화면 기준으로 잰다.
+			function check() {
+				ticking = false;
+				var content = document.querySelector('.article__content');
+				if (!content) { return; }
+				var vh = window.innerHeight || document.documentElement.clientHeight;
+				var rect = content.getBoundingClientRect();
+				var main = document.querySelector('.js-page-main');
+				var scrolled = Math.max(window.pageYOffset || 0, main ? main.scrollTop : 0);
+
+				if (scrolled >= vh) {
+					once('viewport', 'article_scrolled', { viewport_height: vh });
+				}
+				if (rect.height <= 0) { return; }
+				var read = Math.min(100, Math.max(0, (vh - rect.top) / rect.height * 100));
+				for (var i = 0; i < MILESTONES.length; i++) {
+					if (read >= MILESTONES[i]) {
+						once('p' + MILESTONES[i], 'article_read_progress', { percent: MILESTONES[i] });
+					}
+				}
+			}
+
+			document.addEventListener('scroll', function () {
+				if (!ticking) {
+					ticking = true;
+					window.requestAnimationFrame(check);
+				}
+			}, { capture: true, passive: true });
+
+			// TOC는 JS로 그려지고 자체 click 핸들러가 기본 동작을 막으므로 문서 단에서 잡는다.
+			document.addEventListener('click', function (e) {
+				var link = e.target.closest && e.target.closest('.js-toc-root a');
+				if (!link) { return; }
+				var links = document.querySelectorAll('.js-toc-root a');
+				var li = link.parentNode;
+				var level = (li && li.className.match(/toc-(h\d)/) || [])[1] || null;
+				track('toc_clicked', {
+					heading_text: link.textContent.trim(),
+					heading_id: (link.getAttribute('href') || '').replace(/^#/, ''),
+					heading_level: level,
+					heading_index: Array.prototype.indexOf.call(links, link) + 1,
+					heading_total: links.length
+				});
+			}, true);
+		})();
+	</script>
+{%- endif -%}

@@ -143,7 +143,13 @@ search:
 ## Analytics
 ##############################
 analytics:
-  provider: false # false | "google" | "custom". UA는 2023-07 수집 종료로 2026-10-06 제거
+  provider: mixpanel # false | "google" | "mixpanel" | "custom". UA는 2023-07 수집 종료로 2026-10-06 제거
+
+  ## Mixpanel (브라우저 프로젝트 토큰은 페이지 소스에 노출되는 공개값)
+  mixpanel:
+    token      : 93abbc58ed23880ad6b3d00e1ca470df # Mixpanel project token (개인 계정 yourBuoy 프로젝트)
+    api_host   : https://api-js.mixpanel.com # EU 데이터 거주지면 https://api-eu.mixpanel.com
+    autocapture: false # true면 클릭·폼 제출 등을 자동 수집
 
   ## Google Analytics
   google:
