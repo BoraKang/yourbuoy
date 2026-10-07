@@ -1,6 +1,8 @@
 ---
 tags: 사회초년생 시간관리 메모작성 
 layout: article
+redirect_from:
+  - /how-to-write-meeting-minutes-quickly-and-easily/
 categories: [work]
 title: 회의록과 노트/메모를 빨리, 쉽게, 잘 기억나게 작성하는 법
 subtitle: 있는 내용 정리를 잘해야 없는 내용도 잘 만들죠

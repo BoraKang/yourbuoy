@@ -1,6 +1,8 @@
 ---
 tags: 멘탈관리 직장생활 걱정 성과압박
 layout: article
+redirect_from:
+  - /how-to-deal-with-anxiety-at-work/
 categories: [mind]
 permalink: /work/how-to-deal-with-anxiety-at-work/
 title: 직장인 멘탈관리(1) – 업무 불안과 압박감을 떨쳐내는 법 5가지

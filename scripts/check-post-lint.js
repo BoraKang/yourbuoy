@@ -72,7 +72,8 @@ function lintFile(content) {
   const refs = [];
   let m;
   while ((m = imgSrcRe.exec(content))) refs.push({ src: m[1], index: m.index });
-  while ((m = mdImgRe.exec(content))) refs.push({ src: m[1], index: m.index });
+  // ![alt](/path "title")의 title은 경로가 아니므로 떼어낸다.
+  while ((m = mdImgRe.exec(content))) refs.push({ src: m[1].trim().split(/\s+/)[0], index: m.index });
 
   refs.forEach(({ src, index }) => {
     const lineNo = lineNumberAt(content, index);

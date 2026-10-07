@@ -1,6 +1,8 @@
 ---
 tags: 멘탈관리 생활습관 걱정
 layout: article
+redirect_from:
+  - /7simple-habits-to-help-you-cope-with-anxiety/
 categories: [mind]
 permalink: /work/7simple-habits-to-help-you-cope-with-anxiety/
 title: 직장인 멘탈관리(2) – 걱정많고 불안한 당신을 위한 생활지침 7가지
