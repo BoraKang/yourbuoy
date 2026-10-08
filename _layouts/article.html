@@ -117,13 +117,18 @@ type: article
     <section class="article__sharing d-print-none">{%- include sharing.html -%}</section>
   {%- endif -%}
 
-  {%- include yb-static-comments.html -%}
+  {%- endunless -%}
 
-  {%- comment -%} 새 댓글 입력창 (Cusdis, 익명). 배포 환경에서만 렌더됨 {%- endcomment -%}
+  {%- comment -%}
+    댓글. 옛 정적 댓글(_data/comments.yml)과 새 익명 댓글을 custom.html 이 한 묶음으로 그린다.
+    배포 환경에서만 렌더된다(_includes/comments.html).
+    hide_meta 바깥에 둔다 — 메타 줄을 숨긴 페이지(about 등)에도 댓글은 남아야 한다.
+  {%- endcomment -%}
   {%- unless page.comment == false -%}
   <section class="page__comments d-print-none">{%- include comments.html -%}</section>
   {%- endunless -%}
 
+  {%- unless page.hide_meta -%}
   <div class="d-print-none">
     {%- include article-footer.html -%}
     {%- include article-section-navigator.html -%}

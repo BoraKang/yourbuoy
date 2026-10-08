@@ -1498,7 +1498,8 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
 .site-tags .tag-button--all > .tag-button__count { color: $yb-teal; opacity: .7; }
 
 /* ==========================================
-   정적 댓글 (구 Disqus 이전) — yb-static-comments.html
+   댓글 — comments-providers/custom.html
+   옛 Disqus 이전분(_data/comments.yml)과 새 익명 댓글이 같은 .yb-c 박스를 쓴다.
    ========================================== */
 .yb-comments {
   max-width: 820px;
@@ -1562,6 +1563,125 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   padding-left: 12px;
   border-left: 2px solid #eee;
   .yb-c { margin-bottom: 8px; }
+}
+
+/* 관리자에게만 보이는 삭제·승인 버튼 */
+.yb-c__tools {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+.yb-c__tool {
+  border: 1px solid #e3e6ea;
+  background: #fff;
+  border-radius: $yb-r-pill;
+  padding: 3px 12px;
+  font-size: 12px;
+  color: $yb-meta;
+  cursor: pointer;
+  &:hover { border-color: $yb-coral; color: $yb-coral; }
+}
+.yb-c--pending { opacity: .72; }
+.yb-c__badge--pending { background: $yb-meta; }
+
+/* ==========================================
+   익명 댓글 입력 폼 — custom.html
+   ========================================== */
+.yb-comments__status {
+  margin: 12px 0 0;
+  min-height: 20px;
+  font-size: 14px;
+  color: $yb-meta;
+  &.is-error { color: $yb-coral; }
+}
+
+.yb-cform {
+  margin-top: 20px;
+  border: 1px solid #eee;
+  border-radius: $yb-r-md;
+  padding: 18px;
+  background: #fff;
+}
+.yb-cform__row + .yb-cform__row { margin-top: 12px; }
+.yb-cform__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $yb-ink;
+}
+.yb-cform__input,
+.yb-cform__textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #e3e6ea;
+  border-radius: $yb-r-md;
+  padding: 10px 12px;
+  /* 16px 미만이면 iOS 사파리가 입력 시 화면을 확대한다. */
+  font-size: 16px;
+  font-family: inherit;
+  line-height: 1.6;
+  color: $yb-ink;
+  background: #fff;
+  &::placeholder { color: #b4bcc4; }
+  &:focus {
+    outline: none;
+    border-color: $yb-coral;
+  }
+}
+.yb-cform__textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+.yb-cform__input { max-width: 260px; }
+
+/* 허니팟: 봇만 채우도록 화면에서 숨긴다. display:none 은 일부 봇이 건너뛴다. */
+.yb-cform__hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.yb-cform__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+}
+.yb-cform__note {
+  font-size: 13px;
+  color: $yb-meta;
+  word-break: keep-all;
+}
+.yb-cform__submit {
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: $yb-r-pill;
+  background: $yb-coral;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 22px;
+  cursor: pointer;
+  &:hover { filter: brightness(1.05); }
+  &:disabled { opacity: .55; cursor: default; }
+}
+
+@media screen and (max-width: 600px) {
+  .yb-comments { margin-top: 40px; }
+  .yb-cform { padding: 16px 14px; }
+  .yb-cform__input { max-width: none; }
+  .yb-cform__foot {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .yb-cform__submit { width: 100%; padding: 12px 22px; }
+  .yb-cform__note { order: 2; text-align: center; }
+  .yb-c__replies { margin-left: 8px; padding-left: 10px; }
 }
 
 .yb-forge { padding-bottom: $yb-page-bottom; }

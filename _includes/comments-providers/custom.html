@@ -1,3 +1,259 @@
-<!-- start custom comments snippet -->
+{%- comment -%}
+  yourBuoy 익명 댓글. 백엔드는 Cloudflare Workers + D1 (tools/comments-worker).
+  - 로그인 없이 이름만 적으면 남길 수 있다.
+  - _data/comments.yml 의 옛 댓글(Disqus 이전분)을 위에 먼저 그리고, 새 댓글을 이어 붙인다.
+  - 관리자 모드: 주소 끝에 ?admin=1 을 붙이면 토큰을 물어보고, 이후 글쓴이 배지와 삭제 버튼이 생긴다.
+{%- endcomment -%}
 
-<!-- end custom comments snippet -->
+{%- assign _api = site.comments.custom.api_url -%}
+{%- assign _key = page.comments_key | default: page.slug -%}
+{%- assign _thread = site.data.comments[_key] -%}
+
+<section class="yb-comments" aria-label="댓글" data-api="{{ _api }}" data-page="{{ page.url }}">
+  <h2 class="yb-comments__title">댓글 <span class="js-yb-count">{{ _thread.size | default: 0 }}</span></h2>
+
+  <div class="js-yb-list">
+    {%- comment -%} 옛 댓글: 서버에서 미리 그려둔다. {%- endcomment -%}
+    {%- for c in _thread -%}
+    <div class="yb-c{% if c.author %} yb-c--author{% endif %}">
+      <div class="yb-c__head">
+        <span class="yb-c__name">{{ c.name }}{% if c.author %} <span class="yb-c__badge">글쓴이</span>{% endif %}</span>
+        <span class="yb-c__date">{{ c.date }}</span>
+      </div>
+      <div class="yb-c__body">{{ c.message | markdownify }}</div>
+      {%- if c.replies -%}
+      <div class="yb-c__replies">
+        {%- for r in c.replies -%}
+        <div class="yb-c{% if r.author %} yb-c--author{% endif %}">
+          <div class="yb-c__head">
+            <span class="yb-c__name">{{ r.name }}{% if r.author %} <span class="yb-c__badge">글쓴이</span>{% endif %}</span>
+            <span class="yb-c__date">{{ r.date }}</span>
+          </div>
+          <div class="yb-c__body">{{ r.message | markdownify }}</div>
+        </div>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+    </div>
+    {%- endfor -%}
+  </div>
+
+  <p class="yb-comments__status js-yb-status" role="status"></p>
+
+  <form class="yb-cform js-yb-form" novalidate>
+    <div class="yb-cform__row">
+      <label class="yb-cform__label" for="yb-c-name">이름</label>
+      <input class="yb-cform__input" id="yb-c-name" name="name" type="text" maxlength="40"
+             autocomplete="nickname" placeholder="닉네임도 좋습니다" required>
+    </div>
+    <div class="yb-cform__row">
+      <label class="yb-cform__label" for="yb-c-message">댓글</label>
+      <textarea class="yb-cform__textarea" id="yb-c-message" name="message" rows="4" maxlength="2000"
+                placeholder="편하게 남겨주세요." required></textarea>
+    </div>
+    {%- comment -%} 허니팟: 사람 눈에는 보이지 않는다. 봇이 채우면 걸러진다. {%- endcomment -%}
+    <div class="yb-cform__hp" aria-hidden="true">
+      <label for="yb-c-website">Website</label>
+      <input id="yb-c-website" name="website" type="text" tabindex="-1" autocomplete="off">
+    </div>
+    <div class="yb-cform__foot">
+      <span class="yb-cform__note">이메일·로그인 없이 남길 수 있습니다.</span>
+      <button class="yb-cform__submit" type="submit">댓글 남기기</button>
+    </div>
+  </form>
+</section>
+
+<script>
+(function () {
+  var root = document.currentScript.previousElementSibling;
+  while (root && !root.classList.contains('yb-comments')) root = root.previousElementSibling;
+  if (!root) return;
+
+  var api = root.dataset.api;
+  var pageId = root.dataset.page;
+  if (!api) return;
+
+  var list = root.querySelector('.js-yb-list');
+  var form = root.querySelector('.js-yb-form');
+  var statusEl = root.querySelector('.js-yb-status');
+  var countEl = root.querySelector('.js-yb-count');
+  var staticCount = Number(countEl.textContent) || 0;
+  var renderedAt = Date.now();
+
+  /* 관리자 토큰은 이 브라우저에만 저장된다. */
+  var TOKEN_KEY = 'yb_admin_token';
+  var token = null;
+  try { token = localStorage.getItem(TOKEN_KEY); } catch (e) { token = null; }
+  if (new URLSearchParams(location.search).get('admin') === '1') {
+    var entered = window.prompt('관리자 토큰');
+    if (entered) {
+      token = entered.trim();
+      try { localStorage.setItem(TOKEN_KEY, token); } catch (e) {}
+    }
+  }
+
+  function authHeaders(base) {
+    var h = base || {};
+    if (token) h.Authorization = 'Bearer ' + token;
+    return h;
+  }
+
+  function say(message, isError) {
+    statusEl.textContent = message || '';
+    statusEl.classList.toggle('is-error', Boolean(isError));
+  }
+
+  function formatDate(iso) {
+    var d = new Date(iso);
+    if (isNaN(d)) return '';
+    return d.getFullYear() + '. ' + (d.getMonth() + 1) + '. ' + d.getDate() + '.';
+  }
+
+  /* 본문은 textContent로만 넣는다. HTML로 해석시키지 않는다. */
+  function buildComment(c) {
+    var box = document.createElement('div');
+    box.className = 'yb-c' + (c.is_author ? ' yb-c--author' : '') + (c.approved ? '' : ' yb-c--pending');
+    box.dataset.id = c.id;
+
+    var head = document.createElement('div');
+    head.className = 'yb-c__head';
+
+    var name = document.createElement('span');
+    name.className = 'yb-c__name';
+    name.textContent = c.name;
+    if (c.is_author) {
+      var badge = document.createElement('span');
+      badge.className = 'yb-c__badge';
+      badge.textContent = '글쓴이';
+      name.appendChild(document.createTextNode(' '));
+      name.appendChild(badge);
+    }
+    if (!c.approved) {
+      var pending = document.createElement('span');
+      pending.className = 'yb-c__badge yb-c__badge--pending';
+      pending.textContent = '승인 대기';
+      name.appendChild(document.createTextNode(' '));
+      name.appendChild(pending);
+    }
+
+    var date = document.createElement('span');
+    date.className = 'yb-c__date';
+    date.textContent = formatDate(c.created_at);
+
+    head.appendChild(name);
+    head.appendChild(date);
+
+    var body = document.createElement('div');
+    body.className = 'yb-c__body';
+    c.message.split(/\n{2,}/).forEach(function (para) {
+      var p = document.createElement('p');
+      para.split('\n').forEach(function (line, i) {
+        if (i) p.appendChild(document.createElement('br'));
+        p.appendChild(document.createTextNode(line));
+      });
+      body.appendChild(p);
+    });
+
+    box.appendChild(head);
+    box.appendChild(body);
+
+    if (token) {
+      var tools = document.createElement('div');
+      tools.className = 'yb-c__tools';
+      var del = document.createElement('button');
+      del.type = 'button';
+      del.className = 'yb-c__tool';
+      del.textContent = '삭제';
+      del.addEventListener('click', function () { removeComment(c.id, box); });
+      tools.appendChild(del);
+      if (!c.approved) {
+        var ok = document.createElement('button');
+        ok.type = 'button';
+        ok.className = 'yb-c__tool';
+        ok.textContent = '승인';
+        ok.addEventListener('click', function () { approveComment(c.id); });
+        tools.appendChild(ok);
+      }
+      box.appendChild(tools);
+    }
+    return box;
+  }
+
+  function render(comments) {
+    root.querySelectorAll('.js-yb-dynamic').forEach(function (el) { el.remove(); });
+
+    var byParent = {};
+    comments.forEach(function (c) {
+      var key = c.parent_id || '__root__';
+      (byParent[key] = byParent[key] || []).push(c);
+    });
+
+    (byParent.__root__ || []).forEach(function (c) {
+      var box = buildComment(c);
+      box.classList.add('js-yb-dynamic');
+      var replies = byParent[c.id];
+      if (replies && replies.length) {
+        var wrap = document.createElement('div');
+        wrap.className = 'yb-c__replies';
+        replies.forEach(function (r) { wrap.appendChild(buildComment(r)); });
+        box.appendChild(wrap);
+      }
+      list.appendChild(box);
+    });
+
+    countEl.textContent = staticCount + comments.length;
+  }
+
+  function load() {
+    fetch(api + '/comments?page=' + encodeURIComponent(pageId), { headers: authHeaders() })
+      .then(function (r) { return r.json(); })
+      .then(function (d) { if (d.comments) render(d.comments); })
+      .catch(function () { say('댓글을 불러오지 못했습니다. 잠시 후 새로고침해주세요.', true); });
+  }
+
+  function removeComment(id, box) {
+    fetch(api + '/admin/comments/' + id, { method: 'DELETE', headers: authHeaders() })
+      .then(function (r) { if (r.ok) { box.remove(); load(); } else { say('삭제하지 못했습니다.', true); } });
+  }
+
+  function approveComment(id) {
+    fetch(api + '/admin/comments/' + id + '/approve', { method: 'POST', headers: authHeaders() })
+      .then(function (r) { if (r.ok) load(); else say('승인하지 못했습니다.', true); });
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var button = form.querySelector('.yb-cform__submit');
+    var payload = {
+      page: pageId,
+      name: form.name.value.trim(),
+      message: form.message.value.trim(),
+      website: form.website.value,
+      rendered_at: renderedAt
+    };
+    if (!payload.name) { say('이름을 입력해주세요.', true); form.name.focus(); return; }
+    if (!payload.message) { say('내용을 입력해주세요.', true); form.message.focus(); return; }
+
+    button.disabled = true;
+    say('보내는 중…');
+
+    fetch(api + '/comments', {
+      method: 'POST',
+      headers: authHeaders({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify(payload)
+    })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        if (!res.ok) { say(res.d.error || '등록하지 못했습니다.', true); return; }
+        form.message.value = '';
+        renderedAt = Date.now();
+        say(res.d.approved === 0 ? '남겨주셔서 고맙습니다. 확인 후 공개됩니다.' : '남겨주셔서 고맙습니다.');
+        load();
+      })
+      .catch(function () { say('등록하지 못했습니다. 잠시 후 다시 시도해주세요.', true); })
+      .finally(function () { button.disabled = false; });
+  });
+
+  load();
+})();
+</script>

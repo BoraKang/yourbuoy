@@ -100,9 +100,13 @@ sharing:
 ## Comments - 댓글시스템 공급
 ##############################
 comments:
-  provider: "cusdis" # "giscus", "disqus", "gitalk", "valine", "custom"
+  provider: "custom" # "giscus", "disqus", "gitalk", "valine", "custom"
 
-  ## Cusdis (익명 댓글 가능)
+  ## 자체 익명 댓글 (Cloudflare Workers + D1). 백엔드 소스: tools/comments-worker
+  custom:
+    api_url: "https://comments.yourbuoy.kr"
+
+  ## Cusdis (보관) — 호스팅 서비스 종료, 레포도 archived 됨
   cusdis:
     app_id: 80dd5513-cde4-440a-80cf-d0de74e337e2
 

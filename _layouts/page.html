@@ -267,7 +267,8 @@ layout: base
 
                     <div class="js-article-content">
                       {{ content }}</div>
-                    {%- if _comment != false -%}
+                    {%- comment -%} article 레이아웃은 article.html 이 직접 그린다. 여기서 또 그리면 중복된다. {%- endcomment -%}
+                    {%- if _comment != false and page.layout != 'article' -%}
                       <section class="page__comments d-print-none">{%- include comments.html -%}</section>
                     {%- endif -%}
                 </article>
