@@ -39,3 +39,4 @@ _to_delete/
 tools/comments-worker/.admin-token
 tools/comments-worker/.ip-salt
 tools/comments-worker/.wrangler/
+tools/comments-worker/.ntfy-topic

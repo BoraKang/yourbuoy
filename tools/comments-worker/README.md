@@ -73,9 +73,33 @@ IP 원문은 저장하지 않는다. `IP_SALT` 를 섞은 해시만 남긴다.
 
 ## 알림
 
-**없다.** 새 댓글이 와도 따로 연락이 가지 않는다. 확인하려면 `?admin=1` 로 글을 열거나
-아래 명령을 쓴다. (`yourbuoy.kr` 의 MX 는 Google Workspace 를 가리키므로
-Cloudflare Email Routing 을 켜면 기존 메일이 끊긴다. 그 경로는 쓰지 말 것.)
+코드는 들어가 있고 **아직 켜지지 않았다.** 시크릿을 넣는 순간 동작한다.
+
+웹훅(Discord·Slack)으로 받으려면:
+
+```sh
+printf '%s' '<웹훅 URL>' | npx wrangler secret put NOTIFY_WEBHOOK
+```
+
+메일로 받으려면 (Resend):
+
+```sh
+printf '%s' '<API 키>' | npx wrangler secret put RESEND_API_KEY
+printf '%s' '<받을 주소>' | npx wrangler secret put NOTIFY_EMAIL
+```
+
+둘 다 넣으면 둘 다 간다. 알림이 실패해도 댓글 등록은 영향받지 않는다.
+독자가 남긴 이메일 주소는 알림 본문에 넣지 않는다 — 남겼는지 여부만 알린다.
+
+### 쓰면 안 되는 두 가지
+
+- **ntfy.sh 무료 서버**: 보내는 IP 기준으로 일일 한도를 거는데 Cloudflare Worker 는
+  egress IP 를 공유해서 늘 한도 초과다 (`429 / code 42908`). 로컬 curl 로는 되고
+  Worker 에서는 안 되므로 테스트할 때 속기 쉽다. 유료 플랜은 월 $6부터.
+- **Cloudflare Email Routing**: 켜면 MX 레코드가 덮어써진다.
+  `yourbuoy.kr` 은 Google Workspace 로 메일을 받고 있어서 기존 메일이 끊긴다.
+
+알림 없이 확인하려면 `?admin=1` 로 글을 열거나 아래 명령을 쓴다.
 
 ## 배포
 

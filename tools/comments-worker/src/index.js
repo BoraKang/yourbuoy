@@ -92,7 +92,7 @@ function normalizeEmail(raw) {
   return { email: value };
 }
 
-async function handlePost(request, env) {
+async function handlePost(request, env, ctx) {
   let body;
   try {
     body = await request.json();
@@ -152,11 +152,83 @@ async function handlePost(request, env) {
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
   ).bind(id, pageId, parentId, name, mail.email, message, author, approved, hold, ipHash, new Date().toISOString()).run();
 
+  /* 응답을 붙잡지 않도록 알림은 백그라운드로 보낸다. */
+  const task = notify(env, { name, email: mail.email, message, page_id: pageId, approved, hold });
+  if (ctx && ctx.waitUntil) ctx.waitUntil(task);
+
   return json({ ok: true, id, approved }, request, env, 201);
 }
 
+/*
+ * 새 댓글 알림.
+ *
+ * ntfy.sh 는 쓸 수 없다. 무료 서버가 "보내는 IP" 기준으로 일일 한도를 거는데
+ * Cloudflare Worker 는 egress IP 를 남들과 공유해서 한도가 늘 소진돼 있다 (429 42908).
+ *
+ * 그래서 두 경로를 둔다. 시크릿을 넣은 쪽만 동작하고, 둘 다 없으면 조용히 넘어간다.
+ *   NOTIFY_WEBHOOK            Discord / Slack 수신 웹훅 URL
+ *   RESEND_API_KEY + NOTIFY_EMAIL  Resend 로 메일 발송
+ *
+ * 독자가 남긴 이메일 주소는 본문에 넣지 않는다. 남겼는지 여부만 알린다.
+ * 알림이 실패해도 댓글 등록은 성공해야 하므로 예외를 삼킨다.
+ */
+function buildNotice(comment) {
+  const held = comment.approved === 0;
+  const head = held
+    ? (comment.hold === 'link' ? 'yourBuoy 댓글 — 링크가 있어 승인 대기' : 'yourBuoy 댓글 — 한글이 없어 승인 대기')
+    : 'yourBuoy 새 댓글';
+  const body = [
+    comment.name + '님' + (comment.email ? ' (회신 주소 남김)' : ''),
+    '',
+    comment.message.slice(0, 400),
+    '',
+    'https://yourbuoy.kr' + comment.page_id,
+  ].join('\n');
+  return { held, head, body };
+}
+
+async function notify(env, comment) {
+  const { head, body } = buildNotice(comment);
+  const text = head + '\n\n' + body;
+
+  if (env.NOTIFY_WEBHOOK) {
+    try {
+      /* Discord 는 content, Slack 은 text 를 읽는다. 둘 다 보내면 어느 쪽이든 받는다. */
+      const res = await fetch(env.NOTIFY_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ content: text, text: text }),
+      });
+      if (!res.ok) console.log('webhook 실패', res.status, (await res.text()).slice(0, 200));
+    } catch (e) {
+      console.log('webhook 예외', e && e.message);
+    }
+  }
+
+  if (env.RESEND_API_KEY && env.NOTIFY_EMAIL) {
+    try {
+      const res = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + env.RESEND_API_KEY,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: env.NOTIFY_FROM || 'onboarding@resend.dev',
+          to: [env.NOTIFY_EMAIL],
+          subject: head,
+          text: body,
+        }),
+      });
+      if (!res.ok) console.log('resend 실패', res.status, (await res.text()).slice(0, 200));
+    } catch (e) {
+      console.log('resend 예외', e && e.message);
+    }
+  }
+}
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, '') || '/';
 
@@ -172,7 +244,7 @@ export default {
     }
 
     if (path === '/comments' && request.method === 'POST') {
-      return handlePost(request, env);
+      return handlePost(request, env, ctx);
     }
 
     if (path.startsWith('/admin/')) {
