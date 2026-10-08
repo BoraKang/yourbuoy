@@ -4,7 +4,8 @@ layout: article
 redirect_from:
   - /how-to-improve-emali-writing-skill-title_recipient/
 categories: [work]
-title: 비즈니스 이메일 작성 101(1) - 제목/수신자 설정법
+title: "비즈니스 메일 제목 쓰는 법과 예시: 수신자·참조(CC) 지정까지"
+description: "회사 메일 제목을 30~50자 단문으로, 대괄호로 분류해 쓰는 법을 예시로 정리했다. 피해야 할 제목과 수신자·참조자 지정법도 함께."
 subtitle: 일잘러는 제목, 수신자 설정만 봐도 티가 나는 법이다
 feature: /assets/images/posting/how-to-improve-emali-writing-skill-title_recipient.jpg
 hero_image: /assets/images/thumbnail/2021-04-25_megaphone.png
