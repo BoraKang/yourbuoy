@@ -11,6 +11,7 @@
  */
 
 const MAX_NAME = 40;
+const MAX_EMAIL = 120;
 const MAX_MESSAGE = 2000;
 const RATE_WINDOW_MIN = 10;
 const RATE_MAX = 5;
@@ -53,12 +54,42 @@ function clean(value, max) {
   return String(value == null ? '' : value).replace(/\u0000/g, '').trim().slice(0, max);
 }
 
-async function listComments(env, pageId, includeHidden) {
-  const sql = includeHidden
-    ? 'SELECT id, page_id, parent_id, name, message, is_author, approved, created_at FROM comments WHERE page_id = ? ORDER BY created_at ASC'
-    : 'SELECT id, page_id, parent_id, name, message, is_author, approved, created_at FROM comments WHERE page_id = ? AND approved = 1 ORDER BY created_at ASC';
-  const { results } = await env.DB.prepare(sql).bind(pageId).all();
+/* 공개 응답에는 이메일을 절대 넣지 않는다. 관리자만 회신용으로 본다. */
+const PUBLIC_COLUMNS = 'id, page_id, parent_id, name, message, is_author, approved, created_at';
+const ADMIN_COLUMNS = PUBLIC_COLUMNS + ', email, hold_reason';
+
+async function listComments(env, pageId, asAdmin) {
+  const columns = asAdmin ? ADMIN_COLUMNS : PUBLIC_COLUMNS;
+  const where = asAdmin ? 'page_id = ?' : 'page_id = ? AND approved = 1';
+  const { results } = await env.DB
+    .prepare('SELECT ' + columns + ' FROM comments WHERE ' + where + ' ORDER BY created_at ASC')
+    .bind(pageId).all();
   return results || [];
+}
+
+/*
+ * 한국어 블로그다. 본문에 한글이 한 글자도 없거나 링크가 섞이면 스팸일 확률이 높다.
+ * 거절하지 않고 '승인 대기'로 돌린다 — 영어로 쓰는 진짜 독자를 막지 않으려는 것이다.
+ * 대기 중인 댓글은 공개 목록에 안 나오고 글쓴이에게만 보인다.
+ */
+const HANGUL = /[\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]/;
+const LINKISH = /(https?:\/\/|www\.|\bt\.me\b|\[url[=\]]|<a\s)/i;
+
+function holdReason(name, message, env) {
+  if (env.AUTO_HOLD === '0') return null;
+  if (LINKISH.test(message) || LINKISH.test(name)) return 'link';
+  if (!HANGUL.test(message)) return 'no-hangul';
+  return null;
+}
+
+/* 형식만 가볍게 본다. 선택 입력이라 틀렸다고 댓글을 막지는 않는다. */
+function normalizeEmail(raw) {
+  const value = clean(raw, MAX_EMAIL);
+  if (!value) return { email: null };
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+    return { error: '이메일 형식을 확인해주세요. 비워두셔도 됩니다.' };
+  }
+  return { email: value };
 }
 
 async function handlePost(request, env) {
@@ -85,6 +116,9 @@ async function handlePost(request, env) {
   const message = clean(body.message, MAX_MESSAGE);
   const parentId = clean(body.parent_id, 64) || null;
 
+  const mail = normalizeEmail(body.email);
+  if (mail.error) return json({ error: mail.error }, request, env, 400);
+
   if (!pageId) return json({ error: '글 정보가 없습니다.' }, request, env, 400);
   if (!name) return json({ error: '이름을 입력해주세요.' }, request, env, 400);
   if (!message) return json({ error: '내용을 입력해주세요.' }, request, env, 400);
@@ -109,13 +143,14 @@ async function handlePost(request, env) {
   }
 
   const author = isAdmin(request, env) ? 1 : 0;
-  const approved = author || env.REQUIRE_APPROVAL !== '1' ? 1 : 0;
+  const hold = author ? null : holdReason(name, message, env);
+  const approved = author || (env.REQUIRE_APPROVAL !== '1' && !hold) ? 1 : 0;
   const id = crypto.randomUUID();
 
   await env.DB.prepare(
-    `INSERT INTO comments (id, page_id, parent_id, name, message, is_author, approved, ip_hash, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
-  ).bind(id, pageId, parentId, name, message, author, approved, ipHash, new Date().toISOString()).run();
+    `INSERT INTO comments (id, page_id, parent_id, name, email, message, is_author, approved, hold_reason, ip_hash, created_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+  ).bind(id, pageId, parentId, name, mail.email, message, author, approved, hold, ipHash, new Date().toISOString()).run();
 
   return json({ ok: true, id, approved }, request, env, 201);
 }
@@ -145,7 +180,7 @@ export default {
 
       if (path === '/admin/comments' && request.method === 'GET') {
         const { results } = await env.DB.prepare(
-          'SELECT id, page_id, parent_id, name, message, is_author, approved, created_at FROM comments ORDER BY created_at DESC LIMIT 200'
+          'SELECT ' + ADMIN_COLUMNS + ' FROM comments ORDER BY created_at DESC LIMIT 200'
         ).all();
         return json({ comments: results || [] }, request, env);
       }
@@ -159,7 +194,7 @@ export default {
 
       const approve = path.match(/^\/admin\/comments\/([\w-]+)\/approve$/);
       if (approve && request.method === 'POST') {
-        await env.DB.prepare('UPDATE comments SET approved = 1 WHERE id = ?').bind(approve[1]).run();
+        await env.DB.prepare('UPDATE comments SET approved = 1, hold_reason = NULL WHERE id = ?').bind(approve[1]).run();
         return json({ ok: true }, request, env);
       }
     }

@@ -41,10 +41,20 @@
   <p class="yb-comments__status js-yb-status" role="status"></p>
 
   <form class="yb-cform js-yb-form" novalidate>
-    <div class="yb-cform__row">
-      <label class="yb-cform__label" for="yb-c-name">이름</label>
-      <input class="yb-cform__input" id="yb-c-name" name="name" type="text" maxlength="40"
-             autocomplete="nickname" placeholder="닉네임도 좋습니다" required>
+    <div class="yb-cform__row yb-cform__row--pair">
+      <div class="yb-cform__field">
+        <label class="yb-cform__label" for="yb-c-name">이름</label>
+        <input class="yb-cform__input" id="yb-c-name" name="name" type="text" maxlength="40"
+               autocomplete="nickname" placeholder="닉네임도 좋습니다" required>
+      </div>
+      <div class="yb-cform__field">
+        <label class="yb-cform__label" for="yb-c-email">
+          이메일 <span class="yb-cform__optional">선택</span>
+        </label>
+        <input class="yb-cform__input" id="yb-c-email" name="email" type="email" maxlength="120"
+               autocomplete="email" placeholder="회신 받으실 주소">
+        <p class="yb-cform__hint">답글을 받고 싶으시면 남겨주세요. 공개되지 않습니다.</p>
+      </div>
     </div>
     <div class="yb-cform__row">
       <label class="yb-cform__label" for="yb-c-message">댓글</label>
@@ -227,6 +237,7 @@
     var payload = {
       page: pageId,
       name: form.name.value.trim(),
+      email: form.email.value.trim(),
       message: form.message.value.trim(),
       website: form.website.value,
       rendered_at: renderedAt

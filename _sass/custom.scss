@@ -1634,7 +1634,34 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   resize: vertical;
   min-height: 96px;
 }
-.yb-cform__input { max-width: 260px; }
+/* 이름 | 이메일 두 칸. 좁아지면 아래로 쌓인다. */
+.yb-cform__row--pair {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.yb-cform__field {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.yb-cform__optional {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 7px;
+  border-radius: $yb-r-pill;
+  background: #f1f3f5;
+  font-size: 10.5px;
+  font-weight: 500;
+  color: $yb-meta;
+  vertical-align: 1px;
+}
+.yb-cform__hint {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: $yb-meta;
+  word-break: keep-all;
+}
 
 /* 허니팟: 봇만 채우도록 화면에서 숨긴다. display:none 은 일부 봇이 건너뛴다. */
 .yb-cform__hp {
@@ -1674,7 +1701,10 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
 @media screen and (max-width: 600px) {
   .yb-comments { margin-top: 40px; }
   .yb-cform { padding: 16px 14px; }
-  .yb-cform__input { max-width: none; }
+  .yb-cform__row--pair {
+    flex-direction: column;
+    gap: 12px;
+  }
   .yb-cform__foot {
     flex-direction: column;
     align-items: stretch;
