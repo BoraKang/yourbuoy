@@ -24,7 +24,7 @@ function corsHeaders(request, env) {
   return {
     'Access-Control-Allow-Origin': ok ? origin : allowed[0] || '',
     'Access-Control-Allow-Methods': 'GET,POST,DELETE,OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type,Authorization',
+    'Access-Control-Allow-Headers': 'Content-Type,Authorization,X-Delete-Token',
     'Access-Control-Max-Age': '86400',
     Vary: 'Origin',
   };
@@ -92,6 +92,12 @@ function normalizeEmail(raw) {
   return { email: value };
 }
 
+/* 작성자 본인이 나중에 지울 수 있게 하는 비밀값. 응답으로 한 번만 돌려주고 다시는 노출하지 않는다. */
+function newDeleteToken() {
+  const bytes = crypto.getRandomValues(new Uint8Array(16));
+  return [...bytes].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
 async function handlePost(request, env, ctx) {
   let body;
   try {
@@ -146,17 +152,18 @@ async function handlePost(request, env, ctx) {
   const hold = author ? null : holdReason(name, message, env);
   const approved = author || (env.REQUIRE_APPROVAL !== '1' && !hold) ? 1 : 0;
   const id = crypto.randomUUID();
+  const deleteToken = newDeleteToken();
 
   await env.DB.prepare(
-    `INSERT INTO comments (id, page_id, parent_id, name, email, message, is_author, approved, hold_reason, ip_hash, created_at)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-  ).bind(id, pageId, parentId, name, mail.email, message, author, approved, hold, ipHash, new Date().toISOString()).run();
+    `INSERT INTO comments (id, page_id, parent_id, name, email, message, is_author, approved, hold_reason, delete_token, ip_hash, created_at)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
+  ).bind(id, pageId, parentId, name, mail.email, message, author, approved, hold, deleteToken, ipHash, new Date().toISOString()).run();
 
   /* 응답을 붙잡지 않도록 알림은 백그라운드로 보낸다. */
   const task = notify(env, { name, email: mail.email, message, page_id: pageId, approved, hold });
   if (ctx && ctx.waitUntil) ctx.waitUntil(task);
 
-  return json({ ok: true, id, approved }, request, env, 201);
+  return json({ ok: true, id, approved, delete_token: deleteToken }, request, env, 201);
 }
 
 /*
@@ -247,8 +254,25 @@ export default {
       return handlePost(request, env, ctx);
     }
 
+    /* 작성자 본인 삭제. 브라우저가 들고 있는 비밀값이 맞아야만 지워진다. */
+    const own = path.match(/^\/comments\/([\w-]+)$/);
+    if (own && request.method === 'DELETE') {
+      const given = request.headers.get('X-Delete-Token') || '';
+      if (!given) return json({ error: '삭제 권한이 없습니다.' }, request, env, 401);
+      const row = await env.DB.prepare('SELECT delete_token FROM comments WHERE id = ?').bind(own[1]).first();
+      if (!row || !row.delete_token || row.delete_token !== given) {
+        return json({ error: '삭제 권한이 없습니다.' }, request, env, 401);
+      }
+      await env.DB.prepare('DELETE FROM comments WHERE id = ? OR parent_id = ?').bind(own[1], own[1]).run();
+      return json({ ok: true }, request, env);
+    }
+
     if (path.startsWith('/admin/')) {
       if (!isAdmin(request, env)) return json({ error: '권한이 없습니다.' }, request, env, 401);
+
+      if (path === '/admin/check' && request.method === 'GET') {
+        return json({ ok: true }, request, env);
+      }
 
       if (path === '/admin/comments' && request.method === 'GET') {
         const { results } = await env.DB.prepare(

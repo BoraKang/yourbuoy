@@ -1581,7 +1581,97 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   cursor: pointer;
   &:hover { border-color: $yb-coral; color: $yb-coral; }
 }
+.yb-c__tool--danger {
+  border-color: $yb-coral;
+  color: $yb-coral;
+}
+.yb-c__confirm {
+  display: inline-flex;
+  gap: 8px;
+}
+/* display 를 지정한 요소는 hidden 속성만으로 숨겨지지 않는다. 명시적으로 눌러준다. */
+.yb-c__confirm[hidden],
+.yb-admin[hidden],
+.yb-admin__form[hidden],
+.yb-admin__on[hidden] {
+  display: none;
+}
+.yb-c__mine {
+  align-self: center;
+  font-size: 12px;
+  color: $yb-meta;
+}
 .yb-c--pending { opacity: .72; }
+
+/* 관리자 칸 — ?admin=1 일 때만 보인다 */
+.yb-admin {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px dashed #d9dde2;
+  border-radius: $yb-r-md;
+  background: #fafbfc;
+}
+.yb-admin__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $yb-ink;
+}
+.yb-admin__row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.yb-admin__input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 1px solid #e3e6ea;
+  border-radius: $yb-r-md;
+  padding: 9px 12px;
+  /* 16px 미만이면 iOS 사파리가 입력 시 화면을 확대한다. */
+  font-size: 16px;
+  font-family: inherit;
+  color: $yb-ink;
+  background: #fff;
+  &:focus { outline: none; border-color: $yb-coral; }
+}
+.yb-admin__btn {
+  flex: 0 0 auto;
+  border: 1px solid $yb-coral;
+  background: $yb-coral;
+  color: #fff;
+  border-radius: $yb-r-pill;
+  padding: 9px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.yb-admin__btn--ghost {
+  background: #fff;
+  color: $yb-meta;
+  border-color: #e3e6ea;
+  font-weight: 500;
+  padding: 5px 14px;
+}
+.yb-admin__msg {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: $yb-meta;
+}
+.yb-admin__on {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.yb-admin__badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  background: $yb-ink;
+  border-radius: $yb-r-pill;
+  padding: 3px 10px;
+}
 .yb-c__badge--pending { background: $yb-meta; }
 
 /* ==========================================

@@ -40,6 +40,25 @@
 
   <p class="yb-comments__status js-yb-status" role="status"></p>
 
+  {%- comment -%}
+    관리자 칸. 주소에 ?admin=1 을 붙였을 때만 보인다.
+    브라우저 기본 팝업(prompt)은 모바일에서 안 뜨는 경우가 있어 페이지 안에 둔다.
+  {%- endcomment -%}
+  <div class="yb-admin js-yb-admin" hidden>
+    <form class="yb-admin__form js-yb-admin-form">
+      <label class="yb-admin__label" for="yb-admin-token">관리자 토큰</label>
+      <div class="yb-admin__row">
+        <input class="yb-admin__input" id="yb-admin-token" type="password" autocomplete="off" spellcheck="false">
+        <button class="yb-admin__btn" type="submit">확인</button>
+      </div>
+      <p class="yb-admin__msg js-yb-admin-msg" role="status"></p>
+    </form>
+    <div class="yb-admin__on js-yb-admin-on" hidden>
+      <span class="yb-admin__badge">관리자 모드</span>
+      <button class="yb-admin__btn yb-admin__btn--ghost js-yb-admin-out" type="button">해제</button>
+    </div>
+  </div>
+
   <form class="yb-cform js-yb-form" novalidate>
     <div class="yb-cform__row yb-cform__row--pair">
       <div class="yb-cform__field">
@@ -90,17 +109,79 @@
   var staticCount = Number(countEl.textContent) || 0;
   var renderedAt = Date.now();
 
-  /* 관리자 토큰은 이 브라우저에만 저장된다. */
-  var TOKEN_KEY = 'yb_admin_token';
-  var token = null;
-  try { token = localStorage.getItem(TOKEN_KEY); } catch (e) { token = null; }
-  if (new URLSearchParams(location.search).get('admin') === '1') {
-    var entered = window.prompt('관리자 토큰');
-    if (entered) {
-      token = entered.trim();
-      try { localStorage.setItem(TOKEN_KEY, token); } catch (e) {}
-    }
+  /* 저장소 접근이 막힌 브라우저(시크릿 모드 등)에서도 페이지가 깨지지 않게 감싼다. */
+  function store(key, value) {
+    try {
+      if (value === null) localStorage.removeItem(key);
+      else localStorage.setItem(key, value);
+      return true;
+    } catch (e) { return false; }
   }
+  function recall(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  }
+
+  var TOKEN_KEY = 'yb_admin_token';
+  var MINE_KEY = 'yb_my_comments';
+  var token = recall(TOKEN_KEY);
+
+  /* 내가 쓴 댓글의 삭제 비밀값. { 댓글id: 비밀값 } */
+  var mine = {};
+  try { mine = JSON.parse(recall(MINE_KEY) || '{}') || {}; } catch (e) { mine = {}; }
+  function remember(id, deleteToken) {
+    mine[id] = deleteToken;
+    store(MINE_KEY, JSON.stringify(mine));
+  }
+  function forget(id) {
+    delete mine[id];
+    store(MINE_KEY, JSON.stringify(mine));
+  }
+
+  var adminBox = root.querySelector('.js-yb-admin');
+  var adminForm = root.querySelector('.js-yb-admin-form');
+  var adminMsg = root.querySelector('.js-yb-admin-msg');
+  var adminOn = root.querySelector('.js-yb-admin-on');
+
+  function paintAdmin() {
+    var wanted = new URLSearchParams(location.search).get('admin') === '1';
+    adminBox.hidden = !(wanted || token);
+    adminForm.hidden = Boolean(token);
+    adminOn.hidden = !token;
+  }
+
+  adminForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var value = adminForm.querySelector('.yb-admin__input').value.trim();
+    if (!value) { adminMsg.textContent = '토큰을 입력해주세요.'; return; }
+    /* HTTP 헤더에는 ASCII 만 들어간다. 한글이 섞이면 fetch 가 바로 터지므로 먼저 거른다. */
+    if (!/^[\x21-\x7e]+$/.test(value)) {
+      adminMsg.textContent = '토큰에 들어갈 수 없는 문자가 섞여 있습니다. 다시 복사해주세요.';
+      return;
+    }
+    adminMsg.textContent = '확인 중…';
+    fetch(api + '/admin/check', { headers: { Authorization: 'Bearer ' + value } })
+      .then(function (r) {
+        if (!r.ok) { adminMsg.textContent = '토큰이 올바르지 않습니다.'; return; }
+        token = value;
+        if (!store(TOKEN_KEY, token)) {
+          adminMsg.textContent = '확인됐습니다. (이 브라우저에는 저장되지 않아 새로고침하면 다시 입력해야 합니다)';
+        } else {
+          adminMsg.textContent = '';
+        }
+        paintAdmin();
+        load();
+      })
+      .catch(function () { adminMsg.textContent = '확인하지 못했습니다. 잠시 후 다시 시도해주세요.'; });
+  });
+
+  root.querySelector('.js-yb-admin-out').addEventListener('click', function () {
+    token = null;
+    store(TOKEN_KEY, null);
+    adminForm.querySelector('.yb-admin__input').value = '';
+    adminMsg.textContent = '';
+    paintAdmin();
+    load();
+  });
 
   function authHeaders(base) {
     var h = base || {};
@@ -167,16 +248,47 @@
     box.appendChild(head);
     box.appendChild(body);
 
-    if (token) {
+    var isMine = Boolean(mine[c.id]);
+    if (token || isMine) {
       var tools = document.createElement('div');
       tools.className = 'yb-c__tools';
+
+      /* 삭제는 되돌릴 수 없으니 한 번 더 묻는다.
+         브라우저 기본 confirm 창은 모바일에서 놓치기 쉬워 버튼으로 되묻는다. */
       var del = document.createElement('button');
       del.type = 'button';
       del.className = 'yb-c__tool';
       del.textContent = '삭제';
-      del.addEventListener('click', function () { removeComment(c.id, box); });
+
+      var ask = document.createElement('span');
+      ask.className = 'yb-c__confirm';
+      ask.hidden = true;
+      var yes = document.createElement('button');
+      yes.type = 'button';
+      yes.className = 'yb-c__tool yb-c__tool--danger';
+      yes.textContent = '정말 삭제';
+      var no = document.createElement('button');
+      no.type = 'button';
+      no.className = 'yb-c__tool';
+      no.textContent = '취소';
+      ask.appendChild(yes);
+      ask.appendChild(no);
+
+      del.addEventListener('click', function () { del.hidden = true; ask.hidden = false; });
+      no.addEventListener('click', function () { ask.hidden = true; del.hidden = false; });
+      yes.addEventListener('click', function () { removeComment(c.id, box, isMine && !token); });
+
       tools.appendChild(del);
-      if (!c.approved) {
+      tools.appendChild(ask);
+
+      if (isMine && !token) {
+        var note = document.createElement('span');
+        note.className = 'yb-c__mine';
+        note.textContent = '내가 쓴 댓글';
+        tools.appendChild(note);
+      }
+
+      if (token && !c.approved) {
         var ok = document.createElement('button');
         ok.type = 'button';
         ok.className = 'yb-c__tool';
@@ -221,9 +333,19 @@
       .catch(function () { say('댓글을 불러오지 못했습니다. 잠시 후 새로고침해주세요.', true); });
   }
 
-  function removeComment(id, box) {
-    fetch(api + '/admin/comments/' + id, { method: 'DELETE', headers: authHeaders() })
-      .then(function (r) { if (r.ok) { box.remove(); load(); } else { say('삭제하지 못했습니다.', true); } });
+  /* 관리자면 관리자 경로로, 본인 댓글이면 들고 있는 비밀값으로 지운다. */
+  function removeComment(id, box, asOwner) {
+    var url = asOwner ? api + '/comments/' + id : api + '/admin/comments/' + id;
+    var headers = asOwner ? { 'X-Delete-Token': mine[id] } : authHeaders();
+    fetch(url, { method: 'DELETE', headers: headers })
+      .then(function (r) {
+        if (!r.ok) { say('삭제하지 못했습니다.', true); return; }
+        forget(id);
+        box.remove();
+        say('삭제했습니다.');
+        load();
+      })
+      .catch(function () { say('삭제하지 못했습니다. 잠시 후 다시 시도해주세요.', true); });
   }
 
   function approveComment(id) {
@@ -256,6 +378,7 @@
       .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (res) {
         if (!res.ok) { say(res.d.error || '등록하지 못했습니다.', true); return; }
+        if (res.d.id && res.d.delete_token) remember(res.d.id, res.d.delete_token);
         form.message.value = '';
         renderedAt = Date.now();
         say(res.d.approved === 0 ? '남겨주셔서 고맙습니다. 확인 후 공개됩니다.' : '남겨주셔서 고맙습니다.');
@@ -265,6 +388,7 @@
       .finally(function () { button.disabled = false; });
   });
 
+  paintAdmin();
   load();
 })();
 </script>
