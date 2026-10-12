@@ -74,10 +74,30 @@ async function listComments(env, pageId, asAdmin) {
  */
 const HANGUL = /[\uac00-\ud7a3\u1100-\u11ff\u3130-\u318f]/;
 const LINKISH = /(https?:\/\/|www\.|\bt\.me\b|\[url[=\]]|<a\s)/i;
+/* 본문에서 링크만 걷어내 보려고 쓰는 패턴. LINKISH 와 달리 '어디까지가 링크인지'를 잡는다. */
+const URL_RE = /(https?:\/\/\S+|www\.\S+|t\.me\/\S+|\[url[\s\S]*?\[\/url\]|<a\b[\s\S]*?<\/a>)/gi;
 
 function holdReason(name, message, env) {
   if (env.AUTO_HOLD === '0') return null;
-  if (LINKISH.test(message) || LINKISH.test(name)) return 'link';
+
+  /*
+   * 이름 자리에 링크를 박아 넣는 건 사람이 할 일이 아니다.
+   * 'http://' 없이 'spam.example' 처럼 맨 도메인만 쓰는 경우까지 본다.
+   * 한글 이름이나 'Dr. Kim' 처럼 점 뒤에 공백이 오는 경우는 걸리지 않는다.
+   */
+  const BARE_DOMAIN = /[a-z0-9][a-z0-9-]*\.[a-z]{2,}/i;
+  if (LINKISH.test(name) || BARE_DOMAIN.test(name)) return 'link';
+
+  /*
+   * 링크가 '섞인' 댓글은 통과시킨다. 관련 글을 공유하려는 독자를 막지 않으려는 것이다.
+   * 링크를 걷어내고 공백·문장부호까지 지웠을 때 아무것도 안 남으면,
+   * 즉 본문이 링크 하나뿐이면 그때만 보류한다.
+   */
+  if (LINKISH.test(message)) {
+    const rest = message.replace(URL_RE, ' ').replace(/[\s\p{P}\p{S}]/gu, '');
+    if (rest.length === 0) return 'link';
+  }
+
   if (!HANGUL.test(message)) return 'no-hangul';
   return null;
 }
