@@ -102,11 +102,63 @@ hero_image: /assets/images/thumbnail/2026-10-12_what-actually-improved-my-englis
   height: auto;
   border-radius: 10px;
 }
+.yb-link-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  min-height: 150px;
+  margin: 1.25rem 0 1.75rem;
+  color: #2c3340 !important;
+  text-decoration: none !important;
+  background: #fff;
+  border: 1px solid #dde3ea;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(31, 49, 71, 0.06);
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.yb-link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(31, 49, 71, 0.12);
+}
+.yb-link-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: 1.25rem 1.4rem;
+}
+.yb-link-card__title {
+  margin-bottom: 0.45rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.yb-link-card__description {
+  color: #596574;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+.yb-link-card__domain {
+  margin-top: 0.75rem;
+  color: #7a8795;
+  font-size: 0.82rem;
+}
+.yb-link-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-left: 1px solid #edf0f3;
+}
 @media (max-width: 640px) {
   .yb-book-grid { grid-template-columns: 1fr; }
   .yb-book-grid img { height: auto; }
   .yb-listening-grid { grid-template-columns: 1fr; }
   .yb-listening-grid img { height: auto; }
+  .yb-link-card { grid-template-columns: 1fr; }
+  .yb-link-card__image {
+    height: 180px;
+    border-top: 1px solid #edf0f3;
+    border-left: 0;
+  }
 }
 </style>
 
@@ -258,7 +310,18 @@ Requests
 ### 구린 발음 개선하기 
 {: data-toc="발음 개선하는 법"}
 
-그래서 [★ 영어 발음 잘하는 방법!!(스크롤 압박 주의)★](https://gall.dcinside.com/board/view/?id=English&no=71823){:target="_blank" rel="noopener"} 이런 글들을 찾아보기 시작하다가, 우연히 [소리튠](https://www.soritunenglish.com/){:target="_blank" rel="noopener"}이라는 수업을 들었다. 온라인 VOD 수업이고 영어 발음 수업이 맞나 싶었지만 '영어와 한국어는 발음 방법이 다르고 인생에 한 번은 배울 필요가 있다'는 말에 수강을 시작했는데, 너무 재미있었다.
+그래서 [★ 영어 발음 잘하는 방법!!(스크롤 압박 주의)★](https://gall.dcinside.com/board/view/?id=English&no=71823){:target="_blank" rel="noopener"} 이런 글들을 찾아보기 시작하다가, 우연히 소리튠이라는 수업을 들었다. 온라인 VOD 수업이고 영어 발음 수업이 맞나 싶었지만 '영어와 한국어는 발음 방법이 다르고 인생에 한 번은 배울 필요가 있다'는 말에 수강을 시작했는데, 너무 재미있었다.
+
+<div>
+<a class="yb-link-card" href="https://www.soritunenglish.com/" target="_blank" rel="noopener">
+  <span class="yb-link-card__body">
+    <span class="yb-link-card__title">영어가 좋아지는 곳, 소리튠</span>
+    <span class="yb-link-card__description">소리를 튜닝하고 어순을 블록화해 듣기와 말하기를 훈련하는 영어 학습 프로그램</span>
+    <span class="yb-link-card__domain">soritunenglish.com</span>
+  </span>
+  <img class="yb-link-card__image" src="/assets/images/posting/261012/soritune-link-preview.png" alt="소리튠 영어 웹사이트 미리보기" />
+</a>
+</div>
 
 영어 자모음 하나하나의 소리를 어떻게 내는지를 다시 배웠고, d를 입을 쭉 빼면 dʒ가 된다거나 하는 발음법이나 æ와 ɑ의 발음의 차이를 알게 되며 재미있었고 스스로 느끼기에도 발음이 훨씬 좋아졌다고 느꼈다.
 
