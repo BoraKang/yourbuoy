@@ -72,9 +72,24 @@ hero_image: /assets/images/thumbnail/2026-10-12_what-actually-improved-my-englis
   background: #f7f8fa;
   border-radius: 10px;
 }
+.yb-listening-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+.yb-listening-grid img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 @media (max-width: 640px) {
   .yb-book-grid { grid-template-columns: 1fr; }
   .yb-book-grid img { height: auto; }
+  .yb-listening-grid { grid-template-columns: 1fr; }
+  .yb-listening-grid img { height: auto; }
 }
 </style>
 
@@ -240,9 +255,10 @@ Requests
 
 말을 할 수 있게 되는 것과 상대방의 말을 알아듣는 것은 별개의 문제였다. **듣기는 지금도 해결되지 않았다. 안 들려...**
 
-![영어 듣기에 집중](/assets/images/posting/261012/english-listening-focus-meme.png)
-
-![영어가 안들려요](/assets/images/posting/261012/english-listening-cannot-hear-meme.png)
+<div class="yb-listening-grid">
+  <img src="/assets/images/posting/261012/english-listening-focus-meme.png" alt="영어 듣기에 집중" />
+  <img src="/assets/images/posting/261012/english-listening-cannot-hear-meme.png" alt="영어가 안 들려 귀를 만지는 모습" />
+</div>
 
 ## 6. 지금의 병목 - 브로큰 영어
 {: data-toc="지금의 영어정체기"}
