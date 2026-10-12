@@ -7,7 +7,7 @@ date: 2026-10-12 17:39:00 +09:00
 categories: [work]
 tags: [영어 공부, 비즈니스 영어, 영어 말하기]
 internal_tags: [직장인 영어 공부, 영어 공부법, 영어 실력 정체기, 비즈니스 영어]
-hero_image: /assets/images/thumbnail/2026-10-12_what-actually-improved-my-english.png
+hero_image: /assets/images/thumbnail/2026-10-12_what-actually-improved-my-english-v2.png
 
 ---
 <style>
