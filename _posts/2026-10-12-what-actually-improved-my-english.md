@@ -255,6 +255,9 @@ Requests
 
 ![영어 발음보다 의미 전달이 중요하다는 동료의 조언](/assets/images/posting/261012/pronunciation-advice-conversation.png)
 
+### 구린 발음 개선하기 
+{: data-toc="발음 개선하는 법"}
+
 그래서 [★ 영어 발음 잘하는 방법!!(스크롤 압박 주의)★](https://gall.dcinside.com/board/view/?id=English&no=71823){:target="_blank" rel="noopener"} 이런 글들을 찾아보기 시작하다가, 우연히 [소리튠](https://www.soritunenglish.com/){:target="_blank" rel="noopener"}이라는 수업을 들었다. 온라인 VOD 수업이고 영어 발음 수업이 맞나 싶었지만 '영어와 한국어는 발음 방법이 다르고 인생에 한 번은 배울 필요가 있다'는 말에 수강을 시작했는데, 너무 재미있었다.
 
 영어 자모음 하나하나의 소리를 어떻게 내는지를 다시 배웠고, d를 입을 쭉 빼면 dʒ가 된다거나 하는 발음법이나 æ와 ɑ의 발음의 차이를 알게 되며 재미있었고 스스로 느끼기에도 발음이 훨씬 좋아졌다고 느꼈다.
