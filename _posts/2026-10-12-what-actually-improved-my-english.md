@@ -57,7 +57,8 @@ hero_image: /assets/images/thumbnail/2026-10-12_what-actually-improved-my-englis
 .article__content .yb-email-code .highlighter-rouge > .highlight > pre {
   padding: 1rem 1.1rem;
   border: 0;
-  line-height: 1.7;
+  font-size: 0.88rem;
+  line-height: 1.65;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   background: #f3f7ff !important;
@@ -153,6 +154,7 @@ hero_image: /assets/images/thumbnail/2026-10-12_what-actually-improved-my-englis
   .yb-book-grid img { height: auto; }
   .yb-listening-grid { grid-template-columns: 1fr; }
   .yb-listening-grid img { height: auto; }
+  .article__content .yb-email-code .highlighter-rouge > .highlight > pre { font-size: 0.82rem; }
   .yb-link-card { grid-template-columns: 1fr; }
   .yb-link-card__image {
     height: 180px;
@@ -360,6 +362,6 @@ Requests
 
 다 못하는데 가리는거 없이 다 해야하지 않냐. 맞는 말인데 돌아보면 내 영어는 꾸준히 조금씩 늘기보다 그때 막혀 있던 곳을 건드렸을 때 크게 변했다. 막혀 있는 곳에 따라 그에 적합한 방법이 있었다. 
 
-나에게 맞는 영어 공부법을 택하는건, 내가 뭘 모른다는 걸 안다는 것과 같다고 생각한다. 그래서 영어 공부가 한동안 제자리처럼 느껴진다면, 지금 무엇이 가장 힘든지를 살펴보면 좋을 것 같다. 물론 '영어 전부' 괴롭긴 하지만....
+나에게 맞는 영어 공부법을 택하는건, 내가 뭘 모르는지 안다는 것과 같다고 생각한다. 그럼 고치면 되지뭐... 그래서 영어 공부가 한동안 제자리처럼 느껴진다면, 지금 무엇이 가장 힘든지를 살펴보면 좋을 것 같다. 물론 '영어 전부' 괴롭긴 하지만....
 
 지금도 나는 다시 다른 곳에서 막혀 있다. 이번에는 말을 더 많이 하는 것보다 내가 쓰는 영어 자체를 바꿔야 할 것 같다... 시간은 없고 돈도 없고... 공부법을 알아보며 이래저래 고전 중인데 이건 다음 포스팅에... 직장러들 화이팅. 
