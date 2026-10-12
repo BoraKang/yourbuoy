@@ -15,7 +15,7 @@
 - 증상: SCSS 값을 44px로 바꿔도 브라우저에서 변화가 안 보인다. ("안되는데")
 
 ### 테스트 페이지
-`http://localhost:4000/forge/mixpanel-bot-detection/`
+`http://localhost:4000/forge/google-slides-font-changer/` (비공개 글이라 `jekyll serve --unpublished`로 띄운다)
 
 ### 관련 파일·위치
 - `_sass/custom.scss`
