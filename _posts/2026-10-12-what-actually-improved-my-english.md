@@ -92,15 +92,16 @@ hero_image: /assets/images/thumbnail/2026-10-12_what-actually-improved-my-englis
 }
 .yb-stagnation-memes {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
-  width: min(100%, 520px);
-  margin: 1.5rem auto;
+  width: 100%;
+  margin: 1.5rem 0;
 }
 .yb-stagnation-memes img {
   display: block;
   width: 100%;
-  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   border-radius: 10px;
 }
 .yb-link-card {
@@ -154,6 +155,11 @@ hero_image: /assets/images/thumbnail/2026-10-12_what-actually-improved-my-englis
   .yb-book-grid img { height: auto; }
   .yb-listening-grid { grid-template-columns: 1fr; }
   .yb-listening-grid img { height: auto; }
+  .yb-stagnation-memes { grid-template-columns: 1fr; }
+  .yb-stagnation-memes img {
+    aspect-ratio: auto;
+    height: auto;
+  }
   .article__content .yb-email-code .highlighter-rouge > .highlight > pre { font-size: 0.82rem; }
   .yb-link-card { grid-template-columns: 1fr; }
   .yb-link-card__image {
