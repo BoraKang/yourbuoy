@@ -112,6 +112,33 @@ function normalizeEmail(raw) {
   return { email: value };
 }
 
+/*
+ * Turnstile 검증. 브라우저에서 받은 토큰을 Cloudflare 에 되물어 사람인지 확인한다.
+ * honeypot·속도 트랩과 달리 이건 curl 로 API 를 직접 때리는 봇을 막는다.
+ * 토큰은 한 번만 쓸 수 있고 몇 분 뒤 만료된다.
+ */
+async function passesTurnstile(env, token, ip) {
+  if (!env.TURNSTILE_SECRET) return true; // 설정 전에는 막지 않는다.
+  if (!token) return false;
+  try {
+    const form = new FormData();
+    form.append('secret', env.TURNSTILE_SECRET);
+    form.append('response', token);
+    if (ip) form.append('remoteip', ip);
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      body: form,
+    });
+    const data = await res.json();
+    if (!data.success) console.log('turnstile 거절', JSON.stringify(data['error-codes'] || []));
+    return data.success === true;
+  } catch (e) {
+    /* Cloudflare 쪽이 답을 못 주면 댓글을 막지 않는다. 사람을 놓치는 쪽이 더 비싸다. */
+    console.log('turnstile 확인 실패', e && e.message);
+    return true;
+  }
+}
+
 /* 작성자 본인이 나중에 지울 수 있게 하는 비밀값. 응답으로 한 번만 돌려주고 다시는 노출하지 않는다. */
 function newDeleteToken() {
   const bytes = crypto.getRandomValues(new Uint8Array(16));
@@ -150,6 +177,15 @@ async function handlePost(request, env, ctx) {
   if (!message) return json({ error: '내용을 입력해주세요.' }, request, env, 400);
 
   const ip = request.headers.get('CF-Connecting-IP') || '0.0.0.0';
+
+  /* 글쓴이 본인(관리자 토큰)은 건너뛴다. */
+  if (!isAdmin(request, env)) {
+    const ok = await passesTurnstile(env, clean(body.turnstile, 4000), ip);
+    if (!ok) {
+      return json({ error: '사람인지 확인하지 못했습니다. 새로고침 후 다시 시도해주세요.' }, request, env, 403);
+    }
+  }
+
   const ipHash = await hashIp(ip, env.IP_SALT || 'yourbuoy');
 
   // 3. 같은 사람이 짧은 시간에 여러 개 올리지 못하게 막는다.

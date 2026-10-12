@@ -40,3 +40,4 @@ tools/comments-worker/.admin-token
 tools/comments-worker/.ip-salt
 tools/comments-worker/.wrangler/
 tools/comments-worker/.ntfy-topic
+tools/comments-worker/.turnstile-secret

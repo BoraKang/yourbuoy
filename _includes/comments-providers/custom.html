@@ -9,7 +9,8 @@
 {%- assign _key = page.comments_key | default: page.slug -%}
 {%- assign _thread = site.data.comments[_key] -%}
 
-<section class="yb-comments" aria-label="댓글" data-api="{{ _api }}" data-page="{{ page.url }}">
+<section class="yb-comments" aria-label="댓글" data-api="{{ _api }}" data-page="{{ page.url }}"
+         data-sitekey="{{ site.comments.custom.turnstile_sitekey }}">
   <h2 class="yb-comments__title">댓글 <span class="js-yb-count">{{ _thread.size | default: 0 }}</span></h2>
 
   <div class="js-yb-list">
@@ -85,6 +86,8 @@
       <label for="yb-c-website">Website</label>
       <input id="yb-c-website" name="website" type="text" tabindex="-1" autocomplete="off">
     </div>
+    {%- comment -%} Turnstile 위젯 자리. sitekey 가 없으면 비어 있고 검사도 안 한다. {%- endcomment -%}
+    <div class="yb-cform__guard js-yb-guard"></div>
     <div class="yb-cform__foot">
       <span class="yb-cform__note">이메일·로그인 없이 남길 수 있습니다.</span>
       <button class="yb-cform__submit" type="submit">댓글 남기기</button>
@@ -100,6 +103,7 @@
 
   var api = root.dataset.api;
   var pageId = root.dataset.page;
+  var sitekey = root.dataset.sitekey;
   if (!api) return;
 
   var list = root.querySelector('.js-yb-list');
@@ -394,6 +398,7 @@
       email: form.email.value.trim(),
       message: form.message.value.trim(),
       website: form.website.value,
+      turnstile: guardToken(),
       rendered_at: renderedAt
     };
     if (!payload.name) { say('이름을 입력해주세요.', true); form.name.focus(); return; }
@@ -417,8 +422,50 @@
         load();
       })
       .catch(function () { say('등록하지 못했습니다. 잠시 후 다시 시도해주세요.', true); })
-      .finally(function () { button.disabled = false; });
+      .finally(function () {
+        button.disabled = false;
+        /* 토큰은 한 번만 쓸 수 있다. 다음 댓글을 위해 새로 받아둔다. */
+        resetGuard();
+      });
   });
+
+  /*
+   * Turnstile. 사람이 보낸 요청인지 Cloudflare 가 보증해준다.
+   * 대개 아무 조작 없이 통과하고, 의심스러울 때만 체크박스가 뜬다.
+   * 스크립트가 끝내 안 뜨면 토큰 없이 보내고 서버 판단에 맡긴다 —
+   * 광고 차단기 때문에 댓글을 아예 못 쓰게 만드는 쪽이 더 나쁘다.
+   */
+  var guard = root.querySelector('.js-yb-guard');
+  var widgetId = null;
+
+  function mountTurnstile() {
+    if (!sitekey || !guard || !window.turnstile) return;
+    widgetId = window.turnstile.render(guard, {
+      sitekey: sitekey,
+      language: 'ko',
+      theme: 'light',
+      'refresh-expired': 'auto'
+    });
+  }
+
+  function guardToken() {
+    if (!widgetId || !window.turnstile) return '';
+    try { return window.turnstile.getResponse(widgetId) || ''; } catch (e) { return ''; }
+  }
+
+  function resetGuard() {
+    if (!widgetId || !window.turnstile) return;
+    try { window.turnstile.reset(widgetId); } catch (e) {}
+  }
+
+  if (sitekey) {
+    window.ybTurnstileReady = function () { mountTurnstile(); };
+    var ts = document.createElement('script');
+    ts.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=ybTurnstileReady&render=explicit';
+    ts.async = true;
+    ts.defer = true;
+    document.head.appendChild(ts);
+  }
 
   paintAdmin();
   load();

@@ -77,10 +77,16 @@ npx wrangler d1 execute yourbuoy-comments --remote \
 3. 레이트리밋 — 같은 IP 해시 기준 10분에 5개까지
 4. 길이 제한 — 이름 40자, 본문 2000자
 
-**한계:** 위 1·2번은 브라우저를 쓰는 봇만 막는다. `curl` 로 API를 직접 때리면
-honeypot 을 비우고 `rendered_at` 만 맞춰 보내면 통과한다. CORS 는 브라우저가 지키는 규칙이라
-서버에서 보내는 요청은 막지 못한다. 3번 레이트리밋이 유일한 실질 방어선이고,
-IP 를 돌리면 그것도 뚫린다. 완전히 막으려면 Cloudflare Turnstile 이 필요하다.
+0. **Cloudflare Turnstile** — 브라우저가 받아 온 토큰을 Cloudflare 에 되물어 사람인지 확인한다.
+   이게 `curl` 로 API 를 직접 때리는 봇을 막는 유일한 층이다 (나머지 1·2번은 브라우저를
+   흉내 내는 봇만 막고, CORS 는 브라우저가 지키는 규칙이라 서버발 요청에는 소용이 없다).
+
+   - 위젯 모드는 `managed` — 대개 아무 조작 없이 통과하고 의심스러울 때만 체크박스가 뜬다
+   - sitekey 는 `_config.yml` 의 `comments.custom.turnstile_sitekey` (공개값)
+   - secret 은 Worker 시크릿 `TURNSTILE_SECRET`, 사본은 `.turnstile-secret` (gitignore)
+   - 글쓴이(관리자 토큰)는 건너뛴다
+   - Cloudflare 가 응답을 못 주면 **통과시킨다**. 사람을 놓치는 쪽이 더 비싸기 때문이다
+   - 끄려면 `_config.yml` 의 sitekey 를 비우고 `TURNSTILE_SECRET` 을 지운다
 
 내용으로 거르는 것 (`AUTO_HOLD`, 기본 켜짐):
 

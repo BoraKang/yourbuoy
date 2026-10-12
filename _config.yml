@@ -105,6 +105,9 @@ comments:
   ## 자체 익명 댓글 (Cloudflare Workers + D1). 백엔드 소스: tools/comments-worker
   custom:
     api_url: "https://comments.yourbuoy.kr"
+    ## Turnstile sitekey. 공개해도 되는 값이다(secret 은 Worker 시크릿에 있다).
+    ## 비우면 위젯이 꺼지고 Worker 도 검사를 건너뛴다.
+    turnstile_sitekey: "0x4AAAAAAFUrhwcCzKUmCE6P"
 
   ## Cusdis (보관) — 호스팅 서비스 종료, 레포도 archived 됨
   cusdis:

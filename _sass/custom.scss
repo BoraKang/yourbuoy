@@ -1772,6 +1772,12 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   overflow: hidden;
 }
 
+/* Turnstile 위젯 자리. 위젯이 없으면 높이를 차지하지 않는다. */
+.yb-cform__guard {
+  &:not(:empty) { margin-top: 14px; }
+  iframe { max-width: 100%; }
+}
+
 .yb-cform__foot {
   display: flex;
   align-items: center;
