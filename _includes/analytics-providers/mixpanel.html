@@ -5,7 +5,8 @@
 
 		mixpanel.init('{{ site.analytics.mixpanel.token }}', {
 			api_host: '{{ site.analytics.mixpanel.api_host | default: "https://api-js.mixpanel.com" }}',
-			track_pageview: 'url-with-path',
+			// 글 페이지는 글 정보를 붙여 아래에서 직접 보낸다.
+			track_pageview: {% if page.layout == 'article' %}false{% else %}'url-with-path'{% endif %},
 			persistence: 'localStorage',
 			autocapture: {{ site.analytics.mixpanel.autocapture | default: false }}
 		});
@@ -19,6 +20,9 @@
 				article_title: {{ page.title | jsonify }},
 				article_category: {{ page.categories[0] | jsonify }}
 			};
+			// 열독률 분모와 방문당 글 조회를 주소 추측 없이 세기 위해 페이지뷰에도 글 정보를 붙인다.
+			window.mixpanel && window.mixpanel.track_pageview(ARTICLE);
+
 			var MILESTONES = [25, 50, 75, 100];
 			var sent = {};
 			var ticking = false;
