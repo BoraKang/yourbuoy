@@ -1601,7 +1601,17 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   font-size: 12px;
   color: $yb-meta;
 }
-.yb-c--pending { opacity: .72; }
+.yb-c--pending {
+  border-style: dashed;
+  background: #fcfcfd;
+}
+.yb-c__why {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: $yb-meta;
+  word-break: keep-all;
+}
 
 /* 관리자 칸 — ?admin=1 일 때만 보인다 */
 .yb-admin {

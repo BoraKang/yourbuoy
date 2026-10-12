@@ -254,8 +254,25 @@ export default {
       return handlePost(request, env, ctx);
     }
 
-    /* 작성자 본인 삭제. 브라우저가 들고 있는 비밀값이 맞아야만 지워진다. */
     const own = path.match(/^\/comments\/([\w-]+)$/);
+
+    /*
+     * 자기가 쓴 댓글 한 건 보기. 승인 대기 중이어도 보여준다.
+     * 공개 목록에서 빠지면 쓴 사람 눈에도 사라져서 댓글이 증발한 것처럼 보이기 때문이다.
+     */
+    if (own && request.method === 'GET') {
+      const given = request.headers.get('X-Delete-Token') || '';
+      const row = await env.DB
+        .prepare('SELECT ' + PUBLIC_COLUMNS + ', hold_reason, delete_token FROM comments WHERE id = ?')
+        .bind(own[1]).first();
+      if (!row || !row.delete_token || !given || row.delete_token !== given) {
+        return json({ error: '찾을 수 없습니다.' }, request, env, 404);
+      }
+      delete row.delete_token;
+      return json({ comment: row }, request, env);
+    }
+
+    /* 작성자 본인 삭제. 브라우저가 들고 있는 비밀값이 맞아야만 지워진다. */
     if (own && request.method === 'DELETE') {
       const given = request.headers.get('X-Delete-Token') || '';
       if (!given) return json({ error: '삭제 권한이 없습니다.' }, request, env, 401);

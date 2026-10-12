@@ -226,6 +226,14 @@
       name.appendChild(document.createTextNode(' '));
       name.appendChild(pending);
     }
+    var why = null;
+    if (!c.approved && mine[c.id] && !token) {
+      why = document.createElement('p');
+      why.className = 'yb-c__why';
+      why.textContent = c.hold_reason === 'link'
+        ? '링크가 들어 있어 글쓴이 확인 후 공개됩니다. 지금은 나에게만 보입니다.'
+        : '글쓴이 확인 후 공개됩니다. 지금은 나에게만 보입니다.';
+    }
 
     var date = document.createElement('span');
     date.className = 'yb-c__date';
@@ -247,6 +255,7 @@
 
     box.appendChild(head);
     box.appendChild(body);
+    if (why) box.appendChild(why);
 
     var isMine = Boolean(mine[c.id]);
     if (token || isMine) {
@@ -301,6 +310,23 @@
     return box;
   }
 
+  /* 승인 대기 중이라 공개 목록에 없는 내 댓글을 따로 불러온다. */
+  function loadMyPending(shown) {
+    var missing = Object.keys(mine).filter(function (id) { return shown.indexOf(id) === -1; });
+    if (!missing.length) return Promise.resolve([]);
+    return Promise.all(missing.map(function (id) {
+      return fetch(api + '/comments/' + id, { headers: { 'X-Delete-Token': mine[id] } })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) { return d && d.comment ? d.comment : null; })
+        .catch(function () { return null; })
+        .then(function (c) {
+          /* 서버에 없는 댓글이면(글쓴이가 지웠다면) 기억에서도 지운다. */
+          if (!c) forget(id);
+          return c;
+        });
+    })).then(function (list) { return list.filter(Boolean); });
+  }
+
   function render(comments) {
     root.querySelectorAll('.js-yb-dynamic').forEach(function (el) { el.remove(); });
 
@@ -329,7 +355,13 @@
   function load() {
     fetch(api + '/comments?page=' + encodeURIComponent(pageId), { headers: authHeaders() })
       .then(function (r) { return r.json(); })
-      .then(function (d) { if (d.comments) render(d.comments); })
+      .then(function (d) {
+        var list = d.comments || [];
+        var ids = list.map(function (c) { return c.id; });
+        return loadMyPending(ids).then(function (extra) {
+          render(list.concat(extra));
+        });
+      })
       .catch(function () { say('댓글을 불러오지 못했습니다. 잠시 후 새로고침해주세요.', true); });
   }
 
