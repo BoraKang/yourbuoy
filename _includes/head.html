@@ -1,6 +1,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+{%- comment -%}
+  user-scalable=no 를 쓰지 않는다. 그걸 넣으면 독자가 두 손가락으로 벌려도 확대가 안 된다.
+  인포그래픽이 모바일에서 30% 크기로 줄어드는데 확대까지 막히면 읽을 방법이 없고,
+  시력이 약한 독자는 글자 크기도 못 키운다.
+{%- endcomment -%}
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
