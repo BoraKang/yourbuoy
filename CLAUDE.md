@@ -27,8 +27,9 @@
 ## 분석
 
 - Mixpanel 프로젝트 `Yourbuoy.kr`(4070712). 코드는 `_includes/analytics-providers/mixpanel.html`, 토큰은 `_config.yml`의 `analytics.mixpanel`.
-- 이벤트: `$mp_web_page_view`(글 페이지는 `article_title`·`article_category`를 붙여 직접 보냄), `article_scrolled`, `article_read_progress`(`percent`), `toc_clicked`, `article_time_spent`(`engaged_seconds`). 글 페이지에만 붙고 `jekyll serve`에서는 수집하지 않는다.
-- 리포트 KPI: 검색 노출·클릭(Search Console), 열독률(글 조회 중 75% 도달 비율), 방문당 글 조회(Mixpanel). 주간 메일은 routine `yourBuoy 성과 리포트`가 보낸다.
+- 이벤트: `$mp_web_page_view`(글 페이지는 `article_title`·`article_category`를 붙여 직접 보냄), `article_scrolled`, `article_read_progress`(`percent`), `toc_clicked`, `article_time_spent`(`engaged_seconds`). 글 페이지에만 붙는다. 배포 주소(`yourbuoy.kr`)에서만 수집하고 localhost 등 로컬 미리보기는 보내지 않는다.
+- 내 기기 제외: 기기마다 `https://yourbuoy.kr/?me=1`을 한 번 열면 사용자 속성 `is_internal=true`가 붙는다(`?me=0`은 해제). 리포트는 이 사용자를 뺀다. iPhone Safari는 7일 넘게 안 들르면 저장값이 지워지니 다시 연다.
+- 리포트 KPI: 검색 노출·클릭(Search Console), 열독률(글 조회 중 75% 도달 비율), 방문당 글 조회(Mixpanel). 주간 메일은 맥 미니 launchd(`kr.yourbuoy.weekly-report`, 수요일 09:00)가 `~/.yourbuoy-report/`의 지시문으로 보낸다.
 - 대시보드: https://mixpanel.com/project/4070712/app/boards#id=11572402 (무료 플랜이라 저장 리포트 5개 한도. 나머지는 대시보드 메모 카드의 링크로 본다)
 
 ## 글 주소
