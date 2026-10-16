@@ -3,13 +3,27 @@
 	<script>
 		(function (f, b) { if (!b.__SV) { var e, g, i, h; window.mixpanel = b; b._i = []; b.init = function (e, f, c) { function g(a, d) { var b = d.split("."); 2 == b.length && ((a = a[b[0]]), (d = b[1])); a[d] = function () { a.push([d].concat(Array.prototype.slice.call(arguments, 0))); }; } var a = b; "undefined" !== typeof c ? (a = b[c] = []) : (c = "mixpanel"); a.people = a.people || []; a.toString = function (a) { var d = "mixpanel"; "mixpanel" !== c && (d += "." + c); a || (d += " (stub)"); return d; }; a.people.toString = function () { return a.toString(1) + ".people (stub)"; }; i = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders start_session_recording stop_session_recording people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" "); for (h = 0; h < i.length; h++) g(a, i[h]); var j = "set set_once union unset remove delete".split(" "); a.get_group = function () { function b(c) { d[c] = function () { var call2_args = arguments; var call2 = [c].concat(Array.prototype.slice.call(call2_args, 0)); a.push([e, call2]); }; } for (var d = {}, e = ["get_group"].concat(Array.prototype.slice.call(arguments, 0)), c = 0; c < j.length; c++) b(j[c]); return d; }; b._i.push([e, f, c]); }; b.__SV = 1.2; e = f.createElement("script"); e.type = "text/javascript"; e.async = !0; e.src = "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; g = f.getElementsByTagName("script")[0]; g.parentNode.insertBefore(e, g); } })(document, window.mixpanel || []);
 
-		mixpanel.init('{{ site.analytics.mixpanel.token }}', {
-			api_host: '{{ site.analytics.mixpanel.api_host | default: "https://api-js.mixpanel.com" }}',
-			// 글 페이지는 글 정보를 붙여 아래에서 직접 보낸다.
-			track_pageview: {% if page.layout == 'article' %}false{% else %}'url-with-path'{% endif %},
-			persistence: 'localStorage',
-			autocapture: {{ site.analytics.mixpanel.autocapture | default: false }}
-		});
+		// 배포 주소에서만 수집한다. localhost 등 로컬 미리보기는 init하지 않아 아무것도 보내지 않는다.
+		if (/(^|\.)yourbuoy\.kr$/.test(location.hostname)) {
+			mixpanel.init('{{ site.analytics.mixpanel.token }}', {
+				api_host: '{{ site.analytics.mixpanel.api_host | default: "https://api-js.mixpanel.com" }}',
+				// 글 페이지는 글 정보를 붙여 아래에서 직접 보낸다.
+				track_pageview: {% if page.layout == 'article' %}false{% else %}'url-with-path'{% endif %},
+				persistence: 'localStorage',
+				autocapture: {{ site.analytics.mixpanel.autocapture | default: false }}
+			});
+
+			// 내 기기 표시: 주소에 ?me=1 을 붙여 한 번 열면 이 기기를 내부 방문으로 표시하고(?me=0 은 해제),
+			// Mixpanel 코호트 '내 기기'(사용자 속성 is_internal)로 성과에서 뺀다.
+			var meFlag = (location.search.match(/[?&]me=([01])/) || [])[1];
+			if (meFlag === '1') {
+				mixpanel.register({ is_internal: true });
+				mixpanel.people.set({ is_internal: true });
+			} else if (meFlag === '0') {
+				mixpanel.unregister('is_internal');
+				mixpanel.people.set({ is_internal: false });
+			}
+		}
 	</script>
 {%- endif -%}
 {%- if site.analytics.mixpanel.token and page.layout == 'article' -%}
