@@ -13,15 +13,16 @@
 				autocapture: {{ site.analytics.mixpanel.autocapture | default: false }}
 			});
 
-			// 내 기기 표시: 주소에 ?me=1 을 붙여 한 번 열면 이 기기를 내부 방문으로 표시하고(?me=0 은 해제),
-			// Mixpanel 코호트 '내 기기'(사용자 속성 is_internal)로 성과에서 뺀다.
+			// 내 기기 표시: 주소에 ?me=1 을 붙여 한 번 열면 이 기기를 내 계정 하나로 묶고 is_internal을 붙인다.
+			// 익명 기기는 identify 전까지 사용자 속성이 저장되지 않으므로 identify로 묶는다. 묶이면 그 기기의 예전 기록도 함께 빠진다.
+			// ?me=0 은 이 기기를 새 익명 방문자로 되돌린다.
 			var meFlag = (location.search.match(/[?&]me=([01])/) || [])[1];
 			if (meFlag === '1') {
+				mixpanel.identify('yourbuoy-owner');
 				mixpanel.register({ is_internal: true });
 				mixpanel.people.set({ is_internal: true });
 			} else if (meFlag === '0') {
-				mixpanel.unregister('is_internal');
-				mixpanel.people.set({ is_internal: false });
+				mixpanel.reset();
 			}
 		}
 	</script>
