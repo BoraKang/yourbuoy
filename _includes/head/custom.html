@@ -32,8 +32,11 @@
     {% endif %}
 
   	<!-- 페이지의 url이 있다면, 오픈그래프 url을 사이트url과 페이지 url로 설정한다 -->
+    {%- comment -%}
+      canonical 은 여기서 넣지 않는다. head.html 이 이미 넣고 있어서
+      한 페이지에 canonical 이 두 개가 되고, 검색엔진이 어느 쪽을 따를지 모르게 된다.
+    {%- endcomment -%}
     {% if page.url %}
-      <link rel="canonical" href="{{ site.url }}{{ page.url }}">
       <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
     {% endif %}
 
