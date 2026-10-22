@@ -186,6 +186,15 @@ exclude:
   - /node_modules
   - /test
   - /vendor
+  # 내부 운영 문서. 빼지 않으면 /AGENTS/ 같은 주소로 공개되고 sitemap 에도 올라간다.
+  - AGENTS.md
+  - CLAUDE.md
+  - STYLE.md
+  - WORK.md
+  - /tools
+  - /scripts
+  - /deliverables
+  - /_meta
 
 ## Collections - 드워프의 대장간(자료실) 프로젝트
 collections:
