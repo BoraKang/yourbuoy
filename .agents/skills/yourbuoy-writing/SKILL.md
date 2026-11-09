@@ -2,7 +2,7 @@
 name: yourbuoy-writing
 description: >
   yourBuoy(yourbuoy.kr) 개인 블로그의 콘텐츠 기획·작성·발행 스킬.
-  Jekyll(TeXt 테마) + GitHub Pages 기반이며 리포는 ~/Code/yourbuoy
+  Jekyll(TeXt 테마) + GitHub Pages 기반이며 리포는 ~/Code/1-projects-me/yourbuoy
   (github.com/BoraKang/yourbuoy).
   글은 업무팁(work·mind), 일상(life), 개발기(forge·ai) 세 갈래다.
   트리거: "yourBuoy 글 쓰자", "이번 주 글", "블로그 글 기획", "초안 발행",
