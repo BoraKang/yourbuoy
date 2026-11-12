@@ -2349,6 +2349,10 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
   object-fit: cover;
 }
 
+.image-pair--landscape .image-pair__top {
+  object-position: center top;
+}
+
 @media (max-width: 640px) {
   .image-pair { grid-template-columns: 1fr; }
 

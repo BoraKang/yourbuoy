@@ -51,7 +51,10 @@ AI 광풍이 부는 지금, 요새 가장 많이 생각하는 것은 '어떻게
 
 내가 하는 일은 사실 벤지와 제이가 하는 일에 가깝다. 그런데 벤지가 변화가 폼페이의 용암이라 하니 듣는 순간 거부감이 들었다. 잡아먹히지 않으려면 변화에 맞추는 것만이 멸망을 피할 유일한 선택지인 것처럼 들렸기 때문이다.
 
-![미란다와 대화하는 벤지](/assets/images/posting/261109/benji-conversation.png)
+<div class="image-pair image-pair--landscape">
+  <img src="/assets/images/posting/261109/benji-conversation.png" alt="미란다와 대화하는 벤지">
+  <img class="image-pair__top" src="/assets/images/posting/261109/jay-with-miranda.png" alt="미란다와 함께 서 있는 제이">
+</div>
 
 이런 기시감을 예전에도 느낀 적이 있다. 대학생때 대기업 채용 서류 정리 알바를 했었는데, 서류에 평가 기준이 가혹하고 점수가 많고 세세해서 압도되었었다. 그래서 '이 기준에 맞추는게 가능하긴 할까요?' 라고 하니 옆에 있던 오빠가 '그런 사람이 되게 맞춰야지. 되게 해야지' 라는 말을 들었을 때 딱 그랬다. 
 
@@ -104,11 +107,12 @@ AI 광풍이 부는 지금, 요새 가장 많이 생각하는 것은 '어떻게
 
 앤디는 나이젤과도 친구였고 배신을 도모한 에밀리와도 친구가 된다. 나는 이들이 앤디와 친구가 될 수 있었던 것 또한, 비슷한 지향에 대한 이해라고 생각한다. 상대가 무엇을 원하는지, 무엇을 포기할 수 없는지 이해하기 때문에.
 
-![식사하며 대화하는 에밀리와 앤디](/assets/images/posting/261109/emily-andy-dinner.png)
+<div class="image-pair image-pair--landscape">
+  <img src="/assets/images/posting/261109/emily-andy-dinner.png" alt="식사하며 대화하는 에밀리와 앤디">
+  <img class="image-pair__top" src="/assets/images/posting/261109/nigel-andy-fashion-room.png" alt="패션 작업실에서 대화하는 나이젤과 앤디">
+</div>
 
 - **에밀리**는 일도 잘하고 아름답고 커머셜 감각이 있는 사람이다. 하지만 에밀리는 커머셜에서 능력을 인정받으면서도 미란다처럼 '패션 업계에 지향점을 제시하는 사람'이 되는 것을 갈망한다. 그래서 좌절했고 인수 모략을 꾸민다. 앤디는 에밀리의 좌절을 이해했기 때문에 에밀리와 기꺼이 친구가 되었다.
-
-![패션 작업실에서 대화하는 나이젤과 앤디](/assets/images/posting/261109/nigel-andy-fashion-room.png)
 
 - **나이젤**은 추구하는 세계를 위해 인내하는 사람이다. 그는 미란다의 방식 때문에 상처받고 매번 손해를 보면서도 그 세계를 떠나지 않는다. 미란다에게 충성한다기보다 자신이 오랫동안 만들어온 일과 일의 퀄리티를 지키는게 더 중요하니까. 뭐라건 나는 이 일이 좋아-의 다른 표현이라 생각한다. 나이젤이 앤디에게 하는 조언에서 그의 마인드를 가늠할 수 있다.
 
