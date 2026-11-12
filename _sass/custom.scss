@@ -2331,3 +2331,29 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
 /* 상세 GNB: 랜딩 GNB의 렌더 색(반투명 네이비)과 같은 톤의 솔리드로 맞춘다.
    상세는 스크롤 시 흰 본문이 비치면 안 되므로 투명이 아니라 솔리드. */
 .yb-forge-detail .page__header { background: #171c2c; border-bottom: 0; }
+
+/* 본문 가로 이미지 두 장: 데스크톱 2열, 모바일 1열 */
+.image-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+.image-pair--landscape img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (max-width: 640px) {
+  .image-pair { grid-template-columns: 1fr; }
+
+  .image-pair--landscape img {
+    aspect-ratio: auto;
+    height: auto;
+  }
+}
