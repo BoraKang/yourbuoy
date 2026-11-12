@@ -155,3 +155,18 @@ AI 광풍이 부는 지금, 요새 가장 많이 생각하는 것은 '어떻게
 우리 모두 내가 하는 일을 이해하고 잘 해내고 싶은 것들이 있었고 최선을 다했다. 이런 것들을 보면서 그 사람이 무엇을 추구하는지, 이 사람의 세계를 들여다볼 수 있었다. 공부한 것을 나누는 이유, 원리를 끝까지 파고드는 이유, 리뷰 하나에도 시간을 쓰는 이유. 알고 나니 나와 달라도 좋아할 수 있었고 많이 배웠고 친구가 될 수 있었다. 
 
 이런 사람들을 또 만나고 좋은 기회에 만나 재미있는 것들을 해볼 수 있으면 좋겠다. 그리고 지금 함께하는 사람들이 무엇을 좋아하는지, 어떤 일을 잘하고 싶어 하는지, 무엇에 기꺼이 시간을 쓰는지를 알고 싶어졌다.
+
+<script>
+  (function () {
+    var legacyHash = '20년-후-톡쏘는-맛은-사라지고-슴슴하고-쿰쿰해진-직장-라이프';
+    var currentHash = decodeURIComponent(window.location.hash.slice(1));
+
+    if (currentHash !== legacyHash) return;
+
+    var targetId = 'twenty-years-later';
+    window.history.replaceState(null, '', window.location.pathname + window.location.search + '#' + targetId);
+
+    var target = document.getElementById(targetId);
+    if (target) target.scrollIntoView();
+  }());
+</script>
