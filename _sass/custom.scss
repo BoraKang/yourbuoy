@@ -213,6 +213,21 @@ body ::-moz-selection { background: #bfe8ee; color: #0b2b33; }
     line-height: 1.4;
   }
 
+  /* 작품 정보는 알약 라벨 없이 조용한 회색 카드로 표시 */
+  .yb-callout.yb-artwork-info {
+    margin: 12px 0 24px;
+    padding: 14px 18px;
+    background: #f7f7f7;
+    border-color: #e7e7e7;
+  }
+
+  .yb-callout.yb-artwork-info p {
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  .yb-callout.yb-artwork-info p + p { margin-top: 3px; }
+
   img { max-width: 100%; border-radius: $yb-r-md; }
 }
 
